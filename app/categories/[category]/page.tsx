@@ -26,17 +26,28 @@ export default async function CategoryPage({ params }: Params) {
   if (!info) notFound();
 
   const entries = getCatalogByCategory(info.key);
-  const accentText =
-    info.accent === "yellow" ? "text-black" : info.accent === "red" ? "text-red" : "text-blue";
+  const band =
+    info.accent === "yellow"
+      ? "bg-yellow text-black"
+      : info.accent === "red"
+        ? "bg-red text-white"
+        : "bg-blue text-white";
+  const onYellow = info.accent === "yellow";
 
   return (
     <PageWrapper maxWidth="4xl">
       <header className="mb-8">
-        <GameIcon name={info.iconName} size={48} className={`mb-2 ${accentText}`} />
-        <h1 className="font-heading text-3xl font-black uppercase tracking-tight md:text-4xl">
-          {info.label}
-        </h1>
-        <p className="mt-2 text-base text-black/70">{info.description}</p>
+        <div className={`flex items-center gap-3 px-5 py-4 ${band}`}>
+          <GameIcon
+            name={info.iconName}
+            size={40}
+            className={onYellow ? "text-black" : "text-white"}
+          />
+          <h1 className="font-heading text-3xl font-black uppercase tracking-tight md:text-4xl">
+            {info.label}
+          </h1>
+        </div>
+        <p className="mt-3 text-base text-black/70">{info.description}</p>
       </header>
       <CategoryGrid entries={entries} />
     </PageWrapper>

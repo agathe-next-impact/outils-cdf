@@ -37,7 +37,7 @@ export function Footer() {
               <span>Effacer toutes vos données de session ?</span>
               <button
                 type="button"
-                className={`bg-red px-3 py-1 font-bold uppercase text-white ${FOCUS_RING}`}
+                className={`bg-red px-3 py-1 font-bold uppercase text-black ${FOCUS_RING}`}
                 onClick={() => {
                   resetAll();
                   setConfirming(false);

@@ -131,8 +131,8 @@ const PLANNED: ToolMeta[] = [
   },
   {
     slug: "recovery-craig",
-    title: "Cahier de rétablissement",
-    shortTitle: "Cahier de rétablissement",
+    title: "Betterdays",
+    shortTitle: "Betterdays",
     category: "parcours",
     iconName: "sunrise",
     accent: "blue",
@@ -279,4 +279,48 @@ export function getCatalog(): CatalogEntry[] {
 
 export function getCatalogByCategory(category: ToolCategory): CatalogEntry[] {
   return getCatalog().filter((e) => e.category === category);
+}
+
+/* --- Données légères pour le mégamenu (sérialisables, sans le registre) ----- */
+
+export interface MegaMenuTool {
+  slug: string;
+  label: string;
+  iconName: string;
+  accent: Accent;
+  available: boolean;
+}
+
+export interface MegaMenuCategory {
+  key: ToolCategory;
+  label: string;
+  description: string;
+  iconName: string;
+  accent: Accent;
+  tools: MegaMenuTool[];
+}
+
+/**
+ * Construit les données du mégamenu côté serveur (catégories + outils).
+ * À appeler depuis un composant serveur et passer en prop au header, afin de
+ * NE PAS embarquer le registre d'outils complet dans le bundle client.
+ */
+export function getMegaMenu(): MegaMenuCategory[] {
+  const catalog = getCatalog();
+  return CATEGORIES.map((cat) => ({
+    key: cat.key,
+    label: cat.label,
+    description: cat.description,
+    iconName: cat.iconName,
+    accent: cat.accent,
+    tools: catalog
+      .filter((e) => e.category === cat.key)
+      .map((e) => ({
+        slug: e.slug,
+        label: e.shortTitle ?? e.title,
+        iconName: e.iconName,
+        accent: e.accent,
+        available: e.available,
+      })),
+  }));
 }

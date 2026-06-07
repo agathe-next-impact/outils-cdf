@@ -4,6 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { getMegaMenu } from "@/data/catalog";
+import { getPathwaySummaries } from "@/data/pathways";
 
 const belanosima = Belanosima({
   subsets: ["latin"],
@@ -27,6 +29,8 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const megaMenu = getMegaMenu();
+  const pathways = getPathwaySummaries();
   return (
     <html
       lang="fr"
@@ -46,7 +50,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Header />
+          <Header menu={megaMenu} pathways={pathways} />
           {children}
           <Footer />
         </ThemeProvider>

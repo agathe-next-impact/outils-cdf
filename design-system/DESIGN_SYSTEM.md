@@ -105,10 +105,10 @@ Bloc de contenu signature, avec **accents d'angle animés** (jaune haut-gauche, 
 - Souvent combiné à une bordure colorée utilitaire (`border border-blue`, `border-red`, `border-black`).
 
 ### 4.2 Boutons
-- **`.btn-primary`** : fond **rouge**, texte blanc, `padding:14px 32px`, `font-weight:700`,
+- **`.btn-primary`** : fond **rouge**, texte noir, `padding:14px 32px`, `font-weight:700`,
   `text-transform:uppercase`, `letter-spacing:1px`. Hover → `translateY(-3px)`, active → `-1px`.
 - **`.btn-secondary`** : fond **jaune**, texte noir, mêmes dimensions/typo, hover `translateY(-3px)`.
-- CTA pilule alternatif (accueil) : `bg-red text-white px-6 py-2 group-hover:scale-105`.
+- CTA pilule alternatif (accueil) : `bg-red text-black px-6 py-2 group-hover:scale-105`.
 - Liens « tertiaires » : texte bleu, `font-semibold`, `hover:underline` ou changement de couleur.
 
 ### 4.3 Inputs / textarea

@@ -33,6 +33,10 @@ export function ConsentGate({ slug, sensitivity, disclaimerKey, children }: Cons
         <h2 className="text-lg font-black uppercase">Avant de commencer</h2>
       </div>
       <p className="mb-3 text-sm">{d.long}</p>
+      <p className="mb-3 text-sm">
+        Prenez le temps qu&apos;il vous faut : il n&apos;y a aucune attente, et c&apos;est vous qui
+        menez.
+      </p>
       <ul className="mb-4 ml-5 list-disc space-y-1 text-sm">
         <li>Vous pouvez vous arrêter à tout moment.</li>
         <li>Vous n&apos;êtes pas obligé·e de répondre à toutes les questions.</li>

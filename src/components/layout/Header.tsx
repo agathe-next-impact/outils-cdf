@@ -1,10 +1,14 @@
 "use client";
 
+import { Fragment } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import GameIcon from "@/components/GameIcon";
+import { ToolsMegaMenu } from "./ToolsMegaMenu";
 import { FOCUS_RING } from "@/lib/a11y";
+import type { MegaMenuCategory } from "@/data/catalog";
+import type { PathwaySummary } from "@/data/pathways";
 
 interface NavLink {
   href: string;
@@ -18,7 +22,13 @@ const LINKS: NavLink[] = [
   { href: "/a-propos", label: "À propos", activeClass: "bg-yellow text-black" },
 ];
 
-export function Header() {
+export function Header({
+  menu,
+  pathways,
+}: {
+  menu: MegaMenuCategory[];
+  pathways: PathwaySummary[];
+}) {
   const pathname = usePathname();
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
@@ -34,17 +44,20 @@ export function Header() {
           Comme des Fous
         </Link>
         <div className="flex items-center gap-1">
-          {LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              aria-current={isActive(link.href) ? "page" : undefined}
-              className={`px-3 py-1 text-sm font-bold uppercase tracking-wide transition-colors ${FOCUS_RING} ${
-                isActive(link.href) ? link.activeClass : "hover:text-blue"
-              }`}
-            >
-              {link.label}
-            </Link>
+          {LINKS.map((link, i) => (
+            <Fragment key={link.href}>
+              <Link
+                href={link.href}
+                aria-current={isActive(link.href) ? "page" : undefined}
+                className={`px-3 py-1 text-sm font-bold uppercase tracking-wide transition-colors ${FOCUS_RING} ${
+                  isActive(link.href) ? link.activeClass : "hover:text-blue"
+                }`}
+              >
+                {link.label}
+              </Link>
+              {/* Le mégamenu « Outils » s'insère juste après « Accueil ». */}
+              {i === 0 ? <ToolsMegaMenu menu={menu} pathways={pathways} /> : null}
+            </Fragment>
           ))}
           <ThemeToggle />
         </div>

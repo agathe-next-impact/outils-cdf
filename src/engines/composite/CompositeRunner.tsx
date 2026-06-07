@@ -12,6 +12,7 @@ import { ScoredRunner } from "../scored/ScoredRunner";
 import { WizardRunner } from "../wizard/WizardRunner";
 import { WorksheetEditor } from "../worksheet/WorksheetEditor";
 import { ContentRenderer } from "@/components/content/ContentRenderer";
+import { Celebration } from "@/components/feedback/Celebration";
 import { ExportBar } from "@/components/safety/ExportBar";
 import { compositeToNeutral } from "@/lib/export/compositeToNeutral";
 import { useToolSlice, readToolSlice } from "@/store/useToolState";
@@ -79,6 +80,10 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
   const isUnlocked = (seg: CompositeSegment) =>
     !seg.unlockAfter || doneMap.get(seg.unlockAfter) === true;
 
+  const total = definition.segments.length;
+  const doneCount = [...doneMap.values()].filter(Boolean).length;
+  const allDone = total > 0 && doneCount === total;
+
   const resetAll = () => {
     resetTool(definition.slug);
     for (const seg of definition.segments) {
@@ -90,6 +95,19 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
   return (
     <div className="space-y-6">
       <ContentRenderer blocks={definition.intro} className="card border border-blue" />
+
+      {allDone ? (
+        <Celebration
+          title="Parcours complété"
+          message="Vous avez parcouru tous les modules — bravo pour ce cheminement. Pensez à exporter votre travail pour le garder."
+          confetti
+          accent="blue"
+        />
+      ) : (
+        <p className="text-sm font-bold uppercase tracking-wide text-blue">
+          {doneCount} / {total} modules explorés
+        </p>
+      )}
 
       <div className="grid gap-4 sm:grid-cols-2">
         {definition.segments.map((seg, i) => {
@@ -149,7 +167,7 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
           <span>Tout réinitialiser, modules compris&nbsp;?</span>
           <button
             type="button"
-            className={`bg-red px-3 py-1 font-bold uppercase text-white ${FOCUS_RING}`}
+            className={`bg-red px-3 py-1 font-bold uppercase text-black ${FOCUS_RING}`}
             onClick={resetAll}
           >
             Oui, effacer

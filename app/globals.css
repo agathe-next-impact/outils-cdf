@@ -105,7 +105,7 @@ h1 {
 /* --- Boutons -------------------------------------------------------------- */
 .btn-primary {
   background: var(--color-red);
-  color: var(--color-white);
+  color: #000000;
   padding: 14px 32px;
   font-weight: 700;
   font-size: 1.1rem;

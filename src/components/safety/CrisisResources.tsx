@@ -17,16 +17,16 @@ export function CrisisResources({
   const elevated = level === "elevated";
   return (
     <section
-      className={`card ${elevated ? "border-2 border-red" : "border border-blue"} ${className ?? ""}`}
+      className={`card ${elevated ? "border border-red" : "border border-blue"} ${className ?? ""}`}
       aria-label="Ressources de soutien et d'urgence"
     >
       <div className="mb-2 flex items-center gap-2">
         <GameIcon
-          name={elevated ? "siren" : "heart-handshake"}
+          name="heart-handshake"
           size={24}
           className={elevated ? "text-red" : "text-blue"}
         />
-        <h2 className="text-lg font-black uppercase">Besoin d&apos;aide maintenant&nbsp;?</h2>
+        <h2 className="text-lg font-black uppercase">Besoin de soutien&nbsp;?</h2>
       </div>
       <p className="mb-3 text-sm">{set.intro}</p>
       <ul className="space-y-2">

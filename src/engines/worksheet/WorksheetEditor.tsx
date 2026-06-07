@@ -5,6 +5,7 @@ import type { WorksheetDefinition, WorksheetState } from "./types";
 import type { FieldValue, RepeatRow } from "../types";
 import { asRows } from "./ops";
 import { ContentRenderer } from "@/components/content/ContentRenderer";
+import { Celebration } from "@/components/feedback/Celebration";
 import { FieldRenderer } from "@/components/form/FieldRenderer";
 import { RepeatableTable } from "@/components/form/RepeatableTable";
 import { NeutralView } from "@/components/content/NeutralView";
@@ -54,6 +55,13 @@ export function WorksheetEditor({ definition }: { definition: WorksheetDefinitio
           </div>
         </section>
       ))}
+
+      <Celebration
+        title="Votre carnet"
+        message="Ce carnet vous appartient. Quand vous le souhaitez, exportez-le ci-dessous pour en garder une trace."
+        accent="yellow"
+        iconName="heart"
+      />
 
       <ExportBar
         slug={definition.slug}

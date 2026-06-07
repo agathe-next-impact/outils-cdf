@@ -5,9 +5,8 @@ import { getDefinition, allSlugs } from "@/engines/registry";
 import { getCatalog } from "@/data/catalog";
 import { ToolHost } from "@/engines/ToolHost";
 import { PageWrapper } from "@/components/layout/PageWrapper";
-import { DisclaimerBanner } from "@/components/safety/DisclaimerBanner";
+import { ToolSafetyNote } from "@/components/safety/ToolSafetyNote";
 import { CrisisResources } from "@/components/safety/CrisisResources";
-import { SessionNotice } from "@/components/safety/SessionNotice";
 import GameIcon from "@/components/GameIcon";
 import { FOCUS_RING } from "@/lib/a11y";
 
@@ -52,7 +51,7 @@ export default async function ToolPage({ params }: Params) {
         </p>
       </header>
 
-      <DisclaimerBanner disclaimerKey={entry.disclaimerKey} variant="long" className="mb-6" />
+      <ToolSafetyNote disclaimerKey={entry.disclaimerKey} className="mb-6" />
 
       {definition ? (
         <ToolHost definition={definition} />
@@ -68,8 +67,7 @@ export default async function ToolPage({ params }: Params) {
         </div>
       )}
 
-      <SessionNotice className="mt-8" />
-      <CrisisResources level={entry.crisisLevel} className="mt-6" />
+      <CrisisResources level={entry.crisisLevel} className="mt-8" />
     </PageWrapper>
   );
 }

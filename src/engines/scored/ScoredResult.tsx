@@ -2,6 +2,7 @@ import type { ScoredBody } from "./types";
 import type { ScoreResult } from "./score";
 import { maxSum } from "./score";
 import { ProgressBar } from "@/components/form/ProgressBar";
+import { Celebration } from "@/components/feedback/Celebration";
 import GameIcon from "@/components/GameIcon";
 
 export function ScoredResult({ body, result }: { body: ScoredBody; result: ScoreResult }) {
@@ -9,7 +10,14 @@ export function ScoredResult({ body, result }: { body: ScoredBody; result: Score
   const attention = result.band?.tone === "attention";
 
   return (
-    <div className="space-y-4 animate-bounce-in" aria-live="polite">
+    <div className="space-y-4" aria-live="polite">
+      <Celebration
+        title="C'est noté"
+        message="Merci d'avoir pris ce temps pour vous observer. Ce repère est à accueillir avec douceur, jamais comme un jugement."
+        confetti={!attention && result.band != null}
+        iconName="sparkles"
+        accent="blue"
+      />
       <div className="card border border-blue">
         <h2 className="mb-3 text-xl font-black uppercase">Votre résultat</h2>
         <ProgressBar value={result.sum} max={total} variant="result" label="Score total" />

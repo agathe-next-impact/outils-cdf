@@ -1,8 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import Confetti from "@/components/Confetti";
-import GameIcon from "@/components/GameIcon";
+import { Celebration } from "@/components/feedback/Celebration";
 import { NeutralView } from "@/components/content/NeutralView";
 import { ExportBar } from "@/components/safety/ExportBar";
 import { ResetButton } from "@/components/safety/ResetButton";
@@ -22,14 +21,15 @@ export function WizardSummary({ definition, state, onEdit, onRestart }: WizardSu
 
   return (
     <div className="space-y-6">
-      {reward?.confetti ? <Confetti /> : null}
-      <div className="card animate-bounce-in border border-blue">
-        <div className="mb-2 flex items-center gap-2">
-          <GameIcon name="party-popper" size={24} className="text-red" />
-          <h2 className="text-xl font-black uppercase">Synthèse</h2>
-        </div>
-        <p>{reward?.message ?? "Voici la synthèse de votre travail. Vous pouvez l'exporter pour la garder."}</p>
-      </div>
+      <Celebration
+        title="Synthèse"
+        message={
+          reward?.message ??
+          "Voici la synthèse de votre travail. Vous pouvez l'exporter pour la garder."
+        }
+        confetti={!!reward?.confetti}
+        accent="blue"
+      />
 
       <NeutralView doc={doc} />
 
