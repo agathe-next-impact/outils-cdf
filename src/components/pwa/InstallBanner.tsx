@@ -143,7 +143,7 @@ export function InstallBanner() {
         <button
           type="button"
           onClick={install}
-          className={`shrink-0 rounded-xl bg-accent px-3.5 py-1.5 text-sm font-semibold text-accent-ink transition-transform hover:-translate-y-0.5 ${FOCUS_RING}`}
+          className={`shrink-0 rounded-[4px] bg-foreground px-3.5 py-1.5 text-sm font-semibold text-background transition-transform hover:-translate-y-0.5 ${FOCUS_RING}`}
         >
           Installer
         </button>

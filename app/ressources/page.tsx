@@ -12,10 +12,10 @@ export const metadata: Metadata = {
 
 export default function RessourcesPage() {
   return (
-    <PageWrapper maxWidth="2xl" decor={["heart-handshake"]}>
+    <PageWrapper maxWidth="full" decor={["heart-handshake"]}>
       <header className="mb-6">
         <GameIcon name="siren" size={48} className="mb-2 text-danger" />
-        <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
+        <h1 className="font-heading text-3xl tracking-tight md:text-4xl">
           Ressources d&apos;urgence
         </h1>
         <p className="mt-2 text-base">
@@ -32,7 +32,7 @@ export default function RessourcesPage() {
         </div>
 
         <BentoBox as="section" index={1} className="border border-info">
-          <h2 className="mb-2 text-lg font-semibold">Et au-delà de l&apos;urgence</h2>
+          <h2 className="mb-2 text-lg">Et au-delà de l&apos;urgence</h2>
           <p className="text-sm">
             Parler à un·e médecin généraliste, un·e psychologue, un Centre médico-psychologique
             (CMP) ou une association de pairs peut aider à trouver un soutien durable. Vous

@@ -20,7 +20,8 @@ export default function ContribuerPage() {
         <div className="mb-3">
           <Logo size={40} showWordmark={false} />
         </div>
-        <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
+        <p className="eyebrow mb-2">Soutenir le projet</p>
+        <h1 className="font-heading text-3xl tracking-tight md:text-4xl">
           Contribuer
         </h1>
         <p className="mt-2 text-base text-muted">
@@ -32,13 +33,13 @@ export default function ContribuerPage() {
       <BentoGrid>
         {/* Jauge de collecte (valeurs statiques, maintenues à la main) */}
         <BentoBox as="section" span={3}>
-          <h2 className="mb-3 text-lg font-semibold">Où en est la collecte</h2>
+          <h2 className="mb-3 text-lg">Où en est la collecte</h2>
           <ContributionGauge />
         </BentoBox>
 
         {/* Prix libre — le cœur du message */}
         <BentoBox as="section" span={3} index={1} className="card-accent">
-          <h2 className="mb-2 text-lg font-semibold">Un don ponctuel, au montant libre</h2>
+          <h2 className="mb-2 text-lg">Un don ponctuel, au montant libre</h2>
           <p className="text-base">
             Ce don se fait à <strong>prix libre</strong>, en une fois&nbsp;: vous décidez du
             montant. Aucune somme n&apos;est imposée.
@@ -60,7 +61,7 @@ export default function ContribuerPage() {
             href={CONTRIBUTION.url}
             target="_blank"
             rel="noopener noreferrer"
-            className={`mt-5 inline-flex items-center gap-2 bg-accent px-8 py-4 text-lg font-semibold tracking-wide text-white transition-transform hover:-translate-y-1 ${FOCUS_RING}`}
+            className={`mt-5 inline-flex items-center gap-2 bg-foreground px-8 py-4 text-lg font-semibold tracking-wide text-background transition-transform hover:-translate-y-1 ${FOCUS_RING}`}
           >
             <GameIcon name="heart" size={20} aria-hidden />
             Faire une contribution
@@ -73,7 +74,7 @@ export default function ContribuerPage() {
 
         {/* Soutien mensuel — abonnement (paliers fixes) */}
         <BentoBox as="section" span={3} index={2}>
-          <h2 className="mb-2 text-lg font-semibold">Ou un soutien mensuel</h2>
+          <h2 className="mb-2 text-lg">Ou un soutien mensuel</h2>
           <p className="text-base">
             Pour soutenir {SITE.name} dans la durée, vous pouvez mettre en place un don
             mensuel — résiliable à tout moment, sans engagement.
@@ -96,11 +97,24 @@ export default function ContribuerPage() {
             Le paiement s&apos;ouvre dans un nouvel onglet, sur une page sécurisée hébergée par
             notre prestataire.
           </p>
+          {CONTRIBUTION.manageUrl ? (
+            <p className="mt-3 text-sm">
+              <a
+                href={CONTRIBUTION.manageUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-1 text-info hover:underline ${FOCUS_RING}`}
+              >
+                <GameIcon name="settings" size={15} aria-hidden />
+                Gérer ou résilier mon abonnement
+              </a>
+            </p>
+          ) : null}
         </BentoBox>
 
         {/* Garde-fou : ne débloque rien */}
         <BentoBox as="section" span={3} index={3}>
-          <h2 className="mb-2 text-lg font-semibold">Contribuer ne débloque rien</h2>
+          <h2 className="mb-2 text-lg">Contribuer ne débloque rien</h2>
           <p className="text-base">
             Tous les outils restent accessibles à tout le monde, gratuitement, sans compte. Votre
             contribution ne vous donne aucun avantage&nbsp;: elle soutient simplement le projet et
@@ -110,7 +124,7 @@ export default function ContribuerPage() {
 
         {/* À quoi ça sert : maintien en ligne + évolution future */}
         <BentoBox as="section" span={3} index={4}>
-          <h2 className="mb-2 text-lg font-semibold">À quoi sert votre soutien</h2>
+          <h2 className="mb-2 text-lg">À quoi sert votre soutien</h2>
           <p className="text-base">
             Votre contribution permet d&apos;abord de{" "}
             <strong>maintenir le site en ligne</strong>&nbsp;: hébergement, maintenance,

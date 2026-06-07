@@ -8,7 +8,7 @@ const path = require("path");
 
 const PUBLIC = path.join(__dirname, "..", "public");
 const APP = path.join(__dirname, "..", "app");
-const PINK = "#db2777"; // --accent (pink-600)
+const PINK = "#a05f5d"; // --accent (rose poudré, palette Adobe)
 
 function squareSvg(size, withDot) {
   const d = Math.round(size * 0.18);
@@ -16,7 +16,7 @@ function squareSvg(size, withDot) {
   const x = size - off - d;
   const y = size - off - d;
   const dot = withDot
-    ? `<rect x="${x}" y="${y}" width="${d}" height="${d}" rx="${Math.round(d * 0.25)}" fill="#ffffff"/>`
+    ? `<rect x="${x}" y="${y}" width="${d}" height="${d}" fill="#ffffff"/>`
     : "";
   return Buffer.from(
     `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">` +

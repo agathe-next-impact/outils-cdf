@@ -1,12 +1,13 @@
 /* =============================================================================
  * Identité visuelle « Peer to Peer » (édité par Next Impact) — Tailwind v4
- * Système : SMART HOME DASHBOARD (sombre-first, plat, grands rayons).
- *   - Profondeur : angles arrondis larges (1–1.25rem), surfaces plates (ombres très discrètes).
- *   - Base gris (blanc en clair, gray-950 en sombre) + accent ROSE (pink), AA garantie.
- *   - Typo : Inter (titres ET corps) + JetBrains Mono (code/valeurs).
- *   - Navigation par barre latérale fixe (Sidebar) ; mouvement lent, prefers-reduced-motion respecté.
- * Conçu pour un public en situation de vulnérabilité : calme, lisible, rassurant.
- * NE PAS réintroduire le reset carré/zéro-ombre : il a été remplacé volontairement.
+ * Système SWISS / international :
+ *   - Grille modulaire (bento) à filets HAIRLINE TRÈS DISCRETS.
+ *   - Tout est CARRÉ (aucun arrondi), aucune ombre — précision, à plat.
+ *   - Surfaces en niveaux de gris + accent BLEU PROFOND (#00019C) ; bloc hero
+ *     en bleu très sombre.
+ *   - Exception domaine santé mentale : rouge (danger) + ambre (warning) conservés.
+ *   - Clair par défaut + sombre (next-themes, classe .dark). prefers-reduced-motion respecté.
+ *   - Typo : Instrument Sans (titres) + Hanken Grotesk (corps).
  * ========================================================================== */
 
 @import "tailwindcss";
@@ -16,108 +17,151 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card-bg);
+  --color-surface-2: var(--surface-2);
   --color-border: var(--border);
+  --color-line-strong: var(--line-strong);
   --color-muted: var(--muted);
+  --color-ink-faint: var(--ink-faint);
 
-  /* Couleurs sémantiques (thème-conscientes, définies plus bas) */
-  --color-accent: var(--accent);        /* rose : marque + action primaire        */
-  --color-accent-soft: var(--accent-soft);
-  --color-accent-strong: var(--accent-strong); /* rose foncé : appui/emphase       */
-  --color-accent-ink: var(--accent-ink);       /* texte posé SUR un aplat d'accent */
-  --color-info: var(--info);            /* = accent (gris + rose, pas de bleu)    */
-  --color-success: var(--success);      /* = accent (pas de vert) + icône/libellé */
-  --color-success-soft: var(--success-soft);
-  --color-warning: var(--warning);      /* ambre : mise en avant (fond + texte foncé) */
+  /* Accent bleu — la SEULE couleur non-grise (usage parcimonieux) */
+  --color-accent: var(--accent);
+  --color-accent-soft: var(--accent-soft);       /* fond de chip d'icône — reste gris */
+  --color-accent-strong: var(--accent-strong);   /* appui/pressé */
+  --color-accent-ink: var(--on-accent);
+  --color-on-accent: var(--on-accent);           /* texte sur aplat coloré (blanc en clair, foncé en sombre) */
+
+  /* Sémantiques : info/success = accent ; sécurité (danger/warning) conservée */
+  --color-info: var(--accent);
+  --color-success: var(--accent);
+  --color-success-soft: var(--accent-soft);
+  --color-warning: var(--warning);
   --color-warning-soft: var(--warning-soft);
-  --color-danger: var(--danger);        /* rouge : alerte, erreur                 */
+  --color-danger: var(--danger);
   --color-danger-soft: var(--danger-soft);
+  --color-danger-ink: var(--on-accent);
 
-  /* Alias de compatibilité : l'ancienne palette pointe vers la nouvelle.
-     Le markup existant (bg-red, text-blue, bg-orange…) continue de fonctionner,
-     en rendant désormais les teintes apaisées. À migrer progressivement vers
-     les noms sémantiques (accent/info/success/warning/danger). */
+  /* Bloc inverse (hero sombre) */
+  --color-hero-bg: var(--hero-bg);
+  --color-hero-ink: var(--hero-ink);
+  --color-hero-line: var(--hero-line);
+
+  /* Alias de compatibilité (markup hérité) → repointés sur la palette éditoriale.
+     À retirer au fil du balayage vers les noms sémantiques. */
   --color-orange: var(--accent);
   --color-yellow: var(--warning);
   --color-red: var(--danger);
-  --color-blue: var(--info);
-  --color-black: var(--foreground);     /* alias inversible (suit le thème) */
-  --color-white: var(--background);     /* alias inversible (suit le thème) */
+  --color-blue: var(--accent);
+  --color-black: var(--foreground);   /* alias inversible (suit le thème) */
+  --color-white: var(--background);   /* alias inversible (suit le thème) */
 
-  --font-sans: var(--font-inter), system-ui, sans-serif;
-  --font-heading: var(--font-inter), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'Cascadia Code', monospace;
+  --font-sans: var(--font-hanken), system-ui, sans-serif;
+  --font-heading: var(--font-instrument), system-ui, sans-serif;
+  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
 }
 
-/* --- Thème clair (par défaut) — base neutre blanc/gris + accents chauds ---- */
+/* --- Thème clair (par défaut) — base gris + blanc, palette Adobe en surfaces -
+ * Couleurs limitées : rose #C99D9C + crème #F2EBDC (dominantes) ; gris-bleu
+ * #A4B1B7 TRÈS parcimonieux. Base gris/blanc, texte gris foncé. Pas de jaune.
+ * ------------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #111827;   /* gray-900 (texte)            */
-  --card-bg:    #ffffff;
-  --border:     #e5e7eb;   /* gray-200 (séparateurs)      */
-  --muted:      #4b5563;   /* gray-600 (texte secondaire, AA) */
+  --background:  #f6f5f3;  /* fond page (gris très clair, légèrement chaud)  */
+  --card-bg:     #ffffff;  /* carte / panneau (blanc)                        */
+  --surface-2:   #efece7;  /* inset gris clair                               */
+  --foreground:  #2b2a27;  /* texte primaire (gris foncé)                    */
+  --muted:       #6d6a64;  /* texte secondaire (gris)                        */
+  --ink-faint:   #9b978f;  /* tertiaire / légendes                          */
+  --border:      #e6e3dc;  /* filet hairline très discret (gris chaud)       */
+  --line-strong: #d3cfc6;  /* filet au survol                               */
 
-  --accent:        #db2777;  --accent-soft:  #fce7f3;  --accent-ink:  #ffffff;  /* rose (pink-600) */
-  --accent-strong: #9d174d;  /* pink-800 : appui/emphase forte */
-  --info:          #db2777;  /* = accent (palette gris + rose) */
-  --success:       #db2777;  --success-soft: #fce7f3;  /* = accent + icône/libellé */
-  --warning:       #fbbf24;  --warning-soft: #fef3c7;  /* ambre : fond + texte foncé, jamais en texte sur blanc */
-  --danger:        #dc2626;  --danger-soft:  #fee2e2;  --danger-ink:  #ffffff;
+  --accent:        #a05f5d;  /* rose poudré assombri (AA sur blanc) — issu de #C99D9C */
+  --accent-strong: #834a48;  /* appui / pressé */
+  --accent-soft:   #efdedd;  /* rose très clair (fond de chip d'icône) */
+  --on-accent:     #ffffff;  /* texte/glyphe sur aplat rose */
 
-  --ring: #db2777;
+  --hero-bg:   #2b2a27;  --hero-ink: #f5f2ec;  --hero-line: #45423b;  /* hero gris foncé */
 
-  /* Rayons larges (dashboard), surfaces plates */
-  --radius-sm: 0.75rem;
-  --radius:    1rem;
-  --radius-lg: 1.25rem;
-  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.05);
-  --shadow:    0 4px 16px rgba(17, 24, 39, 0.08);
+  /* Couleurs : rose + crème (dominantes), gris-bleu (TRÈS parcimonieux) */
+  --tile-rose:   #c99d9c;  /* rose Adobe — tuile vedette */
+  --tile-cream:  #f2ebdc;  /* crème Adobe */
+  --tile-blue:   #a4b1b7;  /* gris-bleu Adobe — usage TRÈS parcimonieux (1 tuile) */
+  --ink-pastel:  #2b2a27;  /* texte foncé posé sur une tuile pastel */
+
+  /* Accents par catégorie (grille d'outils) — filet + icône */
+  --cat-q: #a05f5d;  /* questionnaires — rose */
+  --cat-p: #7e9098;  /* parcours — gris-bleu (assombri pour la visibilité) */
+  --cat-c: #9c8a5e;  /* carnets — beige foncé */
+
+  /* Sécurité (exception) + warning NEUTRE (ni jaune ni bleu) */
+  --warning:    #6d6a64;  --warning-soft: #ededeb;  /* gris neutre */
+  --danger:     #b23a32;  --danger-soft:  #f6e0de;
+
+  --ring: var(--accent);
+
+  /* Géométrie Swiss : tout carré, à plat */
+  --radius-sm: 0;  --radius: 0;  --radius-lg: 0;  --radius-pill: 0;
+  --shadow-sm: none;  --shadow: none;
+
+  --ease: cubic-bezier(.2, .6, .2, 1);
 }
 
-/* --- Thème sombre (gray-950, via .dark de next-themes) — le rendu du template - */
+/* --- Thème sombre (next-themes, classe .dark) ----------------------------- */
 .dark {
-  --background: #030712;   /* gray-950 */
-  --foreground: #ffffff;
-  --card-bg:    #111827;   /* gray-900 */
-  --border:     #1f2937;   /* gray-800 */
-  --muted:      #9ca3af;   /* gray-400 */
+  --background:  #161513;  /* gris chaud presque noir */
+  --card-bg:     #211f1b;
+  --surface-2:   #2a2823;
+  --foreground:  #f1eee8;
+  --muted:       #a7a299;
+  --ink-faint:   #7b766d;
+  --border:      #33302b;  /* filet très discret */
+  --line-strong: #46423b;
 
-  --accent:        #f9a8d4;  --accent-soft:  #500724;  --accent-ink:  #111827;  /* rose pastel (pink-300) */
-  --accent-strong: #fbcfe8;
-  --info:          #f9a8d4;
-  --success:       #f9a8d4;  --success-soft: #500724;
-  --warning:       #fcd34d;  --warning-soft: #422006;
-  --danger:        #f87171;  --danger-soft:  #450a0a;  --danger-ink:  #111827;
+  --accent:        #d0a3a2;  /* rose poudré clair (lisible sur sombre) */
+  --accent-strong: #e0bdbc;
+  --accent-soft:   #3a2c2b;  /* chip rose très sombre */
+  --on-accent:     #1a1916;  /* texte foncé sur aplat rose clair */
 
-  --ring: #f9a8d4;
+  --hero-bg:   #0e0d0b;  --hero-ink: #f1eee8;  --hero-line: #2a2823;
 
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
-  --shadow:    0 8px 24px rgba(0, 0, 0, 0.50);
+  --warning:    #a7a299;  --warning-soft: #2a2823;
+  --danger:     #e0837b;  --danger-soft:  #3a1512;
+
+  /* Accents par catégorie (versions claires pour le contraste sur sombre) */
+  --cat-q: #d0a3a2;  /* rose */
+  --cat-p: #a9b6bc;  /* bleu */
+  --cat-c: #cbb787;  /* beige */
+
+  --ring: var(--accent);
 }
+
+/* --- Swiss : tout est carré (supprime tout arrondi, utilitaires inclus) ---- */
+* { border-radius: 0 !important; }
 
 /* --- Base ----------------------------------------------------------------- */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  line-height: 1.6;
-  transition: background-color 0.4s ease, color 0.4s ease;
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3, h4, .font-heading {
   font-family: var(--font-heading);
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  line-height: 1.2;
+  font-weight: 400; /* Instrument Sans ne descend pas sous 400 (sa graisse la plus fine) */
+  letter-spacing: -0.02em;
+  line-height: 1.1;
 }
 
-/* Liens de contenu : bleu calme, soulignement discret (rôle éditorial). */
+/* Liens de contenu : accent bleu, soulignement discret. */
 .prose a, a.link {
-  color: var(--info);
+  color: var(--accent);
   text-underline-offset: 0.2em;
   text-decoration-thickness: 1px;
 }
 
-/* --- Accessibilité : focus visible doux (anneau bleu, suit l'arrondi) ------ */
+/* --- Accessibilité : focus visible (anneau bleu, rayon doux) ---------- */
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
   outline: 2px solid var(--ring);
   outline-offset: 2px;
@@ -155,7 +199,6 @@ h1, h2, h3, h4, .font-heading {
 .animate-shake     { animation: shake 0.4s ease-in-out; }
 .animate-confetti  { animation: confetti-fall 3.5s linear forwards; }
 
-/* Respect de prefers-reduced-motion : neutralise les animations décoratives. */
 @media (prefers-reduced-motion: reduce) {
   .animate-float, .animate-slide-up, .animate-bounce-in, .animate-confetti, .animate-shake {
     animation: none !important;
@@ -163,79 +206,279 @@ h1, h2, h3, h4, .font-heading {
   * { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
 
-/* --- Boutons -------------------------------------------------------------- */
+/* --- Boutons (pill, sans ombre) ------------------------------------------- */
+/* Primaire = aplat encre, s'inverse selon le thème (bleu réservé aux
+   liens / eyebrows / glyphes / chiffres). */
 .btn-primary {
-  background: var(--accent);
-  color: var(--accent-ink);
-  padding: 0.75rem 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--foreground);
+  color: var(--background);
+  padding: 11px 22px;
   font-weight: 600;
-  font-size: 1rem;
-  border: 1px solid color-mix(in srgb, var(--accent) 88%, #000);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
+  font-size: 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
 }
-.btn-primary:hover {
-  transform: translateY(-1px);
-  background: color-mix(in srgb, var(--accent) 90%, #000);
-  box-shadow: var(--shadow);
-}
-.btn-primary:active { transform: translateY(0); background: var(--accent-strong); }
-.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+.btn-primary:hover { transform: translateY(-1px); opacity: 0.92; }
+.btn-primary:active { transform: translateY(0); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-/* Bouton secondaire : fantôme bordé (calme, peu d'aplat de couleur). */
+/* Secondaire = fantôme bordé (currentColor). */
 .btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   background: transparent;
-  color: var(--accent);
-  padding: 0.75rem 1.5rem;
+  color: inherit;
+  padding: 11px 22px;
   font-weight: 600;
-  font-size: 1rem;
-  border: 1px solid var(--accent);
-  border-radius: var(--radius);
+  font-size: 14px;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-pill);
+  opacity: 0.9;
   cursor: pointer;
-  transition: background-color 0.25s ease, transform 0.25s ease;
+  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
 }
-.btn-secondary:hover { background: var(--accent); color: var(--accent-ink); transform: translateY(-1px); }
+.btn-secondary:hover { opacity: 1; transform: translateY(-1px); }
 .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-/* --- Carte : surface douce, ombre basse, légère élévation au survol -------- */
+/* --- Carte : surface + filet hairline, séparation sans ombre -------------- */
 .card {
   background: var(--card-bg);
-  padding: 1.5rem;
+  padding: 22px 24px;
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  border-radius: var(--radius);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
 }
-.card:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow);
-  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
-}
+.card:hover { border-color: var(--line-strong); }
 
-/* Variante éditoriale : filet d'accent à gauche (mise en avant douce). */
+/* Variante : filet d'accent à gauche (mise en avant douce, parcimonieuse). */
 .card-accent { border-left: 3px solid var(--accent); }
 
+/* --- Vocabulaire éditorial (handoff) -------------------------------------- */
+/* Eyebrow : petit label accent au-dessus des titres. */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Icon chip : glyphe bleu, sans fond (la signature couleur). */
+.ichip {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  flex: none;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: transparent;
+}
+.ichip--line { background: transparent; border: 1px solid var(--border); }
+
+/* Badge / tag — pill hairline. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+  font-size: 11.5px;
+  font-weight: 500;
+  padding: 4px 9px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  background: var(--card-bg);
+}
+
+/* Filter chip. */
+.chip {
+  padding: 7px 13px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--muted);
+}
+.chip.is-on { background: transparent; border-color: var(--accent); color: var(--accent); }
+
+/* Stat tile — grand nombre bleu (titre) + légende. */
+.stat {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 16px 14px;
+  text-align: center;
+}
+.stat .n { font-family: var(--font-heading); font-size: 40px; line-height: 1; color: var(--accent); }
+.stat .l { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
+
+/* Lien texte avec flèche. */
+.tlink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  font-size: 13.5px;
+  color: var(--accent);
+}
+
 /* --- Helpers ------------------------------------------------------------- */
-.gradient-bg   { background: linear-gradient(135deg, var(--accent-soft), var(--background)); }
+.gradient-bg   { background: var(--hero-bg); color: var(--hero-ink); }
 .gradient-text { color: var(--accent); }
 
+/* =============================================================================
+ * Bento Swiss 12 colonnes — structure « Peer to Peer ».
+ * Grille réglée SANS gouttière : les boîtes se touchent, séparées seulement par
+ * leurs filets hairline très discrets. Les boîtes colorées remappent localement
+ * --foreground/--muted/--accent pour que le texte y reste lisible.
+ * ========================================================================== */
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0; }
+.bento > * { min-width: 0; }
+.c2 { grid-column: span 2; } .c3 { grid-column: span 3; } .c4 { grid-column: span 4; }
+.c5 { grid-column: span 5; } .c6 { grid-column: span 6; } .c7 { grid-column: span 7; }
+.c8 { grid-column: span 8; } .c9 { grid-column: span 9; } .c10 { grid-column: span 10; }
+.c12 { grid-column: 1 / -1; }
+.r2 { grid-row: span 2; }
+
+@media (max-width: 1024px) {
+  .bento { grid-template-columns: repeat(6, 1fr); }
+  .c5, .c7, .c8, .c9, .c10 { grid-column: 1 / -1; }
+  .r2 { grid-row: auto; }
+}
+@media (max-width: 680px) {
+  .bento { grid-template-columns: 1fr; }
+  .bento > * { grid-column: 1 / -1 !important; }
+}
+
+/* Boîte de base + variantes */
+.box {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  padding: 22px 24px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s var(--ease);
+}
+.box.link { cursor: pointer; }
+.box.link:hover { border-color: var(--line-strong); }
+.box h1, .box h2, .box h3 { font-family: var(--font-heading); }
+
+/* Tuiles colorées Adobe : fond fixe + texte gris foncé (lisible dans les 2 thèmes). */
+/* Fonds de boîte : UNIQUEMENT crème / blanc / gris (surface-2) / hero-bg.
+   Le rose et le bleu n'apparaissent JAMAIS en fond — seulement en ACCENT
+   (filet de gauche, icône, texte). */
+.box--soft { background: var(--tile-cream); }              /* crème */
+.box--tint { background: var(--surface-2); }               /* gris clair */
+.box--accent { border-left: 3px solid var(--accent); }     /* fond blanc + filet ROSE (vedette) */
+.box--second { border-left: 3px solid var(--tile-blue); }  /* fond blanc + filet BLEU (parcimonieux) */
+
+/* Bloc hero (gris foncé) */
+.box--fill {
+  background: var(--hero-bg); border-color: var(--hero-line); color: var(--hero-ink);
+  --foreground: var(--hero-ink);
+  --muted: color-mix(in srgb, var(--hero-ink) 66%, transparent);
+  --accent: #d6b3b2; /* rose clair, lisible sur le bloc sombre */
+}
+.box--fill .btn-primary { background: var(--hero-ink); color: var(--hero-bg); border-color: transparent; }
+
+/* En-tête de section */
+.section-head { margin: 38px 0 14px; display: flex; flex-direction: column; gap: 2px; }
+.section-head h2 { font-size: clamp(22px, 2.2vw, 30px); }
+.section-head .sub { color: var(--muted); font-size: 14px; }
+
+/* Hero (masthead) */
+.box--fill h1 { font-size: clamp(34px, 4.2vw, 54px); margin-top: 6px; line-height: 1.02; }
+.tagline { font-size: 11px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent); }
+.desc { color: var(--muted); font-size: 15px; line-height: 1.55; max-width: 56ch; margin-top: 12px; }
+.hero-cta { display: flex; gap: 12px; margin-top: 22px; flex-wrap: wrap; }
+
+/* Texte courant dans une boîte */
+.body { color: var(--muted); font-size: 14px; line-height: 1.55; }
+.box .body strong { color: var(--foreground); }
+.muted { color: var(--muted); }
+.box-tt { display: flex; align-items: center; gap: 10px; }
+.box-tt h3 { font-size: 19px; }
+
+/* Pictos en chip */
+.ichip--ink { background: transparent; color: inherit; }
+
+/* Cartes catégorie */
+.tcard h3 { font-size: 20px; margin-top: 14px; }
+.count { margin-top: auto; padding-top: 14px; font-size: 11px; letter-spacing: 0.08em; color: var(--muted); }
+
+/* Cartes parcours */
+.ptitle { display: flex; align-items: center; gap: 10px; font-family: var(--font-heading); font-weight: 400; font-size: 20px; }
+.parc--big .ptitle { font-size: clamp(22px, 2.4vw, 28px); }
+.pdesc { color: var(--muted); font-size: 14px; line-height: 1.55; margin-top: 10px; }
+.parc--big .pdesc { font-size: 15px; max-width: 48ch; }
+.pfoot { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: auto; padding-top: 16px; }
+.steps { font-size: 11px; letter-spacing: 0.08em; color: var(--muted); }
+
+/* Étapes « comment ça marche » */
+.num { font-family: var(--font-heading); font-weight: 400; font-size: 40px; line-height: 1; color: var(--accent); }
+.step-tt { display: flex; align-items: center; gap: 8px; margin: 10px 0 6px; }
+.step-tt h3 { font-size: 18px; }
+
+/* Cartes outil */
+.tico { width: 40px; height: 40px; display: grid; place-items: center; background: transparent; color: var(--accent); margin-bottom: 14px; }
+.tool h3 { font-size: 18px; }
+.tool--big h3 { font-size: 22px; }
+.meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 10px; }
+.open { margin-top: auto; padding-top: 12px; }
+.badge--sensible { color: var(--warning); border-color: color-mix(in srgb, var(--warning) 45%, var(--border)); }
+
+/* Accent par catégorie (filet de gauche + icône) : rose / bleu / beige foncé. */
+.tool[data-cat="questionnaires"] { border-left: 3px solid var(--cat-q); }
+.tool[data-cat="parcours"]       { border-left: 3px solid var(--cat-p); }
+.tool[data-cat="carnets"]        { border-left: 3px solid var(--cat-c); }
+.tool[data-cat="questionnaires"] .tico { color: var(--cat-q); }
+.tool[data-cat="parcours"] .tico       { color: var(--cat-p); }
+.tool[data-cat="carnets"] .tico        { color: var(--cat-c); }
+
+/* Barre d'outils du catalogue */
+.toolbar { gap: 14px; }
+.search { display: flex; align-items: center; gap: 10px; border: 1px solid var(--border); padding: 10px 14px; color: var(--muted); }
+.search input { border: 0; background: transparent; width: 100%; color: var(--foreground); font-size: 14px; }
+.search input:focus { outline: none; }
+.filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.sep { width: 1px; height: 22px; background: var(--border); }
+.filters .right { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
+.filters select { border: 1px solid var(--border); background: var(--card-bg); padding: 6px 8px; color: var(--foreground); font-size: 13px; }
+.chip.on { background: transparent; border-color: var(--accent); color: var(--accent); }
+.count-line { color: var(--muted); font-size: 13px; margin: 14px 0; }
+
+/* Bloc de stats vertical */
+.stats { display: flex; flex-direction: column; gap: 12px; justify-content: center; height: 100%; }
+.stats .stat { border: 0; background: transparent; padding: 0; text-align: left; display: flex; align-items: baseline; gap: 10px; }
+.stats .stat .n { font-size: 30px; }
+.stats .stat .l { margin-top: 0; }
+
+/* Bouton fantôme (alias du secondaire, pour le hero) */
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border: 1px solid currentColor; background: transparent; color: inherit; font-weight: 600; font-size: 14px; opacity: 0.9; cursor: pointer; transition: opacity 0.18s var(--ease); }
+.btn-ghost:hover { opacity: 1; }
+
 /* --- Document imprimable (export PDF via window.print) --------------------- */
-/* Le contenu imprimable est rendu dans #print-root (portail) ; masqué à l'écran. */
 #print-root { display: none; }
 
 @media print {
-  /* L'impression est toujours sur fond clair, encre foncée (lisibilité/toner). */
   :root, .dark {
     --background: #ffffff !important;
-    --foreground: #1a1a1a !important;
+    --foreground: #171717 !important;
     --card-bg: #ffffff !important;
   }
   body > *:not(#print-root) { display: none !important; }
   #print-root { display: block !important; }
-  body { background: #ffffff !important; color: #1a1a1a !important; }
-  .print-document { max-width: 100%; padding: 0; color: #1a1a1a; }
+  body { background: #ffffff !important; color: #171717 !important; }
+  .print-document { max-width: 100%; padding: 0; color: #171717; }
   .print-document * { box-shadow: none !important; }
   .print-document h1, .print-document h2, .print-document h3 { break-after: avoid; }
   .print-document table { width: 100%; border-collapse: collapse; }

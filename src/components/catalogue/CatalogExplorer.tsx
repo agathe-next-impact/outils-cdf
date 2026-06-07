@@ -10,7 +10,6 @@
 import { useMemo, useState } from "react";
 import { ToolCard } from "./ToolCard";
 import GameIcon from "@/components/GameIcon";
-import { BentoGrid, bentoSpan } from "@/components/layout/Bento";
 import { FOCUS_RING } from "@/lib/a11y";
 import type { CatalogEntry, CategoryInfo } from "@/data/catalog";
 import type { ToolCategory } from "@/engines/types";
@@ -69,97 +68,81 @@ export function CatalogExplorer({
     setSort("default");
   };
 
-  const chip = (active: boolean, activeClass = "bg-accent text-white border border-accent") =>
-    `px-3 py-1 text-sm font-semibold tracking-wide transition-colors ${FOCUS_RING} ${
-      active ? activeClass : "border border-border text-muted hover:text-accent"
-    }`;
+  const chipCls = (active: boolean) => `chip ${active ? "on" : ""} ${FOCUS_RING}`;
+
+  // Empans pour le rythme éditorial : première tuile vedette (c7), 2e (c5), puis 3-up (c4).
+  const spanCls = (i: number) => (i === 0 ? "c7" : i === 1 ? "c5" : "c4");
 
   return (
     <section aria-label="Explorer les outils">
-      {/* Recherche */}
-      <div className="mb-4 flex items-center gap-2 border border-border px-3 py-2">
-        <GameIcon name="search" size={20} className="shrink-0 text-info" aria-hidden />
-        <input
-          type="search"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Rechercher un outil…"
-          aria-label="Rechercher un outil"
-          className="w-full bg-transparent font-semibold focus:outline-none"
-        />
-      </div>
-
-      {/* Filtres catégorie */}
-      <div className="mb-2 flex flex-wrap gap-2" role="group" aria-label="Filtrer par catégorie">
-        <button
-          type="button"
-          aria-pressed={cat === "all"}
-          className={chip(cat === "all")}
-          onClick={() => setCat("all")}
-        >
-          Tous
-        </button>
-        {categories.map((c) => (
-          <button
-            key={c.key}
-            type="button"
-            aria-pressed={cat === c.key}
-            className={chip(cat === c.key)}
-            onClick={() => setCat(c.key)}
-          >
-            {c.label}
-          </button>
-        ))}
-      </div>
-
-      {/* Filtres durée + tri */}
-      <div className="mb-5 flex flex-wrap items-center gap-2">
-        <div className="flex flex-wrap gap-2" role="group" aria-label="Filtrer par durée">
-          {(Object.keys(DUR_LABEL) as DurFilter[]).map((d) => (
-            <button
-              key={d}
-              type="button"
-              aria-pressed={dur === d}
-              className={chip(dur === d)}
-              onClick={() => setDur(d)}
-            >
-              {DUR_LABEL[d]}
+      {/* Barre d'outils (recherche + filtres + tri) */}
+      <div className="bento">
+        <div className="box toolbar c12">
+          <div className="search">
+            <GameIcon name="search" size={18} className="shrink-0 text-accent" aria-hidden />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Rechercher un outil…"
+              aria-label="Rechercher un outil"
+            />
+          </div>
+          <div className="filters">
+            <button type="button" aria-pressed={cat === "all"} className={chipCls(cat === "all")} onClick={() => setCat("all")}>
+              Tous
             </button>
-          ))}
+            {categories.map((c) => (
+              <button
+                key={c.key}
+                type="button"
+                aria-pressed={cat === c.key}
+                className={chipCls(cat === c.key)}
+                onClick={() => setCat(c.key)}
+              >
+                {c.label}
+              </button>
+            ))}
+            <span className="sep" aria-hidden />
+            {(Object.keys(DUR_LABEL) as DurFilter[]).map((d) => (
+              <button
+                key={d}
+                type="button"
+                aria-pressed={dur === d}
+                className={chipCls(dur === d)}
+                onClick={() => setDur(d)}
+              >
+                {DUR_LABEL[d]}
+              </button>
+            ))}
+            <label className="right">
+              <GameIcon name="list-checks" size={15} aria-hidden /> Trier
+              <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Trier les outils">
+                <option value="default">Par défaut</option>
+                <option value="duree">Durée</option>
+              </select>
+            </label>
+          </div>
         </div>
-        <label className="ml-auto flex items-center gap-2 text-sm">
-          <span className="font-semibold tracking-wide text-info">Trier</span>
-          <select
-            value={sort}
-            onChange={(e) => setSort(e.target.value as SortKey)}
-            className={`border border-border bg-card px-2 py-1 font-semibold ${FOCUS_RING}`}
-          >
-            <option value="default">Par défaut</option>
-            <option value="duree">Plus court d&apos;abord</option>
-          </select>
-        </label>
       </div>
 
-      {/* Compteur */}
-      <p className="mb-4 text-sm text-muted" aria-live="polite">
+      <p className="count-line" aria-live="polite">
         {results.length} outil{results.length > 1 ? "s" : ""}
         {hasFilters ? " correspondant à votre recherche" : ""}
       </p>
 
       {/* Résultats */}
       {results.length > 0 ? (
-        <BentoGrid>
+        <section className="bento" style={{ gridAutoFlow: "row dense" }}>
           {results.map((entry, i) => (
-            // Premier résultat mis en avant (tuile vedette), les autres réguliers.
-            // Empan porté par un wrapper afin que la ToolCard (.card h-full) le remplisse.
-            <div key={entry.slug} className={bentoSpan(i === 0 ? 2 : 1)}>
-              <ToolCard entry={entry} index={i} />
+            <div key={entry.slug} className={spanCls(i)}>
+              <ToolCard entry={entry} index={i} featured={i === 0} />
             </div>
           ))}
-        </BentoGrid>
+        </section>
       ) : (
-        <div className="card text-center">
-          <GameIcon name="search" size={36} className="mx-auto mb-2 text-info" aria-hidden />
+        <div className="box text-center">
+          <GameIcon name="search" size={36} className="mx-auto mb-2 text-accent" aria-hidden />
           <p className="mb-3 font-semibold">Aucun outil ne correspond à votre recherche.</p>
           <button type="button" className="btn-secondary" onClick={resetFilters}>
             Réinitialiser les filtres

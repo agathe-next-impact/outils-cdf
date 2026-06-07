@@ -18,7 +18,7 @@ export function ThemeToggle() {
 
   if (!mounted) {
     return (
-      <button className="p-2 text-black cursor-wait" aria-label="Chargement du thème">
+      <button className="p-2 text-foreground cursor-wait" aria-label="Chargement du thème">
         <span className="sr-only">Chargement du thème</span>
         <Eclipse size={20} aria-hidden />
       </button>
@@ -28,7 +28,7 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="p-2 text-black transition-colors hover:text-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue"
+      className="p-2 text-foreground transition-colors hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2"
       aria-label={theme === "dark" ? "Activer le thème clair" : "Activer le thème sombre"}
     >
       {theme === "dark" ? <Sun size={20} aria-hidden /> : <Moon size={20} aria-hidden />}

@@ -12,7 +12,7 @@ export function PitfallHint({ hits }: { hits: PitfallHit[] }) {
           className="flex items-start gap-2 border border-border p-3 text-sm"
           role="note"
         >
-          <GameIcon name="lightbulb" size={18} className="mt-0.5 shrink-0 text-blue" />
+          <GameIcon name="lightbulb" size={18} className="mt-0.5 shrink-0 text-accent" />
           <p>{h.message}</p>
         </div>
       ))}

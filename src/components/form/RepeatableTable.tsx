@@ -50,7 +50,7 @@ export function RepeatableTable({ table, rows, onChange }: RepeatableTableProps)
                   <button
                     type="button"
                     onClick={() => remove(id)}
-                    className={`text-red hover:underline ${FOCUS_RING}`}
+                    className={`text-danger hover:underline ${FOCUS_RING}`}
                     aria-label={`Supprimer l'entrée ${ri + 1}`}
                   >
                     <GameIcon name="trash-2" size={16} />

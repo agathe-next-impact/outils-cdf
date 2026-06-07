@@ -108,7 +108,7 @@ export function ToolsMegaMenu({
         aria-controls="tools-megamenu"
         onClick={() => setOpen((o) => !o)}
         className={`flex items-center gap-1 px-3 py-1 text-sm font-semibold tracking-wide transition-colors ${FOCUS_RING} ${
-          active ? "bg-accent text-white" : "hover:text-accent"
+          active ? "bg-surface-2 text-accent" : "hover:text-accent"
         }`}
       >
         Outils

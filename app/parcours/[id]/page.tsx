@@ -30,7 +30,7 @@ export default async function PathwayPage({ params }: Params) {
   if (!resolved) notFound();
 
   return (
-    <PageWrapper maxWidth="2xl">
+    <PageWrapper maxWidth="full">
       <Link
         href="/"
         className={`inline-flex items-center gap-1 text-sm text-info hover:underline ${FOCUS_RING}`}
@@ -40,16 +40,16 @@ export default async function PathwayPage({ params }: Params) {
 
       <BentoGrid className="mb-4">
         <BentoBox as="header" span={3} className="mt-3">
-          <div className="flex items-center gap-3 rounded-2xl bg-accent px-5 py-4 text-white">
+          <div className="flex items-center gap-3 border border-border border-l-[3px] border-l-accent bg-surface-2 px-5 py-4">
             <GameIcon
               name={resolved.iconName}
               size={40}
-              className="text-white"
+              className="text-accent"
               aria-hidden
             />
             <div>
-              <p className="text-xs font-medium tracking-wide opacity-90">Parcours</p>
-              <h1 className="font-heading text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+              <p className="eyebrow">Parcours</p>
+              <h1 className="font-heading text-3xl leading-tight tracking-tight md:text-4xl">
                 {resolved.goal}
               </h1>
             </div>

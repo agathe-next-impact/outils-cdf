@@ -19,7 +19,7 @@ export function DisclaimerBanner({
       className={`flex items-start gap-3 border border-border p-3 text-sm ${className ?? ""}`}
       role="note"
     >
-      <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-blue" />
+      <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-accent" />
       <p>{text}</p>
     </div>
   );

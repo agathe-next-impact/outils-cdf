@@ -78,7 +78,7 @@ export function PathwayView({
 
       {/* Objectif de la personne */}
       <section className="card">
-        <h2 className="mb-1 text-lg font-semibold">Mon objectif, avec mes mots</h2>
+        <h2 className="mb-1 text-lg">Mon objectif, avec mes mots</h2>
         <p className="mb-3 text-xs text-muted">
           Facultatif. Cela reste dans votre navigateur et peut être exporté avec votre plan.
         </p>
@@ -115,11 +115,11 @@ export function PathwayView({
       {/* Itinéraire */}
       <section aria-label="Itinéraire du parcours">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-lg font-semibold">L&apos;itinéraire</h2>
+          <h2 className="text-lg">L&apos;itinéraire</h2>
           {resumeIndex >= 0 && steps[resumeIndex]?.available ? (
             <Link
               href={steps[resumeIndex]!.href}
-              className={`inline-flex items-center gap-1 bg-accent px-3 py-1 text-sm font-semibold tracking-wide text-white ${FOCUS_RING}`}
+              className={`inline-flex items-center gap-1 border border-accent px-3 py-1 text-sm font-semibold tracking-wide text-accent ${FOCUS_RING}`}
             >
               Reprendre <GameIcon name="arrow-right" size={16} aria-hidden />
             </Link>
@@ -146,7 +146,7 @@ export function PathwayView({
                       className="text-accent"
                       aria-hidden
                     />
-                    <h3 className="text-base font-semibold leading-tight">{step.label}</h3>
+                    <h3 className="text-base leading-tight">{step.label}</h3>
                     {step.optional ? (
                       <span className="border border-border px-1.5 text-[10px] font-semibold tracking-wide text-muted">
                         Facultatif

@@ -18,19 +18,19 @@ export function Footer() {
     <footer className="border-t border-border px-4 py-8 text-sm">
       <div className="mx-auto flex max-w-5xl flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <nav className="flex flex-wrap gap-x-4 gap-y-1">
-          <Link className={`hover:text-blue ${FOCUS_RING}`} href="/ressources">
+          <Link className={`hover:text-accent ${FOCUS_RING}`} href="/ressources">
             Ressources d&apos;urgence
           </Link>
-          <Link className={`hover:text-blue ${FOCUS_RING}`} href="/contribuer">
+          <Link className={`hover:text-accent ${FOCUS_RING}`} href="/contribuer">
             Contribuer
           </Link>
-          <Link className={`hover:text-blue ${FOCUS_RING}`} href="/confidentialite">
+          <Link className={`hover:text-accent ${FOCUS_RING}`} href="/confidentialite">
             Confidentialité
           </Link>
-          <Link className={`hover:text-blue ${FOCUS_RING}`} href="/mentions-legales">
+          <Link className={`hover:text-accent ${FOCUS_RING}`} href="/mentions-legales">
             Mentions légales
           </Link>
-          <Link className={`hover:text-blue ${FOCUS_RING}`} href="/a-propos">
+          <Link className={`hover:text-accent ${FOCUS_RING}`} href="/a-propos">
             À propos
           </Link>
         </nav>
@@ -41,7 +41,7 @@ export function Footer() {
               <span>Effacer toutes vos données de session ?</span>
               <button
                 type="button"
-                className={`bg-danger px-3 py-1 font-semibold text-white ${FOCUS_RING}`}
+                className={`bg-danger px-3 py-1 font-semibold text-on-accent ${FOCUS_RING}`}
                 onClick={() => {
                   resetAll();
                   setConfirming(false);

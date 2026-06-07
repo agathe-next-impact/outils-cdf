@@ -70,10 +70,10 @@ export function BeforeAfterBars({
             <YAxis domain={numDomain(max)} tick={axisTick} allowDecimals={false} />
             <Tooltip {...tooltipProps} />
             <Legend />
-            <Bar dataKey="before" name={beforeLabel} fill={NEUTRAL_BAR} radius={6} isAnimationActive={animate}>
+            <Bar dataKey="before" name={beforeLabel} fill={NEUTRAL_BAR} radius={0} isAnimationActive={animate}>
               <LabelList dataKey="before" position="top" fill={FG} fontSize={11} />
             </Bar>
-            <Bar dataKey="after" name={afterLabel} fill={color} radius={6} isAnimationActive={animate}>
+            <Bar dataKey="after" name={afterLabel} fill={color} radius={0} isAnimationActive={animate}>
               <LabelList dataKey="after" position="top" fill={FG} fontSize={11} />
             </Bar>
           </BarChart>

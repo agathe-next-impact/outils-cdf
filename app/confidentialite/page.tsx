@@ -15,14 +15,14 @@ export default function ConfidentialitePage() {
     <PageWrapper maxWidth="2xl" decor={["lock"]}>
       <header className="mb-6">
         <GameIcon name="lock" size={48} className="mb-2 text-accent" />
-        <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
+        <h1 className="font-heading text-3xl tracking-tight md:text-4xl">
           Confidentialité
         </h1>
       </header>
 
       <BentoGrid>
         <BentoBox as="section" span={3}>
-          <h2 className="mb-2 text-lg font-semibold">Aucune donnée envoyée</h2>
+          <h2 className="mb-2 text-lg">Aucune donnée envoyée</h2>
           <p className="text-base">
             Cette plateforme fonctionne entièrement dans votre navigateur. Vos réponses ne sont
             jamais transmises à un serveur, ni à nous, ni à un tiers. Il n&apos;y a ni compte, ni
@@ -31,7 +31,7 @@ export default function ConfidentialitePage() {
         </BentoBox>
 
         <BentoBox as="section" span={3} index={1}>
-          <h2 className="mb-2 text-lg font-semibold">Une mémoire de session</h2>
+          <h2 className="mb-2 text-lg">Une mémoire de session</h2>
           <p className="text-base">
             Vos saisies sont conservées dans la mémoire de session de votre navigateur
             (<code className="font-mono">sessionStorage</code>). Concrètement&nbsp;:
@@ -47,7 +47,7 @@ export default function ConfidentialitePage() {
         </BentoBox>
 
         <BentoBox as="section" span={3} index={2} className="border-danger">
-          <h2 className="mb-2 text-lg font-semibold">Attention aux postes partagés</h2>
+          <h2 className="mb-2 text-lg">Attention aux postes partagés</h2>
           <p className="text-base">
             Sur un ordinateur public ou partagé, pensez à fermer l&apos;onglet (ou à utiliser «
             Tout effacer ») avant de quitter, pour que personne d&apos;autre ne voie vos saisies.
@@ -55,7 +55,7 @@ export default function ConfidentialitePage() {
         </BentoBox>
 
         <BentoBox as="section" span={3} index={3}>
-          <h2 className="mb-2 text-lg font-semibold">Conserver une trace</h2>
+          <h2 className="mb-2 text-lg">Conserver une trace</h2>
           <p className="text-base">
             Comme rien n&apos;est sauvegardé durablement, l&apos;export (PDF, Markdown ou JSON) est
             le seul moyen de garder une trace de votre travail. Ces fichiers sont générés dans
@@ -64,7 +64,7 @@ export default function ConfidentialitePage() {
         </BentoBox>
 
         <BentoBox as="section" span={3} index={4}>
-          <h2 className="mb-2 text-lg font-semibold">Et si je contribue&nbsp;?</h2>
+          <h2 className="mb-2 text-lg">Et si je contribue&nbsp;?</h2>
           <p className="text-base">
             La <Link className="text-info hover:underline" href="/contribuer">contribution</Link> est
             entièrement facultative et indépendante des outils. Elle se déroule sur une page de

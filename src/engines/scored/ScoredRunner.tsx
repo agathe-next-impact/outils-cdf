@@ -70,7 +70,7 @@ export function ScoredRunner({ definition }: { definition: ScoredDefinition }) {
 
   return (
     <div className="space-y-6">
-      <ContentRenderer blocks={definition.intro} className="card border border-blue" />
+      <ContentRenderer blocks={definition.intro} className="card border border-border" />
 
       {definition.referencePeriod ? (
         <p className="text-sm font-semibold tracking-wide text-info">

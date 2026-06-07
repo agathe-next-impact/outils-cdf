@@ -32,50 +32,42 @@ tiers) est proposée sans jamais conditionner l'accès aux outils.
 
 ## Identité visuelle (obligatoire) — « Peer to Peer »
 
-Système **« smart home dashboard »** (sombre-first, plat, grands rayons), partagé avec Next Impact.
-Source de vérité : `design-system/DESIGN_SYSTEM.md`. Les 7 lois :
+Système **SWISS / international** : grille modulaire (bento) à **filets hairline très discrets**,
+**tout carré**, **zéro ombre**, gris + accent **bleu profond**. Les lois :
 
-1. **Profondeur douce** — angles **arrondis** (`--radius`/`--radius-lg`) et ombres **basses et
-   discrètes** (`--shadow-sm`/`--shadow`). Jamais d'ombre dure ni d'élévation tape-à-l'œil ;
-   ne pas réintroduire l'ancien reset `* { border-radius:0; box-shadow:none }`.
-2. **Calme avant tout** — espace négatif généreux, faible densité, une idée par bloc ; aucune
-   saturation criarde, aucun aplat de couleur vive sur de grandes surfaces.
-3. **Palette gris + accent rose, sur base neutre** — base **gris** : clair fond **blanc `#ffffff`**,
-   texte `#111827` (gray-900), cartes blanches, bordures `#e5e7eb` (gray-200), secondaire `#4b5563`
-   (gray-600) ; sombre fond `#030712` (gray-950), texte blanc, cartes `#111827` (gray-900), bordures
-   `#1f2937` (gray-800), secondaire `#9ca3af` (gray-400) — fond/texte inversibles selon le thème.
-   Accent **rose** : `--accent` clair `#db2777` (pink-600) / sombre `#f9a8d4` (pink-300) = marque +
-   action primaire ; `--accent-ink` = texte posé sur un aplat d'accent (blanc en clair, `#111827` en
-   sombre) ; `--accent-strong` clair `#9d174d` (pink-800) / sombre `#fbcfe8` (appui/emphase). **`info`
-   et `success` = accent** (pas de bleu ni de vert), distingués par **icône + libellé**, jamais la
-   couleur seule. `--warning` = **ambre** (`#fbbf24` clair / `#fcd34d` sombre, **fond uniquement**,
-   jamais en texte sur blanc). `--danger` = **rouge** (`#dc2626` clair / `#f87171` sombre). Toutes les
-   paires vérifiées WCAG AA dans les deux thèmes. Jamais de `#000`/`#fff` en dur pour du contenu thémé →
-   `text-foreground`/`bg-background`/tokens. ⚠️ **Contraste** : l'**ambre (`warning`) ne sert jamais au
-   corps de texte** (réservé fonds/accents) ; le rose (`accent`) reste AA en texte dans les deux thèmes ;
-   le corps reste en `text-foreground`/`text-muted`. Compat : `bg-orange`→accent, `bg-yellow`→warning,
-   `bg-red`→danger, `bg-blue`→info.
-4. **Typo** — `Inter` (titres **et** corps, variable `--font-inter`) + `JetBrains Mono`
-   (`--font-jetbrains-mono`) pour le code/mono. **Plus de serif `Newsreader` ni d'`Open Sans`.** Titres
-   en casse normale (`font-semibold`, `tracking` léger), jamais `uppercase`/`font-black`. Logo : carré
-   rose + wordmark via `<Logo>` (`src/components/Logo.tsx`).
-5. **Icônes** — lucide-react uniquement via `<GameIcon>` (trait fin). **Zéro emoji.**
-6. **Mode sombre** — via `next-themes` (classe `.dark`), inversion **gris** (sombre-first côté template)
-   de `--background`/`--foreground`/`--card-bg` + variantes sombres de toute la palette sémantique.
-7. **Mouvement lent** — entrées `animate-slide-up` douces et décalées ; décor `animate-float` lent ;
-   célébrations **discrètes** (`animate-bounce-in` + `<Confetti>` sobre) ; `prefers-reduced-motion` respecté.
+1. **Tout est carré, zéro ombre** — reset global `* { border-radius: 0 !important }` ; tous les rayons
+   (`--radius*`/`--radius-pill`) = **0**. Bordures **hairline 1px très discrètes** (`--border` →
+   `--line-strong` au survol). **Aucune `box-shadow`** : séparation par contraste de surface + filet.
+3. **Base gris + blanc, palette Adobe en surfaces** — neutre : clair fond `#f6f5f3`, carte `#ffffff`
+   (blanc), filet `#e6e3dc`, texte `#2b2a27` ; sombre fond `#161513`, carte `#211f1b`, texte `#f1eee8`
+   (inversibles). **Accent rose** `--accent` `#a05f5d` (clair, assombri pour l'AA) / `#d0a3a2` (sombre)
+   = marque, nav active, eyebrows, liens, glyphes d'icône, chiffres clés — **usage parcimonieux** ;
+   `--on-accent` blanc (clair) / foncé (sombre). **Couleurs limitées** (sur base gris/blanc) : **rose
+   `#c99d9c`** (`--tile-rose`, `box--accent` vedette) et **crème `#f2ebdc`** (`--tile-cream`, `box--soft`)
+   en dominantes ; **gris-bleu `#a4b1b7`** (`--tile-blue`, `box--second`) **TRÈS parcimonieusement (1 tuile)**.
+   `box--tint` = gris neutre ; hero gris foncé (`box--fill`). **Pas de jaune.** Texte sur tuile = gris foncé
+   `--ink-pastel`. **`info`/`success` = accent** ; `--warning` = **gris neutre** ; **exception santé mentale**
+   `--danger` = **rouge** (crise). Jamais de `#000`/`#fff` en dur → tokens.
+   Jamais de `#000`/`#fff` en dur → tokens. Compat : `*-orange/-blue`→accent, `*-yellow`→warning, `*-red`→danger.
+4. **Typo** — `Instrument Sans` (titres/nombres/marque, `--font-instrument`) + `Hanken Grotesk`
+   (corps/UI, `--font-hanken`). Titres en casse normale. Logo : carré bleu + point clair via `<Logo>`.
+5. **Icônes** — lucide-react uniquement via `<GameIcon>` (trait fin) ; glyphe bleu dans `.ichip`
+   (fond gris). **Zéro emoji.**
+6. **Mode sombre** — via `next-themes` (classe `.dark`), clair par défaut.
+7. **Mouvement lent et sobre** — `animate-slide-up` discrètes, décor `animate-float` lent ;
+   `prefers-reduced-motion` respecté.
 
-Composants : `.card` (douce, arrondie, ombre basse), `.card-accent` (filet accent à gauche),
-`.btn-primary` (rose, appui rose foncé), `.btn-secondary` (fantôme bordé accent), `GameIcon`, `ThemeToggle`.
-Pas de `DecodeText`. **Navigation : barre latérale fixe** sur desktop via
-`src/components/layout/Sidebar.tsx` (rail d'icônes + pastille d'accent sur l'onglet actif + tooltips) ;
-`Header` en repli mobile. Mise en page **Bento** conservée (`src/components/layout/Bento.tsx`).
-Wrapper de page : `min-h-[calc(100vh-80px)] px-4 py-12` + `max-w-* mx-auto`.
+Vocabulaire (globals.css) : `.card` (filet hairline discret, carré, 0 ombre), `.card-accent` (filet bleu gauche),
+`.btn-primary` (carré, aplat **encre**), `.btn-secondary` (carré fantôme),
+`.eyebrow`, `.ichip`(/`--line`), `.badge`, `.chip`/`.is-on`, `.stat`/`.n`/`.l`, `.tlink`,
+`GameIcon`, `ThemeToggle`. **Navigation** : `Sidebar` (rail, desktop) + `MobileTopBar` + **`BottomNav`**
+(onglets, seule nav mobile) ; **PWA** installable (`manifest.ts`, `public/sw.js`, `InstallBanner`).
+Mise en page **Bento** (`src/components/layout/Bento.tsx`). Wrapper : `PageWrapper`.
 
 ## Accessibilité
 
 Cible **WCAG 2.2 AA** : navigation clavier complète, `aria-live` pour scores/progression, focus
-visible (anneau rose `--ring` qui suit l'arrondi), info jamais portée par la seule couleur.
+visible (anneau vermillon `--ring`), info jamais portée par la seule couleur.
 
 ## Commandes
 

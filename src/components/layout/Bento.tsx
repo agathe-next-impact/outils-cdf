@@ -1,16 +1,15 @@
 import type { CSSProperties, ElementType, HTMLAttributes, ReactNode } from "react";
 
 /**
- * Primitif de mise en page « Bento » — grille modulaire de tuiles (cartes de la
- * charte), de tailles variées. Bâti sur `.card` : hérite donc des angles arrondis
- * et de l'ombre douce. Utilisé varié sur l'accueil/les collections, sobre (tuiles
- * régulières) sur les pages de texte.
+ * Primitif de mise en page « Bento » — grille modulaire Swiss, carrée, RÉGLÉE :
+ * pas de gouttière (`gap-0`), les tuiles se touchent et ne sont séparées que par
+ * leurs filets hairline très discrets (les « lignes » de la grille).
  *
  * NB : `.card` est du CSS non-layered (il l'emporte sur les utilitaires Tailwind),
  * d'où le `style` inline pour les fonds colorés des tuiles `accent`/`soft`.
  */
 
-/** Conteneur de grille : 1 col (mobile) → 2 (sm) → 3 (lg), tuiles d'égale hauteur par rangée. */
+/** Conteneur de grille réglée : 1 col (mobile) → 2 (sm) → 3 (lg), sans gouttière. */
 export function BentoGrid({
   children,
   className = "",
@@ -19,7 +18,7 @@ export function BentoGrid({
   className?: string;
 }) {
   return (
-    <div className={`grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 ${className}`}>
+    <div className={`grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3 ${className}`}>
       {children}
     </div>
   );
@@ -74,7 +73,7 @@ export function BentoBox({
     <Tag
       {...rest}
       className={`card animate-slide-up ${bentoSpan(span, tall)} ${
-        tone === "accent" ? "text-white" : ""
+        tone === "accent" ? "text-on-accent" : ""
       } ${className}`}
       style={{ animationDelay: `${index * 0.06}s`, ...toneStyle }}
     >

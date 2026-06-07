@@ -20,14 +20,14 @@ export default function MentionsLegalesPage() {
     <PageWrapper maxWidth="2xl">
       <header className="mb-6">
         <GameIcon name="scale" size={48} className="mb-2 text-accent" />
-        <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
+        <h1 className="font-heading text-3xl tracking-tight md:text-4xl">
           Mentions légales
         </h1>
       </header>
 
       <BentoGrid>
         <BentoBox as="section" span={3}>
-          <h2 className="mb-2 text-lg font-semibold">Éditeur</h2>
+          <h2 className="mb-2 text-lg">Éditeur</h2>
           <p className="text-base">
             {SITE.name} est édité par <strong>{EDITEUR.legalName}</strong>.
           </p>
@@ -50,12 +50,12 @@ export default function MentionsLegalesPage() {
         </BentoBox>
 
         <BentoBox as="section" span={3} index={1}>
-          <h2 className="mb-2 text-lg font-semibold">Hébergeur</h2>
+          <h2 className="mb-2 text-lg">Hébergeur</h2>
           <p className="text-base">{val(EDITEUR.hebergeur)}</p>
         </BentoBox>
 
         <BentoBox as="section" span={3} index={2}>
-          <h2 className="mb-2 text-lg font-semibold">Nature du service</h2>
+          <h2 className="mb-2 text-lg">Nature du service</h2>
           <p className="text-base">
             Plateforme d&apos;information et d&apos;auto-observation en libre accès. Les contenus
             sont fournis à titre informatif et éducatif. Ils ne constituent pas un avis médical et
@@ -64,7 +64,7 @@ export default function MentionsLegalesPage() {
         </BentoBox>
 
         <BentoBox as="section" span={3} index={3}>
-          <h2 className="mb-2 text-lg font-semibold">Sources et droits</h2>
+          <h2 className="mb-2 text-lg">Sources et droits</h2>
           <p className="text-base">
             Les outils s&apos;inspirent de guides, échelles et méthodes existants, crédités sur
             chaque page d&apos;outil. Les droits des œuvres originales appartiennent à leurs
@@ -73,7 +73,7 @@ export default function MentionsLegalesPage() {
         </BentoBox>
 
         <BentoBox as="section" span={3} index={4}>
-          <h2 className="mb-2 text-lg font-semibold">Données personnelles</h2>
+          <h2 className="mb-2 text-lg">Données personnelles</h2>
           <p className="text-base">
             Les outils ne collectent ni ne transmettent aucune donnée : vos saisies restent dans
             votre navigateur. Une éventuelle <Link className="text-info hover:underline" href="/contribuer">contribution</Link>{" "}

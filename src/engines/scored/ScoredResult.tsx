@@ -18,8 +18,8 @@ export function ScoredResult({ body, result }: { body: ScoredBody; result: Score
         iconName="sparkles"
         accent="blue"
       />
-      <div className="card border border-blue">
-        <h2 className="mb-3 text-xl font-semibold">Votre résultat</h2>
+      <div className="card border border-border">
+        <h2 className="mb-3 text-xl">Votre résultat</h2>
         <ProgressBar value={result.sum} max={total} variant="result" label="Score total" />
 
         {body.scoring.showMeanAndPercent ? (
@@ -32,12 +32,12 @@ export function ScoredResult({ body, result }: { body: ScoredBody; result: Score
 
         {result.band ? (
           <div
-            className={`mt-3 flex items-start gap-2 border p-3 text-sm ${attention ? "border-red" : "border-blue"}`}
+            className={`mt-3 flex items-start gap-2 border p-3 text-sm ${attention ? "border-danger" : "border-border"}`}
           >
             <GameIcon
               name={attention ? "alert-triangle" : "info"}
               size={20}
-              className={`mt-0.5 shrink-0 ${attention ? "text-red" : "text-blue"}`}
+              className={`mt-0.5 shrink-0 ${attention ? "text-danger" : "text-accent"}`}
             />
             <div>
               <p className="font-semibold">{result.band.label}</p>
@@ -57,7 +57,7 @@ export function ScoredResult({ body, result }: { body: ScoredBody; result: Score
 
       {result.subscores.length > 0 ? (
         <div className="card">
-          <h3 className="mb-1 text-lg font-semibold">Repères par dimension</h3>
+          <h3 className="mb-1 text-lg">Repères par dimension</h3>
           <p className="mb-3 text-xs text-muted">
             Indicateurs exploratoires, à interpréter avec prudence (non normés).
           </p>

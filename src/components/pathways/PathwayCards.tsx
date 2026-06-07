@@ -15,24 +15,22 @@ export function PathwayCards({ pathways }: { pathways: PathwaySummary[] }) {
           <Link
             key={p.id}
             href={`/parcours/${p.id}`}
-            className={`block h-full animate-slide-up transition-transform hover:scale-[1.01] ${bentoSpan(span)} ${FOCUS_RING}`}
+            className={`box link block h-full animate-slide-up border-l-[3px] border-l-accent ${bentoSpan(span)} ${FOCUS_RING}`}
             style={{ animationDelay: `${i * 0.05}s` }}
           >
-            <div className="flex items-center gap-2 rounded-t-[--radius-lg] bg-accent px-4 py-3 text-white">
-              <GameIcon name={p.iconName} size={24} className="text-white" aria-hidden />
-              <h3 className="font-heading text-lg font-semibold tracking-tight">{p.goal}</h3>
+            <div className="flex items-center gap-2">
+              <GameIcon name={p.iconName} size={24} className="text-accent" aria-hidden />
+              <h3 className="font-heading text-lg tracking-tight">{p.goal}</h3>
             </div>
-            <div className="rounded-b-[--radius-lg] border border-t-0 border-border p-4">
-              <p className="text-sm text-muted">{p.pitch}</p>
-              <p className="mt-3 flex items-center justify-between text-sm">
-                <span className="text-muted">
-                  {p.stepCount} étape{p.stepCount > 1 ? "s" : ""}
-                </span>
-                <span className="inline-flex items-center gap-1 font-semibold text-accent">
-                  Commencer <GameIcon name="arrow-right" size={16} aria-hidden />
-                </span>
-              </p>
-            </div>
+            <p className="mt-2 text-sm text-muted">{p.pitch}</p>
+            <p className="mt-3 flex items-center justify-between text-sm">
+              <span className="text-muted">
+                {p.stepCount} étape{p.stepCount > 1 ? "s" : ""}
+              </span>
+              <span className="tlink">
+                Commencer <GameIcon name="arrow-right" size={16} aria-hidden />
+              </span>
+            </p>
           </Link>
         );
       })}

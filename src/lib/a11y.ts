@@ -3,9 +3,9 @@
  * Focus doux : anneau bleu qui suit l'arrondi (jamais une ombre seule) — voir aussi globals.css.
  */
 
-/** Classe utilitaire de focus visible cohérente avec la charte. */
+/** Classe utilitaire de focus visible cohérente avec la charte (anneau bleu). */
 export const FOCUS_RING =
-  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-blue focus-visible:outline-offset-2";
+  "focus-visible:outline focus-visible:outline-2 focus-visible:outline-accent focus-visible:outline-offset-2";
 
 /**
  * Couleur sémantique (classes utilitaires) selon l'accent de l'outil, conforme à la
@@ -27,8 +27,8 @@ export function accentBg(accent: "yellow" | "red" | "blue"): string {
     case "yellow":
       return "bg-warning-soft text-foreground";
     case "red":
-      return "bg-danger text-white";
+      return "bg-danger text-on-accent";
     case "blue":
-      return "bg-info text-white";
+      return "bg-surface-2 text-foreground";
   }
 }

@@ -19,7 +19,7 @@ export function ChartFigure({
   return (
     <figure className="card">
       <figcaption>
-        <h3 className="text-lg font-semibold leading-tight">{title}</h3>
+        <h3 className="text-lg leading-tight">{title}</h3>
         {description ? <p className="mt-1 text-xs text-muted">{description}</p> : null}
       </figcaption>
       <div className="mt-3">{children}</div>

@@ -34,7 +34,7 @@ export function Header({
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-border bg-white">
+    <header className="sticky top-0 z-40 border-b border-border bg-card">
       <nav className="mx-auto flex h-14 max-w-5xl items-center justify-between px-4">
         <Link href="/" aria-label="Peer to Peer — accueil" className={`text-lg ${FOCUS_RING}`}>
           <Logo size={22} />
@@ -46,7 +46,7 @@ export function Header({
                 href={link.href}
                 aria-current={isActive(link.href) ? "page" : undefined}
                 className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${FOCUS_RING} ${
-                  isActive(link.href) ? "bg-accent text-white" : "text-muted hover:text-accent"
+                  isActive(link.href) ? "bg-surface-2 text-accent" : "text-muted hover:text-accent"
                 }`}
               >
                 {link.label}

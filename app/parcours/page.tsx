@@ -12,9 +12,9 @@ export const metadata: Metadata = {
 export default function PathwaysIndexPage() {
   const pathways = getPathwaySummaries();
   return (
-    <PageWrapper maxWidth="4xl">
+    <PageWrapper maxWidth="full">
       <header className="mb-8">
-        <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
+        <h1 className="font-heading text-3xl tracking-tight md:text-4xl">
           Par où commencer&nbsp;?
         </h1>
         <p className="mt-2 text-base text-muted">

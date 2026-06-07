@@ -45,7 +45,7 @@ export function SessionPanel({
     <BentoBox as="section" span={span} index={index}>
       <div className="mb-2 flex items-center gap-2">
         <GameIcon name="clipboard-check" size={20} className="text-accent" aria-hidden />
-        <h2 className="text-lg font-semibold leading-none">Votre session</h2>
+        <h2 className="text-lg leading-none">Votre session</h2>
       </div>
 
       {!hydrated ? (
@@ -88,7 +88,7 @@ export function SessionPanel({
                     resetAll();
                     setConfirming(false);
                   }}
-                  className={`bg-danger px-3 py-1 font-semibold text-white ${FOCUS_RING}`}
+                  className={`bg-danger px-3 py-1 font-semibold text-on-accent ${FOCUS_RING}`}
                 >
                   Oui, tout effacer
                 </button>

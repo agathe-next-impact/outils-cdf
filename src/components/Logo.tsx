@@ -2,8 +2,8 @@ import { SITE } from "@/config/site";
 
 /**
  * Logo « Peer to Peer » — adapté du monogramme Next Impact : un carré plein
- * (couleur de marque terracotta) signé d'un point clair, accolé au wordmark en
- * serif éditoriale (Newsreader). Angles doux et ombres discrètes à l'échelle UI.
+ * en accent bleu, signé d'un point clair (sur l'aplat), accolé au wordmark
+ * en Instrument Sans (titres).
  *
  * Purement présentationnel (aucun hook) → utilisable côté serveur et client.
  */
@@ -20,14 +20,14 @@ export function Logo({
 }) {
   return (
     <span className={`inline-flex items-center gap-2 ${className}`}>
-      {/* Carré de marque orange + point blanc (écho du « . » du monogramme NI). */}
+      {/* Carré de marque bleu + point clair (écho du « . » du monogramme NI). */}
       <span
         aria-hidden
         className="relative inline-block shrink-0 bg-accent"
         style={{ width: size, height: size }}
       >
         <span
-          className="absolute bg-white"
+          className="absolute bg-on-accent"
           style={{
             width: Math.max(2, size * 0.18),
             height: Math.max(2, size * 0.18),

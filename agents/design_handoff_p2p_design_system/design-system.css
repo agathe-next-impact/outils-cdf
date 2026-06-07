@@ -1,0 +1,194 @@
+/* ============================================================
+   Peer to Peer — Design System
+   Tokens + base components. Framework-agnostic CSS custom properties.
+
+   Identity:  Editorial · grayscale + single vermillion accent
+   Type:      Newsreader (display / serif) + Hanken Grotesk (body / sans)
+   Geometry:  Net (sharp — 5px / 4px radii, 1px hairline borders, no shadow)
+   Modes:     Light (default) + Dark
+
+   HOW TO USE
+   1. Load the two webfonts (see @import below, or self-host).
+   2. Apply tokens to :root (light) and [data-theme="dark"] (dark).
+      Dark also auto-applies via prefers-color-scheme when no attribute is set.
+   3. Style your components with var(--token) — never hardcode hex.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ---------- LIGHT (default) ---------- */
+:root {
+  /* Surfaces (grayscale only) */
+  --bg:          #E9E9E9;  /* page background        */
+  --surface:     #F7F7F7;  /* card / panel           */
+  --surface-2:   #E7E7E7;  /* inset / secondary card */
+  --tint:        #DEDEDE;  /* subtle fill            */
+
+  /* Text */
+  --ink:         #171717;  /* primary text           */
+  --ink-soft:    #565656;  /* secondary text         */
+  --ink-faint:   #8A8A8A;  /* tertiary / captions    */
+
+  /* Lines */
+  --line:        #DADADA;  /* hairline border        */
+  --line-strong: #C4C4C4;  /* hover / emphasis border*/
+
+  /* Accent — the ONLY non-gray color */
+  --accent:      #D83A1A;  /* vermillion             */
+  --accent-deep: #B22E12;  /* pressed / deep         */
+  --accent-soft: #E6E6E6;  /* icon-chip bg (kept gray)*/
+  --on-accent:   #FFFFFF;  /* text/icon on accent    */
+
+  /* Inverse block (hero / filled dark panel) */
+  --hero-bg:     #181818;
+  --hero-ink:    #ECECEC;
+  --hero-line:   #2F2F2F;
+
+  /* Category-secondary (kept neutral) */
+  --second:      #2A2A2A;
+  --second-soft: #E0E0E0;
+
+  /* Typography */
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body:    'Hanken Grotesk', system-ui, sans-serif;
+  --display-weight: 500;
+
+  /* Geometry — Net */
+  --radius:    5px;   /* cards, panels, inputs */
+  --radius-sm: 4px;   /* chips, icons, swatches */
+  --border:    1px;   /* hairline weight       */
+
+  /* Motion */
+  --ease: cubic-bezier(.2,.6,.2,1);
+}
+
+/* ---------- DARK ---------- */
+:root[data-theme="dark"],
+[data-theme="dark"] {
+  --bg:          #0F0F0F;
+  --surface:     #191919;
+  --surface-2:   #202020;
+  --tint:        #262626;
+
+  --ink:         #ECECEC;
+  --ink-soft:    #A6A6A6;
+  --ink-faint:   #6E6E6E;
+
+  --line:        #2C2C2C;
+  --line-strong: #3C3C3C;
+
+  --accent:      #E8472A;  /* lifted for contrast on dark */
+  --accent-deep: #C42E12;
+  --accent-soft: #242424;  /* dark neutral chip bg        */
+  --on-accent:   #FFFFFF;
+
+  --hero-bg:     #000000;
+  --hero-ink:    #ECECEC;
+  --hero-line:   #2A2A2A;
+
+  --second:      #ECECEC;
+  --second-soft: #242424;
+}
+
+/* Auto dark when the OS prefers it and no explicit theme is set */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#0F0F0F; --surface:#191919; --surface-2:#202020; --tint:#262626;
+    --ink:#ECECEC; --ink-soft:#A6A6A6; --ink-faint:#6E6E6E;
+    --line:#2C2C2C; --line-strong:#3C3C3C;
+    --accent:#E8472A; --accent-deep:#C42E12; --accent-soft:#242424; --on-accent:#FFFFFF;
+    --hero-bg:#000000; --hero-ink:#ECECEC; --hero-line:#2A2A2A;
+    --second:#ECECEC; --second-soft:#242424;
+  }
+}
+
+/* ============================================================
+   BASE
+   ============================================================ */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+a { color: inherit; text-decoration: none; }
+
+/* Type scale (display = serif, fluid) */
+.t-display { font-family: var(--font-display); font-weight: var(--display-weight);
+             font-size: clamp(40px, 5vw, 60px); line-height: .98; letter-spacing: -0.02em; }
+.t-h2 { font-family: var(--font-display); font-size: clamp(24px, 2.4vw, 32px); }
+.t-h3 { font-family: var(--font-display); font-size: 20px; }
+.t-num { font-family: var(--font-display); font-size: 40px; line-height: 1; color: var(--accent); }
+.t-body { font-size: 14px; color: var(--ink-soft); }
+.eyebrow { font-family: var(--font-body); font-size: 11px; font-weight: 600;
+           letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+
+/* Bento card (the core surface). Compose sizes with a 12-col grid. */
+.box {
+  background: var(--surface);
+  border: var(--border) solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  display: flex; flex-direction: column;
+  transition: border-color .2s var(--ease), transform .2s var(--ease);
+}
+.box.is-link:hover { border-color: var(--line-strong); transform: translateY(-2px); }
+.box--inset  { background: var(--surface-2); }
+.box--soft   { background: var(--accent-soft); border-color: transparent; }
+.box--fill   { background: var(--hero-bg); color: var(--hero-ink); border-color: var(--hero-line); }
+.box--accent { background: var(--accent); color: var(--on-accent); border-color: transparent; }
+
+/* 12-column bento grid */
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+.c3{grid-column:span 3}.c4{grid-column:span 4}.c5{grid-column:span 5}
+.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}
+.c9{grid-column:span 9}.c12{grid-column:span 12}.r2{grid-row:span 2}
+@media (max-width: 1080px){ .bento{grid-template-columns:repeat(6,1fr)} .c7,.c8,.c9,.c12{grid-column:1/-1} }
+@media (max-width: 720px){ .bento{grid-template-columns:1fr} .bento>*{grid-column:1/-1!important} }
+
+/* Pill buttons */
+.btn { display:inline-flex; align-items:center; gap:8px; padding:11px 20px;
+  border-radius:999px; font-weight:600; font-size:14px; border:var(--border) solid transparent;
+  transition: color .18s var(--ease), border-color .18s var(--ease), opacity .18s var(--ease); }
+.btn--primary { background: var(--ink); color: var(--bg); }
+.box--fill .btn--primary { background: var(--on-accent); color: #111; }
+.btn--ghost { border-color: currentColor; color: inherit; opacity:.9; }
+.btn--ghost:hover { opacity: 1; }
+
+/* Text link with arrow */
+.tlink { display:inline-flex; align-items:center; gap:7px; font-weight:600; font-size:13.5px; color: var(--accent); }
+
+/* Icon chip (gray bg, accent glyph — the single color pop) */
+.ichip { width:40px; height:40px; border-radius: var(--radius-sm); flex:none;
+  display:grid; place-items:center; color: var(--accent); background: var(--accent-soft); }
+.ichip--line { background: transparent; border: var(--border) solid var(--line); }
+
+/* Badge / tag */
+.badge { display:inline-flex; align-items:center; gap:5px; white-space:nowrap;
+  font-size:11.5px; font-weight:500; padding:4px 9px; border-radius:999px;
+  border: var(--border) solid var(--line); color: var(--ink-soft); background: var(--surface); }
+
+/* Filter chip */
+.chip { padding:7px 13px; border-radius:999px; font-size:13px; font-weight:500;
+  border: var(--border) solid var(--line); background: var(--surface); color: var(--ink-soft); }
+.chip.is-on { background: var(--accent); border-color: var(--accent); color: var(--on-accent); }
+
+/* Stat tile */
+.stat { background: var(--surface); border: var(--border) solid var(--line);
+  border-radius: var(--radius-sm); padding: 16px 14px; text-align: center; }
+.stat .n { font-family: var(--font-display); font-size: 40px; line-height: 1; color: var(--accent); }
+.stat .l { font-size: 11.5px; color: var(--ink-soft); margin-top: 6px; }

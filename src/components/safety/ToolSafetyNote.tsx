@@ -21,14 +21,14 @@ export function ToolSafetyNote({
       role="note"
       aria-label="À savoir avant de commencer"
     >
-      <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-blue" aria-hidden />
+      <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-accent" aria-hidden />
       <div className="space-y-1">
         <p>{d.long}</p>
         <p className="text-muted">
           Vos réponses restent dans cet onglet, ne sont jamais envoyées sur Internet, et
           s&apos;effacent à sa fermeture. Pensez à <strong>exporter</strong> pour en garder une
           trace.{" "}
-          <Link className="text-blue hover:underline" href="/confidentialite">
+          <Link className="text-accent hover:underline" href="/confidentialite">
             En savoir plus
           </Link>
           .

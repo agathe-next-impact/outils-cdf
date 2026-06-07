@@ -29,11 +29,11 @@ export function WorksheetEditor({ definition }: { definition: WorksheetDefinitio
 
   return (
     <div className="space-y-6">
-      <ContentRenderer blocks={definition.intro} className="card border border-blue" />
+      <ContentRenderer blocks={definition.intro} className="card border border-border" />
 
       {definition.sections.map((section) => (
         <section key={section.id} className="card">
-          <h2 className="mb-2 text-xl font-semibold">{section.title}</h2>
+          <h2 className="mb-2 text-xl">{section.title}</h2>
           {section.intro ? <ContentRenderer blocks={section.intro} className="mb-3" /> : null}
           <div className="space-y-5">
             {(section.fields ?? []).map((f) => (

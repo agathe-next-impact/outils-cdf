@@ -183,7 +183,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
                 aria-pressed={on}
                 onClick={() => toggle(o.value)}
                 className={`border px-3 py-1 text-sm font-semibold ${FOCUS_RING} ${
-                  on ? "border-accent bg-accent-soft text-foreground" : "border-border text-muted hover:text-accent"
+                  on ? "border-accent bg-surface-2 text-foreground" : "border-border text-muted hover:text-accent"
                 }`}
               >
                 {o.label}
@@ -247,7 +247,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
                   aria-label={`Retirer ${t}`}
                   className={FOCUS_RING}
                 >
-                  <GameIcon name="x" size={14} className="text-red" />
+                  <GameIcon name="x" size={14} className="text-danger" />
                 </button>
               </li>
             ))}
@@ -291,7 +291,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
                 <button
                   type="button"
                   onClick={() => removeRow(row["_id"] ?? null)}
-                  className={`text-red hover:underline ${FOCUS_RING}`}
+                  className={`text-danger hover:underline ${FOCUS_RING}`}
                   aria-label={`Supprimer la ligne ${ri + 1}`}
                 >
                   <GameIcon name="trash-2" size={16} />

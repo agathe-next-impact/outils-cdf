@@ -7,8 +7,8 @@
  */
 import { useEffect, useState } from "react";
 
-// Palette gris + rose (template dashboard) — célébration discrète.
-const COLORS = ["#f9a8d4", "#db2777", "#f472b6", "#fbcfe8", "#9ca3af"];
+// Palette resserrée : rose + crème, un soupçon de gris-bleu, gris — discret.
+const COLORS = ["#a05f5d", "#c99d9c", "#e7d6c2", "#a4b1b7", "#9b978f"];
 
 interface Particle {
   id: number;

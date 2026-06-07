@@ -4,9 +4,9 @@ function Block({ block }: { block: NeutralBlock }) {
   switch (block.kind) {
     case "heading":
       return block.level === 2 ? (
-        <h3 className="mt-3 text-lg font-semibold">{block.text}</h3>
+        <h3 className="mt-3 text-lg">{block.text}</h3>
       ) : (
-        <h4 className="mt-2 text-base font-semibold">{block.text}</h4>
+        <h4 className="mt-2 text-base">{block.text}</h4>
       );
     case "text":
       return <p className="my-1 whitespace-pre-wrap text-base">{block.text}</p>;
@@ -97,7 +97,7 @@ export function NeutralView({ doc }: { doc: NeutralDocument }) {
     <div className="space-y-4">
       {doc.sections.map((section, i) => (
         <section key={i} className="card">
-          <h2 className="mb-2 text-lg font-semibold">{section.heading}</h2>
+          <h2 className="mb-2 text-lg">{section.heading}</h2>
           {section.blocks.map((block, j) => (
             <Block key={j} block={block} />
           ))}

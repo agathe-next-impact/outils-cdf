@@ -1,12 +1,13 @@
 import GameIcon from "@/components/GameIcon";
 
-type MaxWidth = "md" | "lg" | "2xl" | "4xl";
+type MaxWidth = "md" | "lg" | "2xl" | "4xl" | "full";
 
 const MAX_WIDTH: Record<MaxWidth, string> = {
   md: "max-w-md",
   lg: "max-w-lg",
   "2xl": "max-w-2xl",
   "4xl": "max-w-4xl",
+  full: "max-w-none", // pleine largeur de page (bento dashboard) — reste responsive
 };
 
 interface PageWrapperProps {
@@ -21,7 +22,7 @@ export function PageWrapper({ children, maxWidth = "2xl", decor }: PageWrapperPr
     <main
       id="contenu"
       tabIndex={-1}
-      className="relative min-h-[calc(100vh-80px)] overflow-hidden px-4 py-12 focus:outline-none"
+      className="relative min-h-[calc(100vh-80px)] overflow-hidden px-4 py-12 focus:outline-none sm:px-6 lg:px-8"
     >
       {decor?.[0] ? (
         <GameIcon

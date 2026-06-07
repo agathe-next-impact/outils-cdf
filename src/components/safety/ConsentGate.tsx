@@ -27,10 +27,10 @@ export function ConsentGate({ slug, sensitivity, disclaimerKey, children }: Cons
 
   const d = getDisclaimer(disclaimerKey);
   return (
-    <div className="card animate-slide-up border border-blue">
+    <div className="card animate-slide-up border border-border">
       <div className="mb-2 flex items-center gap-2">
-        <GameIcon name="shield-check" size={24} className="text-blue" />
-        <h2 className="text-lg font-semibold">Avant de commencer</h2>
+        <GameIcon name="shield-check" size={24} className="text-accent" />
+        <h2 className="text-lg">Avant de commencer</h2>
       </div>
       <p className="mb-3 text-sm">{d.long}</p>
       <p className="mb-3 text-sm">

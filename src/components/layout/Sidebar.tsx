@@ -1,10 +1,10 @@
 "use client";
 
 /**
- * Sidebar — barre latérale fixe façon « dashboard » (inspirée du template
- * smart-home) : rail d'icônes à gauche, pastille d'accent sur l'item actif,
- * tooltips au survol, logo en haut, À propos + bascule de thème en bas.
- * Affichée à partir de `lg` ; en deçà, c'est le `Header` qui prend le relais.
+ * Sidebar — barre latérale fixe éditoriale : rail d'icônes à gauche, pastille
+ * d'accent bleu sur l'item actif, tooltips au survol, logo en haut,
+ * À propos + bascule de thème en bas.
+ * Affichée à partir de `lg` ; en deçà, c'est la BottomNav qui prend le relais.
  */
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -35,9 +35,9 @@ function SidebarLink({ item, active }: { item: NavItem; active: boolean }) {
       href={item.href}
       aria-label={item.label}
       aria-current={active ? "page" : undefined}
-      className={`group relative flex h-12 w-12 items-center justify-center rounded-xl transition-colors ${FOCUS_RING} ${
+      className={`group relative flex h-12 w-12 items-center justify-center rounded-[4px] transition-colors ${FOCUS_RING} ${
         active
-          ? "bg-accent text-accent-ink"
+          ? "bg-surface-2 text-accent"
           : "text-muted hover:bg-border hover:text-foreground"
       }`}
     >

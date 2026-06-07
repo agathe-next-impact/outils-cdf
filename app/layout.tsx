@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, JetBrains_Mono } from "next/font/google";
+import { Instrument_Sans, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Sidebar } from "@/components/layout/Sidebar";
@@ -16,9 +16,17 @@ const BIP_CAPTURE =
   "window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();" +
   "window.__deferredBip=e;window.dispatchEvent(new Event('bip-ready'));});";
 
-// Typographie du template « smart home dashboard » : Inter (UI) + JetBrains Mono.
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrains-mono" });
+// Typographie : Instrument Sans (titres) + Hanken Grotesk (corps).
+const instrument = Instrument_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-instrument",
+});
+const hanken = Hanken_Grotesk({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-hanken",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
@@ -39,8 +47,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover", // étend sous l'encoche → safe-area exploitable
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
-    { media: "(prefers-color-scheme: dark)", color: "#030712" },
+    { media: "(prefers-color-scheme: light)", color: "#f6f5f3" },
+    { media: "(prefers-color-scheme: dark)", color: "#161513" },
   ],
 };
 
@@ -50,14 +58,14 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${inter.variable} ${jetbrainsMono.variable}`}
+      className={`${instrument.variable} ${hanken.variable}`}
       suppressHydrationWarning
     >
       <body className="antialiased min-h-screen transition-colors duration-300">
         <script dangerouslySetInnerHTML={{ __html: BIP_CAPTURE }} />
         <a
           href="#contenu"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-accent focus:px-3 focus:py-2 focus:font-medium focus:text-white"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-foreground focus:px-3 focus:py-2 focus:font-medium focus:text-background"
         >
           Aller au contenu
         </a>

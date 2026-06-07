@@ -23,13 +23,13 @@ function BlockView({ block }: { block: ContentBlock }) {
       const attention = block.tone === "attention";
       return (
         <div
-          className={`my-3 flex items-start gap-3 border p-3 text-sm ${attention ? "border-red" : "border-blue"}`}
+          className={`my-3 flex items-start gap-3 border p-3 text-sm ${attention ? "border-danger" : "border-border"}`}
           role="note"
         >
           <GameIcon
             name={block.iconName ?? (attention ? "alert-triangle" : "info")}
             size={20}
-            className={`mt-0.5 shrink-0 ${attention ? "text-red" : "text-blue"}`}
+            className={`mt-0.5 shrink-0 ${attention ? "text-danger" : "text-accent"}`}
           />
           <p>{block.text}</p>
         </div>
@@ -39,14 +39,14 @@ function BlockView({ block }: { block: ContentBlock }) {
       return (
         <div className="my-3 space-y-2 text-sm">
           {block.good ? (
-            <div className="flex items-start gap-2 border border-blue p-2">
-              <GameIcon name="check" size={18} className="mt-0.5 shrink-0 text-blue" />
+            <div className="flex items-start gap-2 border border-border p-2">
+              <GameIcon name="check" size={18} className="mt-0.5 shrink-0 text-accent" />
               <p>{block.good}</p>
             </div>
           ) : null}
           {block.avoid ? (
-            <div className="flex items-start gap-2 border border-red p-2">
-              <GameIcon name="x" size={18} className="mt-0.5 shrink-0 text-red" />
+            <div className="flex items-start gap-2 border border-danger p-2">
+              <GameIcon name="x" size={18} className="mt-0.5 shrink-0 text-danger" />
               <p>{block.avoid}</p>
             </div>
           ) : null}

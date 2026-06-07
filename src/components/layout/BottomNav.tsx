@@ -50,8 +50,8 @@ export function BottomNav() {
                 }`}
               >
                 <span
-                  className={`flex h-9 w-9 items-center justify-center rounded-xl transition-colors ${
-                    active ? "bg-accent text-accent-ink" : ""
+                  className={`flex h-9 w-9 items-center justify-center rounded-[4px] transition-colors ${
+                    active ? "bg-surface-2 text-accent" : ""
                   }`}
                 >
                   <GameIcon name={item.icon} size={20} strokeWidth={1.75} aria-hidden />

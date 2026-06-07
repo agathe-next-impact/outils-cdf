@@ -21,7 +21,7 @@ export function ResetButton({ slug, label = "Effacer mes réponses", className }
         <span>Effacer définitivement&nbsp;?</span>
         <button
           type="button"
-          className={`bg-danger px-3 py-1 font-semibold text-white ${FOCUS_RING}`}
+          className={`bg-danger px-3 py-1 font-semibold text-on-accent ${FOCUS_RING}`}
           onClick={() => {
             resetTool(slug);
             setConfirming(false);

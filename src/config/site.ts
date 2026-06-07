@@ -66,6 +66,15 @@ export const CONTRIBUTION = {
   ],
 
   /**
+   * Portail client Stripe (no-code) : page hébergée où l'abonné·e gère ou
+   * résilie son abonnement (« login link » du Customer Portal, Réglages →
+   * Facturation → Portail client). Tant que cette URL est vide, le lien
+   * « Gérer / résilier » n'apparaît pas sur le site (jamais de lien mort).
+   * ⚠️ Coller l'URL réelle, au format https://billing.stripe.com/p/login/...
+   */
+  manageUrl: "https://billing.stripe.com/p/login/cNi00i1y385716i5gbaVa00",
+
+  /**
    * Jauge de collecte. ⚠️ Valeurs STATIQUES mises à jour À LA MAIN
    * (relever le total sur le tableau de bord du prestataire, puis éditer ici).
    * Aucune donnée n'est tirée en direct : l'app reste 100 % front, sans `fetch`

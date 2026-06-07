@@ -59,12 +59,12 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
         <div className="space-y-4">
           <button
             type="button"
-            className={`inline-flex items-center gap-1 text-sm text-blue hover:underline ${FOCUS_RING}`}
+            className={`inline-flex items-center gap-1 text-sm text-accent hover:underline ${FOCUS_RING}`}
             onClick={() => setUi({ openSegmentId: null })}
           >
             <GameIcon name="arrow-left" size={16} /> Retour aux modules
           </button>
-          <h2 className="text-xl font-semibold">{entry.seg.title}</h2>
+          <h2 className="text-xl">{entry.seg.title}</h2>
           <SegmentRunner definition={entry.def} />
         </div>
       );
@@ -94,7 +94,7 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
 
   return (
     <div className="space-y-6">
-      <ContentRenderer blocks={definition.intro} className="card border border-blue" />
+      <ContentRenderer blocks={definition.intro} className="card border border-border" />
 
       {allDone ? (
         <Celebration
@@ -131,7 +131,7 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
                   </span>
                 ) : null}
               </div>
-              <h3 className="mb-1 text-lg font-semibold">{seg.title}</h3>
+              <h3 className="mb-1 text-lg">{seg.title}</h3>
               {seg.summary ? <p className="text-sm text-muted">{seg.summary}</p> : null}
               <div className="mt-3">
                 {unlocked ? (
@@ -167,7 +167,7 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
           <span>Tout réinitialiser, modules compris&nbsp;?</span>
           <button
             type="button"
-            className={`bg-danger px-3 py-1 font-semibold text-white ${FOCUS_RING}`}
+            className={`bg-danger px-3 py-1 font-semibold text-on-accent ${FOCUS_RING}`}
             onClick={resetAll}
           >
             Oui, effacer

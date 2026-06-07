@@ -53,13 +53,13 @@ export function WizardRunner({ definition }: { definition: WizardDefinition }) {
   return (
     <div className="space-y-6">
       {index === 0 ? (
-        <ContentRenderer blocks={definition.intro} className="card border border-blue" />
+        <ContentRenderer blocks={definition.intro} className="card border border-border" />
       ) : null}
 
       <ProgressBar value={index + 1} max={total} label={`Étape ${index + 1} sur ${total}`} />
 
       <section key={step.id} className="card animate-slide-up">
-        <h2 className="mb-1 text-xl font-semibold">{step.title}</h2>
+        <h2 className="mb-1 text-xl">{step.title}</h2>
         {step.intro ? <ContentRenderer blocks={step.intro} className="mb-4" /> : null}
         <div className="space-y-5">
           {step.fields.map((field) => (
