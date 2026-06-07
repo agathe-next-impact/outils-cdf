@@ -1,7 +1,7 @@
 ---
 name: session-export-guard
 description: >-
-  Vérifie l'invariant de confidentialité de Comme des Fous : AUCUNE donnée saisie n'est envoyée sur
+  Vérifie l'invariant de confidentialité de Peer to Peer : AUCUNE donnée saisie n'est envoyée sur
   le réseau, tout passe par sessionStorage, et chaque outil exporte fidèlement son état (parité
   état↔export). Lecture seule + rapport. Utiliser pour « vérifie qu'aucune donnée ne fuit »,
   « contrôle l'export de X ».

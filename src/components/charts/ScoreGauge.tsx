@@ -55,20 +55,20 @@ export function ScoreGauge({
               dataKey="value"
               angleAxisId={0}
               background={{ fill: TRACK }}
-              cornerRadius={0}
+              cornerRadius={6}
               fill={color}
               isAnimationActive={animate}
             />
           </RadialBarChart>
         </ResponsiveContainer>
         <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center">
-          <span className="font-heading text-3xl font-black leading-none">
+          <span className="font-heading text-3xl font-semibold leading-none">
             {unit ? `${value}${unit}` : `${value} / ${max}`}
           </span>
           {bandLabel ? (
             <span
-              className={`mt-1 text-xs font-bold uppercase tracking-wide ${
-                bandTone === "attention" ? "text-red" : "text-blue"
+              className={`mt-1 text-xs font-medium ${
+                bandTone === "attention" ? "text-danger" : "text-muted"
               }`}
             >
               {bandLabel}

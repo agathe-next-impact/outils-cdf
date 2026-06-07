@@ -64,7 +64,7 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
           >
             <GameIcon name="arrow-left" size={16} /> Retour aux modules
           </button>
-          <h2 className="text-xl font-black uppercase">{entry.seg.title}</h2>
+          <h2 className="text-xl font-semibold">{entry.seg.title}</h2>
           <SegmentRunner definition={entry.def} />
         </div>
       );
@@ -104,7 +104,7 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
           accent="blue"
         />
       ) : (
-        <p className="text-sm font-bold uppercase tracking-wide text-blue">
+        <p className="text-sm font-semibold tracking-wide text-info">
           {doneCount} / {total} modules explorés
         </p>
       )}
@@ -116,23 +116,23 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
           return (
             <div
               key={seg.id}
-              className={`card border ${done ? "border-blue" : "border-black"} animate-slide-up`}
+              className={`card animate-slide-up ${done ? "border-success" : ""}`}
               style={{ animationDelay: `${i * 0.05}s` }}
             >
               <div className="mb-2 flex items-center justify-between">
                 <GameIcon
                   name={seg.iconName ?? definition.iconName}
                   size={32}
-                  className={done ? "text-blue" : "text-black"}
+                  className={done ? "text-success" : "text-muted"}
                 />
                 {done ? (
-                  <span className="flex items-center gap-1 text-xs font-bold uppercase text-blue">
+                  <span className="flex items-center gap-1 text-xs font-semibold text-success">
                     <GameIcon name="check-circle-2" size={16} /> Terminé
                   </span>
                 ) : null}
               </div>
-              <h3 className="mb-1 text-lg font-black uppercase">{seg.title}</h3>
-              {seg.summary ? <p className="text-sm text-black/70">{seg.summary}</p> : null}
+              <h3 className="mb-1 text-lg font-semibold">{seg.title}</h3>
+              {seg.summary ? <p className="text-sm text-muted">{seg.summary}</p> : null}
               <div className="mt-3">
                 {unlocked ? (
                   <button
@@ -143,7 +143,7 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
                     {done ? "Revoir" : "Ouvrir"}
                   </button>
                 ) : (
-                  <span className="flex items-center gap-1 text-sm text-black/50">
+                  <span className="flex items-center gap-1 text-sm text-muted">
                     <GameIcon name="lock" size={16} /> À débloquer
                   </span>
                 )}
@@ -167,14 +167,14 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
           <span>Tout réinitialiser, modules compris&nbsp;?</span>
           <button
             type="button"
-            className={`bg-red px-3 py-1 font-bold uppercase text-black ${FOCUS_RING}`}
+            className={`bg-danger px-3 py-1 font-semibold text-white ${FOCUS_RING}`}
             onClick={resetAll}
           >
             Oui, effacer
           </button>
           <button
             type="button"
-            className={`border border-black px-3 py-1 ${FOCUS_RING}`}
+            className={`border border-border px-3 py-1 ${FOCUS_RING}`}
             onClick={() => setConfirming(false)}
           >
             Annuler
@@ -183,7 +183,7 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
       ) : (
         <button
           type="button"
-          className={`flex items-center gap-2 border border-black px-3 py-1 text-sm hover:text-red ${FOCUS_RING}`}
+          className={`flex items-center gap-2 border border-border px-3 py-1 text-sm hover:text-danger ${FOCUS_RING}`}
           onClick={() => setConfirming(true)}
         >
           <GameIcon name="trash-2" size={16} /> Tout réinitialiser

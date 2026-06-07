@@ -1,7 +1,12 @@
 /* =============================================================================
- * Charte UI/UX « Comme des Fous » — feuille de style (Tailwind v4)
- * Source de vérité : .claude/design-system/DESIGN_SYSTEM.md
- * NE PAS supprimer le reset radius/shadow ni les variables de thème.
+ * Identité visuelle « Peer to Peer » (édité par Next Impact) — Tailwind v4
+ * Système : SMART HOME DASHBOARD (sombre-first, plat, grands rayons).
+ *   - Profondeur : angles arrondis larges (1–1.25rem), surfaces plates (ombres très discrètes).
+ *   - Base gris (blanc en clair, gray-950 en sombre) + accent ROSE (pink), AA garantie.
+ *   - Typo : Inter (titres ET corps) + JetBrains Mono (code/valeurs).
+ *   - Navigation par barre latérale fixe (Sidebar) ; mouvement lent, prefers-reduced-motion respecté.
+ * Conçu pour un public en situation de vulnérabilité : calme, lisible, rassurant.
+ * NE PAS réintroduire le reset carré/zéro-ombre : il a été remplacé volontairement.
  * ========================================================================== */
 
 @import "tailwindcss";
@@ -10,195 +15,229 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-yellow: oklch(82.8% 0.189 84.429); /* ~ #f5c400 */
-  --color-red: oklch(63.7% 0.237 25.331);    /* ~ #d63a3a */
-  --color-blue: oklch(62.3% 0.214 259.815);  /* ~ #3a6ed6 */
-  --color-black: var(--foreground);          /* alias inversible ! */
-  --color-white: var(--background);          /* alias inversible ! */
-  --font-sans: var(--font-open-sans), 'Open Sans', system-ui, sans-serif;
-  --font-heading: var(--font-belanosima), 'Belanosima', sans-serif;
-  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+  --color-card: var(--card-bg);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+
+  /* Couleurs sémantiques (thème-conscientes, définies plus bas) */
+  --color-accent: var(--accent);        /* rose : marque + action primaire        */
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-strong: var(--accent-strong); /* rose foncé : appui/emphase       */
+  --color-accent-ink: var(--accent-ink);       /* texte posé SUR un aplat d'accent */
+  --color-info: var(--info);            /* = accent (gris + rose, pas de bleu)    */
+  --color-success: var(--success);      /* = accent (pas de vert) + icône/libellé */
+  --color-success-soft: var(--success-soft);
+  --color-warning: var(--warning);      /* ambre : mise en avant (fond + texte foncé) */
+  --color-warning-soft: var(--warning-soft);
+  --color-danger: var(--danger);        /* rouge : alerte, erreur                 */
+  --color-danger-soft: var(--danger-soft);
+
+  /* Alias de compatibilité : l'ancienne palette pointe vers la nouvelle.
+     Le markup existant (bg-red, text-blue, bg-orange…) continue de fonctionner,
+     en rendant désormais les teintes apaisées. À migrer progressivement vers
+     les noms sémantiques (accent/info/success/warning/danger). */
+  --color-orange: var(--accent);
+  --color-yellow: var(--warning);
+  --color-red: var(--danger);
+  --color-blue: var(--info);
+  --color-black: var(--foreground);     /* alias inversible (suit le thème) */
+  --color-white: var(--background);     /* alias inversible (suit le thème) */
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-heading: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'Cascadia Code', monospace;
 }
 
-/* --- Thèmes (clair par défaut, sombre via .dark de next-themes) ------------ */
+/* --- Thème clair (par défaut) — base neutre blanc/gris + accents chauds ---- */
 :root {
   --background: #ffffff;
-  --foreground: #000000;
-  --card-bg: #ffffff;
+  --foreground: #111827;   /* gray-900 (texte)            */
+  --card-bg:    #ffffff;
+  --border:     #e5e7eb;   /* gray-200 (séparateurs)      */
+  --muted:      #4b5563;   /* gray-600 (texte secondaire, AA) */
+
+  --accent:        #db2777;  --accent-soft:  #fce7f3;  --accent-ink:  #ffffff;  /* rose (pink-600) */
+  --accent-strong: #9d174d;  /* pink-800 : appui/emphase forte */
+  --info:          #db2777;  /* = accent (palette gris + rose) */
+  --success:       #db2777;  --success-soft: #fce7f3;  /* = accent + icône/libellé */
+  --warning:       #fbbf24;  --warning-soft: #fef3c7;  /* ambre : fond + texte foncé, jamais en texte sur blanc */
+  --danger:        #dc2626;  --danger-soft:  #fee2e2;  --danger-ink:  #ffffff;
+
+  --ring: #db2777;
+
+  /* Rayons larges (dashboard), surfaces plates */
+  --radius-sm: 0.75rem;
+  --radius:    1rem;
+  --radius-lg: 1.25rem;
+  --shadow-sm: 0 1px 2px rgba(17, 24, 39, 0.05);
+  --shadow:    0 4px 16px rgba(17, 24, 39, 0.08);
 }
 
+/* --- Thème sombre (gray-950, via .dark de next-themes) — le rendu du template - */
 .dark {
-  --background: #000000;
+  --background: #030712;   /* gray-950 */
   --foreground: #ffffff;
-  --card-bg: #111111;
+  --card-bg:    #111827;   /* gray-900 */
+  --border:     #1f2937;   /* gray-800 */
+  --muted:      #9ca3af;   /* gray-400 */
+
+  --accent:        #f9a8d4;  --accent-soft:  #500724;  --accent-ink:  #111827;  /* rose pastel (pink-300) */
+  --accent-strong: #fbcfe8;
+  --info:          #f9a8d4;
+  --success:       #f9a8d4;  --success-soft: #500724;
+  --warning:       #fcd34d;  --warning-soft: #422006;
+  --danger:        #f87171;  --danger-soft:  #450a0a;  --danger-ink:  #111827;
+
+  --ring: #f9a8d4;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.40);
+  --shadow:    0 8px 24px rgba(0, 0, 0, 0.50);
 }
 
-/* --- Loi n°1 & n°2 : tout est carré, aucune ombre. NE PAS SUPPRIMER. ------- */
-* {
-  border-radius: 0 !important;
-  box-shadow: none !important;
-}
-
+/* --- Base ----------------------------------------------------------------- */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans);
-  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
 
-h1 {
+h1, h2, h3, h4, .font-heading {
   font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
 }
 
-/* --- Accessibilité : focus carré net (pas d'ombre/arrondi) ----------------- */
+/* Liens de contenu : bleu calme, soulignement discret (rôle éditorial). */
+.prose a, a.link {
+  color: var(--info);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+}
+
+/* --- Accessibilité : focus visible doux (anneau bleu, suit l'arrondi) ------ */
 :where(a, button, input, textarea, select, [tabindex]):focus-visible {
-  outline: 2px solid var(--color-blue);
+  outline: 2px solid var(--ring);
   outline-offset: 2px;
+  border-radius: var(--radius-sm);
 }
 
-/* --- Keyframes ------------------------------------------------------------- */
+/* --- Keyframes (mouvement lent et apaisé) --------------------------------- */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
-
 @keyframes slide-up {
-  from { opacity: 0; transform: translateY(30px); }
+  from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
 }
-
-@keyframes shake {
-  0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-5deg); }
-  75% { transform: rotate(5deg); }
-}
-
-@keyframes confetti-fall {
-  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
-}
-
 @keyframes bounce-in {
-  0% { transform: scale(0); opacity: 0; }
-  50% { transform: scale(1.1); }
+  0% { transform: scale(0.96); opacity: 0; }
+  60% { transform: scale(1.01); }
   100% { transform: scale(1); opacity: 1; }
 }
-
-@keyframes progress-bar {
-  from { width: 0%; }
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-3px); }
+  75% { transform: translateX(3px); }
 }
+@keyframes confetti-fall {
+  0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+}
+@keyframes progress-bar { from { width: 0%; } }
 
-.animate-float { animation: float 3s ease-in-out infinite; }
-.animate-slide-up { animation: slide-up 0.6s ease-out forwards; }
-.animate-shake { animation: shake 0.5s ease-in-out; }
+.animate-float     { animation: float 5s ease-in-out infinite; }
+.animate-slide-up  { animation: slide-up 0.55s ease-out forwards; }
 .animate-bounce-in { animation: bounce-in 0.5s ease-out forwards; }
-.animate-confetti { animation: confetti-fall 3s linear forwards; }
+.animate-shake     { animation: shake 0.4s ease-in-out; }
+.animate-confetti  { animation: confetti-fall 3.5s linear forwards; }
 
 /* Respect de prefers-reduced-motion : neutralise les animations décoratives. */
 @media (prefers-reduced-motion: reduce) {
   .animate-float, .animate-slide-up, .animate-bounce-in, .animate-confetti, .animate-shake {
     animation: none !important;
   }
-  * { scroll-behavior: auto !important; }
+  * { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
 }
 
 /* --- Boutons -------------------------------------------------------------- */
 .btn-primary {
-  background: var(--color-red);
-  color: #000000;
-  padding: 14px 32px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border: none;
+  background: var(--accent);
+  color: var(--accent-ink);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 88%, #000);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  transition: transform 0.25s ease, background-color 0.25s ease, box-shadow 0.25s ease;
 }
+.btn-primary:hover {
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--accent) 90%, #000);
+  box-shadow: var(--shadow);
+}
+.btn-primary:active { transform: translateY(0); background: var(--accent-strong); }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 
-.btn-primary:hover { transform: translateY(-3px); }
-.btn-primary:active { transform: translateY(-1px); }
-.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-
+/* Bouton secondaire : fantôme bordé (calme, peu d'aplat de couleur). */
 .btn-secondary {
-  background: oklch(82.8% 0.189 84.429);
-  color: #000000;
-  padding: 14px 32px;
-  font-weight: 700;
-  font-size: 1.1rem;
-  border: none;
+  background: transparent;
+  color: var(--accent);
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  border: 1px solid var(--accent);
+  border-radius: var(--radius);
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  transition: background-color 0.25s ease, transform 0.25s ease;
 }
-
-.btn-secondary:hover { transform: translateY(-3px); }
+.btn-secondary:hover { background: var(--accent); color: var(--accent-ink); transform: translateY(-1px); }
 .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
-/* --- Carte signature avec accents d'angle (jaune TL / rouge BR) ------------ */
+/* --- Carte : surface douce, ombre basse, légère élévation au survol -------- */
 .card {
-  position: relative;
   background: var(--card-bg);
   padding: 1.5rem;
-  border: 1px solid color-mix(in srgb, var(--foreground) 15%, transparent);
-  transition: all 0.3s ease, background-color 0.3s ease;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
-
-.card::before,
-.card::after {
-  content: "";
-  position: absolute;
-  width: 0.75rem;
-  height: 0.75rem;
-  transition: all 0.3s ease;
-}
-
-.card::before {
-  top: -1px;
-  left: -1px;
-  border-top: 2px solid var(--color-yellow);
-  border-left: 2px solid var(--color-yellow);
-}
-
-.card::after {
-  bottom: -1px;
-  right: -1px;
-  border-bottom: 2px solid var(--color-red);
-  border-right: 2px solid var(--color-red);
-}
-
-.card:hover::before,
-.card:hover::after {
-  width: 1.5rem;
-  height: 1.5rem;
-}
-
 .card:hover {
-  background: color-mix(in srgb, var(--foreground) 3%, var(--card-bg));
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+  border-color: color-mix(in srgb, var(--accent) 35%, var(--border));
 }
 
-/* --- Helpers neutres ------------------------------------------------------- */
-.gradient-bg { background: var(--color-black); }
-.gradient-text { color: var(--color-black); }
+/* Variante éditoriale : filet d'accent à gauche (mise en avant douce). */
+.card-accent { border-left: 3px solid var(--accent); }
+
+/* --- Helpers ------------------------------------------------------------- */
+.gradient-bg   { background: linear-gradient(135deg, var(--accent-soft), var(--background)); }
+.gradient-text { color: var(--accent); }
 
 /* --- Document imprimable (export PDF via window.print) --------------------- */
 /* Le contenu imprimable est rendu dans #print-root (portail) ; masqué à l'écran. */
 #print-root { display: none; }
 
 @media print {
-  /* L'impression est toujours en thème clair (jamais blanc sur blanc). */
+  /* L'impression est toujours sur fond clair, encre foncée (lisibilité/toner). */
   :root, .dark {
     --background: #ffffff !important;
-    --foreground: #000000 !important;
+    --foreground: #1a1a1a !important;
     --card-bg: #ffffff !important;
   }
-  /* Masquer l'application interactive, n'imprimer que le document. */
   body > *:not(#print-root) { display: none !important; }
   #print-root { display: block !important; }
-  body { background: #ffffff !important; color: #000000 !important; }
-  .print-document { max-width: 100%; padding: 0; color: #000; }
+  body { background: #ffffff !important; color: #1a1a1a !important; }
+  .print-document { max-width: 100%; padding: 0; color: #1a1a1a; }
+  .print-document * { box-shadow: none !important; }
   .print-document h1, .print-document h2, .print-document h3 { break-after: avoid; }
   .print-document table { width: 100%; border-collapse: collapse; }
-  .print-document th, .print-document td { border: 1px solid #000; padding: 4px 8px; text-align: left; }
+  .print-document th, .print-document td { border: 1px solid #999; padding: 4px 8px; text-align: left; }
 }

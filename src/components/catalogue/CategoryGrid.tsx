@@ -1,15 +1,20 @@
 import { ToolCard } from "./ToolCard";
+import { BentoGrid, bentoSpan } from "@/components/layout/Bento";
 import type { CatalogEntry } from "@/data/catalog";
 
 export function CategoryGrid({ entries }: { entries: CatalogEntry[] }) {
   if (entries.length === 0) {
-    return <p className="text-sm text-black/60">Aucun outil dans cette catégorie pour l&apos;instant.</p>;
+    return <p className="text-sm text-muted">Aucun outil dans cette catégorie pour l&apos;instant.</p>;
   }
   return (
-    <div className="grid gap-6 sm:grid-cols-2">
+    <BentoGrid>
       {entries.map((entry, i) => (
-        <ToolCard key={entry.slug} entry={entry} index={i} />
+        // Premier outil mis en avant (tuile vedette), les autres réguliers.
+        // Empan porté par un wrapper afin que la ToolCard (.card h-full) le remplisse.
+        <div key={entry.slug} className={bentoSpan(i === 0 ? 2 : 1)}>
+          <ToolCard entry={entry} index={i} />
+        </div>
       ))}
-    </div>
+    </BentoGrid>
   );
 }

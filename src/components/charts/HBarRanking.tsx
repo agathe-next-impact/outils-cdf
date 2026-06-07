@@ -80,7 +80,7 @@ export function HBarRanking({
               tick={axisTick}
             />
             <Tooltip {...tooltipProps} />
-            <Bar dataKey="value" name={valueLabel} fill={color} radius={0} isAnimationActive={animate}>
+            <Bar dataKey="value" name={valueLabel} fill={color} radius={6} isAnimationActive={animate}>
               <LabelList dataKey="value" position="right" fill={FG} fontSize={11} />
             </Bar>
           </BarChart>

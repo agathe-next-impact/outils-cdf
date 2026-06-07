@@ -4,7 +4,7 @@ import GameIcon from "@/components/GameIcon";
 export function SessionNotice({ className }: { className?: string }) {
   return (
     <div
-      className={`flex items-start gap-3 border border-yellow p-3 text-sm ${className ?? ""}`}
+      className={`flex items-start gap-3 border border-border p-3 text-sm ${className ?? ""}`}
       role="note"
     >
       <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-blue" />

@@ -7,7 +7,7 @@ import GameIcon from "@/components/GameIcon";
 import { FOCUS_RING } from "@/lib/a11y";
 import { newId } from "@/lib/format";
 
-const inputBase = `w-full border border-black bg-white px-4 py-3 font-medium placeholder:text-black/40 ${FOCUS_RING}`;
+const inputBase = `w-full border border-border bg-card px-4 py-3 font-medium placeholder:text-muted ${FOCUS_RING}`;
 
 function asString(v: FieldValue | undefined): string {
   return typeof v === "string" ? v : "";
@@ -36,7 +36,7 @@ interface FieldRendererProps {
 export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
   const [tagDraft, setTagDraft] = useState("");
   const optionalMark = field.optional ? (
-    <span className="font-normal text-black/50"> (facultatif)</span>
+    <span className="font-normal text-muted"> (facultatif)</span>
   ) : null;
 
   // --- Champs à contrôle unique (label htmlFor) ---
@@ -54,7 +54,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
           {field.label}
           {optionalMark}
         </label>
-        {field.help ? <p className="mb-2 text-xs text-black/60">{field.help}</p> : null}
+        {field.help ? <p className="mb-2 text-xs text-muted">{field.help}</p> : null}
         {field.type === "longText" ? (
           <textarea
             id={field.id}
@@ -113,7 +113,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
         <label className="flex items-start gap-2 text-sm font-semibold">
           <input
             type="checkbox"
-            className={`mt-0.5 h-5 w-5 border border-black ${FOCUS_RING}`}
+            className={`mt-0.5 h-5 w-5 border border-border ${FOCUS_RING}`}
             checked={asBool(value)}
             onChange={(e) => onChange(e.target.checked)}
           />
@@ -122,7 +122,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
             {optionalMark}
           </span>
         </label>
-        {field.help ? <p className="mt-1 text-xs text-black/60">{field.help}</p> : null}
+        {field.help ? <p className="mt-1 text-xs text-muted">{field.help}</p> : null}
       </div>
     );
   }
@@ -138,11 +138,11 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
           {field.label}
           {optionalMark}
         </legend>
-        {field.help ? <p className="mb-2 text-xs text-black/60">{field.help}</p> : null}
+        {field.help ? <p className="mb-2 text-xs text-muted">{field.help}</p> : null}
         <div className="flex items-center gap-3">
           <input
             type="range"
-            className={`w-full accent-blue ${FOCUS_RING}`}
+            className={`w-full accent-accent ${FOCUS_RING}`}
             min={min}
             max={max}
             step={field.step ?? 1}
@@ -150,10 +150,10 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
             aria-valuetext={`${current ?? min}`}
             onChange={(e) => onChange(Number(e.target.value))}
           />
-          <span className="min-w-[3ch] text-right font-black tabular-nums">{current ?? "—"}</span>
+          <span className="min-w-[3ch] text-right font-semibold tabular-nums">{current ?? "—"}</span>
         </div>
         {field.minLabel || field.maxLabel ? (
-          <div className="mt-1 flex justify-between text-xs text-black/60">
+          <div className="mt-1 flex justify-between text-xs text-muted">
             <span>{field.minLabel}</span>
             <span>{field.maxLabel}</span>
           </div>
@@ -183,7 +183,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
                 aria-pressed={on}
                 onClick={() => toggle(o.value)}
                 className={`border px-3 py-1 text-sm font-semibold ${FOCUS_RING} ${
-                  on ? "border-blue bg-blue text-white" : "border-black hover:border-blue"
+                  on ? "border-accent bg-accent-soft text-foreground" : "border-border text-muted hover:text-accent"
                 }`}
               >
                 {o.label}
@@ -209,7 +209,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
           {field.label}
           {optionalMark}
         </legend>
-        {field.help ? <p className="mb-2 text-xs text-black/60">{field.help}</p> : null}
+        {field.help ? <p className="mb-2 text-xs text-muted">{field.help}</p> : null}
         <div className="flex gap-2">
           <input
             type="text"
@@ -226,7 +226,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
           />
           <button
             type="button"
-            className={`shrink-0 border border-black px-3 ${FOCUS_RING}`}
+            className={`shrink-0 border border-border px-3 ${FOCUS_RING}`}
             onClick={add}
             aria-label="Ajouter"
           >
@@ -238,7 +238,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
             {tags.map((t) => (
               <li
                 key={t}
-                className="flex items-center gap-1 border border-blue px-2 py-1 text-sm"
+                className="flex items-center gap-1 border border-border px-2 py-1 text-sm"
               >
                 {t}
                 <button
@@ -280,12 +280,12 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
           {field.label}
           {optionalMark}
         </legend>
-        {field.help ? <p className="mb-2 text-xs text-black/60">{field.help}</p> : null}
+        {field.help ? <p className="mb-2 text-xs text-muted">{field.help}</p> : null}
         <div className="space-y-3">
           {rows.map((row, ri) => (
-            <div key={String(row["_id"] ?? ri)} className="border border-black p-3">
+            <div key={String(row["_id"] ?? ri)} className="border border-border p-3">
               <div className="mb-2 flex items-center justify-between">
-                <span className="text-xs font-bold uppercase tracking-wide text-blue">
+                <span className="text-xs font-semibold tracking-wide text-muted">
                   #{ri + 1}
                 </span>
                 <button
@@ -313,7 +313,7 @@ export function FieldRenderer({ field, value, onChange }: FieldRendererProps) {
         <button
           type="button"
           onClick={addRow}
-          className={`mt-3 flex items-center gap-2 border border-black px-3 py-2 text-sm font-bold ${FOCUS_RING}`}
+          className={`mt-3 flex items-center gap-2 border border-border px-3 py-2 text-sm font-semibold ${FOCUS_RING}`}
         >
           <GameIcon name="plus" size={16} />
           {field.addLabel ?? "Ajouter"}

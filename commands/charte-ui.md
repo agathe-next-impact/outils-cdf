@@ -1,17 +1,21 @@
 ---
-description: Installe / applique / audite la charte UI-UX « Comme des Fous » sur le projet courant
+description: Installe / applique / audite la charte UI-UX « Peer to Peer » sur le projet courant
 argument-hint: "[install|apply|audit|fix] [chemin optionnel]"
 ---
 
-Applique la charte UI/UX « Comme des Fous ». Référence : `.claude/design-system/DESIGN_SYSTEM.md`.
+Applique la charte UI/UX « Peer to Peer » (« smart home dashboard » : grands rayons arrondis, ombres
+très discrètes, palette **gris + accent rose** thémée — info/succès = accent, warning ambre, danger
+rouge ; typo **Inter** + JetBrains Mono ; sombre-first ; navigation par **barre latérale fixe**
+(Sidebar)). Référence : `.claude/design-system/DESIGN_SYSTEM.md`.
 
 Argument reçu : `$ARGUMENTS`
 
 Interprète le **premier mot** comme le mode (défaut : `apply` si non précisé), le reste comme un
 chemin/périmètre optionnel :
 
-- **install** → installer uniquement le socle (deps, `globals.css`, polices + `ThemeProvider` dans le
-  layout, composants `GameIcon`/`DecodeText`/`Confetti`/`ThemeToggle`/`ThemeProvider`). Voir
+- **install** → installer uniquement le socle (deps, `globals.css` avec tokens `--radius*`/`--shadow*`,
+  polices Inter + JetBrains Mono + `ThemeProvider` dans le layout, composants
+  `GameIcon`/`Confetti`/`ThemeToggle`/`ThemeProvider` + `Sidebar`/`Header`). Voir
   `.claude/design-system/INSTALL.md`. Délègue à l'agent **ui-ux-porter** (étapes 1–2).
 - **apply** (défaut) → installer le socle SI nécessaire, puis refactorer l'UI du périmètre indiqué
   pour la rendre strictement conforme. Délègue à l'agent **ui-ux-porter** (procédure complète).

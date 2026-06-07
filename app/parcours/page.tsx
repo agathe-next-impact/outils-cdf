@@ -14,10 +14,10 @@ export default function PathwaysIndexPage() {
   return (
     <PageWrapper maxWidth="4xl">
       <header className="mb-8">
-        <h1 className="font-heading text-3xl font-black uppercase tracking-tight md:text-4xl">
+        <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
           Par où commencer&nbsp;?
         </h1>
-        <p className="mt-2 text-base text-black/70">
+        <p className="mt-2 text-base text-muted">
           Choisissez ce qui vous parle en ce moment. Chaque parcours enchaîne, à votre rythme,
           quelques outils qui se complètent — rien d&apos;obligatoire.
         </p>

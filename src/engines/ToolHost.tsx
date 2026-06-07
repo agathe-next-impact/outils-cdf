@@ -10,8 +10,8 @@ import type { ToolDefinition } from "./definition";
 
 function ToolSkeleton() {
   return (
-    <div className="card border border-blue" aria-busy="true">
-      <p className="text-xl text-blue animate-pulse">Chargement…</p>
+    <div className="card" aria-busy="true">
+      <p className="text-xl text-muted animate-pulse">Chargement…</p>
     </div>
   );
 }

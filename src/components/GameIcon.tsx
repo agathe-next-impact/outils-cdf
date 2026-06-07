@@ -22,6 +22,7 @@ import {
   MessageCircle, Users, Compass, Scale, CloudRain, Sunrise, Hand, Map, Flag, CheckCircle2,
   CircleAlert, Info, Pause, Play, ArrowRight, ArrowLeft, Plus, Trash2, Download, Printer,
   FileText, FileJson, RefreshCw, ChevronDown, ChevronUp, Activity, ClipboardCheck,
+  Home, LayoutDashboard, WifiOff,
   type LucideIcon,
 } from "lucide-react";
 
@@ -51,6 +52,7 @@ const ICON_MAP: Record<string, LucideIcon> = {
   download: Download, printer: Printer, "file-text": FileText, "file-json": FileJson,
   "refresh-cw": RefreshCw, "chevron-down": ChevronDown, "chevron-up": ChevronUp,
   activity: Activity, "clipboard-check": ClipboardCheck,
+  home: Home, "layout-dashboard": LayoutDashboard, "wifi-off": WifiOff,
 };
 
 interface GameIconProps {

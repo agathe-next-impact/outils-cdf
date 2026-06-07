@@ -1,14 +1,16 @@
 import type { MetadataRoute } from "next";
 import { getCatalog, CATEGORIES } from "@/data/catalog";
 import { allPathwayIds } from "@/data/pathways";
+import { SITE } from "@/config/site";
 
-const BASE = process.env.NEXT_PUBLIC_SITE_URL ?? "https://comme-des-fous.app";
+const BASE = SITE.url;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "",
     "/parcours",
     "/ressources",
+    "/contribuer",
     "/a-propos",
     "/confidentialite",
     "/mentions-legales",

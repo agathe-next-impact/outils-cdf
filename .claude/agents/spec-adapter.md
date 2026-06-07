@@ -2,7 +2,7 @@
 name: spec-adapter
 description: >-
   Transforme une spécification clinique de `docs/outils/` en PLAN de définition « session-only »
-  pour la plateforme Comme des Fous (sans compte, sans backend, persistance sessionStorage).
+  pour la plateforme Peer to Peer (sans compte, sans backend, persistance sessionStorage).
   Lecture seule : produit un mapping champs→moteur, pas de code. Utiliser quand l'utilisateur veut
   « adapter la spec X », « préparer l'outil Y », « quels champs garder pour Z ».
 tools: Read, Glob, Grep

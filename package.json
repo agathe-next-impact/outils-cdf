@@ -1,8 +1,8 @@
 {
-  "name": "comme-des-fous-outils",
+  "name": "peer-to-peer-outils",
   "version": "0.1.0",
   "private": true,
-  "description": "Plateforme d'outils psychosociaux en libre accès (session-only, sans compte).",
+  "description": "Peer to Peer — plateforme d'outils psychosociaux en libre accès (session-only, sans compte), éditée par Next Impact.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",

@@ -11,14 +11,14 @@ import GameIcon from "@/components/GameIcon";
 import type { Accent } from "@/engines/types";
 
 const BAND: Record<Accent, string> = {
-  blue: "bg-blue text-white",
-  red: "bg-red text-white",
-  yellow: "bg-yellow text-black",
+  blue: "bg-info text-white",
+  red: "bg-danger text-white",
+  yellow: "bg-warning-soft text-foreground",
 };
 const BORDER: Record<Accent, string> = {
-  blue: "border-blue",
-  red: "border-red",
-  yellow: "border-yellow",
+  blue: "border-info",
+  red: "border-danger",
+  yellow: "border-warning",
 };
 
 export function Celebration({
@@ -38,12 +38,12 @@ export function Celebration({
   return (
     <section className="animate-bounce-in" aria-live="polite">
       {confetti ? <Confetti /> : null}
-      <div className={`flex items-center gap-2 px-4 py-3 ${BAND[accent]}`}>
-        <GameIcon name={iconName} size={24} className={onYellow ? "text-black" : "text-white"} />
-        <h2 className="font-heading text-xl font-black uppercase tracking-tight">{title}</h2>
+      <div className={`flex items-center gap-2 ${message ? "rounded-t-lg" : "rounded-lg"} px-4 py-3 ${BAND[accent]}`}>
+        <GameIcon name={iconName} size={24} className={onYellow ? "text-foreground" : "text-white"} />
+        <h2 className="font-heading text-xl font-semibold">{title}</h2>
       </div>
       {message ? (
-        <div className={`border ${BORDER[accent]} border-t-0 bg-white px-4 py-3`}>
+        <div className={`rounded-b-lg border ${BORDER[accent]} border-t-0 bg-card px-4 py-3`}>
           <p>{message}</p>
         </div>
       ) : null}

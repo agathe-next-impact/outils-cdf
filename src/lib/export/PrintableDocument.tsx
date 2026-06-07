@@ -5,9 +5,9 @@ function Block({ block }: { block: NeutralBlock }) {
   switch (block.kind) {
     case "heading":
       return block.level === 2 ? (
-        <h2 className="mt-4 text-lg font-black uppercase">{block.text}</h2>
+        <h2 className="mt-4 text-lg font-semibold">{block.text}</h2>
       ) : (
-        <h3 className="mt-3 text-base font-bold">{block.text}</h3>
+        <h3 className="mt-3 text-base font-semibold">{block.text}</h3>
       );
     case "text":
       return <p className="my-2 whitespace-pre-wrap">{block.text}</p>;
@@ -83,14 +83,14 @@ function Block({ block }: { block: NeutralBlock }) {
 export function PrintableDocument({ doc }: { doc: NeutralDocument }) {
   return (
     <article className="print-document font-sans">
-      <h1 className="text-2xl font-black uppercase">{doc.toolTitle}</h1>
+      <h1 className="text-2xl font-semibold">{doc.toolTitle}</h1>
       <p className="text-sm italic">Exporté le {formatDateFr(doc.generatedAt)}</p>
-      <blockquote className="my-3 border-l-4 border-black pl-3 text-sm">
+      <blockquote className="my-3 border-l-4 border-accent pl-3 text-sm">
         {doc.disclaimer}
       </blockquote>
       {doc.sections.map((section, i) => (
         <section key={i} className="mt-4">
-          <h2 className="text-lg font-black uppercase">{section.heading}</h2>
+          <h2 className="text-lg font-semibold">{section.heading}</h2>
           {section.blocks.map((block, j) => (
             <Block key={j} block={block} />
           ))}

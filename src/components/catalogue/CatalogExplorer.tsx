@@ -3,13 +3,15 @@
 /**
  * Explorateur de catalogue : recherche plein-texte (client), filtres par
  * catégorie / durée, tri, et grille de résultats. 100 % côté client (aucune
- * requête réseau). Charte : carré, palette ; les puces de catégorie actives
- * prennent leur accent (color-blocking), le jaune jamais en texte.
+ * requête réseau). Charte « Minimalisme éditorial chaleureux » : douceur
+ * (arrondi + ombre basse), palette désaturée ; la puce active prend l'accent
+ * terracotta, les inactives restent en texte secondaire.
  */
 import { useMemo, useState } from "react";
 import { ToolCard } from "./ToolCard";
 import GameIcon from "@/components/GameIcon";
-import { FOCUS_RING, accentBg } from "@/lib/a11y";
+import { BentoGrid, bentoSpan } from "@/components/layout/Bento";
+import { FOCUS_RING } from "@/lib/a11y";
 import type { CatalogEntry, CategoryInfo } from "@/data/catalog";
 import type { ToolCategory } from "@/engines/types";
 
@@ -67,16 +69,16 @@ export function CatalogExplorer({
     setSort("default");
   };
 
-  const chip = (active: boolean, activeClass = "bg-blue text-white") =>
-    `px-3 py-1 text-sm font-bold uppercase tracking-wide transition-colors ${FOCUS_RING} ${
-      active ? activeClass : "border border-black hover:border-blue"
+  const chip = (active: boolean, activeClass = "bg-accent text-white border border-accent") =>
+    `px-3 py-1 text-sm font-semibold tracking-wide transition-colors ${FOCUS_RING} ${
+      active ? activeClass : "border border-border text-muted hover:text-accent"
     }`;
 
   return (
     <section aria-label="Explorer les outils">
       {/* Recherche */}
-      <div className="mb-4 flex items-center gap-2 border border-black px-3 py-2">
-        <GameIcon name="search" size={20} className="shrink-0 text-blue" aria-hidden />
+      <div className="mb-4 flex items-center gap-2 border border-border px-3 py-2">
+        <GameIcon name="search" size={20} className="shrink-0 text-info" aria-hidden />
         <input
           type="search"
           value={query}
@@ -92,7 +94,7 @@ export function CatalogExplorer({
         <button
           type="button"
           aria-pressed={cat === "all"}
-          className={chip(cat === "all", "bg-black text-white")}
+          className={chip(cat === "all")}
           onClick={() => setCat("all")}
         >
           Tous
@@ -102,7 +104,7 @@ export function CatalogExplorer({
             key={c.key}
             type="button"
             aria-pressed={cat === c.key}
-            className={chip(cat === c.key, accentBg(c.accent))}
+            className={chip(cat === c.key)}
             onClick={() => setCat(c.key)}
           >
             {c.label}
@@ -126,11 +128,11 @@ export function CatalogExplorer({
           ))}
         </div>
         <label className="ml-auto flex items-center gap-2 text-sm">
-          <span className="font-bold uppercase tracking-wide text-blue">Trier</span>
+          <span className="font-semibold tracking-wide text-info">Trier</span>
           <select
             value={sort}
             onChange={(e) => setSort(e.target.value as SortKey)}
-            className={`border border-black bg-white px-2 py-1 font-semibold ${FOCUS_RING}`}
+            className={`border border-border bg-card px-2 py-1 font-semibold ${FOCUS_RING}`}
           >
             <option value="default">Par défaut</option>
             <option value="duree">Plus court d&apos;abord</option>
@@ -139,22 +141,26 @@ export function CatalogExplorer({
       </div>
 
       {/* Compteur */}
-      <p className="mb-4 text-sm text-black/70" aria-live="polite">
+      <p className="mb-4 text-sm text-muted" aria-live="polite">
         {results.length} outil{results.length > 1 ? "s" : ""}
         {hasFilters ? " correspondant à votre recherche" : ""}
       </p>
 
       {/* Résultats */}
       {results.length > 0 ? (
-        <div className="grid gap-6 sm:grid-cols-2">
+        <BentoGrid>
           {results.map((entry, i) => (
-            <ToolCard key={entry.slug} entry={entry} index={i} />
+            // Premier résultat mis en avant (tuile vedette), les autres réguliers.
+            // Empan porté par un wrapper afin que la ToolCard (.card h-full) le remplisse.
+            <div key={entry.slug} className={bentoSpan(i === 0 ? 2 : 1)}>
+              <ToolCard entry={entry} index={i} />
+            </div>
           ))}
-        </div>
+        </BentoGrid>
       ) : (
-        <div className="card border border-blue text-center">
-          <GameIcon name="search" size={36} className="mx-auto mb-2 text-blue" aria-hidden />
-          <p className="mb-3 font-bold">Aucun outil ne correspond à votre recherche.</p>
+        <div className="card text-center">
+          <GameIcon name="search" size={36} className="mx-auto mb-2 text-info" aria-hidden />
+          <p className="mb-3 font-semibold">Aucun outil ne correspond à votre recherche.</p>
           <button type="button" className="btn-secondary" onClick={resetFilters}>
             Réinitialiser les filtres
           </button>

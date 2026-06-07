@@ -3,7 +3,7 @@ description: Crée un nouvel outil de la plateforme à partir de sa spécificati
 argument-hint: "<slug-ou-nom-de-spec>"
 ---
 
-Crée un nouvel outil pour la plateforme « Comme des Fous » à partir d'une spécification de
+Crée un nouvel outil pour la plateforme « Peer to Peer » à partir d'une spécification de
 `docs/outils/`. Argument reçu : `$ARGUMENTS` (slug souhaité ou nom du fichier de spec).
 
 Orchestre la chaîne d'agents, en t'arrêtant pour validation si une décision de fond se pose :

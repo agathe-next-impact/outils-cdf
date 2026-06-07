@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PageWrapper } from "@/components/layout/PageWrapper";
+import { BentoGrid, BentoBox } from "@/components/layout/Bento";
 import GameIcon from "@/components/GameIcon";
 
 export const metadata: Metadata = {
@@ -12,53 +14,65 @@ export default function ConfidentialitePage() {
   return (
     <PageWrapper maxWidth="2xl" decor={["lock"]}>
       <header className="mb-6">
-        <GameIcon name="lock" size={48} className="mb-2 text-blue" />
-        <h1 className="font-heading text-3xl font-black uppercase tracking-tight md:text-4xl">
+        <GameIcon name="lock" size={48} className="mb-2 text-accent" />
+        <h1 className="font-heading text-3xl font-semibold tracking-tight md:text-4xl">
           Confidentialité
         </h1>
       </header>
 
-      <section className="card mb-6 border border-blue">
-        <h2 className="mb-2 text-lg font-black uppercase">Aucune donnée envoyée</h2>
-        <p className="text-base">
-          Cette plateforme fonctionne entièrement dans votre navigateur. Vos réponses ne sont
-          jamais transmises à un serveur, ni à nous, ni à un tiers. Il n&apos;y a ni compte, ni
-          inscription, ni suivi du contenu que vous saisissez.
-        </p>
-      </section>
+      <BentoGrid>
+        <BentoBox as="section" span={3}>
+          <h2 className="mb-2 text-lg font-semibold">Aucune donnée envoyée</h2>
+          <p className="text-base">
+            Cette plateforme fonctionne entièrement dans votre navigateur. Vos réponses ne sont
+            jamais transmises à un serveur, ni à nous, ni à un tiers. Il n&apos;y a ni compte, ni
+            inscription, ni suivi du contenu que vous saisissez.
+          </p>
+        </BentoBox>
 
-      <section className="card mb-6 border border-yellow">
-        <h2 className="mb-2 text-lg font-black uppercase">Une mémoire de session</h2>
-        <p className="text-base">
-          Vos saisies sont conservées dans la mémoire de session de votre navigateur
-          (<code className="font-mono">sessionStorage</code>). Concrètement&nbsp;:
-        </p>
-        <ul className="mt-2 ml-5 list-disc space-y-1 text-base">
-          <li>elles sont conservées si vous rafraîchissez la page ou changez d&apos;outil&nbsp;;</li>
-          <li>
-            elles sont <strong>effacées automatiquement à la fermeture de l&apos;onglet</strong> ou
-            du navigateur&nbsp;;
-          </li>
-          <li>vous pouvez les effacer à tout moment (bouton « Effacer », ou « Tout effacer »).</li>
-        </ul>
-      </section>
+        <BentoBox as="section" span={3} index={1}>
+          <h2 className="mb-2 text-lg font-semibold">Une mémoire de session</h2>
+          <p className="text-base">
+            Vos saisies sont conservées dans la mémoire de session de votre navigateur
+            (<code className="font-mono">sessionStorage</code>). Concrètement&nbsp;:
+          </p>
+          <ul className="mt-2 ml-5 list-disc space-y-1 text-base">
+            <li>elles sont conservées si vous rafraîchissez la page ou changez d&apos;outil&nbsp;;</li>
+            <li>
+              elles sont <strong>effacées automatiquement à la fermeture de l&apos;onglet</strong> ou
+              du navigateur&nbsp;;
+            </li>
+            <li>vous pouvez les effacer à tout moment (bouton « Effacer », ou « Tout effacer »).</li>
+          </ul>
+        </BentoBox>
 
-      <section className="card mb-6 border border-red">
-        <h2 className="mb-2 text-lg font-black uppercase">Attention aux postes partagés</h2>
-        <p className="text-base">
-          Sur un ordinateur public ou partagé, pensez à fermer l&apos;onglet (ou à utiliser «
-          Tout effacer ») avant de quitter, pour que personne d&apos;autre ne voie vos saisies.
-        </p>
-      </section>
+        <BentoBox as="section" span={3} index={2} className="border-danger">
+          <h2 className="mb-2 text-lg font-semibold">Attention aux postes partagés</h2>
+          <p className="text-base">
+            Sur un ordinateur public ou partagé, pensez à fermer l&apos;onglet (ou à utiliser «
+            Tout effacer ») avant de quitter, pour que personne d&apos;autre ne voie vos saisies.
+          </p>
+        </BentoBox>
 
-      <section className="card border border-black">
-        <h2 className="mb-2 text-lg font-black uppercase">Conserver une trace</h2>
-        <p className="text-base">
-          Comme rien n&apos;est sauvegardé durablement, l&apos;export (PDF, Markdown ou JSON) est
-          le seul moyen de garder une trace de votre travail. Ces fichiers sont générés dans
-          votre navigateur et restent sur votre appareil.
-        </p>
-      </section>
+        <BentoBox as="section" span={3} index={3}>
+          <h2 className="mb-2 text-lg font-semibold">Conserver une trace</h2>
+          <p className="text-base">
+            Comme rien n&apos;est sauvegardé durablement, l&apos;export (PDF, Markdown ou JSON) est
+            le seul moyen de garder une trace de votre travail. Ces fichiers sont générés dans
+            votre navigateur et restent sur votre appareil.
+          </p>
+        </BentoBox>
+
+        <BentoBox as="section" span={3} index={4}>
+          <h2 className="mb-2 text-lg font-semibold">Et si je contribue&nbsp;?</h2>
+          <p className="text-base">
+            La <Link className="text-info hover:underline" href="/contribuer">contribution</Link> est
+            entièrement facultative et indépendante des outils. Elle se déroule sur une page de
+            paiement hébergée par un prestataire tiers&nbsp;: vos saisies dans les outils n&apos;y
+            sont jamais associées, et aucune donnée bancaire ne transite par ce site.
+          </p>
+        </BentoBox>
+      </BentoGrid>
     </PageWrapper>
   );
 }

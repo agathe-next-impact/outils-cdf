@@ -17,14 +17,14 @@ export function ToolSafetyNote({
   const d = getDisclaimer(disclaimerKey);
   return (
     <section
-      className={`flex items-start gap-3 border border-black p-3 text-sm ${className ?? ""}`}
+      className={`flex items-start gap-3 border border-border p-3 text-sm ${className ?? ""}`}
       role="note"
       aria-label="À savoir avant de commencer"
     >
       <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-blue" aria-hidden />
       <div className="space-y-1">
         <p>{d.long}</p>
-        <p className="text-black/70">
+        <p className="text-muted">
           Vos réponses restent dans cet onglet, ne sont jamais envoyées sur Internet, et
           s&apos;effacent à sa fermeture. Pensez à <strong>exporter</strong> pour en garder une
           trace.{" "}

@@ -17,13 +17,13 @@ export function ChartFigure({
   children: ReactNode;
 }) {
   return (
-    <figure className="card border border-black/15">
+    <figure className="card">
       <figcaption>
-        <h3 className="text-lg font-black uppercase leading-tight">{title}</h3>
-        {description ? <p className="mt-1 text-xs text-black/70">{description}</p> : null}
+        <h3 className="text-lg font-semibold leading-tight">{title}</h3>
+        {description ? <p className="mt-1 text-xs text-muted">{description}</p> : null}
       </figcaption>
       <div className="mt-3">{children}</div>
-      {note ? <p className="mt-2 text-xs text-black/60">{note}</p> : null}
+      {note ? <p className="mt-2 text-xs text-muted">{note}</p> : null}
     </figure>
   );
 }

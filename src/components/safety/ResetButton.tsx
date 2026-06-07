@@ -21,7 +21,7 @@ export function ResetButton({ slug, label = "Effacer mes réponses", className }
         <span>Effacer définitivement&nbsp;?</span>
         <button
           type="button"
-          className={`bg-red px-3 py-1 font-bold uppercase text-black ${FOCUS_RING}`}
+          className={`bg-danger px-3 py-1 font-semibold text-white ${FOCUS_RING}`}
           onClick={() => {
             resetTool(slug);
             setConfirming(false);
@@ -31,7 +31,7 @@ export function ResetButton({ slug, label = "Effacer mes réponses", className }
         </button>
         <button
           type="button"
-          className={`border border-black px-3 py-1 ${FOCUS_RING}`}
+          className={`border border-border px-3 py-1 ${FOCUS_RING}`}
           onClick={() => setConfirming(false)}
         >
           Annuler
@@ -43,7 +43,7 @@ export function ResetButton({ slug, label = "Effacer mes réponses", className }
   return (
     <button
       type="button"
-      className={`flex items-center gap-2 border border-black px-3 py-1 text-sm hover:text-red ${FOCUS_RING} ${className ?? ""}`}
+      className={`flex items-center gap-2 border border-border px-3 py-1 text-sm hover:text-danger ${FOCUS_RING} ${className ?? ""}`}
       onClick={() => setConfirming(true)}
     >
       <GameIcon name="trash-2" size={16} />

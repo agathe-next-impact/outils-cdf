@@ -73,19 +73,19 @@ export function ScoredRunner({ definition }: { definition: ScoredDefinition }) {
       <ContentRenderer blocks={definition.intro} className="card border border-blue" />
 
       {definition.referencePeriod ? (
-        <p className="text-sm font-bold uppercase tracking-wide text-blue">
+        <p className="text-sm font-semibold tracking-wide text-info">
           {definition.referencePeriod}
         </p>
       ) : null}
 
-      <div className="sticky top-14 z-10 bg-white py-2">
+      <div className="sticky top-14 z-10 bg-background py-2">
         <ProgressBar value={result.answered} max={result.totalItems} label="Progression" />
       </div>
 
       {groups.map((group) => (
-        <fieldset key={group.key} className="card border border-black">
+        <fieldset key={group.key} className="card">
           {group.label ? (
-            <legend className="px-1 text-lg font-black uppercase">{group.label}</legend>
+            <legend className="px-1 text-lg font-semibold">{group.label}</legend>
           ) : null}
           <ol className="space-y-5">
             {group.items.map((item, idx) => {
@@ -100,7 +100,7 @@ export function ScoredRunner({ definition }: { definition: ScoredDefinition }) {
                   <p className="mb-2 font-semibold">
                     {item.label}
                     {item.optional ? (
-                      <span className="text-black/50"> (facultatif)</span>
+                      <span className="text-muted"> (facultatif)</span>
                     ) : null}
                   </p>
                   <RadioScale
@@ -119,7 +119,7 @@ export function ScoredRunner({ definition }: { definition: ScoredDefinition }) {
 
       <div className="flex flex-col gap-3">
         {!canSubmit ? (
-          <p className="text-sm text-black/60">
+          <p className="text-sm text-muted">
             Répondez à toutes les affirmations pour voir votre résultat ({result.answered}/
             {result.totalItems}).
           </p>

@@ -1,7 +1,7 @@
 ---
 name: content-redactor
 description: >-
-  Rédige et relit les textes psychoéducatifs et les garde-fous des outils Comme des Fous :
+  Rédige et relit les textes psychoéducatifs et les garde-fous des outils Peer to Peer :
   introductions, ContentBlocks, libellés, messages d'écueil, guidances de bandes, disclaimers,
   ressources de crise. Ton non culpabilisant, non diagnostique, fidèle à la source. Utiliser pour
   « rédige les textes de X », « relis le ton de Y ».

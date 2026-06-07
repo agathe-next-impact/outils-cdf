@@ -1,4 +1,4 @@
-# Kit UI/UX « Comme des Fous » — portable
+# Kit UI/UX « Peer to Peer » — portable
 
 Tout le nécessaire pour appliquer **strictement** cette charte UI/UX à un autre projet
 Next.js + Tailwind v4.
@@ -8,7 +8,7 @@ Next.js + Tailwind v4.
 | Fichier | Rôle |
 |---|---|
 | `DESIGN_SYSTEM.md` | **Source de vérité** : spec stricte et exhaustive (tokens, composants, animations, lois, checklist). |
-| `globals.css` | Feuille de style portable (tokens `@theme`, thèmes `:root`/`.dark`, reset carré/sans-ombre, keyframes, `.card`/`.btn-*`). |
+| `globals.css` | Feuille de style portable (tokens `@theme`, thèmes chauds `:root`/`.dark`, arrondis + ombres douces, keyframes, `.card`/`.btn-*`). |
 | `components/` | `GameIcon`, `DecodeText`, `Confetti`, `ThemeToggle`, `ThemeProvider` — copiables tels quels. |
 | `INSTALL.md` | Étapes d'installation manuelle dans un projet cible. |
 | `CLAUDE.snippet.md` | Bloc à coller dans le `CLAUDE.md` du projet cible (résumé des 7 lois). |

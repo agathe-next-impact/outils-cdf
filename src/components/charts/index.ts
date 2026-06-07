@@ -1,6 +1,6 @@
 /**
- * Socle de graphiques « Comme des Fous » (sur Recharts), conforme à la charte :
- * carré, zéro ombre, palette verrouillée, mode sombre, prefers-reduced-motion,
+ * Socle de graphiques « Peer to Peer » (sur Recharts), conforme à l'identité :
+ * carré, zéro ombre, palette maîtrisée, mode sombre, prefers-reduced-motion,
  * accessibilité (légende + table sr-only). Tout est rendu côté client à partir
  * de l'état en sessionStorage : aucune donnée n'est envoyée sur le réseau.
  *

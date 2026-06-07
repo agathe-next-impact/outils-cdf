@@ -19,7 +19,7 @@ export function ProgressBar({
   return (
     <div>
       {label || showCount ? (
-        <div className="mb-1 flex items-center justify-between text-xs font-bold uppercase tracking-wide text-blue">
+        <div className="mb-1 flex items-center justify-between text-xs font-medium text-muted">
           <span>{label}</span>
           {showCount ? (
             <span>
@@ -29,14 +29,14 @@ export function ProgressBar({
         </div>
       ) : null}
       <div
-        className={`w-full overflow-hidden bg-black/10 ${isResult ? "h-4" : "h-3"}`}
+        className={`w-full overflow-hidden rounded-full bg-border ${isResult ? "h-4" : "h-2.5"}`}
         role="progressbar"
         aria-valuenow={value}
         aria-valuemin={0}
         aria-valuemax={max}
       >
         <div
-          className={`h-full transition-all ease-out ${isResult ? "bg-blue duration-1000" : "bg-yellow duration-500"}`}
+          className={`h-full rounded-full transition-all ease-out ${isResult ? "bg-info duration-1000" : "bg-success duration-700"}`}
           style={{ width: `${pct}%` }}
         />
       </div>

@@ -26,15 +26,15 @@ export function CrisisResources({
           size={24}
           className={elevated ? "text-red" : "text-blue"}
         />
-        <h2 className="text-lg font-black uppercase">Besoin de soutien&nbsp;?</h2>
+        <h2 className="text-lg font-semibold">Besoin de soutien&nbsp;?</h2>
       </div>
       <p className="mb-3 text-sm">{set.intro}</p>
       <ul className="space-y-2">
         {set.contacts.map((c) => (
-          <li key={c.name} className="flex items-start gap-3 border border-black p-2">
+          <li key={c.name} className="flex items-start gap-3 border border-border p-2">
             <GameIcon name={c.iconName} size={20} className="mt-0.5 shrink-0 text-red" />
             <div>
-              <p className="font-bold">
+              <p className="font-semibold">
                 {c.phone ? (
                   <a
                     className="text-blue hover:underline"
@@ -47,7 +47,7 @@ export function CrisisResources({
                   c.name
                 )}
               </p>
-              <p className="text-sm text-black/70">{c.detail}</p>
+              <p className="text-sm text-muted">{c.detail}</p>
               {c.href ? (
                 <a
                   className="text-sm text-blue hover:underline"

@@ -1,0 +1,56 @@
+/**
+ * Source de vérité de l'identité du site « Peer to Peer ».
+ *
+ * Le produit s'appelle **Peer to Peer** ; il est édité et porté par la société
+ * **Next Impact**. Aucun lien avec une quelconque association : l'éditeur est
+ * une entreprise, et la plateforme propose une contribution à prix libre.
+ *
+ * Ce fichier est purement statique (aucune saisie utilisateur) → il peut être
+ * importé côté serveur comme côté client, et n'enfreint pas l'invariant de
+ * confidentialité (aucune donnée d'outil n'y transite).
+ */
+
+export const SITE = {
+  /** Nom du produit (marque). */
+  name: "Peer to Peer",
+  /** Accroche neutre, non culpabilisante. */
+  tagline: "Des outils d'auto-observation et de soutien, en libre accès.",
+  /** URL canonique (surchargée par NEXT_PUBLIC_SITE_URL en production). */
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://peer-to-peer.app",
+} as const;
+
+/**
+ * Société éditrice. Le paiement / la contribution se fait sur une page hébergée
+ * par un tiers (lien sortant) : aucune donnée bancaire ne transite par ce site.
+ *
+ * ⚠️ À COMPLÉTER avec les informations légales réelles de Next Impact.
+ */
+export const EDITEUR = {
+  /** Marque de l'éditeur. */
+  brand: "Next Impact",
+  /** Raison sociale + forme juridique. Ex. « Next Impact SAS au capital de X € ». */
+  legalName: "Next Impact",
+  forme: "", // ex. "SAS au capital de 1 000 €"
+  siret: "", // n° SIRET
+  rcs: "", // ex. "RCS Bordeaux 000 000 000"
+  tvaIntra: "", // n° TVA intracommunautaire
+  siege: "", // adresse du siège social
+  directeurPublication: "", // nom du directeur / de la directrice de la publication
+  email: "", // contact
+  /** Hébergeur — à confirmer selon le déploiement réel. */
+  hebergeur: "",
+} as const;
+
+/**
+ * Contribution à prix libre (don / versement libre, montant choisi par la
+ * personne, pouvant être nul). Lien sortant vers une page de paiement hébergée
+ * par un tiers (Stripe Payment Link « customer chooses price », ou équivalent).
+ *
+ * ⚠️ Remplacer par l'URL réelle du lien de paiement.
+ */
+export const CONTRIBUTION = {
+  /** Lien de paiement hébergé (prix libre). */
+  url: "https://buy.stripe.com/REMPLACER",
+  /** Montants suggérés (purement indicatifs, jamais imposés). */
+  suggestions: [5, 10, 20] as const,
+} as const;

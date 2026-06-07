@@ -27,14 +27,14 @@ export function PageWrapper({ children, maxWidth = "2xl", decor }: PageWrapperPr
         <GameIcon
           name={decor[0]}
           size={120}
-          className="pointer-events-none absolute -left-6 top-24 text-black/20 animate-float select-none"
+          className="pointer-events-none absolute -left-6 top-24 text-muted/30 animate-float select-none"
         />
       ) : null}
       {decor?.[1] ? (
         <GameIcon
           name={decor[1]}
           size={96}
-          className="pointer-events-none absolute right-2 bottom-16 text-black/20 animate-float select-none"
+          className="pointer-events-none absolute right-2 bottom-16 text-muted/30 animate-float select-none"
         />
       ) : null}
       <div className={`relative mx-auto ${MAX_WIDTH[maxWidth]}`}>{children}</div>

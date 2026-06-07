@@ -4,9 +4,9 @@ function Block({ block }: { block: NeutralBlock }) {
   switch (block.kind) {
     case "heading":
       return block.level === 2 ? (
-        <h3 className="mt-3 text-lg font-black uppercase">{block.text}</h3>
+        <h3 className="mt-3 text-lg font-semibold">{block.text}</h3>
       ) : (
-        <h4 className="mt-2 text-base font-bold">{block.text}</h4>
+        <h4 className="mt-2 text-base font-semibold">{block.text}</h4>
       );
     case "text":
       return <p className="my-1 whitespace-pre-wrap text-base">{block.text}</p>;
@@ -34,7 +34,7 @@ function Block({ block }: { block: NeutralBlock }) {
             <strong>{block.label}</strong> : {block.value} / {block.max}
             {block.band ? ` — ${block.band}` : ""}
           </p>
-          {block.guidance ? <p className="text-sm text-black/70">{block.guidance}</p> : null}
+          {block.guidance ? <p className="text-sm text-muted">{block.guidance}</p> : null}
         </div>
       );
     case "list":
@@ -52,14 +52,14 @@ function Block({ block }: { block: NeutralBlock }) {
         </ul>
       );
     case "table":
-      if (block.rows.length === 0) return <p className="my-1 italic text-black/60">(aucune entrée)</p>;
+      if (block.rows.length === 0) return <p className="my-1 italic text-muted">(aucune entrée)</p>;
       return (
         <div className="my-2 overflow-x-auto">
           <table className="w-full border-collapse text-sm">
             <thead>
               <tr>
                 {block.columns.map((c, i) => (
-                  <th key={i} className="border border-black px-2 py-1 text-left font-bold">
+                  <th key={i} className="border border-border px-2 py-1 text-left font-semibold">
                     {c}
                   </th>
                 ))}
@@ -69,7 +69,7 @@ function Block({ block }: { block: NeutralBlock }) {
               {block.rows.map((row, ri) => (
                 <tr key={ri}>
                   {row.map((cell, ci) => (
-                    <td key={ci} className="border border-black px-2 py-1 align-top">
+                    <td key={ci} className="border border-border px-2 py-1 align-top">
                       {cell || "—"}
                     </td>
                   ))}
@@ -86,8 +86,8 @@ function Block({ block }: { block: NeutralBlock }) {
 export function NeutralView({ doc }: { doc: NeutralDocument }) {
   if (doc.sections.length === 0) {
     return (
-      <div className="card border border-black">
-        <p className="text-sm text-black/60">
+      <div className="card">
+        <p className="text-sm text-muted">
           Rien à afficher pour l&apos;instant — vos saisies apparaîtront ici.
         </p>
       </div>
@@ -96,8 +96,8 @@ export function NeutralView({ doc }: { doc: NeutralDocument }) {
   return (
     <div className="space-y-4">
       {doc.sections.map((section, i) => (
-        <section key={i} className="card border border-black">
-          <h2 className="mb-2 text-lg font-black uppercase">{section.heading}</h2>
+        <section key={i} className="card">
+          <h2 className="mb-2 text-lg font-semibold">{section.heading}</h2>
           {section.blocks.map((block, j) => (
             <Block key={j} block={block} />
           ))}

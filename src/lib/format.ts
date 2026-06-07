@@ -29,7 +29,7 @@ export function exportStamp(date: Date = new Date()): string {
 }
 
 export function exportFilename(slug: string, ext: string): string {
-  return `cdf-${slug}-${exportStamp()}.${ext}`;
+  return `p2p-${slug}-${exportStamp()}.${ext}`;
 }
 
 export function newId(): string {

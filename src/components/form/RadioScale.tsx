@@ -26,7 +26,7 @@ export function RadioScale({ name, scale, value, onChange, ariaLabel }: RadioSca
             <label
               key={opt.value}
               className={`flex cursor-pointer items-center gap-2 border px-3 py-2 text-sm font-semibold transition-colors ${
-                selected ? "border-blue bg-blue text-white" : "border-black hover:border-blue"
+                selected ? "border-accent bg-accent-soft text-foreground" : "border-border text-muted hover:text-accent"
               }`}
             >
               <input
@@ -35,7 +35,7 @@ export function RadioScale({ name, scale, value, onChange, ariaLabel }: RadioSca
                 value={opt.value}
                 checked={selected}
                 onChange={() => onChange(opt.value)}
-                className="h-4 w-4 accent-blue"
+                className="h-4 w-4 accent-accent"
               />
               {opt.label}
             </label>

@@ -60,7 +60,7 @@ export function ExportBar({ build, slug, className }: ExportBarProps) {
 
   return (
     <div className={`no-print ${className ?? ""}`}>
-      <p className="mb-2 text-xs font-bold uppercase tracking-wide text-blue">
+      <p className="mb-2 text-xs font-semibold tracking-wide text-info">
         Conserver une trace
       </p>
       <div className="flex flex-wrap gap-3">
@@ -77,7 +77,7 @@ export function ExportBar({ build, slug, className }: ExportBarProps) {
           JSON
         </button>
       </div>
-      <p className="mt-2 text-xs text-black/60">
+      <p className="mt-2 text-xs text-muted">
         Généré dans votre navigateur. Aucune donnée n&apos;est envoyée sur Internet.
       </p>
       {printDoc ? <PrintMount doc={printDoc} onDone={() => setPrintDoc(null)} /> : null}

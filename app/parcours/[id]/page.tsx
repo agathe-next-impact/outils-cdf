@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PageWrapper } from "@/components/layout/PageWrapper";
+import { BentoGrid, BentoBox } from "@/components/layout/Bento";
 import { PathwayView } from "@/components/pathways/PathwayView";
 import { CrisisResources } from "@/components/safety/CrisisResources";
 import { allPathwayIds, getPathway, resolvePathway } from "@/data/pathways";
@@ -28,44 +29,38 @@ export default async function PathwayPage({ params }: Params) {
   const resolved = resolvePathway(id);
   if (!resolved) notFound();
 
-  const band =
-    resolved.accent === "yellow"
-      ? "bg-yellow text-black"
-      : resolved.accent === "red"
-        ? "bg-red text-white"
-        : "bg-blue text-white";
-  const onYellow = resolved.accent === "yellow";
-
   return (
     <PageWrapper maxWidth="2xl">
       <Link
         href="/"
-        className={`inline-flex items-center gap-1 text-sm text-blue hover:underline ${FOCUS_RING}`}
+        className={`inline-flex items-center gap-1 text-sm text-info hover:underline ${FOCUS_RING}`}
       >
         <GameIcon name="arrow-left" size={16} /> Accueil
       </Link>
 
-      <header className="mb-4 mt-3">
-        <div className={`flex items-center gap-3 px-5 py-4 ${band}`}>
-          <GameIcon
-            name={resolved.iconName}
-            size={40}
-            className={onYellow ? "text-black" : "text-white"}
-            aria-hidden
-          />
-          <div>
-            <p className="text-xs font-bold uppercase tracking-wide opacity-90">Parcours</p>
-            <h1 className="font-heading text-3xl font-black uppercase leading-none tracking-tight md:text-4xl">
-              {resolved.goal}
-            </h1>
+      <BentoGrid className="mb-4">
+        <BentoBox as="header" span={3} className="mt-3">
+          <div className="flex items-center gap-3 rounded-2xl bg-accent px-5 py-4 text-white">
+            <GameIcon
+              name={resolved.iconName}
+              size={40}
+              className="text-white"
+              aria-hidden
+            />
+            <div>
+              <p className="text-xs font-medium tracking-wide opacity-90">Parcours</p>
+              <h1 className="font-heading text-3xl font-semibold leading-tight tracking-tight md:text-4xl">
+                {resolved.goal}
+              </h1>
+            </div>
           </div>
-        </div>
-        <p className="mt-3 text-base text-black/70">{resolved.pitch}</p>
-        <p className="mt-1 text-sm text-black/60">
-          Les étapes sont suggérées : piochez dans l&apos;ordre que vous voulez, passez ce qui ne
-          vous parle pas, et avancez à votre rythme.
-        </p>
-      </header>
+          <p className="mt-3 text-base text-muted">{resolved.pitch}</p>
+          <p className="mt-1 text-sm text-muted">
+            Les étapes sont suggérées : piochez dans l&apos;ordre que vous voulez, passez ce qui ne
+            vous parle pas, et avancez à votre rythme.
+          </p>
+        </BentoBox>
+      </BentoGrid>
 
       <PathwayView
         id={resolved.id}

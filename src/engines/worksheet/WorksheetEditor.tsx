@@ -32,8 +32,8 @@ export function WorksheetEditor({ definition }: { definition: WorksheetDefinitio
       <ContentRenderer blocks={definition.intro} className="card border border-blue" />
 
       {definition.sections.map((section) => (
-        <section key={section.id} className="card border border-black">
-          <h2 className="mb-2 text-xl font-black uppercase">{section.title}</h2>
+        <section key={section.id} className="card">
+          <h2 className="mb-2 text-xl font-semibold">{section.title}</h2>
           {section.intro ? <ContentRenderer blocks={section.intro} className="mb-3" /> : null}
           <div className="space-y-5">
             {(section.fields ?? []).map((f) => (
@@ -68,8 +68,8 @@ export function WorksheetEditor({ definition }: { definition: WorksheetDefinitio
         build={() => ({ doc: worksheetToNeutral(definition, state), raw: state })}
       />
 
-      <details className="card border border-black">
-        <summary className="cursor-pointer font-bold uppercase">Aperçu du document</summary>
+      <details className="card">
+        <summary className="cursor-pointer font-semibold">Aperçu du document</summary>
         <div className="mt-4">
           <NeutralView doc={doc} />
         </div>

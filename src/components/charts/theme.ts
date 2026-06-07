@@ -1,11 +1,11 @@
 /**
- * Socle de thème pour les graphiques (Recharts) — conforme à la charte
- * « Comme des Fous » : palette verrouillée, carré (aucun arrondi de barre),
- * zéro ombre, couleurs thémées (clair/sombre), respect de prefers-reduced-motion.
+ * Socle de thème pour les graphiques (Recharts) — conforme à l'identité
+ * « Peer to Peer » : palette monochrome chaude, barres à arrondi doux,
+ * ombres douces, couleurs thémées (clair/sombre), respect de prefers-reduced-motion.
  *
  * RÈGLES :
- *  - barres : toujours `radius={0}` (le reset CSS global n'agit PAS sur le SVG).
- *  - le jaune ne sert jamais à un texte/trait fin (uniquement remplissage de zone).
+ *  - barres : arrondi doux (`radius={6}`) — le SVG n'hérite pas du CSS de la page.
+ *  - l'orange ne sert jamais à un texte/trait fin (uniquement remplissage de zone).
  *  - l'information n'est jamais portée par la seule couleur → légende + libellés +
  *    table accessible (voir ChartFrame).
  */
@@ -13,9 +13,9 @@ import { useEffect, useState } from "react";
 import type { XAxisProps } from "recharts";
 
 /* --- Accents fixes (mêmes valeurs qu'globals.css ; fallback si token non émis) --- */
-export const CHART_BLUE = "var(--color-blue, oklch(62.3% 0.214 259.815))";
-export const CHART_RED = "var(--color-red, oklch(63.7% 0.237 25.331))";
-export const CHART_YELLOW = "var(--color-yellow, oklch(82.8% 0.189 84.429))";
+export const CHART_BLUE = "var(--color-blue, #db2777)";
+export const CHART_RED = "var(--color-red, #dc2626)";
+export const CHART_YELLOW = "var(--color-yellow, #fbbf24)";
 
 export type ChartAccent = "blue" | "red" | "yellow";
 
@@ -30,7 +30,7 @@ export const SERIES_PALETTE = [CHART_BLUE, CHART_RED, CHART_YELLOW];
 export const FG = "var(--foreground)";
 export const GRID = "color-mix(in srgb, var(--foreground) 14%, transparent)";
 export const MUTED = "color-mix(in srgb, var(--foreground) 55%, transparent)";
-export const TRACK = "color-mix(in srgb, var(--foreground) 10%, transparent)";
+export const TRACK = "var(--border, #e5e7eb)";
 /** Barre « neutre » (ex. mesure « avant » dans une comparaison avant/après). */
 export const NEUTRAL_BAR = "color-mix(in srgb, var(--foreground) 30%, transparent)";
 

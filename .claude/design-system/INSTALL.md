@@ -29,22 +29,23 @@ export default config;
 ## 2. Feuille de style
 
 Remplacer / préfixer le `globals.css` du projet par `.claude/design-system/globals.css`.
-**Ne jamais supprimer** le bloc `* { border-radius:0 !important; box-shadow:none !important; }`
-ni les variables de thème `:root` / `.dark`.
+**Ne jamais supprimer** les tokens de profondeur douce (`--radius*`, `--shadow*`) ni les
+variables de thème chaud `:root` / `.dark`. **Ne pas réintroduire** l'ancien reset
+`* { border-radius:0; box-shadow:none }` : il a été supprimé volontairement.
 
 ## 3. Polices + providers dans le layout racine
 
 ```tsx
-import { Belanosima, Open_Sans } from "next/font/google";
+import { Newsreader, Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
-const belanosima = Belanosima({ subsets: ["latin"], weight: ["400", "600", "700"], variable: "--font-belanosima" });
+const newsreader = Newsreader({ subsets: ["latin"], weight: ["400", "500", "600"], style: ["normal", "italic"], variable: "--font-newsreader" });
 const openSans   = Open_Sans({ subsets: ["latin"], variable: "--font-open-sans" });
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={`${belanosima.variable} ${openSans.variable}`} suppressHydrationWarning>
+    <html lang="fr" className={`${newsreader.variable} ${openSans.variable}`} suppressHydrationWarning>
       <body className="antialiased min-h-screen transition-colors duration-300">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}

@@ -50,7 +50,7 @@ function BlockView({ block }: { block: ContentBlock }) {
               <p>{block.avoid}</p>
             </div>
           ) : null}
-          {block.note ? <p className="text-black/60">{block.note}</p> : null}
+          {block.note ? <p className="text-muted">{block.note}</p> : null}
         </div>
       );
     case "definition":
@@ -61,10 +61,10 @@ function BlockView({ block }: { block: ContentBlock }) {
       );
     case "quote":
       return (
-        <blockquote className="my-3 border-l-4 border-yellow pl-3 text-base italic">
+        <blockquote className="my-3 border-l-4 border-accent pl-3 text-base italic">
           {block.text}
           {block.source ? (
-            <footer className="mt-1 text-xs not-italic text-black/60">— {block.source}</footer>
+            <footer className="mt-1 text-xs not-italic text-muted">— {block.source}</footer>
           ) : null}
         </blockquote>
       );

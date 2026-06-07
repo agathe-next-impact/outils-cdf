@@ -1,14 +1,14 @@
 "use client";
 
 /**
- * Confetti — pluie de 50 particules aux couleurs de la palette.
- * À monter ponctuellement lors d'une célébration (résultat, succès) puis démonter
- * après ~3–4 s. Les particules sont carrées (le reset global radius:0 l'emporte) —
- * c'est volontaire et cohérent avec la charte « tout est carré ».
+ * Confetti — pluie de 50 particules carrées aux couleurs de la palette.
+ * À monter ponctuellement lors d'une célébration (synthèse, résultat) puis démonter.
+ * Respecte prefers-reduced-motion (ne rend rien si l'utilisateur l'a demandé).
  */
 import { useEffect, useState } from "react";
 
-const COLORS = ["#000000", "#f5c400", "#d63a3a", "#3a6ed6", "#ffffff"];
+// Palette monochrome chaude (Adobe) — célébration discrète.
+const COLORS = ["#f28627", "#d93d04", "#a60303", "#590202", "#0d0000"];
 
 interface Particle {
   id: number;
@@ -22,18 +22,20 @@ export default function Confetti() {
   const [particles, setParticles] = useState<Particle[]>([]);
 
   useEffect(() => {
+    const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
     const items: Particle[] = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       delay: Math.random() * 2,
-      color: COLORS[Math.floor(Math.random() * COLORS.length)],
+      color: COLORS[Math.floor(Math.random() * COLORS.length)]!,
       size: Math.random() * 8 + 4,
     }));
     setParticles(items);
   }, []);
 
   return (
-    <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden">
+    <div className="fixed inset-0 pointer-events-none z-50 overflow-hidden" aria-hidden>
       {particles.map((p) => (
         <div
           key={p.id}

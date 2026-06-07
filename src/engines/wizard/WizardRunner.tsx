@@ -58,8 +58,8 @@ export function WizardRunner({ definition }: { definition: WizardDefinition }) {
 
       <ProgressBar value={index + 1} max={total} label={`Étape ${index + 1} sur ${total}`} />
 
-      <section key={step.id} className="card animate-slide-up border border-black">
-        <h2 className="mb-1 text-xl font-black uppercase">{step.title}</h2>
+      <section key={step.id} className="card animate-slide-up">
+        <h2 className="mb-1 text-xl font-semibold">{step.title}</h2>
         {step.intro ? <ContentRenderer blocks={step.intro} className="mb-4" /> : null}
         <div className="space-y-5">
           {step.fields.map((field) => (
@@ -81,7 +81,7 @@ export function WizardRunner({ definition }: { definition: WizardDefinition }) {
       <div className="flex items-center justify-between">
         <button
           type="button"
-          className={`flex items-center gap-1 border border-black px-4 py-2 ${FOCUS_RING} ${index === 0 ? "opacity-0 pointer-events-none" : ""}`}
+          className={`flex items-center gap-1 border border-border px-4 py-2 ${FOCUS_RING} ${index === 0 ? "opacity-0 pointer-events-none" : ""}`}
           onClick={prev}
           disabled={index === 0}
         >

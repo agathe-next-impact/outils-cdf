@@ -16,7 +16,7 @@ export function DisclaimerBanner({
   const text = variant === "long" ? d.long : d.short;
   return (
     <div
-      className={`flex items-start gap-3 border border-black p-3 text-sm ${className ?? ""}`}
+      className={`flex items-start gap-3 border border-border p-3 text-sm ${className ?? ""}`}
       role="note"
     >
       <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-blue" />

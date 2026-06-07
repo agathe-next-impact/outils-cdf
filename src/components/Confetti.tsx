@@ -7,7 +7,8 @@
  */
 import { useEffect, useState } from "react";
 
-const COLORS = ["#000000", "#f5c400", "#d63a3a", "#3a6ed6", "#ffffff"];
+// Palette gris + rose (template dashboard) — célébration discrète.
+const COLORS = ["#f9a8d4", "#db2777", "#f472b6", "#fbcfe8", "#9ca3af"];
 
 interface Particle {
   id: number;

@@ -1,7 +1,7 @@
 /**
  * Store de session unique (Zustand) — persistance sessionStorage.
  *
- * - Une seule clé `cdf-session` ; un slice d'état par slug d'outil.
+ * - Une seule clé `p2p-session` ; un slice d'état par slug d'outil.
  * - sessionStorage : survit au rafraîchissement et à la navigation, effacé à la
  *   fermeture de l'onglet. AUCUNE donnée n'est envoyée sur le réseau.
  * - `skipHydration: true` : on ne lit jamais sessionStorage au rendu serveur ;
@@ -62,7 +62,7 @@ export const useSessionStore = create<SessionStore>()(
       setCountry: (country) => set({ country }),
     }),
     {
-      name: "cdf-session",
+      name: "p2p-session",
       storage: createJSONStorage(() => sessionStorage),
       skipHydration: true,
       partialize: (s) => ({

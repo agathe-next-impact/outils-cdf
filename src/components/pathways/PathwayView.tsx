@@ -30,10 +30,10 @@ const STATUS_ICON: Record<StepStatus, string> = {
 
 function statusClass(status: StepStatus): string {
   return status === "done"
-    ? "text-blue"
+    ? "text-success"
     : status === "started"
-      ? "text-black"
-      : "text-black/50";
+      ? "text-foreground"
+      : "text-muted";
 }
 
 export function PathwayView({
@@ -71,15 +71,15 @@ export function PathwayView({
           accent={accent}
         />
       ) : (
-        <p className="text-sm font-bold uppercase tracking-wide text-blue">
+        <p className="text-sm font-semibold tracking-wide text-info">
           {requiredDone} / {required.length} étapes essentielles
         </p>
       )}
 
       {/* Objectif de la personne */}
-      <section className="card border border-black">
-        <h2 className="mb-1 text-lg font-black uppercase">Mon objectif, avec mes mots</h2>
-        <p className="mb-3 text-xs text-black/60">
+      <section className="card">
+        <h2 className="mb-1 text-lg font-semibold">Mon objectif, avec mes mots</h2>
+        <p className="mb-3 text-xs text-muted">
           Facultatif. Cela reste dans votre navigateur et peut être exporté avec votre plan.
         </p>
         <div className="space-y-4">
@@ -93,7 +93,7 @@ export function PathwayView({
               onChange={(e) => setField({ objectif: e.target.value })}
               rows={2}
               placeholder={`Ex. ${goal.toLowerCase()}, à mon rythme.`}
-              className={`w-full border border-black bg-white px-3 py-2 font-medium ${FOCUS_RING}`}
+              className={`w-full border border-border bg-card px-3 py-2 font-medium ${FOCUS_RING}`}
             />
           </div>
           <div>
@@ -106,7 +106,7 @@ export function PathwayView({
               value={signe}
               onChange={(e) => setField({ signe: e.target.value })}
               placeholder="Ex. Je m'endors un peu plus vite."
-              className={`w-full border border-black bg-white px-3 py-2 font-medium ${FOCUS_RING}`}
+              className={`w-full border border-border bg-card px-3 py-2 font-medium ${FOCUS_RING}`}
             />
           </div>
         </div>
@@ -115,11 +115,11 @@ export function PathwayView({
       {/* Itinéraire */}
       <section aria-label="Itinéraire du parcours">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-lg font-black uppercase">L&apos;itinéraire</h2>
+          <h2 className="text-lg font-semibold">L&apos;itinéraire</h2>
           {resumeIndex >= 0 && steps[resumeIndex]?.available ? (
             <Link
               href={steps[resumeIndex]!.href}
-              className={`inline-flex items-center gap-1 bg-red px-3 py-1 text-sm font-bold uppercase tracking-wide text-black ${FOCUS_RING}`}
+              className={`inline-flex items-center gap-1 bg-accent px-3 py-1 text-sm font-semibold tracking-wide text-white ${FOCUS_RING}`}
             >
               Reprendre <GameIcon name="arrow-right" size={16} aria-hidden />
             </Link>
@@ -132,10 +132,10 @@ export function PathwayView({
             return (
               <li
                 key={step.ref}
-                className="card flex items-start gap-3 border border-black animate-slide-up"
+                className="card flex items-start gap-3 animate-slide-up"
                 style={{ animationDelay: `${i * 0.05}s` }}
               >
-                <span className="font-heading text-2xl font-black leading-none text-blue">
+                <span className="font-heading text-2xl font-semibold leading-none text-accent">
                   {i + 1}
                 </span>
                 <div className="min-w-0 flex-1">
@@ -143,29 +143,23 @@ export function PathwayView({
                     <GameIcon
                       name={step.iconName}
                       size={20}
-                      className={
-                        step.accent === "yellow"
-                          ? "text-black"
-                          : step.accent === "red"
-                            ? "text-red"
-                            : "text-blue"
-                      }
+                      className="text-accent"
                       aria-hidden
                     />
-                    <h3 className="text-base font-black uppercase leading-tight">{step.label}</h3>
+                    <h3 className="text-base font-semibold leading-tight">{step.label}</h3>
                     {step.optional ? (
-                      <span className="border border-black px-1.5 text-[10px] font-bold uppercase tracking-wide">
+                      <span className="border border-border px-1.5 text-[10px] font-semibold tracking-wide text-muted">
                         Facultatif
                       </span>
                     ) : null}
                   </div>
                   {step.label !== step.toolTitle ? (
-                    <p className="text-xs text-black/60">dans « {step.toolTitle} »</p>
+                    <p className="text-xs text-muted">dans « {step.toolTitle} »</p>
                   ) : null}
-                  <p className="mt-1 text-sm text-black/70">{step.why}</p>
+                  <p className="mt-1 text-sm text-muted">{step.why}</p>
                   <div className="mt-3 flex flex-wrap items-center gap-3">
                     <span
-                      className={`inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wide ${statusClass(status)}`}
+                      className={`inline-flex items-center gap-1 text-xs font-semibold tracking-wide ${statusClass(status)}`}
                     >
                       <GameIcon name={STATUS_ICON[status]} size={14} aria-hidden />
                       {STATUS_LABEL[status]}
@@ -173,13 +167,13 @@ export function PathwayView({
                     {step.available ? (
                       <Link
                         href={step.href}
-                        className={`inline-flex items-center gap-1 text-sm font-bold text-red hover:underline ${FOCUS_RING}`}
+                        className={`inline-flex items-center gap-1 text-sm font-semibold text-accent hover:underline ${FOCUS_RING}`}
                       >
                         {status === "done" ? "Revoir" : status === "started" ? "Continuer" : "Ouvrir"}
                         <GameIcon name="arrow-right" size={14} aria-hidden />
                       </Link>
                     ) : (
-                      <span className="text-xs font-bold uppercase tracking-wide text-black/50">
+                      <span className="text-xs font-semibold tracking-wide text-muted">
                         Bientôt
                       </span>
                     )}

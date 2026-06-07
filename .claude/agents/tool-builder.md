@@ -1,7 +1,7 @@
 ---
 name: tool-builder
 description: >-
-  Génère un nouvel outil de la plateforme Comme des Fous : crée
+  Génère un nouvel outil de la plateforme Peer to Peer : crée
   `src/data/tools/<slug>/definition.ts` typé selon le bon moteur et l'enregistre dans
   `src/engines/registry.ts`. NE réécrit JAMAIS la logique d'un moteur. Utiliser quand l'utilisateur
   veut « créer l'outil <slug> », « implémenter la définition de X ».

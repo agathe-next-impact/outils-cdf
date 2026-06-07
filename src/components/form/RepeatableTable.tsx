@@ -33,16 +33,16 @@ export function RepeatableTable({ table, rows, onChange }: RepeatableTableProps)
       <legend className="mb-2 text-sm font-semibold">{table.label}</legend>
 
       {display.length === 0 ? (
-        <p className="mb-2 text-sm text-black/60">{table.emptyLabel ?? "Aucune entrée pour l'instant."}</p>
+        <p className="mb-2 text-sm text-muted">{table.emptyLabel ?? "Aucune entrée pour l'instant."}</p>
       ) : (
         <div className="space-y-3">
           {display.map((row, ri) => {
             const id = row["_id"] ?? null;
             const createdAt = row["_createdAt"];
             return (
-              <div key={String(id ?? ri)} className="border border-black p-3">
+              <div key={String(id ?? ri)} className="border border-border p-3">
                 <div className="mb-2 flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wide text-blue">
+                  <span className="text-xs font-semibold tracking-wide text-muted">
                     {table.timestamped && typeof createdAt === "string"
                       ? formatDateShortFr(createdAt)
                       : `#${ri + 1}`}
@@ -75,7 +75,7 @@ export function RepeatableTable({ table, rows, onChange }: RepeatableTableProps)
       <button
         type="button"
         onClick={add}
-        className={`mt-3 flex items-center gap-2 border border-black px-3 py-2 text-sm font-bold ${FOCUS_RING}`}
+        className={`mt-3 flex items-center gap-2 border border-border px-3 py-2 text-sm font-semibold ${FOCUS_RING}`}
       >
         <GameIcon name="plus" size={16} />
         {table.addLabel}

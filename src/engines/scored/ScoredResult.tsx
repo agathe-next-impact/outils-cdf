@@ -19,11 +19,11 @@ export function ScoredResult({ body, result }: { body: ScoredBody; result: Score
         accent="blue"
       />
       <div className="card border border-blue">
-        <h2 className="mb-3 text-xl font-black uppercase">Votre résultat</h2>
+        <h2 className="mb-3 text-xl font-semibold">Votre résultat</h2>
         <ProgressBar value={result.sum} max={total} variant="result" label="Score total" />
 
         {body.scoring.showMeanAndPercent ? (
-          <p className="mt-2 text-sm text-black/70">
+          <p className="mt-2 text-sm text-muted">
             {result.mean !== null ? `Moyenne ${result.mean.toFixed(2)}` : ""}
             {result.mean !== null && result.percent !== null ? " · " : ""}
             {result.percent !== null ? `${Math.round(result.percent)} %` : ""}
@@ -40,25 +40,25 @@ export function ScoredResult({ body, result }: { body: ScoredBody; result: Score
               className={`mt-0.5 shrink-0 ${attention ? "text-red" : "text-blue"}`}
             />
             <div>
-              <p className="font-bold">{result.band.label}</p>
+              <p className="font-semibold">{result.band.label}</p>
               <p>{result.band.guidance}</p>
             </div>
           </div>
         ) : (
-          <p className="mt-3 text-sm text-black/70">
+          <p className="mt-3 text-sm text-muted">
             Complétez toutes les affirmations pour obtenir un repère d&apos;interprétation.
           </p>
         )}
-        <p className="mt-3 text-xs text-black/60">
+        <p className="mt-3 text-xs text-muted">
           Ce score est un repère personnel, pas un diagnostic. Il peut aider à suivre une
           évolution dans le temps.
         </p>
       </div>
 
       {result.subscores.length > 0 ? (
-        <div className="card border border-black">
-          <h3 className="mb-1 text-lg font-black uppercase">Repères par dimension</h3>
-          <p className="mb-3 text-xs text-black/60">
+        <div className="card">
+          <h3 className="mb-1 text-lg font-semibold">Repères par dimension</h3>
+          <p className="mb-3 text-xs text-muted">
             Indicateurs exploratoires, à interpréter avec prudence (non normés).
           </p>
           <ul className="space-y-3">
