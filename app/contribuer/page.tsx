@@ -3,6 +3,7 @@ import { PageWrapper } from "@/components/layout/PageWrapper";
 import { BentoGrid, BentoBox } from "@/components/layout/Bento";
 import GameIcon from "@/components/GameIcon";
 import { Logo } from "@/components/Logo";
+import { ContributionGauge } from "@/components/contribution/ContributionGauge";
 import { FOCUS_RING } from "@/lib/a11y";
 import { CONTRIBUTION, EDITEUR, SITE } from "@/config/site";
 
@@ -29,12 +30,18 @@ export default function ContribuerPage() {
       </header>
 
       <BentoGrid>
+        {/* Jauge de collecte (valeurs statiques, maintenues à la main) */}
+        <BentoBox as="section" span={3}>
+          <h2 className="mb-3 text-lg font-semibold">Où en est la collecte</h2>
+          <ContributionGauge />
+        </BentoBox>
+
         {/* Prix libre — le cœur du message */}
-        <BentoBox as="section" span={3} className="card-accent">
-          <h2 className="mb-2 text-lg font-semibold">Un montant que vous choisissez</h2>
+        <BentoBox as="section" span={3} index={1} className="card-accent">
+          <h2 className="mb-2 text-lg font-semibold">Un don ponctuel, au montant libre</h2>
           <p className="text-base">
-            La contribution se fait à <strong>prix libre</strong>&nbsp;: vous décidez du montant,
-            ponctuel ou régulier. Aucune somme n&apos;est imposée.
+            Ce don se fait à <strong>prix libre</strong>, en une fois&nbsp;: vous décidez du
+            montant. Aucune somme n&apos;est imposée.
           </p>
           <ul className="mt-3 flex flex-wrap gap-2" aria-label="Montants donnés à titre indicatif">
             {CONTRIBUTION.suggestions.map((m) => (
@@ -64,8 +71,35 @@ export default function ContribuerPage() {
           </p>
         </BentoBox>
 
+        {/* Soutien mensuel — abonnement (paliers fixes) */}
+        <BentoBox as="section" span={3} index={2}>
+          <h2 className="mb-2 text-lg font-semibold">Ou un soutien mensuel</h2>
+          <p className="text-base">
+            Pour soutenir {SITE.name} dans la durée, vous pouvez mettre en place un don
+            mensuel — résiliable à tout moment, sans engagement.
+          </p>
+          <div className="mt-4 flex flex-wrap gap-3">
+            {CONTRIBUTION.monthly.map((tier) => (
+              <a
+                key={tier.amount}
+                href={tier.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`btn-secondary inline-flex items-center gap-2 ${FOCUS_RING}`}
+              >
+                <GameIcon name="repeat" size={18} aria-hidden />
+                {tier.amount}&nbsp;€ / mois
+              </a>
+            ))}
+          </div>
+          <p className="mt-2 text-xs text-muted">
+            Le paiement s&apos;ouvre dans un nouvel onglet, sur une page sécurisée hébergée par
+            notre prestataire.
+          </p>
+        </BentoBox>
+
         {/* Garde-fou : ne débloque rien */}
-        <BentoBox as="section" span={3} index={1}>
+        <BentoBox as="section" span={3} index={3}>
           <h2 className="mb-2 text-lg font-semibold">Contribuer ne débloque rien</h2>
           <p className="text-base">
             Tous les outils restent accessibles à tout le monde, gratuitement, sans compte. Votre
@@ -74,14 +108,23 @@ export default function ContribuerPage() {
           </p>
         </BentoBox>
 
-        {/* À quoi ça sert + qui reçoit */}
-        <BentoBox as="section" span={3} index={2}>
+        {/* À quoi ça sert : maintien en ligne + évolution future */}
+        <BentoBox as="section" span={3} index={4}>
           <h2 className="mb-2 text-lg font-semibold">À quoi sert votre soutien</h2>
           <p className="text-base">
-            Les contributions aident à faire vivre la plateforme&nbsp;: hébergement, maintenance,
-            accessibilité et nouveaux outils. {SITE.name} est édité et porté par{" "}
-            <strong>{EDITEUR.brand}</strong>. Aucune donnée saisie dans les outils n&apos;est liée
-            à votre contribution.
+            Votre contribution permet d&apos;abord de{" "}
+            <strong>maintenir le site en ligne</strong>&nbsp;: hébergement, maintenance,
+            accessibilité et amélioration des outils existants.
+          </p>
+          <p className="mt-3 text-base">
+            Au-delà, elle peut permettre de faire évoluer {SITE.name} vers une véritable
+            application&nbsp;: à terme, un <strong>espace personnel</strong> (optionnel) et
+            d&apos;autres <strong>fonctionnalités avancées</strong>. L&apos;accès aux outils, lui,
+            restera toujours libre et gratuit.
+          </p>
+          <p className="mt-3 text-sm text-muted">
+            {SITE.name} est édité et porté par <strong>{EDITEUR.brand}</strong>. Aucune donnée
+            saisie dans les outils n&apos;est liée à votre contribution.
           </p>
         </BentoBox>
       </BentoGrid>

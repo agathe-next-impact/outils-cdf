@@ -49,8 +49,33 @@ export const EDITEUR = {
  * ⚠️ Remplacer par l'URL réelle du lien de paiement.
  */
 export const CONTRIBUTION = {
-  /** Lien de paiement hébergé (prix libre). */
-  url: "https://buy.stripe.com/REMPLACER",
-  /** Montants suggérés (purement indicatifs, jamais imposés). */
+  /** Don ponctuel : lien Stripe « le client choisit le montant » (prix libre). */
+  url: "https://buy.stripe.com/cNi00i1y385716i5gbaVa00",
+  /** Montants suggérés pour le don ponctuel (purement indicatifs, jamais imposés). */
   suggestions: [5, 10, 20] as const,
+
+  /**
+   * Soutien mensuel — paliers FIXES (Stripe n'autorise pas le montant libre en
+   * récurrent). Chaque palier = un Payment Link Stripe en mode abonnement,
+   * résiliable à tout moment depuis le portail client Stripe.
+   * ⚠️ Remplacer chaque URL par le vrai lien d'abonnement.
+   */
+  monthly: [
+    { amount: 5, url: "https://buy.stripe.com/5kQeVc2C7fxz7uG9wraVa01" },
+    { amount: 10, url: "https://buy.stripe.com/5kQfZggsXgBD4iugYTaVa02" },
+  ],
+
+  /**
+   * Jauge de collecte. ⚠️ Valeurs STATIQUES mises à jour À LA MAIN
+   * (relever le total sur le tableau de bord du prestataire, puis éditer ici).
+   * Aucune donnée n'est tirée en direct : l'app reste 100 % front, sans `fetch`
+   * ni backend — l'invariant de confidentialité est préservé.
+   */
+  currency: "EUR" as const,
+  /** Somme déjà récoltée (dans la devise ci-dessus). */
+  raised: 0,
+  /** Objectif de collecte (couvre l'hébergement et la maintenance). */
+  goal: 1200,
+  /** Date de dernière mise à jour de la jauge (texte libre, ex. « 7 juin 2026 »). */
+  updatedAt: "",
 } as const;
