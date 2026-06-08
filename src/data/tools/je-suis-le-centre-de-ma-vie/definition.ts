@@ -210,6 +210,7 @@ export const jeSuisLeCentreDeMaVie: CompositeDefinition = {
   iconName: "heart",
   accent: "yellow",
   summary: "Un journal guidé pour reconstruire l'estime de soi, module par module.",
+  keywords: ["estime de soi", "confiance en soi", "affirmation de soi", "identité", "valeurs personnelles", "journal", "rétablissement", "empowerment"],
   estimatedMinutes: 30,
   sensitivity: "high",
   sourceCredit: "D'après le livret « Je suis le centre de ma vie » (Dr Versaevel)",

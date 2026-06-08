@@ -46,7 +46,12 @@ export function categoryInfo(key: ToolCategory): CategoryInfo {
   return CATEGORIES.find((c) => c.key === key) ?? CATEGORIES[0]!;
 }
 
-/** Outils planifiés mais pas encore implémentés (métadonnées d'affichage). */
+/**
+ * Outils planifiés mais pas encore implémentés (métadonnées d'affichage).
+ * Sert aussi de liste de référence pour l'ORDRE d'affichage du catalogue.
+ * Note : les `keywords` (recherche) vivent dans chaque `definition.ts` — pas ici,
+ * pour éviter une source dupliquée et désynchronisée.
+ */
 const PLANNED: ToolMeta[] = [
   {
     slug: "inventaire-burns-anxiete",
@@ -255,6 +260,7 @@ function toMeta(def: ToolMeta): ToolMeta {
     iconName: def.iconName,
     accent: def.accent,
     summary: def.summary,
+    keywords: def.keywords,
     estimatedMinutes: def.estimatedMinutes,
     sensitivity: def.sensitivity,
     sourceCredit: def.sourceCredit,

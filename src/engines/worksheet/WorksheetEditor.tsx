@@ -16,7 +16,13 @@ import { useToolSlice } from "@/store/useToolState";
 
 const INITIAL: WorksheetState = { values: {}, tables: {} };
 
-export function WorksheetEditor({ definition }: { definition: WorksheetDefinition }) {
+export function WorksheetEditor({
+  definition,
+  showIntro = true,
+}: {
+  definition: WorksheetDefinition;
+  showIntro?: boolean;
+}) {
   const [stored, setStored] = useToolSlice<WorksheetState>(definition.slug);
   const state = stored ?? INITIAL;
 
@@ -29,7 +35,7 @@ export function WorksheetEditor({ definition }: { definition: WorksheetDefinitio
 
   return (
     <div className="space-y-6">
-      <ContentRenderer blocks={definition.intro} className="card border border-border" />
+      {showIntro ? <ContentRenderer blocks={definition.intro} className="card border border-border" /> : null}
 
       {definition.sections.map((section) => (
         <section key={section.id} className="card">

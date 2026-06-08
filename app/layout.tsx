@@ -6,6 +6,8 @@ import { Sidebar } from "@/components/layout/Sidebar";
 import { MobileTopBar } from "@/components/layout/MobileTopBar";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { Footer } from "@/components/layout/Footer";
+import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { FloatingHelp } from "@/components/safety/FloatingHelp";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { InstallBanner } from "@/components/pwa/InstallBanner";
 import { SITE } from "@/config/site";
@@ -47,7 +49,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover", // étend sous l'encoche → safe-area exploitable
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f6f5f3" },
+    { media: "(prefers-color-scheme: light)", color: "#fbfaf8" },
     { media: "(prefers-color-scheme: dark)", color: "#161513" },
   ],
 };
@@ -75,6 +77,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ScrollToTop />
           {/* Desktop : Sidebar. Mobile : fine barre haute + BottomNav (seule nav). */}
           <Sidebar />
           <div className="lg:ml-20">
@@ -89,6 +92,7 @@ export default function RootLayout({
             </div>
           </div>
           <BottomNav />
+          <FloatingHelp />
           <ServiceWorkerRegister />
         </ThemeProvider>
       </body>

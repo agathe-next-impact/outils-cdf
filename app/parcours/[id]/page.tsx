@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { BentoGrid, BentoBox } from "@/components/layout/Bento";
 import { PathwayView } from "@/components/pathways/PathwayView";
-import { CrisisResources } from "@/components/safety/CrisisResources";
 import { allPathwayIds, getPathway, resolvePathway } from "@/data/pathways";
 import GameIcon from "@/components/GameIcon";
 import { FOCUS_RING } from "@/lib/a11y";
@@ -68,8 +67,6 @@ export default async function PathwayPage({ params }: Params) {
         steps={resolved.steps}
         accent={resolved.accent}
       />
-
-      <CrisisResources level="standard" className="mt-8" />
     </PageWrapper>
   );
 }

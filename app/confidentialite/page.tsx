@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function ConfidentialitePage() {
   return (
-    <PageWrapper maxWidth="2xl" decor={["lock"]}>
+    <PageWrapper maxWidth="full" decor={["lock"]}>
       <header className="mb-6">
         <GameIcon name="lock" size={48} className="mb-2 text-accent" />
         <h1 className="font-heading text-3xl tracking-tight md:text-4xl">

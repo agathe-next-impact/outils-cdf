@@ -21,7 +21,18 @@ function CardInner({ entry }: { entry: CatalogEntry }): ReactNode {
           <span className="badge badge--sensible">Sensible</span>
         ) : null}
       </div>
-      <p className="body">{entry.summary}</p>
+      {entry.keywords && entry.keywords.length > 0 ? (
+        <ul className="tags" aria-label="Mots clés">
+          {entry.keywords.slice(0, 3).map((kw) => (
+            <li key={kw} className="tag">
+              {kw}
+            </li>
+          ))}
+        </ul>
+      ) : null}
+      <p className="source-credit">
+        <span>Source&nbsp;:</span> {entry.sourceCredit}
+      </p>
       {entry.available ? (
         <span className="tlink open">
           Ouvrir <GameIcon name="arrow-right" size={16} aria-hidden />

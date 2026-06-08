@@ -3,9 +3,8 @@ import GameIcon from "@/components/GameIcon";
 import { getDisclaimer } from "@/content/disclaimers";
 
 /**
- * Bloc unique « à savoir » fusionnant l'avertissement (non-diagnostique) et la
- * note de session (confidentialité), pour éviter l'empilement de bandeaux
- * anxiogène. Ton calme et rassurant.
+ * Avertissement replié par défaut pour limiter le bruit visuel sur les pages outil.
+ * Le texte complet reste disponible dans un accordéon natif, accessible au clavier.
  */
 export function ToolSafetyNote({
   disclaimerKey,
@@ -15,25 +14,31 @@ export function ToolSafetyNote({
   className?: string;
 }) {
   const d = getDisclaimer(disclaimerKey);
+
   return (
-    <section
-      className={`flex items-start gap-3 border border-border p-3 text-sm ${className ?? ""}`}
-      role="note"
-      aria-label="À savoir avant de commencer"
-    >
-      <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-accent" aria-hidden />
-      <div className="space-y-1">
-        <p>{d.long}</p>
-        <p className="text-muted">
-          Vos réponses restent dans cet onglet, ne sont jamais envoyées sur Internet, et
-          s&apos;effacent à sa fermeture. Pensez à <strong>exporter</strong> pour en garder une
-          trace.{" "}
-          <Link className="text-accent hover:underline" href="/confidentialite">
-            En savoir plus
-          </Link>
-          .
-        </p>
-      </div>
-    </section>
+    <details className={`safety-accordion border border-border ${className ?? ""}`}>
+      <summary className="flex cursor-pointer items-center gap-2 p-3 text-sm font-semibold text-accent">
+        <GameIcon name="info" size={18} className="shrink-0" aria-hidden />
+        Avertissement
+      </summary>
+      <section
+        className="border-t border-border p-3 pt-2 text-sm"
+        role="note"
+        aria-label="Avertissement avant de commencer"
+      >
+        <div className="space-y-1">
+          <p>{d.long}</p>
+          <p className="text-muted">
+            Vos réponses restent dans cet onglet, ne sont jamais envoyées sur Internet, et
+            s&apos;effacent à sa fermeture. Pensez à <strong>exporter</strong> pour en garder une
+            trace.{" "}
+            <Link className="text-accent hover:underline" href="/confidentialite">
+              En savoir plus
+            </Link>
+            .
+          </p>
+        </div>
+      </section>
+    </details>
   );
 }

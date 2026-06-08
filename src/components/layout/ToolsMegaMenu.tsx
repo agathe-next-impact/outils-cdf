@@ -194,7 +194,7 @@ export function ToolsMegaMenu({
 
           <div className="mt-6 border-t border-border pt-4">
             <Link
-              href="/"
+              href="/outils"
               className={`inline-flex items-center gap-1 text-sm font-semibold tracking-wide text-accent transition-colors hover:text-accent ${FOCUS_RING}`}
             >
               Tous les outils <GameIcon name="arrow-right" size={16} aria-hidden />

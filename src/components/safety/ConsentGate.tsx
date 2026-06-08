@@ -2,13 +2,12 @@
 
 import GameIcon from "@/components/GameIcon";
 import { useSessionStore } from "@/store/sessionStore";
-import { getDisclaimer } from "@/content/disclaimers";
 import type { Sensitivity } from "@/engines/types";
+import { scrollToToolTop } from "@/lib/scrollToTool";
 
 interface ConsentGateProps {
   slug: string;
   sensitivity: Sensitivity;
-  disclaimerKey: string;
   children: React.ReactNode;
 }
 
@@ -17,7 +16,7 @@ interface ConsentGateProps {
  * juste un booléen de session). Les outils non « high » passent directement.
  * À rendre APRÈS hydratation du store (cf. ToolHost).
  */
-export function ConsentGate({ slug, sensitivity, disclaimerKey, children }: ConsentGateProps) {
+export function ConsentGate({ slug, sensitivity, children }: ConsentGateProps) {
   const consented = useSessionStore((s) => s.consents[slug] === true);
   const setConsent = useSessionStore((s) => s.setConsent);
 
@@ -25,14 +24,12 @@ export function ConsentGate({ slug, sensitivity, disclaimerKey, children }: Cons
     return <>{children}</>;
   }
 
-  const d = getDisclaimer(disclaimerKey);
   return (
     <div className="card animate-slide-up border border-border">
       <div className="mb-2 flex items-center gap-2">
         <GameIcon name="shield-check" size={24} className="text-accent" />
         <h2 className="text-lg">Avant de commencer</h2>
       </div>
-      <p className="mb-3 text-sm">{d.long}</p>
       <p className="mb-3 text-sm">
         Prenez le temps qu&apos;il vous faut : il n&apos;y a aucune attente, et c&apos;est vous qui
         menez.
@@ -42,7 +39,14 @@ export function ConsentGate({ slug, sensitivity, disclaimerKey, children }: Cons
         <li>Vous n&apos;êtes pas obligé·e de répondre à toutes les questions.</li>
         <li>Vos réponses restent dans votre navigateur et peuvent être effacées.</li>
       </ul>
-      <button type="button" className="btn-primary" onClick={() => setConsent(slug, true)}>
+      <button
+        type="button"
+        className="btn-primary"
+        onClick={() => {
+          setConsent(slug, true);
+          scrollToToolTop();
+        }}
+      >
         Commencer
       </button>
     </div>

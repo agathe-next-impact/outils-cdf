@@ -30,15 +30,15 @@ export const EDITEUR = {
   brand: "Next Impact",
   /** Raison sociale + forme juridique. Ex. « Next Impact SAS au capital de X € ». */
   legalName: "Next Impact",
-  forme: "", // ex. "SAS au capital de 1 000 €"
-  siret: "", // n° SIRET
-  rcs: "", // ex. "RCS Bordeaux 000 000 000"
-  tvaIntra: "", // n° TVA intracommunautaire
-  siege: "", // adresse du siège social
-  directeurPublication: "", // nom du directeur / de la directrice de la publication
-  email: "", // contact
+  forme: "EI", // ex. "SAS au capital de 1 000 €"
+  siret: "53267538600066", // n° SIRET
+  rcs: "non enregistrée", // ex. "RCS Bordeaux 000 000 000"
+  tvaIntra: "FR58532675386", // n° TVA intracommunautaire
+  siege: "4 rue du Centre, 15400 Trizac", // adresse du siège social
+  directeurPublication: "Agathe Karinthi-Martin", // nom du directeur / de la directrice de la publication
+  email: "agathe@next-impact.digital", // contact
   /** Hébergeur — à confirmer selon le déploiement réel. */
-  hebergeur: "",
+  hebergeur: "Vercel",
 } as const;
 
 /**

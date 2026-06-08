@@ -8,6 +8,7 @@ export const resolutionProblemes: WizardDefinition = {
   iconName: "target",
   accent: "red",
   summary: "Dix étapes pour transformer un problème en plan d'action concret.",
+  keywords: ["résolution de problèmes", "prise de décision", "plan d'action", "objectifs", "solutions", "organisation", "TCC"],
   estimatedMinutes: 25,
   sensitivity: "medium",
   sourceCredit: "D'après la méthode de résolution de problèmes (J. Goulet, 2005)",

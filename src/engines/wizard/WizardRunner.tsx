@@ -15,10 +15,17 @@ import { useToolSlice } from "@/store/useToolState";
 import GameIcon from "@/components/GameIcon";
 import { FOCUS_RING } from "@/lib/a11y";
 import { clamp } from "@/lib/format";
+import { scrollToToolTop } from "@/lib/scrollToTool";
 
 const INITIAL: WizardState = { values: {}, currentStep: 0, completed: false };
 
-export function WizardRunner({ definition }: { definition: WizardDefinition }) {
+export function WizardRunner({
+  definition,
+  showIntro = true,
+}: {
+  definition: WizardDefinition;
+  showIntro?: boolean;
+}) {
   const [stored, setStored] = useToolSlice<WizardState>(definition.slug);
   const state = stored ?? INITIAL;
   const steps = useMemo(
@@ -30,12 +37,21 @@ export function WizardRunner({ definition }: { definition: WizardDefinition }) {
   const step = steps[index];
 
   if (state.completed) {
+    const edit = () => {
+      setStored({ ...state, completed: false });
+      scrollToToolTop();
+    };
+    const restart = () => {
+      setStored({ values: {}, currentStep: 0, completed: false });
+      scrollToToolTop();
+    };
+
     return (
       <WizardSummary
         definition={definition}
         state={state}
-        onEdit={() => setStored({ ...state, completed: false })}
-        onRestart={() => setStored({ values: {}, currentStep: 0, completed: false })}
+        onEdit={edit}
+        onRestart={restart}
       />
     );
   }
@@ -43,16 +59,25 @@ export function WizardRunner({ definition }: { definition: WizardDefinition }) {
 
   const setValue = (fieldId: string, v: FieldValue) =>
     setStored({ ...state, values: { ...state.values, [fieldId]: v } });
-  const goTo = (i: number) => setStored({ ...state, currentStep: clamp(i, 0, total - 1) });
-  const next = () =>
-    index >= total - 1 ? setStored({ ...state, completed: true }) : goTo(index + 1);
+  const goTo = (i: number) => {
+    setStored({ ...state, currentStep: clamp(i, 0, total - 1) });
+    scrollToToolTop();
+  };
+  const next = () => {
+    if (index >= total - 1) {
+      setStored({ ...state, completed: true });
+      scrollToToolTop();
+      return;
+    }
+    goTo(index + 1);
+  };
   const prev = () => goTo(index - 1);
 
   const hits = detectPitfalls(step.pitfalls, state.values);
 
   return (
     <div className="space-y-6">
-      {index === 0 ? (
+      {showIntro && index === 0 ? (
         <ContentRenderer blocks={definition.intro} className="card border border-border" />
       ) : null}
 

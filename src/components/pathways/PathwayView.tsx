@@ -156,6 +156,11 @@ export function PathwayView({
                   {step.label !== step.toolTitle ? (
                     <p className="text-xs text-muted">dans « {step.toolTitle} »</p>
                   ) : null}
+                  {step.sourceCredit ? (
+                    <p className="source-credit">
+                      <span>Source&nbsp;:</span> {step.sourceCredit}
+                    </p>
+                  ) : null}
                   <p className="mt-1 text-sm text-muted">{step.why}</p>
                   <div className="mt-3 flex flex-wrap items-center gap-3">
                     <span

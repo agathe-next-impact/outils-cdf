@@ -8,6 +8,7 @@ const BASE = SITE.url;
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "",
+    "/outils",
     "/parcours",
     "/ressources",
     "/contribuer",

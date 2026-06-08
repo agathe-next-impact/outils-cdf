@@ -19,11 +19,11 @@ function ToolSkeleton() {
 function EngineRouter({ definition }: { definition: ToolDefinition }) {
   switch (definition.engine) {
     case "scored":
-      return <ScoredRunner definition={definition} />;
+      return <ScoredRunner definition={definition} showIntro={false} />;
     case "wizard":
-      return <WizardRunner definition={definition} />;
+      return <WizardRunner definition={definition} showIntro={false} />;
     case "worksheet":
-      return <WorksheetEditor definition={definition} />;
+      return <WorksheetEditor definition={definition} showIntro={false} />;
     case "composite":
       return <CompositeRunner definition={definition} />;
   }
@@ -39,12 +39,13 @@ export function ToolHost({ definition }: { definition: ToolDefinition }) {
   if (!hydrated) return <ToolSkeleton />;
 
   return (
-    <ConsentGate
-      slug={definition.slug}
-      sensitivity={definition.sensitivity}
-      disclaimerKey={definition.disclaimerKey}
-    >
-      <EngineRouter definition={definition} />
-    </ConsentGate>
+    <div data-tool-container>
+      <ConsentGate
+        slug={definition.slug}
+        sensitivity={definition.sensitivity}
+      >
+        <EngineRouter definition={definition} />
+      </ConsentGate>
+    </div>
   );
 }

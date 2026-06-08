@@ -1,7 +1,15 @@
 import GameIcon from "@/components/GameIcon";
 import type { ContentBlock } from "@/engines/content";
 
-function BlockView({ block }: { block: ContentBlock }) {
+function BlockView({
+  block,
+  hideCallouts,
+  hideAttentionCallouts,
+}: {
+  block: ContentBlock;
+  hideCallouts: boolean;
+  hideAttentionCallouts: boolean;
+}) {
   switch (block.kind) {
     case "paragraph":
       return <p className="my-2 text-base">{block.text}</p>;
@@ -21,6 +29,8 @@ function BlockView({ block }: { block: ContentBlock }) {
       );
     case "callout": {
       const attention = block.tone === "attention";
+      if (hideCallouts || (attention && hideAttentionCallouts)) return null;
+
       return (
         <div
           className={`my-3 flex items-start gap-3 border p-3 text-sm ${attention ? "border-danger" : "border-border"}`}
@@ -74,14 +84,23 @@ function BlockView({ block }: { block: ContentBlock }) {
 export function ContentRenderer({
   blocks,
   className,
+  hideCallouts = true,
+  hideAttentionCallouts = true,
 }: {
   blocks: ContentBlock[];
   className?: string;
+  hideCallouts?: boolean;
+  hideAttentionCallouts?: boolean;
 }) {
   return (
     <div className={className}>
       {blocks.map((b, i) => (
-        <BlockView key={i} block={b} />
+        <BlockView
+          key={i}
+          block={b}
+          hideCallouts={hideCallouts}
+          hideAttentionCallouts={hideAttentionCallouts}
+        />
       ))}
     </div>
   );

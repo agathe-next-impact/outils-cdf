@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { PathwayCards } from "@/components/pathways/PathwayCards";
+import { StartPathwayCards } from "@/components/pathways/StartPathwayCards";
 import { getPathwaySummaries } from "@/data/pathways";
 
 export const metadata: Metadata = {
@@ -22,6 +23,9 @@ export default function PathwaysIndexPage() {
           quelques outils qui se complètent — rien d&apos;obligatoire.
         </p>
       </header>
+      <section className="bento mb-8">
+        <StartPathwayCards />
+      </section>
       <PathwayCards pathways={pathways} />
     </PageWrapper>
   );

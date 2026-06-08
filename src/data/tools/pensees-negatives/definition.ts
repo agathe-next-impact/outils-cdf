@@ -9,6 +9,7 @@ export const penseesNegatives: WizardDefinition = {
   iconName: "brain",
   accent: "blue",
   summary: "Un parcours en étapes pour explorer une pensée difficile autrement.",
+  keywords: ["pensées négatives", "distorsions cognitives", "restructuration cognitive", "ruminations", "pensées automatiques", "recadrage", "TCC", "estime de soi"],
   estimatedMinutes: 15,
   sensitivity: "high",
   sourceCredit: "Inspiré des techniques de restructuration cognitive (TCC)",

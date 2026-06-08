@@ -57,6 +57,7 @@ export const recoveryAssessmentScale: ScoredDefinition = {
   iconName: "sprout",
   accent: "yellow",
   summary: "24 affirmations pour explorer votre sentiment de rétablissement.",
+  keywords: ["rétablissement", "recovery", "espoir", "estime de soi", "confiance en soi", "objectifs de vie", "questionnaire", "empowerment"],
   estimatedMinutes: 7,
   sensitivity: "low",
   sourceCredit: "D'après la Recovery Assessment Scale (Corrigan et al.)",

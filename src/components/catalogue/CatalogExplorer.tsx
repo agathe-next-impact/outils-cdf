@@ -24,8 +24,20 @@ const DUR_LABEL: Record<DurFilter, string> = {
   long: "> 20 min",
 };
 
+// Taille de la tuile selon la durée. La grille reste sur 4 colonnes (1 col = c3) ;
+// une carte occupe au plus 2 de ces colonnes :
+//   < 30 min → 1 col (c3, 1/4) · ≥ 30 min → 2 col (c6, 1/2).
+// Durée inconnue (0) → 1 col.
+function durSpan(min: number | undefined): string {
+  return (min ?? 0) < 30 ? "c3" : "c6";
+}
+
 function norm(s: string): string {
   return s.toLowerCase().normalize("NFD").replace(/\p{Diacritic}/gu, "");
+}
+
+function searchText(entry: CatalogEntry): string {
+  return norm(`${entry.title} ${entry.shortTitle ?? ""} ${entry.summary} ${(entry.keywords ?? []).join(" ")}`);
 }
 
 export function CatalogExplorer({
@@ -38,19 +50,31 @@ export function CatalogExplorer({
   const [query, setQuery] = useState("");
   const [cat, setCat] = useState<ToolCategory | "all">("all");
   const [dur, setDur] = useState<DurFilter>("all");
+  const [keyword, setKeyword] = useState("all");
   const [sort, setSort] = useState<SortKey>("default");
+  const normalizedQuery = norm(query.trim());
+
+  const keywordOptions = useMemo(() => {
+    const seen = new Map<string, string>();
+    for (const entry of entries) {
+      for (const kw of entry.keywords ?? []) {
+        const key = norm(kw);
+        if (!seen.has(key)) seen.set(key, kw);
+      }
+    }
+    return [...seen.entries()].sort((a, b) => a[1].localeCompare(b[1], "fr"));
+  }, [entries]);
 
   const results = useMemo(() => {
-    const nq = norm(query.trim());
     const list = entries.filter((e) => {
       if (cat !== "all" && e.category !== cat) return false;
       const m = e.estimatedMinutes ?? 0;
       if (dur === "court" && !(m > 0 && m <= 10)) return false;
       if (dur === "moyen" && !(m > 10 && m <= 20)) return false;
       if (dur === "long" && !(m > 20)) return false;
-      if (nq) {
-        const hay = norm(`${e.title} ${e.shortTitle ?? ""} ${e.summary}`);
-        if (!hay.includes(nq)) return false;
+      if (keyword !== "all" && !(e.keywords ?? []).some((kw) => norm(kw) === keyword)) return false;
+      if (normalizedQuery) {
+        if (!searchText(e).includes(normalizedQuery)) return false;
       }
       return true;
     });
@@ -58,20 +82,20 @@ export function CatalogExplorer({
       return [...list].sort((a, b) => (a.estimatedMinutes ?? 0) - (b.estimatedMinutes ?? 0));
     }
     return list;
-  }, [entries, query, cat, dur, sort]);
+  }, [entries, normalizedQuery, cat, dur, keyword, sort]);
 
-  const hasFilters = query !== "" || cat !== "all" || dur !== "all" || sort !== "default";
+  const suggestion = normalizedQuery
+    ? results.find((entry) => norm(entry.shortTitle ?? entry.title) !== normalizedQuery)
+    : undefined;
+
+  const hasFilters = query !== "" || cat !== "all" || dur !== "all" || keyword !== "all" || sort !== "default";
   const resetFilters = () => {
     setQuery("");
     setCat("all");
     setDur("all");
+    setKeyword("all");
     setSort("default");
   };
-
-  const chipCls = (active: boolean) => `chip ${active ? "on" : ""} ${FOCUS_RING}`;
-
-  // Empans pour le rythme éditorial : première tuile vedette (c7), 2e (c5), puis 3-up (c4).
-  const spanCls = (i: number) => (i === 0 ? "c7" : i === 1 ? "c5" : "c4");
 
   return (
     <section aria-label="Explorer les outils">
@@ -88,34 +112,50 @@ export function CatalogExplorer({
               aria-label="Rechercher un outil"
             />
           </div>
-          <div className="filters">
-            <button type="button" aria-pressed={cat === "all"} className={chipCls(cat === "all")} onClick={() => setCat("all")}>
-              Tous
+          {suggestion ? (
+            <button
+              type="button"
+              className={`search-suggestion ${FOCUS_RING}`}
+              onClick={() => setQuery(suggestion.shortTitle ?? suggestion.title)}
+            >
+              <GameIcon name="sparkles" size={14} aria-hidden />
+              Suggestion&nbsp;: {suggestion.shortTitle ?? suggestion.title}
             </button>
-            {categories.map((c) => (
-              <button
-                key={c.key}
-                type="button"
-                aria-pressed={cat === c.key}
-                className={chipCls(cat === c.key)}
-                onClick={() => setCat(c.key)}
-              >
-                {c.label}
-              </button>
-            ))}
-            <span className="sep" aria-hidden />
-            {(Object.keys(DUR_LABEL) as DurFilter[]).map((d) => (
-              <button
-                key={d}
-                type="button"
-                aria-pressed={dur === d}
-                className={chipCls(dur === d)}
-                onClick={() => setDur(d)}
-              >
-                {DUR_LABEL[d]}
-              </button>
-            ))}
-            <label className="right">
+          ) : null}
+          <div className="filters">
+            <label>
+              <GameIcon name="layout-grid" size={15} aria-hidden /> Catégorie
+              <select value={cat} onChange={(e) => setCat(e.target.value as ToolCategory | "all")} aria-label="Filtrer par catégorie">
+                <option value="all">Toutes</option>
+                {categories.map((c) => (
+                  <option key={c.key} value={c.key}>
+                    {c.label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              <GameIcon name="timer" size={15} aria-hidden /> Durée
+              <select value={dur} onChange={(e) => setDur(e.target.value as DurFilter)} aria-label="Filtrer par durée">
+                {(Object.keys(DUR_LABEL) as DurFilter[]).map((d) => (
+                  <option key={d} value={d}>
+                    {DUR_LABEL[d]}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
+              <GameIcon name="tag" size={15} aria-hidden /> Mot clé
+              <select value={keyword} onChange={(e) => setKeyword(e.target.value)} aria-label="Filtrer par mot clé">
+                <option value="all">Tous</option>
+                {keywordOptions.map(([value, label]) => (
+                  <option key={value} value={value}>
+                    {label}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label>
               <GameIcon name="list-checks" size={15} aria-hidden /> Trier
               <select value={sort} onChange={(e) => setSort(e.target.value as SortKey)} aria-label="Trier les outils">
                 <option value="default">Par défaut</option>
@@ -134,11 +174,14 @@ export function CatalogExplorer({
       {/* Résultats */}
       {results.length > 0 ? (
         <section className="bento" style={{ gridAutoFlow: "row dense" }}>
-          {results.map((entry, i) => (
-            <div key={entry.slug} className={spanCls(i)}>
-              <ToolCard entry={entry} index={i} featured={i === 0} />
-            </div>
-          ))}
+          {results.map((entry, i) => {
+            const span = durSpan(entry.estimatedMinutes);
+            return (
+              <div key={entry.slug} className={span}>
+                <ToolCard entry={entry} index={i} featured={span === "c6"} />
+              </div>
+            );
+          })}
         </section>
       ) : (
         <div className="box text-center">

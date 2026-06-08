@@ -11,6 +11,7 @@ import { ExportBar } from "@/components/safety/ExportBar";
 import { ResetButton } from "@/components/safety/ResetButton";
 import { scoredToNeutral } from "@/lib/export/scoredToNeutral";
 import { useToolSlice } from "@/store/useToolState";
+import { scrollToToolTop } from "@/lib/scrollToTool";
 
 const INITIAL: ScoredState = { responses: {}, submitted: false };
 
@@ -33,7 +34,13 @@ function groupItems(items: ScoredItem[]): ItemGroup[] {
   return groups;
 }
 
-export function ScoredRunner({ definition }: { definition: ScoredDefinition }) {
+export function ScoredRunner({
+  definition,
+  showIntro = true,
+}: {
+  definition: ScoredDefinition;
+  showIntro?: boolean;
+}) {
   const [stored, setStored] = useToolSlice<ScoredState>(definition.slug);
   const state = stored ?? INITIAL;
   const scaleById = useMemo(
@@ -45,8 +52,14 @@ export function ScoredRunner({ definition }: { definition: ScoredDefinition }) {
 
   const setResponse = (itemId: string, value: number) =>
     setStored({ ...state, responses: { ...state.responses, [itemId]: value } });
-  const submit = () => setStored({ ...state, submitted: true });
-  const restart = () => setStored({ responses: {}, submitted: false });
+  const submit = () => {
+    setStored({ ...state, submitted: true });
+    scrollToToolTop();
+  };
+  const restart = () => {
+    setStored({ responses: {}, submitted: false });
+    scrollToToolTop();
+  };
 
   if (state.submitted) {
     return (
@@ -70,7 +83,7 @@ export function ScoredRunner({ definition }: { definition: ScoredDefinition }) {
 
   return (
     <div className="space-y-6">
-      <ContentRenderer blocks={definition.intro} className="card border border-border" />
+      {showIntro ? <ContentRenderer blocks={definition.intro} className="card border border-border" /> : null}
 
       {definition.referencePeriod ? (
         <p className="text-sm font-semibold tracking-wide text-info">

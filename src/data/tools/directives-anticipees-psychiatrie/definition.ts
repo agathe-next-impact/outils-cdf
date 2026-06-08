@@ -9,6 +9,7 @@ export const directivesAnticipeesPsychiatrie: WorksheetDefinition = {
   iconName: "scale",
   accent: "red",
   summary: "Exprimer à l'avance vos préférences de soin, au calme.",
+  keywords: ["directives anticipées", "préférences de soin", "droits", "consentement", "hospitalisation", "personne de confiance", "plaidoyer"],
   estimatedMinutes: 25,
   sensitivity: "high",
   sourceCredit: "D'après les directives anticipées en psychiatrie",

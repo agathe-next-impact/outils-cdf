@@ -1138,6 +1138,7 @@ export const dealingWithPsychosis: CompositeDefinition = {
   accent: "blue",
   summary:
     "Une boîte à outils pour comprendre et apprivoiser des expériences intenses, à votre rythme et sans diagnostic.",
+  keywords: ["psychose", "hallucinations", "entendre des voix", "voix", "idées délirantes", "paranoïa", "déclencheurs", "signes précurseurs"],
   estimatedMinutes: 25,
   sensitivity: "high",
   sourceCredit:

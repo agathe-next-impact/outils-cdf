@@ -8,6 +8,7 @@ export const planDeCrise: WorksheetDefinition = {
   iconName: "shield-alert",
   accent: "red",
   summary: "Anticiper une crise : signaux, ressources et personnes de confiance.",
+  keywords: ["crise", "plan de crise", "plan de sécurité", "signaux d'alerte", "personnes de confiance", "prévention", "urgence", "plaidoyer"],
   estimatedMinutes: 20,
   sensitivity: "high",
   sourceCredit: "D'après les modèles de plan de crise en santé mentale",

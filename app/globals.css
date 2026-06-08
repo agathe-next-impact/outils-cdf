@@ -64,7 +64,7 @@
  * #A4B1B7 TRÈS parcimonieux. Base gris/blanc, texte gris foncé. Pas de jaune.
  * ------------------------------------------------------------------------- */
 :root {
-  --background:  #f6f5f3;  /* fond page (gris très clair, légèrement chaud)  */
+  --background:  #fbfaf8;  /* fond page (gris très clair, légèrement chaud)  */
   --card-bg:     #ffffff;  /* carte / panneau (blanc)                        */
   --surface-2:   #efece7;  /* inset gris clair                               */
   --foreground:  #2b2a27;  /* texte primaire (gris foncé)                    */
@@ -73,9 +73,9 @@
   --border:      #e6e3dc;  /* filet hairline très discret (gris chaud)       */
   --line-strong: #d3cfc6;  /* filet au survol                               */
 
-  --accent:        #a05f5d;  /* rose poudré assombri (AA sur blanc) — issu de #C99D9C */
-  --accent-strong: #834a48;  /* appui / pressé */
-  --accent-soft:   #efdedd;  /* rose très clair (fond de chip d'icône) */
+  --accent:        #7a2e2a;  /* rouge argile profond, non pastel */
+  --accent-strong: #5f211e;  /* appui / pressé */
+  --accent-soft:   #ead6d2;  /* fond doux, l'accent reste profond */
   --on-accent:     #ffffff;  /* texte/glyphe sur aplat rose */
 
   --hero-bg:   #2b2a27;  --hero-ink: #f5f2ec;  --hero-line: #45423b;  /* hero gris foncé */
@@ -83,13 +83,13 @@
   /* Couleurs : rose + crème (dominantes), gris-bleu (TRÈS parcimonieux) */
   --tile-rose:   #c99d9c;  /* rose Adobe — tuile vedette */
   --tile-cream:  #f2ebdc;  /* crème Adobe */
-  --tile-blue:   #a4b1b7;  /* gris-bleu Adobe — usage TRÈS parcimonieux (1 tuile) */
+  --tile-blue:   #3f6678;  /* bleu pétrole sourd — usage parcimonieux */
   --ink-pastel:  #2b2a27;  /* texte foncé posé sur une tuile pastel */
 
   /* Accents par catégorie (grille d'outils) — filet + icône */
-  --cat-q: #a05f5d;  /* questionnaires — rose */
-  --cat-p: #7e9098;  /* parcours — gris-bleu (assombri pour la visibilité) */
-  --cat-c: #9c8a5e;  /* carnets — beige foncé */
+  --cat-q: #7a2e2a;  /* questionnaires — rouge argile */
+  --cat-p: #285f7a;  /* parcours — bleu pétrole */
+  --cat-c: #356b45;  /* carnets — vert sauge sombre */
 
   /* Sécurité (exception) + warning NEUTRE (ni jaune ni bleu) */
   --warning:    #6d6a64;  --warning-soft: #ededeb;  /* gris neutre */
@@ -115,9 +115,9 @@
   --border:      #33302b;  /* filet très discret */
   --line-strong: #46423b;
 
-  --accent:        #d0a3a2;  /* rose poudré clair (lisible sur sombre) */
-  --accent-strong: #e0bdbc;
-  --accent-soft:   #3a2c2b;  /* chip rose très sombre */
+  --accent:        #e07b72;  /* rouge argile clair, non pastel */
+  --accent-strong: #f09a92;
+  --accent-soft:   #3f2420;  /* chip sombre teinté */
   --on-accent:     #1a1916;  /* texte foncé sur aplat rose clair */
 
   --hero-bg:   #0e0d0b;  --hero-ink: #f1eee8;  --hero-line: #2a2823;
@@ -126,9 +126,9 @@
   --danger:     #e0837b;  --danger-soft:  #3a1512;
 
   /* Accents par catégorie (versions claires pour le contraste sur sombre) */
-  --cat-q: #d0a3a2;  /* rose */
-  --cat-p: #a9b6bc;  /* bleu */
-  --cat-c: #cbb787;  /* beige */
+  --cat-q: #e07b72;  /* rouge argile */
+  --cat-p: #76b3ce;  /* bleu pétrole clair */
+  --cat-c: #7fbd8b;  /* vert sauge franc */
 
   --ring: var(--accent);
 }
@@ -137,6 +137,10 @@
 * { border-radius: 0 !important; }
 
 /* --- Base ----------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
@@ -147,11 +151,19 @@ body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+p {
+  font-size: 16px !important;
+}
+
 h1, h2, h3, h4, .font-heading {
   font-family: var(--font-heading);
   font-weight: 400; /* Instrument Sans ne descend pas sous 400 (sa graisse la plus fine) */
   letter-spacing: -0.02em;
   line-height: 1.1;
+}
+
+h3 {
+  margin-bottom: 2rem;
 }
 
 /* Liens de contenu : accent bleu, soulignement discret. */
@@ -203,7 +215,7 @@ h1, h2, h3, h4, .font-heading {
   .animate-float, .animate-slide-up, .animate-bounce-in, .animate-confetti, .animate-shake {
     animation: none !important;
   }
-  * { scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
+  * { transition-duration: 0.01ms !important; }
 }
 
 /* --- Boutons (pill, sans ombre) ------------------------------------------- */
@@ -405,7 +417,12 @@ h1, h2, h3, h4, .font-heading {
 .body { color: var(--muted); font-size: 14px; line-height: 1.55; }
 .box .body strong { color: var(--foreground); }
 .muted { color: var(--muted); }
-.box-tt { display: flex; align-items: center; gap: 10px; }
+.box-tt { display: flex; align-items: flex-start; gap: 10px; }
+.box-tt > svg,
+.step-tt > svg {
+  flex: none;
+  margin-top: 0.05em;
+}
 .box-tt h3 { font-size: 19px; }
 
 /* Pictos en chip */
@@ -425,7 +442,7 @@ h1, h2, h3, h4, .font-heading {
 
 /* Étapes « comment ça marche » */
 .num { font-family: var(--font-heading); font-weight: 400; font-size: 40px; line-height: 1; color: var(--accent); }
-.step-tt { display: flex; align-items: center; gap: 8px; margin: 10px 0 6px; }
+.step-tt { display: flex; align-items: flex-start; gap: 8px; margin: 10px 0 6px; }
 .step-tt h3 { font-size: 18px; }
 
 /* Cartes outil */
@@ -433,6 +450,30 @@ h1, h2, h3, h4, .font-heading {
 .tool h3 { font-size: 18px; }
 .tool--big h3 { font-size: 22px; }
 .meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 10px; }
+/* Mots clés (étiquettes descriptives, plus légères que les .badge de statut). */
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0 0 10px; list-style: none; padding: 0; }
+.tag {
+  font-size: 11px;
+  line-height: 1.3;
+  color: var(--muted);
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  background: transparent;
+}
+.source-credit {
+  margin-top: 10px;
+  color: var(--ink-faint);
+  font-size: 13px !important;
+  line-height: 1.45;
+}
+.source-credit span { color: var(--muted); font-weight: 600; }
+.tool-intro {
+  width: 100%;
+  margin-top: 12px;
+  color: var(--muted);
+}
+.tool-intro > :first-child { margin-top: 0; }
+.tool-intro > :last-child { margin-bottom: 0; }
 .open { margin-top: auto; padding-top: 12px; }
 .badge--sensible { color: var(--warning); border-color: color-mix(in srgb, var(--warning) 45%, var(--border)); }
 
@@ -443,16 +484,150 @@ h1, h2, h3, h4, .font-heading {
 .tool[data-cat="questionnaires"] .tico { color: var(--cat-q); }
 .tool[data-cat="parcours"] .tico       { color: var(--cat-p); }
 .tool[data-cat="carnets"] .tico        { color: var(--cat-c); }
+.tool[data-cat="questionnaires"] h3 { color: var(--cat-q); }
+.tool[data-cat="parcours"] h3       { color: var(--cat-p); }
+.tool[data-cat="carnets"] h3        { color: var(--cat-c); }
 
 /* Barre d'outils du catalogue */
 .toolbar { gap: 14px; }
 .search { display: flex; align-items: center; gap: 10px; border: 1px solid var(--border); padding: 10px 14px; color: var(--muted); }
 .search input { border: 0; background: transparent; width: 100%; color: var(--foreground); font-size: 14px; }
 .search input:focus { outline: none; }
-.filters { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-.sep { width: 1px; height: 22px; background: var(--border); }
-.filters .right { margin-left: auto; display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: 13px; }
-.filters select { border: 1px solid var(--border); background: var(--card-bg); padding: 6px 8px; color: var(--foreground); font-size: 13px; }
+.search-suggestion {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--accent);
+  padding: 6px 9px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.private-search { margin-top: 16px; }
+.private-search .search { background: var(--card-bg); }
+.private-search-results { margin-top: 8px; display: flex; flex-direction: column; gap: 8px; }
+.private-search-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--foreground);
+  font-size: 14px;
+}
+.private-search-result:hover { color: var(--accent); }
+.private-search-result span { display: inline-flex; align-items: center; gap: 8px; min-width: 0; }
+.private-search-empty { margin: 0; padding: 10px 12px; color: var(--muted); font-size: 16px; }
+.safety-accordion summary { list-style: none; }
+.safety-accordion summary::-webkit-details-marker { display: none; }
+.floating-help {
+  position: fixed;
+  right: 18px;
+  bottom: calc(18px + env(safe-area-inset-bottom));
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 10px;
+}
+.floating-help-panel {
+  width: min(360px, calc(100vw - 32px));
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  padding: 14px;
+}
+.floating-help-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.floating-help-close {
+  display: grid;
+  width: 32px;
+  height: 32px;
+  place-items: center;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+.floating-help-intro {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px !important;
+  line-height: 1.45;
+}
+.floating-help-list {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.floating-help-link {
+  display: flex;
+  gap: 8px;
+  border: 1px solid var(--border);
+  padding: 8px;
+  color: var(--foreground);
+}
+.floating-help-link span {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 2px;
+}
+.floating-help-link small {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+.floating-help-more {
+  margin-top: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 600;
+}
+.floating-help-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid var(--danger);
+  background: var(--card-bg);
+  color: var(--danger);
+  padding: 10px 13px;
+  font-size: 14px;
+  font-weight: 700;
+}
+@media (max-width: 1023px) {
+  .floating-help {
+    bottom: calc(78px + env(safe-area-inset-bottom));
+  }
+}
+.filters { display: flex; align-items: end; gap: 10px; flex-wrap: wrap; }
+.filters label {
+  display: grid;
+  min-width: 150px;
+  flex: 1 1 150px;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+.filters label svg { margin-right: 4px; vertical-align: -2px; }
+.filters select {
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  padding: 8px 10px;
+  color: var(--foreground);
+  font-size: 14px;
+}
 .chip.on { background: transparent; border-color: var(--accent); color: var(--accent); }
 .count-line { color: var(--muted); font-size: 13px; margin: 14px 0; }
 

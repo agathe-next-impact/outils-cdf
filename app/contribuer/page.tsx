@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default function ContribuerPage() {
   return (
-    <PageWrapper maxWidth="2xl" decor={["heart"]}>
+    <PageWrapper maxWidth="full" decor={["heart"]}>
       <header className="mb-6">
         <div className="mb-3">
           <Logo size={40} showWordmark={false} />

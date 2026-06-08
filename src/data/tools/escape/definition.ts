@@ -606,6 +606,7 @@ export const escape: CompositeDefinition = {
   accent: "blue",
   summary:
     "Une exploration ludique de la mémoire, de l'attention, du raisonnement et du rapport aux autres — pour mieux se connaître, en toute curiosité, sans score ni diagnostic.",
+  keywords: ["cognition", "fonctions cognitives", "mémoire", "attention", "concentration", "raisonnement", "stimulation cognitive", "cognition sociale"],
   estimatedMinutes: 20,
   sensitivity: "low",
   sourceCredit:

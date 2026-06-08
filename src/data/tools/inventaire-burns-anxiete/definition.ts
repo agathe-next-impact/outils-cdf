@@ -57,6 +57,7 @@ export const inventaireBurnsAnxiete: ScoredDefinition = {
   iconName: "activity",
   accent: "blue",
   summary: "33 affirmations pour faire le point sur votre anxiété récente.",
+  keywords: ["anxiété", "stress", "peur", "nervosité", "symptômes physiques", "questionnaire", "auto-évaluation", "TCC"],
   estimatedMinutes: 8,
   sensitivity: "medium",
   sourceCredit: "D'après l'inventaire d'anxiété de David D. Burns",

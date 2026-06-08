@@ -241,6 +241,7 @@ export const gererVosInquietudes: CompositeDefinition = {
   iconName: "cloud-rain",
   accent: "blue",
   summary: "Apprivoiser l'inquiétude : période dédiée et résolution de problèmes.",
+  keywords: ["inquiétudes", "anxiété", "ruminations", "soucis", "anxiété généralisée", "période d'inquiétude", "TCC"],
   estimatedMinutes: 20,
   sensitivity: "high",
   sourceCredit: "D'après un guide d'autosoins TCC (Université d'Exeter / CEDAR)",

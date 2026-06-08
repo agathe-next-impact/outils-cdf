@@ -22,6 +22,7 @@ export interface ResolvedStep {
   label: string;
   /** Outil porteur (contexte affiché sous le libellé pour un segment). */
   toolTitle: string;
+  sourceCredit: string;
   why: string;
   optional: boolean;
   iconName: string;

@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 
 export default function AProposPage() {
   return (
-    <PageWrapper maxWidth="2xl" decor={["sparkles", "flower"]}>
+    <PageWrapper maxWidth="full" decor={["sparkles", "flower"]}>
       <header className="mb-6">
         <GameIcon name="book-open" size={48} className="mb-2 text-accent" />
         <h1 className="font-heading text-3xl tracking-tight md:text-4xl">

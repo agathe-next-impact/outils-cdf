@@ -9,6 +9,7 @@ export const gaapAttaquesPanique: WorksheetDefinition = {
   iconName: "wind",
   accent: "red",
   summary: "Noter après coup le contexte, les sensations et les pensées.",
+  keywords: ["attaques de panique", "panique", "crise d'angoisse", "anxiété", "peur", "sensations physiques", "auto-observation", "journal"],
   estimatedMinutes: 8,
   sensitivity: "high",
   sourceCredit: "D'après la grille d'auto-observation des attaques de panique",

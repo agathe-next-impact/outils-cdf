@@ -921,6 +921,7 @@ export const recoveryCraig: CompositeDefinition = {
   accent: "blue",
   summary:
     "Un cahier doux pour cheminer vers le mieux-être, à votre rythme et selon vos envies : premiers pas, ressources, gratitude, apaisement, liens, temps d'écriture et plan personnel.",
+  keywords: ["rétablissement", "recovery", "pair-aidance", "mieux-être", "espoir", "journal", "plan personnel", "Craig Lewis"],
   estimatedMinutes: 45,
   sensitivity: "high",
   sourceCredit:

@@ -135,6 +135,7 @@ export const fleurDePatricia: CompositeDefinition = {
   iconName: "flower",
   accent: "yellow",
   summary: "Un carnet du rétablissement en pétales, à explorer librement.",
+  keywords: ["rétablissement", "recovery", "bien-être", "équilibre de vie", "dimensions de vie", "espoir", "estime de soi", "journal"],
   estimatedMinutes: 20,
   sensitivity: "medium",
   sourceCredit: "D'après « La Fleur de Patricia », carnet du rétablissement",

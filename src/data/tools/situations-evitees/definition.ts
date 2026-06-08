@@ -8,6 +8,7 @@ export const situationsEvitees: WorksheetDefinition = {
   iconName: "footprints",
   accent: "yellow",
   summary: "Lister et hiérarchiser les situations évitées par anxiété.",
+  keywords: ["évitement", "exposition graduée", "anxiété", "phobies", "peurs", "situations anxiogènes", "déclencheurs", "TCC"],
   estimatedMinutes: 10,
   sensitivity: "medium",
   sourceCredit: "D'après les outils d'exposition graduée (TCC)",

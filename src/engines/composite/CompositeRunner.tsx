@@ -11,7 +11,6 @@ import {
 import { ScoredRunner } from "../scored/ScoredRunner";
 import { WizardRunner } from "../wizard/WizardRunner";
 import { WorksheetEditor } from "../worksheet/WorksheetEditor";
-import { ContentRenderer } from "@/components/content/ContentRenderer";
 import { Celebration } from "@/components/feedback/Celebration";
 import { ExportBar } from "@/components/safety/ExportBar";
 import { compositeToNeutral } from "@/lib/export/compositeToNeutral";
@@ -19,6 +18,7 @@ import { useToolSlice, readToolSlice } from "@/store/useToolState";
 import { useSessionStore } from "@/store/sessionStore";
 import GameIcon from "@/components/GameIcon";
 import { FOCUS_RING } from "@/lib/a11y";
+import { scrollToToolTop } from "@/lib/scrollToTool";
 
 interface CompositeUiState {
   openSegmentId: string | null;
@@ -55,12 +55,17 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
   if (state.openSegmentId) {
     const entry = segDefs.find((e) => e.seg.id === state.openSegmentId);
     if (entry) {
+      const backToSegments = () => {
+        setUi({ openSegmentId: null });
+        scrollToToolTop();
+      };
+
       return (
         <div className="space-y-4">
           <button
             type="button"
             className={`inline-flex items-center gap-1 text-sm text-accent hover:underline ${FOCUS_RING}`}
-            onClick={() => setUi({ openSegmentId: null })}
+            onClick={backToSegments}
           >
             <GameIcon name="arrow-left" size={16} /> Retour aux modules
           </button>
@@ -94,8 +99,6 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
 
   return (
     <div className="space-y-6">
-      <ContentRenderer blocks={definition.intro} className="card border border-border" />
-
       {allDone ? (
         <Celebration
           title="Parcours complété"
@@ -132,13 +135,15 @@ export function CompositeRunner({ definition }: { definition: CompositeDefinitio
                 ) : null}
               </div>
               <h3 className="mb-1 text-lg">{seg.title}</h3>
-              {seg.summary ? <p className="text-sm text-muted">{seg.summary}</p> : null}
               <div className="mt-3">
                 {unlocked ? (
                   <button
                     type="button"
                     className="btn-primary"
-                    onClick={() => setUi({ openSegmentId: seg.id })}
+                    onClick={() => {
+                      setUi({ openSegmentId: seg.id });
+                      scrollToToolTop();
+                    }}
                   >
                     {done ? "Revoir" : "Ouvrir"}
                   </button>

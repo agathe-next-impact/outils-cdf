@@ -28,6 +28,7 @@ export interface ToolMeta {
   accent: Accent;
   /** Résumé court pour le catalogue. */
   summary: string;
+  keywords?: string[];
   estimatedMinutes?: number;
   sensitivity: Sensitivity;
   /** Crédit de la source (auteur, méthode). */
