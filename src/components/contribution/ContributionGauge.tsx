@@ -55,7 +55,7 @@ export function ContributionGauge() {
       </div>
 
       <p className="mt-3 text-sm text-muted">
-        Cette somme sert à rembourser la conception de Peer to Peer et sa maintenance.
+        Cette somme sert à financer la conception de Peer to Peer et sa maintenance.
       </p>
 
       {raised >= goal ? (
