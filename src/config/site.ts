@@ -85,6 +85,8 @@ export const CONTRIBUTION = {
   currency: "EUR" as const,
   /** Somme déjà récoltée (dans la devise ci-dessus). */
   raised: 0,
+  /** Objectif affiché par la jauge de contribution. */
+  goal: 4000,
   /** Date de dernière mise à jour de la jauge (texte libre, ex. « 7 juin 2026 »). */
   updatedAt: "",
 } as const;
