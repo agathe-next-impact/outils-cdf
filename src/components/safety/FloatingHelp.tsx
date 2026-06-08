@@ -17,7 +17,7 @@ export function FloatingHelp() {
           <div className="floating-help-head">
             <div className="flex items-center gap-2">
               <GameIcon name="heart-handshake" size={18} className="text-danger" aria-hidden />
-              <p className="font-semibold">Besoin d'aide ?</p>
+              <p className="font-semibold">Besoin d&apos;aide ?</p>
             </div>
             <button
               type="button"
