@@ -111,13 +111,13 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="section-head">
+      <div className="section-head home-accent home-accent--blue">
         <span className="eyebrow">Mode d&apos;emploi</span>
         <h2>Trois gestes simples</h2>
       </div>
-      <section className="bento">
+      <section className="bento home-accent home-accent--blue">
         {STEPS.map((s, i) => (
-          <div key={s.title} className={`box box--soft ${STEP_SPAN[i] ?? "c4"}`}>
+          <div key={s.title} className={`box home-accent-box ${STEP_SPAN[i] ?? "c4"}`}>
             <span className="num">{String(i + 1).padStart(2, "0")}</span>
             <h3 style={{ fontSize: 21, marginTop: 6 }}>{s.title}</h3>
             <p className="body">{s.text}</p>
@@ -125,16 +125,16 @@ export default function HomePage() {
         ))}
       </section>
 
-      <div className="section-head">
+      <div className="section-head home-accent home-accent--sage">
         <span className="eyebrow">Les outils</span>
         <h2>Trois façons d&apos;avancer</h2>
         <span className="sub">
           Selon le moment, un outil vous propose de vous observer, d&apos;être guidé, ou d&apos;écrire.
         </span>
       </div>
-      <section className="bento">
+      <section className="bento home-accent home-accent--sage">
         {WAYS.map((w) => (
-          <div key={w.title} className="box box--soft c4">
+          <div key={w.title} className="box home-accent-box c4">
             <div className="ichip">
               <GameIcon name={w.icon} size={20} aria-hidden />
             </div>
