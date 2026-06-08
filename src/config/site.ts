@@ -51,6 +51,8 @@ export const EDITEUR = {
 export const CONTRIBUTION = {
   /** Don ponctuel : lien Stripe « le client choisit le montant » (prix libre). */
   url: "https://buy.stripe.com/cNi00i1y385716i5gbaVa00",
+  /** Proposer une fonctionnalité ou une amélioration. */
+  suggestionUrl: "mailto:agathe@next-impact.digital",
   /** Montants suggérés pour le don ponctuel (purement indicatifs, jamais imposés). */
   suggestions: [5, 10, 20] as const,
 
@@ -75,7 +77,7 @@ export const CONTRIBUTION = {
   manageUrl: "https://billing.stripe.com/p/login/cNi00i1y385716i5gbaVa00",
 
   /**
-   * Jauge de collecte. ⚠️ Valeurs STATIQUES mises à jour À LA MAIN
+   * Montant de la cagnotte. ⚠️ Valeurs STATIQUES mises à jour À LA MAIN
    * (relever le total sur le tableau de bord du prestataire, puis éditer ici).
    * Aucune donnée n'est tirée en direct : l'app reste 100 % front, sans `fetch`
    * ni backend — l'invariant de confidentialité est préservé.
@@ -83,8 +85,6 @@ export const CONTRIBUTION = {
   currency: "EUR" as const,
   /** Somme déjà récoltée (dans la devise ci-dessus). */
   raised: 0,
-  /** Objectif de collecte (couvre l'hébergement et la maintenance). */
-  goal: 1200,
   /** Date de dernière mise à jour de la jauge (texte libre, ex. « 7 juin 2026 »). */
   updatedAt: "",
 } as const;

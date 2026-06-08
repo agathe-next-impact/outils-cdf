@@ -6,7 +6,7 @@ import { getCatalog } from "@/data/catalog";
 import GameIcon from "@/components/GameIcon";
 import { Logo } from "@/components/Logo";
 import { FOCUS_RING } from "@/lib/a11y";
-import { SITE } from "@/config/site";
+import { CONTRIBUTION, SITE } from "@/config/site";
 
 const STEPS: { icon: string; title: string; text: string }[] = [
   {
@@ -83,11 +83,21 @@ export default function HomePage() {
           <PrivateCatalogSearch entries={catalog} />
         </div>
 
-        <div className="box box--soft c4">
+        <div className="box box--soft hero-suggest-box c4">
+          <h3 style={{ fontSize: 21, marginBottom: 12 }}>Faire évoluer Peer to Peer</h3>
           <p className="body" style={{ maxWidth: "82ch" }}>
-            Sans compte, rien n&apos;est envoyé : vos réponses restent dans cet onglet le temps de
-            la session et s&apos;effacent à sa fermeture.
+            Pour maintenir ce projet gratuit, et le faire évoluer vers un espace personnel et des fonctionnalités nouvelles, votre soutien est précieux. 
           </p>
+          <div className="hero-cta">
+            <Link href="/contribuer" className={`btn-primary ${FOCUS_RING}`}>
+              <GameIcon name="heart" size={15} aria-hidden />
+              Soutenir
+            </Link>
+            <a href={CONTRIBUTION.suggestionUrl} className={`btn-secondary ${FOCUS_RING}`}>
+              <GameIcon name="lightbulb" size={15} aria-hidden />
+              Proposer
+            </a>
+          </div>
         </div>
       </section>
 

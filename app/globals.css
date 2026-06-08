@@ -392,6 +392,11 @@ h3 {
 .box--tint { background: var(--surface-2); }               /* gris clair */
 .box--accent { border-left: 3px solid var(--accent); }     /* fond blanc + filet ROSE (vedette) */
 .box--second { border-left: 3px solid var(--tile-blue); }  /* fond blanc + filet BLEU (parcimonieux) */
+.dark .hero-suggest-box {
+  background: var(--surface-2);
+  border-color: var(--line-strong);
+  color: var(--foreground);
+}
 
 /* Bloc hero (gris foncé) */
 .box--fill {
