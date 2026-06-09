@@ -8,7 +8,7 @@ export const penseesNegatives: WizardDefinition = {
   category: "parcours",
   iconName: "brain",
   accent: "blue",
-  summary: "Un parcours en étapes pour explorer une pensée difficile autrement.",
+  summary: "Un parcours pour regarder une pensée difficile autrement, pas à pas et à ton rythme.",
   keywords: ["pensées négatives", "distorsions cognitives", "restructuration cognitive", "ruminations", "pensées automatiques", "recadrage", "TCC", "estime de soi"],
   estimatedMinutes: 15,
   sensitivity: "high",
@@ -20,45 +20,47 @@ export const penseesNegatives: WizardDefinition = {
     {
       kind: "paragraph",
       text:
-        "Cet outil vous accompagne, pas à pas, pour regarder une pensée difficile sous un autre " +
-        "angle. Il ne s'agit pas de « penser positif » à tout prix, mais d'examiner les faits avec " +
-        "douceur.",
+        "Cet outil t'accompagne, pas à pas, pour regarder une pensée difficile sous un autre " +
+        "angle. Il ne s'agit pas de « penser positif » à tout prix, mais d'examiner les faits, " +
+        "calmement, à ta main. Ça peut demander un peu de temps — et ça vaut le coup.",
     },
     {
       kind: "callout",
       tone: "info",
-      text: "Vous pouvez vous arrêter à tout moment et reprendre plus tard. Avancez à votre rythme.",
+      text: "Tu peux t'arrêter à tout moment et reprendre plus tard. C'est toi qui donnes le rythme.",
     },
   ],
   reward: {
     confetti: true,
-    message: "Bravo d'avoir pris ce temps pour vous. Voici la synthèse de votre réflexion.",
+    message:
+      "Tu viens de regarder une pensée difficile d'un peu plus près — ça demande du courage. " +
+      "Voici la synthèse de ce que tu as posé ; tu peux y revenir quand tu veux.",
   },
   steps: [
     {
       id: "situation",
       title: "1. La situation",
       intro: [
-        { kind: "paragraph", text: "Repensez à un moment précis qui a été difficile pour vous." },
+        { kind: "paragraph", text: "Repense à un moment précis qui a été difficile pour toi." },
       ],
       fields: [
         {
           id: "situation",
           type: "longText",
           label: "Que s'est-il passé ?",
-          help: "Décrivez le moment, le lieu, qui était là, ce qui s'est passé.",
+          help: "Décris le moment, le lieu, qui était là, ce qui s'est passé.",
           placeholder: "Ex. Hier soir, mon ami n'a pas répondu à mon message.",
         },
       ],
     },
     {
       id: "emotions",
-      title: "2. Vos émotions",
+      title: "2. Tes émotions",
       fields: [
         {
           id: "emotions",
           type: "tagList",
-          label: "Quelles émotions avez-vous ressenties ?",
+          label: "Quelles émotions as-tu ressenties ?",
           help: "Un mot par émotion : tristesse, colère, peur, honte…",
         },
         {
@@ -78,12 +80,12 @@ export const penseesNegatives: WizardDefinition = {
       intro: [
         {
           kind: "paragraph",
-          text: "Notez les pensées qui vous sont venues, telles quelles, sans les juger.",
+          text: "Note les pensées qui te sont venues, telles quelles, sans les juger.",
         },
         {
           kind: "example",
           good: "« Il n'a pas répondu à mon message depuis deux jours. » (un fait observable)",
-          avoid: "« Il me rejette / je vais finir seul·e. » (une interprétation ou une prédiction)",
+          avoid: "« Il me rejette / je vais finir seul. » (une interprétation ou une prédiction)",
           note: "Un fait s'observe ; une interprétation ou une prédiction s'ajoutent au fait.",
         },
       ],
@@ -91,8 +93,8 @@ export const penseesNegatives: WizardDefinition = {
         {
           id: "autoThoughts",
           type: "longText",
-          label: "Quelles pensées vous sont venues à l'esprit ?",
-          placeholder: "Notez-les librement.",
+          label: "Quelles pensées te sont venues à l'esprit ?",
+          placeholder: "Note-les librement.",
         },
       ],
     },
@@ -109,7 +111,7 @@ export const penseesNegatives: WizardDefinition = {
         {
           id: "beliefBefore",
           type: "slider",
-          label: "À quel point y croyez-vous, maintenant ?",
+          label: "À quel point y crois-tu, maintenant ?",
           min: 0,
           max: 100,
           minLabel: "0 %",
@@ -151,7 +153,7 @@ export const penseesNegatives: WizardDefinition = {
         {
           kind: "paragraph",
           text:
-            "En tenant compte des faits pour ET des faits contre, comment pourriez-vous formuler " +
+            "En tenant compte des faits pour ET des faits contre, comment pourrais-tu formuler " +
             "une pensée plus juste, plus nuancée ?",
         },
       ],
@@ -159,19 +161,19 @@ export const penseesNegatives: WizardDefinition = {
         {
           id: "altThought",
           type: "longText",
-          label: "Votre pensée alternative",
+          label: "Ta pensée alternative",
           placeholder: "Ex. Il ne répond pas, mais il est peut-être simplement occupé.",
         },
       ],
     },
     {
       id: "reappraisal",
-      title: "8. Comment vous sentez-vous maintenant ?",
+      title: "8. Comment te sens-tu maintenant ?",
       fields: [
         {
           id: "beliefAfter",
           type: "slider",
-          label: "À quel point croyez-vous encore à la pensée douloureuse ?",
+          label: "À quel point crois-tu encore à la pensée douloureuse ?",
           min: 0,
           max: 100,
           minLabel: "0 %",
@@ -195,8 +197,8 @@ export const penseesNegatives: WizardDefinition = {
         {
           id: "actionPlan",
           type: "longText",
-          label: "Que pourriez-vous faire, concrètement ?",
-          help: "Une petite action possible, à votre portée.",
+          label: "Que pourrais-tu faire, concrètement ?",
+          help: "Une action possible, à ta portée.",
           placeholder: "Ex. Lui envoyer un message simple demain matin.",
         },
       ],
@@ -206,7 +208,7 @@ export const penseesNegatives: WizardDefinition = {
           appliesToFieldId: "actionPlan",
           detector: "tooVague",
           message:
-            "Cette action gagnerait à être plus concrète : que feriez-vous, quand, et comment le sauriez-vous fait ?",
+            "Cette action gagnerait à être plus concrète : que ferais-tu, quand, et comment saurais-tu que c'est fait ?",
         },
       ],
     },

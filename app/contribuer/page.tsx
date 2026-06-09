@@ -33,7 +33,7 @@ export default function ContribuerPage() {
             </p>
           </header>
 
-          <div className="grid gap-0">
+          <div className="grid gap-[18px]">
             {/* Jauge de collecte (valeurs statiques, maintenues à la main) */}
             <section className="card animate-slide-up">
               <h2 className="mb-3 text-lg">Où en est la collecte</h2>
@@ -120,7 +120,7 @@ export default function ContribuerPage() {
           </div>
         </div>
 
-        <aside className="grid gap-0 lg:sticky lg:top-6">
+        <aside className="grid gap-[18px] lg:sticky lg:top-6">
           <div className="card card-accent">
             <div className="mb-3 flex items-center gap-3">
               <GameIcon name="lightbulb" size={22} aria-hidden />

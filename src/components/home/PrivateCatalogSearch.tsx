@@ -14,7 +14,14 @@ function searchText(entry: CatalogEntry): string {
   return norm(`${entry.title} ${entry.shortTitle ?? ""} ${entry.summary} ${(entry.keywords ?? []).join(" ")}`);
 }
 
-export function PrivateCatalogSearch({ entries }: { entries: CatalogEntry[] }) {
+export function PrivateCatalogSearch({
+  entries,
+  quickKeywords,
+}: {
+  entries: CatalogEntry[];
+  /** Mots-clés cliquables affichés sous le champ tant qu'aucune recherche n'est saisie. */
+  quickKeywords?: string[];
+}) {
   const [query, setQuery] = useState("");
 
   const normalizedQuery = norm(query.trim());
@@ -46,6 +53,21 @@ export function PrivateCatalogSearch({ entries }: { entries: CatalogEntry[] }) {
           aria-label="Rechercher un outil"
         />
       </div>
+
+      {quickKeywords && quickKeywords.length > 0 && query.trim() === "" && (
+        <div className="qk-chips">
+          {quickKeywords.map((kw) => (
+            <button
+              key={kw}
+              type="button"
+              className={`chip ${FOCUS_RING}`}
+              onClick={() => setQuery(kw)}
+            >
+              {kw}
+            </button>
+          ))}
+        </div>
+      )}
 
       {query.trim() !== "" && (
         <div className="private-search-results" aria-live="polite">

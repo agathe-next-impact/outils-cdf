@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<title>Peer to Peer — Boîte à outils</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="Plateforme libre d'outils d'auto-observation et de soutien au rétablissement. Aucun compte, aucune donnée envoyée." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  /* ───────── Brioche tokens ───────── */
+  :root{
+    --cream:#F6F5F1; --lavender:#D7ECEC; --peach:#FBE6CE; --sage:#DAE8EC;
+    --plum:#16292C;  --indigo:#1E9AA0;   --rose:#F39191;
+    --dim:#6E8086;   --faint:#E3E7E3;
+    --sans:'Inter Tight', system-ui, sans-serif;
+    --mono:'DM Mono', ui-monospace, monospace;
+    --shadow:0 12px 40px rgba(22,41,44,0.10);
+    --shadow-sm:0 4px 20px rgba(22,41,44,0.07);
+    --action-rgb:30,154,160;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0; background:var(--cream); color:var(--plum);
+    font-family:var(--sans); font-size:17px; line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 32px; }
+  .mono{ font-family:var(--mono); font-size:12px; letter-spacing:.02em; color:var(--dim); }
+  .eyebrow{
+    font-family:var(--mono); font-size:12px; letter-spacing:.06em; text-transform:uppercase;
+    color:var(--indigo); display:inline-flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{ content:''; width:18px; height:2px; background:var(--indigo); border-radius:2px; }
+
+  h1,h2,h3{ margin:0; letter-spacing:-0.04em; font-weight:700; line-height:0.96; }
+  .lede{ font-size:19px; line-height:1.6; color:var(--plum); }
+
+  /* ───────── Buttons ───────── */
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:var(--sans); font-weight:600; font-size:15px;
+    padding:13px 22px; border-radius:999px; border:1.5px solid transparent;
+    cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;
+    white-space:nowrap;
+  }
+  .btn:hover{ transform:translateY(-2px); }
+  .btn-primary{ background:var(--indigo); color:var(--cream); box-shadow:0 6px 18px rgba(var(--action-rgb),.28); }
+  .btn-primary:hover{ box-shadow:0 12px 26px rgba(var(--action-rgb),.34); }
+  .btn-ghost{ background:transparent; color:var(--plum); border-color:var(--plum); }
+  .btn-ghost:hover{ background:var(--plum); color:var(--cream); }
+  .btn-soft{ background:var(--peach); color:var(--plum); }
+  .btn-sm{ padding:8px 15px; font-size:13px; }
+
+  .pill{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--cream); border:1px solid var(--faint);
+    padding:6px 14px; border-radius:999px; font-size:13px; color:var(--plum);
+  }
+  .dot{ width:7px; height:7px; border-radius:50%; background:#21A95F; }
+
+  /* ───────── Nav ───────── */
+  header.nav{ position:sticky; top:0; z-index:30; background:rgba(251,246,239,.82); backdrop-filter:blur(12px); border-bottom:1px solid var(--faint); }
+  .nav-inner{ display:flex; align-items:center; justify-content:space-between; height:72px; }
+  .brand{ display:flex; align-items:center; gap:11px; font-weight:700; font-size:17px; letter-spacing:-0.03em; }
+  .nav-links{ display:flex; align-items:center; gap:26px; font-size:14.5px; }
+  .nav-links a{ color:var(--plum); transition:color .15s; }
+  .nav-links a:hover{ color:var(--indigo); }
+  .nav-links .muted{ color:var(--dim); }
+
+  /* ───────── Hero ───────── */
+  .hero{ position:relative; overflow:hidden; padding:78px 0 70px; }
+  .blob{ position:absolute; border-radius:50%; filter:blur(2px); pointer-events:none; }
+  .hero .b1{ right:-180px; top:-140px; width:440px; height:440px; background:var(--lavender); opacity:.7; }
+  .hero .b2{ left:-150px; bottom:-160px; width:360px; height:360px; background:var(--peach); opacity:.55; }
+  .hero-grid{ position:relative; display:grid; grid-template-columns:1.08fr .92fr; gap:54px; align-items:center; }
+  .display{ font-size:76px; line-height:0.94; letter-spacing:-0.045em; }
+  .hl{ background:var(--peach); padding:0 12px; border-radius:16px; box-decoration-break:clone; -webkit-box-decoration-break:clone; }
+  .hl-lav{ background:var(--lavender); }
+  .hero-ctas{ display:flex; gap:12px; flex-wrap:wrap; margin-top:30px; }
+  .hero-fine{ margin-top:16px; font-size:13.5px; color:var(--dim); display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+
+  /* search preview card */
+  .preview{ background:var(--lavender); border-radius:24px; padding:18px; box-shadow:var(--shadow); position:relative; }
+  .preview-head{ display:flex; align-items:center; justify-content:space-between; padding:2px 6px 12px; }
+  .search-card{ background:var(--cream); border-radius:18px; padding:20px; }
+  .search-box{ display:flex; align-items:center; gap:10px; background:var(--cream); border:2px solid var(--indigo); border-radius:12px; padding:12px 14px; font-size:15px; }
+  .search-box .cursor{ width:2px; height:18px; background:var(--indigo); display:inline-block; animation:cur 1.1s steps(1) infinite; margin-left:-2px; }
+  @keyframes cur{ 50%{ opacity:0; } }
+  .chips{ display:flex; flex-wrap:wrap; gap:8px; margin-top:14px; }
+  .chip{ background:var(--cream); border:1px solid var(--faint); border-radius:999px; padding:7px 13px; font-size:13px; color:var(--plum); }
+  .chip.on{ background:var(--indigo); color:var(--cream); border-color:var(--indigo); }
+  .result-row{ display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:12px; background:var(--lavender); margin-top:10px; }
+  .result-row .meta{ font-size:11px; color:var(--dim); font-family:var(--mono); }
+  .local-note{ display:flex; align-items:center; gap:8px; margin-top:14px; font-size:12px; color:var(--dim); }
+
+  /* ───────── Section scaffolding ───────── */
+  section.band{ padding:84px 0; position:relative; overflow:hidden; }
+  .band-lav{ background:var(--lavender); }
+  .band-peach{ background:var(--peach); }
+  .sec-head{ max-width:680px; margin-bottom:40px; }
+  .sec-head h2{ font-size:46px; margin-top:16px; }
+  .sec-head p{ font-size:18px; color:var(--plum); margin:14px 0 0; opacity:.85; }
+
+  /* entry cards */
+  .entries{ display:grid; grid-template-columns:1fr 1fr; gap:20px; }
+  .entry{
+    background:var(--cream); border:1px solid var(--faint); border-radius:24px; padding:30px;
+    display:flex; flex-direction:column; gap:16px; min-height:230px; position:relative;
+    transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .entry:hover{ transform:translateY(-4px); box-shadow:var(--shadow); }
+  .badge{ align-self:flex-start; font-family:var(--mono); font-size:11px; letter-spacing:.06em; text-transform:uppercase; padding:5px 11px; border-radius:999px; }
+  .badge-carnet{ background:var(--sage); color:var(--plum); }
+  .badge-parcours{ background:var(--lavender); color:var(--indigo); }
+  .entry h3{ font-size:27px; letter-spacing:-0.03em; }
+  .entry p{ margin:0; font-size:15.5px; color:var(--dim); line-height:1.55; }
+  .entry .go{ margin-top:auto; display:inline-flex; align-items:center; gap:7px; font-weight:600; color:var(--indigo); font-size:15px; }
+  .entry-note{ margin-top:26px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; font-size:15px; color:var(--plum); }
+
+  /* steps */
+  .steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .step{ background:var(--cream); border:1px solid var(--faint); border-radius:22px; padding:28px; }
+  .step .num{ font-family:var(--mono); font-size:13px; color:var(--indigo); font-weight:500; }
+  .step h3{ font-size:24px; margin:18px 0 8px; letter-spacing:-0.03em; }
+  .step p{ margin:0; color:var(--dim); font-size:15px; line-height:1.55; }
+  .step .ic{ margin-top:18px; }
+
+  /* ways */
+  .ways{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .way{ border-radius:22px; padding:28px; display:flex; flex-direction:column; gap:14px; min-height:210px; }
+  .way h3{ font-size:25px; letter-spacing:-0.03em; }
+  .way p{ margin:0; font-size:15px; line-height:1.55; }
+  .way .tagm{ margin-top:auto; }
+
+  /* support CTA */
+  .support{ position:relative; overflow:hidden; }
+  .support-card{
+    background:var(--indigo); color:var(--cream); border-radius:30px; padding:54px 56px;
+    position:relative; overflow:hidden; display:grid; grid-template-columns:1.3fr .9fr; gap:36px; align-items:center;
+  }
+  .support-card .sb1{ position:absolute; right:-70px; top:-70px; width:240px; height:240px; border-radius:50%; background:var(--rose); opacity:.34; }
+  .support-card .sb2{ position:absolute; left:-50px; bottom:-70px; width:200px; height:200px; border-radius:50%; background:var(--peach); opacity:.3; }
+  .support-card h2{ font-size:44px; position:relative; }
+  .support-card p{ position:relative; font-size:17px; line-height:1.6; margin:16px 0 0; opacity:.92; max-width:460px; }
+  .support-actions{ position:relative; display:flex; flex-direction:column; gap:12px; }
+  .btn-on-indigo{ background:var(--cream); color:var(--plum); }
+  .btn-outline-cream{ background:transparent; color:var(--cream); border-color:rgba(251,246,239,.5); }
+  .btn-outline-cream:hover{ background:rgba(251,246,239,.12); }
+
+  /* ───────── Footer ───────── */
+  footer{ background:var(--plum); color:var(--cream); padding:64px 0 40px; }
+  .foot-top{ display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; align-items:start; }
+  .foot-brand{ display:flex; align-items:center; gap:11px; font-weight:700; font-size:18px; letter-spacing:-0.03em; margin-bottom:16px; }
+  .foot-desc{ font-size:14px; line-height:1.6; color:rgba(251,246,239,.72); max-width:420px; }
+  .foot-col h4{ margin:0 0 14px; font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(251,246,239,.5); font-weight:500; }
+  .foot-col a{ display:block; padding:6px 0; color:rgba(251,246,239,.86); font-size:14.5px; }
+  .foot-col a:hover{ color:var(--peach); }
+  .foot-bottom{ margin-top:48px; padding-top:24px; border-top:1px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:14px; font-family:var(--mono); font-size:11.5px; color:rgba(251,246,239,.5); }
+
+  /* responsive */
+  @media (max-width:960px){
+    .hero-grid{ grid-template-columns:1fr; gap:36px; }
+    .display{ font-size:58px; }
+    .entries,.steps,.ways{ grid-template-columns:1fr; }
+    .support-card{ grid-template-columns:1fr; padding:40px 34px; }
+    .foot-top{ grid-template-columns:1fr 1fr; }
+    .nav-links a:not(.nav-cta){ display:none; }
+  }
+  @media (max-width:560px){
+    .wrap{ padding:0 20px; }
+    .display{ font-size:46px; }
+    .sec-head h2{ font-size:34px; }
+    .support-card h2{ font-size:32px; }
+    .foot-top{ grid-template-columns:1fr; }
+  }
+
+  /* action-colored mascot */
+  rect.bg-action{ fill:var(--indigo); }
+
+  /* ───────── Tweaks panel ───────── */
+  #tweaks{ position:fixed; right:20px; bottom:20px; z-index:90; width:268px;
+    background:var(--cream); border:1px solid var(--faint); border-radius:20px;
+    box-shadow:var(--shadow); padding:16px; font-family:var(--sans); color:var(--plum);
+    display:none; }
+  #tweaks.on{ display:block; }
+  .tw-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:4px; }
+  .tw-title{ font-weight:700; font-size:15px; letter-spacing:-0.02em; }
+  .tw-x{ width:24px; height:24px; border-radius:999px; border:1px solid var(--faint); background:var(--cream);
+    cursor:pointer; color:var(--dim); font-size:14px; line-height:1; display:flex; align-items:center; justify-content:center; }
+  .tw-x:hover{ background:var(--faint); }
+  .tw-label{ font-family:var(--mono); font-size:11px; letter-spacing:.04em; text-transform:uppercase; color:var(--dim); margin:12px 0 9px; }
+  .tw-swatches{ display:flex; flex-direction:column; gap:7px; }
+  .tw-sw{ display:flex; align-items:center; gap:11px; padding:8px 10px; border-radius:12px; cursor:pointer;
+    border:1.5px solid var(--faint); background:var(--cream); transition:border-color .15s, background .15s; text-align:left; width:100%; font-family:var(--sans); }
+  .tw-sw:hover{ background:#fff; }
+  .tw-sw.sel{ border-color:var(--plum); }
+  .tw-chip{ width:26px; height:26px; border-radius:8px; flex:none; }
+  .tw-mini{ display:flex; gap:3px; margin-top:5px; }
+  .tw-mini span{ width:11px; height:11px; border-radius:3px; }
+  .tw-name{ font-weight:600; font-size:13.5px; letter-spacing:-0.01em; }
+  .tw-hex{ font-family:var(--mono); font-size:10.5px; color:var(--dim); margin-top:1px; }
+  .tw-check{ margin-left:auto; color:var(--indigo); font-weight:700; opacity:0; }
+  .tw-sw.sel .tw-check{ opacity:1; }
+</style>
+</head>
+<body>
+
+<!-- ───────── NAV ───────── -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <svg width="30" height="30" viewBox="0 0 72 72" aria-hidden="true"><rect x="4" y="4" width="64" height="64" rx="20" class="bg-action" fill="#6C4DE8"/><circle cx="26" cy="30" r="4" fill="#FBF6EF"/><circle cx="46" cy="30" r="4" fill="#FBF6EF"/><path d="M22 44 Q36 56 50 44" stroke="#FBF6EF" stroke-width="4" stroke-linecap="round" fill="none"/><circle cx="14" cy="40" r="2.5" fill="#FFE0CB" opacity="0.85"/><circle cx="58" cy="40" r="2.5" fill="#FFE0CB" opacity="0.85"/></svg>
+      Peer&nbsp;to&nbsp;Peer
+    </a>
+    <nav class="nav-links">
+      <a href="#commencer">Par où commencer</a>
+      <a href="#mode">Mode d'emploi</a>
+      <a href="#outils">Les outils</a>
+      <a href="#soutenir" class="muted">Contribuer</a>
+      <a href="#commencer" class="btn btn-primary btn-sm nav-cta">Trouver un outil →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ───────── HERO ───────── -->
+<a id="top"></a>
+<section class="hero">
+  <span class="blob b1"></span>
+  <span class="blob b2"></span>
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill" style="margin-bottom:22px"><span style="font-size:15px">👋</span> gratuit · sans compte · tout reste local</span>
+      <h1 class="display">Avancez à votre rythme,<br/><span class="hl">en confiance.</span></h1>
+      <p class="lede" style="margin-top:22px; max-width:480px">
+        Des outils d'auto-observation et de soutien au rétablissement. Choisissez un outil directement, ou laissez-vous guider — sans obligation, sans jugement.
+      </p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#commencer">Trouver un outil →</a>
+        <a class="btn btn-ghost" href="#commencer">Me laisser guider</a>
+      </div>
+      <div class="hero-fine">
+        <span>✨ aucun compte</span><span>·</span><span>aucune donnée envoyée</span><span>·</span><span>rien à installer</span>
+      </div>
+    </div>
+
+    <!-- Recherche rapide preview -->
+    <div class="preview">
+      <div class="preview-head">
+        <div style="display:flex; align-items:center; gap:8px">
+          <svg width="18" height="18" viewBox="0 0 72 72" aria-hidden="true"><rect x="4" y="4" width="64" height="64" rx="20" class="bg-action" fill="#6C4DE8"/><circle cx="26" cy="30" r="4" fill="#FBF6EF"/><circle cx="46" cy="30" r="4" fill="#FBF6EF"/><path d="M22 44 Q36 56 50 44" stroke="#FBF6EF" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
+          <strong style="font-size:12.5px">Recherche rapide</strong>
+        </div>
+        <span class="mono" style="font-size:10px">local · session</span>
+      </div>
+      <div class="search-card">
+        <div class="search-box">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7A6E92" stroke-width="2.2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3" stroke-linecap="round"/></svg>
+          <span>anticiper une situation difficile<span class="cursor"></span></span>
+        </div>
+        <div class="chips">
+          <span class="chip on">triggers</span>
+          <span class="chip">anxiété</span>
+          <span class="chip">ressources</span>
+          <span class="chip">sommeil</span>
+        </div>
+        <div class="result-row">
+          <svg width="26" height="26" viewBox="0 0 72 72" aria-hidden="true"><rect x="4" y="4" width="64" height="64" rx="20" fill="#FFE0CB"/><circle cx="26" cy="30" r="4" fill="#221A3D"/><circle cx="46" cy="30" r="4" fill="#221A3D"/><path d="M22 44 Q36 56 50 44" stroke="#221A3D" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
+          <div style="flex:1">
+            <div style="font-weight:600; font-size:14px; letter-spacing:-0.02em">Détecter mes triggers</div>
+            <div class="meta">carnet guidé · 8 min</div>
+          </div>
+          <span style="color:#6C4DE8; font-weight:600">→</span>
+        </div>
+        <div class="local-note">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#7A6E92" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2.5"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>
+          Un mot-clé, un thème, une situation : tout reste dans votre navigateur.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── PAR OÙ COMMENCER ───────── -->
+<section class="band band-lav" id="commencer">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Point de départ</span>
+      <h2>Par où commencer ?</h2>
+      <p>Deux portes d'entrée possibles, sans obligation : vous pouvez aussi explorer librement.</p>
+    </div>
+    <div class="entries">
+      <article class="entry">
+        <span class="badge badge-carnet">Carnet guidé</span>
+        <h3>Détecter mes triggers</h3>
+        <p>Repérer les situations, signaux ou contextes qui vous fragilisent — pour mieux les anticiper.</p>
+        <span class="go">Commencer →</span>
+      </article>
+      <article class="entry">
+        <span class="badge badge-parcours">Parcours guidé</span>
+        <h3>Construire mon rétablissement</h3>
+        <p>Rassembler vos ressources, vos repères et les petits pas qui soutiennent votre mieux-être.</p>
+        <span class="go">Commencer →</span>
+      </article>
+    </div>
+    <div class="entry-note">
+      <span>Vous préférez choisir autrement ? Les parcours restent disponibles par objectif, sans ordre imposé.</span>
+      <a class="btn btn-ghost btn-sm" href="#outils">Voir tous les parcours</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── MODE D'EMPLOI ───────── -->
+<section class="band" id="mode">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Mode d'emploi</span>
+      <h2>Trois gestes simples</h2>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="num">01</span>
+        <h3>Trouver</h3>
+        <p>Cherchez un outil ou ouvrez le catalogue complet, à votre façon.</p>
+        <div class="ic"><svg width="40" height="40" viewBox="0 0 72 72" aria-hidden="true"><rect x="4" y="4" width="64" height="64" rx="20" fill="#ECE0FA"/><circle cx="26" cy="30" r="4" fill="#221A3D"/><circle cx="46" cy="30" r="4" fill="#221A3D"/><path d="M22 44 Q36 56 50 44" stroke="#221A3D" stroke-width="4" stroke-linecap="round" fill="none"/></svg></div>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h3>Choisir</h3>
+        <p>Suivez un parcours si vous préférez être guidé, pas à pas et sans pression.</p>
+        <div class="ic"><svg width="40" height="40" viewBox="0 0 72 72" aria-hidden="true"><rect x="4" y="4" width="64" height="64" rx="20" fill="#FFE0CB"/><circle cx="26" cy="30" r="4" fill="#221A3D"/><circle cx="46" cy="30" r="4" fill="#221A3D"/><path d="M22 44 Q36 56 50 44" stroke="#221A3D" stroke-width="4" stroke-linecap="round" fill="none"/></svg></div>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h3>Garder</h3>
+        <p>Exportez une trace si vous souhaitez la conserver — sinon, rien n'est gardé.</p>
+        <div class="ic"><svg width="40" height="40" viewBox="0 0 72 72" aria-hidden="true"><rect x="4" y="4" width="64" height="64" rx="20" fill="#D8E8D2"/><circle cx="26" cy="30" r="4" fill="#221A3D"/><circle cx="46" cy="30" r="4" fill="#221A3D"/><path d="M22 44 Q36 56 50 44" stroke="#221A3D" stroke-width="4" stroke-linecap="round" fill="none"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── LES OUTILS ───────── -->
+<section class="band band-peach" id="outils">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Les outils</span>
+      <h2>Trois façons d'avancer</h2>
+      <p>Selon le moment, un outil vous propose de vous observer, d'être guidé, ou d'écrire.</p>
+    </div>
+    <div class="ways">
+      <div class="way" style="background:var(--cream); border:1px solid var(--faint)">
+        <span class="badge badge-parcours" style="background:var(--lavender)">Questionnaires</span>
+        <h3>Faire le point</h3>
+        <p style="color:var(--dim)">Des échelles et inventaires pour observer un ressenti, à un instant donné.</p>
+        <span class="tagm mono" style="color:var(--indigo)">échelles · inventaires</span>
+      </div>
+      <div class="way" style="background:var(--indigo); color:var(--cream)">
+        <span class="badge" style="background:rgba(251,246,239,.16); color:var(--cream)">Parcours</span>
+        <h3>Être guidé</h3>
+        <p style="opacity:.9">Une suite d'étapes courtes qui avancent à votre rythme, sans ordre imposé.</p>
+        <span class="tagm mono" style="color:var(--peach)">pas à pas · sans pression</span>
+      </div>
+      <div class="way" style="background:var(--cream); border:1px solid var(--faint)">
+        <span class="badge badge-carnet">Carnets</span>
+        <h3>Écrire &amp; garder</h3>
+        <p style="color:var(--dim)">Des espaces pour noter, formuler et garder le fil entre deux moments.</p>
+        <span class="tagm mono" style="color:var(--indigo)">noter · relier</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── SOUTENIR ───────── -->
+<section class="band support" id="soutenir">
+  <div class="wrap">
+    <div class="support-card">
+      <span class="sb1"></span>
+      <span class="sb2"></span>
+      <div>
+        <span class="eyebrow" style="color:var(--peach)">Faire évoluer le projet</span>
+        <h2 style="margin-top:16px">Aidez Peer&nbsp;to&nbsp;Peer à grandir.</h2>
+        <p>Pour maintenir ce projet gratuit, et le faire évoluer vers un espace personnel et de nouvelles fonctionnalités, votre soutien est précieux.</p>
+      </div>
+      <div class="support-actions">
+        <a class="btn btn-on-indigo" href="#">Soutenir le projet ✨</a>
+        <a class="btn btn-outline-cream" href="mailto:agathe@next-impact.digital">Proposer une idée →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───────── FOOTER ───────── -->
+<footer>
+  <div class="wrap">
+    <div class="foot-top">
+      <div>
+        <div class="foot-brand">
+          <svg width="30" height="30" viewBox="0 0 72 72" aria-hidden="true"><rect x="4" y="4" width="64" height="64" rx="20" fill="#FFE0CB"/><circle cx="26" cy="30" r="4" fill="#221A3D"/><circle cx="46" cy="30" r="4" fill="#221A3D"/><path d="M22 44 Q36 56 50 44" stroke="#221A3D" stroke-width="4" stroke-linecap="round" fill="none"/></svg>
+          Peer to Peer
+        </div>
+        <p class="foot-desc">
+          Plateforme libre d'auto-observation, éditée par Next Impact. Aucun compte, aucune donnée envoyée : vos saisies restent dans votre navigateur, le temps de la session. Ces outils ne posent aucun diagnostic et ne remplacent pas un·e professionnel·le.
+        </p>
+      </div>
+      <div class="foot-col">
+        <h4>Naviguer</h4>
+        <a href="#top">Accueil</a>
+        <a href="#outils">Outils</a>
+        <a href="#commencer">Parcours</a>
+        <a href="#soutenir">Contribuer</a>
+      </div>
+      <div class="foot-col">
+        <h4>En savoir plus</h4>
+        <a href="#">Ressources d'urgence</a>
+        <a href="#">Confidentialité</a>
+        <a href="#">Mentions légales</a>
+        <a href="#">À propos</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>fait avec ❤️ pour le rétablissement</span>
+      <span>© 2026 Peer to Peer · Next Impact</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ───────── TWEAKS ───────── -->
+<aside id="tweaks" aria-label="Tweaks">
+  <div class="tw-head">
+    <span class="tw-title">Tweaks</span>
+    <button class="tw-x" id="tw-close" aria-label="Fermer">✕</button>
+  </div>
+  <div class="tw-label">Palette</div>
+  <div class="tw-swatches" id="tw-swatches"></div>
+</aside>
+
+<script>
+(function(){
+  const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
+    "palette": "teal"
+  }/*EDITMODE-END*/;
+
+  // Each palette is a complete, coordinated set built around one accent.
+  const PALETTES = {
+    indigo: { name:'Brioche',  sub:'indigo',
+      accent:'#6C4DE8', rgb:'108,77,232',
+      soft1:'#ECE0FA', soft2:'#FFE0CB', soft3:'#D8E8D2', rose:'#FF7AA8',
+      cream:'#FBF6EF', plum:'#221A3D', dim:'#7A6E92', faint:'#EBE3D6' },
+    sauge:  { name:'Verger',   sub:'sauge profonde',
+      accent:'#3E9C7A', rgb:'62,156,122',
+      soft1:'#DCEEE3', soft2:'#FBE7CB', soft3:'#D6E7DC', rose:'#F1886A',
+      cream:'#F8F5EC', plum:'#1B2C23', dim:'#6F7C70', faint:'#E6E5D4' },
+    teal:   { name:'Lagune',   sub:'teal',
+      accent:'#1E9AA0', rgb:'30,154,160',
+      soft1:'#D7ECEC', soft2:'#FBE6CE', soft3:'#DAE8EC', rose:'#F39191',
+      cream:'#F6F5F1', plum:'#16292C', dim:'#6E8086', faint:'#E3E7E3' },
+    prune:  { name:'Baie',     sub:'prune-baie',
+      accent:'#C0457F', rgb:'192,69,127',
+      soft1:'#F4DBEA', soft2:'#FCDFD6', soft3:'#EBDCF0', rose:'#FF9E7A',
+      cream:'#FAF4F2', plum:'#2C1822', dim:'#8A6E7E', faint:'#EFE0E2' }
+  };
+
+  const root = document.documentElement;
+  function apply(key){
+    const p = PALETTES[key] || PALETTES.indigo;
+    root.style.setProperty('--indigo', p.accent);
+    root.style.setProperty('--action-rgb', p.rgb);
+    root.style.setProperty('--lavender', p.soft1);
+    root.style.setProperty('--peach',    p.soft2);
+    root.style.setProperty('--sage',     p.soft3);
+    root.style.setProperty('--rose',     p.rose);
+    root.style.setProperty('--cream',    p.cream);
+    root.style.setProperty('--plum',     p.plum);
+    root.style.setProperty('--dim',      p.dim);
+    root.style.setProperty('--faint',    p.faint);
+    document.querySelectorAll('#tw-swatches .tw-sw').forEach(el=>{
+      el.classList.toggle('sel', el.dataset.key === key);
+    });
+  }
+
+  // build swatches — accent chip + name + mini palette preview
+  const wrap = document.getElementById('tw-swatches');
+  wrap.innerHTML = Object.entries(PALETTES).map(([k,p])=>`
+    <button class="tw-sw" data-key="${k}">
+      <span class="tw-chip" style="background:${p.accent}"></span>
+      <span><span class="tw-name">${p.name}</span><span class="tw-hex" style="display:block">${p.sub}</span>
+        <span class="tw-mini"><span style="background:${p.soft1}"></span><span style="background:${p.soft2}"></span><span style="background:${p.soft3}"></span></span>
+      </span>
+      <span class="tw-check">✓</span>
+    </button>`).join('');
+
+  let current = TWEAK_DEFAULTS.palette || 'indigo';
+  apply(current);
+
+  wrap.addEventListener('click', (e)=>{
+    const btn = e.target.closest('.tw-sw'); if(!btn) return;
+    current = btn.dataset.key;
+    apply(current);
+    window.parent.postMessage({ type:'__edit_mode_set_keys', edits:{ palette: current } }, '*');
+  });
+
+  // host protocol — listener BEFORE announcing availability
+  const panel = document.getElementById('tweaks');
+  window.addEventListener('message', (e)=>{
+    const t = e.data && e.data.type;
+    if(t === '__activate_edit_mode')   panel.classList.add('on');
+    if(t === '__deactivate_edit_mode') panel.classList.remove('on');
+  });
+  document.getElementById('tw-close').addEventListener('click', ()=>{
+    panel.classList.remove('on');
+    window.parent.postMessage({ type:'__edit_mode_dismissed' }, '*');
+  });
+  window.parent.postMessage({ type:'__edit_mode_available' }, '*');
+})();
+</script>
+
+</body>
+</html>

@@ -1,13 +1,14 @@
 /* =============================================================================
  * Identité visuelle « Peer to Peer » (édité par Next Impact) — Tailwind v4
- * Système SWISS / international :
- *   - Grille modulaire (bento) à filets HAIRLINE TRÈS DISCRETS.
- *   - Tout est CARRÉ (aucun arrondi), aucune ombre — précision, à plat.
- *   - Surfaces en niveaux de gris + accent BLEU PROFOND (#00019C) ; bloc hero
- *     en bleu très sombre.
- *   - Exception domaine santé mentale : rouge (danger) + ambre (warning) conservés.
+ * Charte « Lagune » (teal) :
+ *   - Grille modulaire (bento) à GOUTTIÈRE : cartes arrondies espacées.
+ *   - ARRONDIS doux (cartes ~24px, boutons pilule) + OMBRES douces teintées teal.
+ *   - Fond QUASI-BLANC + bandes neutres très claires ; encre PLUM.
+ *   - Accent TEAL : --accent est ASSOMBRI pour l'AA (texte/fills) ; --accent-bright
+ *     (#1E9AA0, teal de marque) reste DÉCORATIF (blobs), jamais sous du texte.
+ *   - Exception domaine santé mentale : rouge (danger crise) conservé ; warning neutre.
  *   - Clair par défaut + sombre (next-themes, classe .dark). prefers-reduced-motion respecté.
- *   - Typo : Instrument Sans (titres) + Hanken Grotesk (corps).
+ *   - Typo : Inter Tight (titres + corps) + DM Mono (eyebrows / méta / chiffres).
  * ========================================================================== */
 
 @import "tailwindcss";
@@ -23,12 +24,13 @@
   --color-muted: var(--muted);
   --color-ink-faint: var(--ink-faint);
 
-  /* Accent bleu — la SEULE couleur non-grise (usage parcimonieux) */
+  /* Accent teal — --accent est assombri pour l'AA (texte + fills). */
   --color-accent: var(--accent);
-  --color-accent-soft: var(--accent-soft);       /* fond de chip d'icône — reste gris */
+  --color-accent-soft: var(--accent-soft);       /* fond doux (lavande) de chip d'icône */
   --color-accent-strong: var(--accent-strong);   /* appui/pressé */
+  --color-accent-bright: var(--accent-bright);   /* teal de marque (#1E9AA0) — DÉCORATIF only */
   --color-accent-ink: var(--on-accent);
-  --color-on-accent: var(--on-accent);           /* texte sur aplat coloré (blanc en clair, foncé en sombre) */
+  --color-on-accent: var(--on-accent);           /* texte sur aplat coloré (cream en clair, foncé en sombre) */
 
   /* Sémantiques : info/success = accent ; sécurité (danger/warning) conservée */
   --color-info: var(--accent);
@@ -54,87 +56,114 @@
   --color-black: var(--foreground);   /* alias inversible (suit le thème) */
   --color-white: var(--background);   /* alias inversible (suit le thème) */
 
-  --font-sans: var(--font-hanken), system-ui, sans-serif;
-  --font-heading: var(--font-instrument), system-ui, sans-serif;
-  --font-mono: ui-monospace, 'Cascadia Code', 'Source Code Pro', monospace;
+  /* Typo Lagune : Inter Tight (titres + corps), DM Mono (eyebrows / méta / chiffres). */
+  --font-sans: var(--font-inter-tight), system-ui, sans-serif;
+  --font-heading: var(--font-inter-tight), system-ui, sans-serif;
+  --font-mono: var(--font-dm-mono), ui-monospace, 'Cascadia Code', monospace;
 }
 
-/* --- Thème clair (par défaut) — base gris + blanc, palette Adobe en surfaces -
- * Couleurs limitées : rose #C99D9C + crème #F2EBDC (dominantes) ; gris-bleu
- * #A4B1B7 TRÈS parcimonieux. Base gris/blanc, texte gris foncé. Pas de jaune.
+/* --- Thème clair (par défaut) — fond QUASI-BLANC + bandes neutres, encre PLUM --
+ * Accent teal assombri pour l'AA (--accent), teal de marque décoratif
+ * (--accent-bright). Pastels lavande / framboise / sauge en bandes. Pas de jaune.
  * ------------------------------------------------------------------------- */
 :root {
-  --background:  #fbfaf8;  /* fond page (gris très clair, légèrement chaud)  */
-  --card-bg:     #ffffff;  /* carte / panneau (blanc)                        */
-  --surface-2:   #efece7;  /* inset gris clair                               */
-  --foreground:  #2b2a27;  /* texte primaire (gris foncé)                    */
-  --muted:       #6d6a64;  /* texte secondaire (gris)                        */
-  --ink-faint:   #9b978f;  /* tertiaire / légendes                          */
-  --border:      #e6e3dc;  /* filet hairline très discret (gris chaud)       */
-  --line-strong: #d3cfc6;  /* filet au survol                               */
+  --background:  #FCFCFB;  /* fond page (quasiment blanc)                    */
+  --card-bg:     #ffffff;  /* carte / panneau (blanc — contraste sur cream)  */
+  --surface-2:   #ECEAE4;  /* inset doux neutre                              */
+  --foreground:  #16292C;  /* texte primaire (plum)                          */
+  --muted:       #5E7176;  /* texte secondaire (dim assombri pour l'AA)      */
+  --ink-faint:   #6E8086;  /* tertiaire / légendes                          */
+  --border:      #E3E7E3;  /* filet hairline (faint)                         */
+  --line-strong: #cfd6d4;  /* filet au survol                               */
 
-  --accent:        #7a2e2a;  /* rouge argile profond, non pastel */
-  --accent-strong: #5f211e;  /* appui / pressé */
-  --accent-soft:   #ead6d2;  /* fond doux, l'accent reste profond */
-  --on-accent:     #ffffff;  /* texte/glyphe sur aplat rose */
+  --accent:        #0E747A;  /* teal assombri — AA sur cream/blanc (texte + fills) */
+  --accent-strong: #0A5C61;  /* appui / pressé / hover */
+  --accent-soft:   #D7ECEC;  /* fond doux (lavande) */
+  --accent-bright: #1E9AA0;  /* teal de marque — DÉCORATIF (blobs), jamais sous texte */
+  --accent-rgb:    30, 154, 160;  /* teal de marque, pour les ombres/glows teintées */
+  --on-accent:     #FCFCFB;  /* quasi-blanc sur aplat teal */
 
-  --hero-bg:   #2b2a27;  --hero-ink: #f5f2ec;  --hero-line: #45423b;  /* hero gris foncé */
+  /* Accent SECONDAIRE « framboise » — duo d'énergie (chiffres clés, highlight,
+     1 surface teintée). Teal reste primaire (nav, CTA, identité). Dosé. */
+  --accent-2:        #A8466A;  /* framboise — AA sur blanc/cream (texte + chiffres) */
+  --accent-2-bright: #E87CA1;  /* framboise vive — décoratif */
+  --accent-2-soft:   #F6D8E2;  /* voile framboise — surface teintée douce / highlight */
 
-  /* Couleurs : rose + crème (dominantes), gris-bleu (TRÈS parcimonieux) */
-  --tile-rose:   #c99d9c;  /* rose Adobe — tuile vedette */
-  --tile-cream:  #f2ebdc;  /* crème Adobe */
-  --tile-blue:   #3f6678;  /* bleu pétrole sourd — usage parcimonieux */
-  --ink-pastel:  #2b2a27;  /* texte foncé posé sur une tuile pastel */
+  --hero-bg:   #16292C;  --hero-ink: #FCFCFB;  --hero-line: #2A3F43;  /* bloc plum */
 
-  /* Accents par catégorie (grille d'outils) — filet + icône */
-  --cat-q: #7a2e2a;  /* questionnaires — rouge argile */
-  --cat-p: #285f7a;  /* parcours — bleu pétrole */
-  --cat-c: #356b45;  /* carnets — vert sauge sombre */
+  /* Pastels (bandes / tuiles) + framboise décoratif */
+  --tile-lavender: #D7ECEC;  /* aqua froid */
+  --tile-peach:    #F6D8E2;  /* rosé framboise — accent / décoratif (plus en fond de bande) */
+  --tile-sage:     #DAE8EC;  /* bleu poudré */
+  --tile-rose:     #E87CA1;  /* framboise vive — décoratif (blobs) */
+  --tile-cream:    #F4E7CF;  /* box--soft → brioche (crème dorée chaude) */
+  --tile-blue:     #DAE8EC;  /* box--second → sauge */
+  --ink-pastel:    #16292C;  /* texte plum posé sur une tuile pastel */
+  --band-bg:       #F2F2F0;  /* fond de bande / panneau : gris très clair (séparation douce) */
 
-  /* Sécurité (exception) + warning NEUTRE (ni jaune ni bleu) */
-  --warning:    #6d6a64;  --warning-soft: #ededeb;  /* gris neutre */
-  --danger:     #b23a32;  --danger-soft:  #f6e0de;
+  /* Catégories : 1 accent + 1 pastel assorti par catégorie (accents AA sur blanc).
+     Triade joaillière : teal / myrtille / framboise (3 catégories distinctes). */
+  --cat-q: #0E747A;  --cat-q-soft: #D7ECEC;  /* questionnaires — teal / lavande */
+  --cat-p: #5A4FA0;  --cat-p-soft: #E7E3F6;  /* parcours — myrtille / violet pâle (AA sur blanc) */
+  --cat-c: #A8466A;  --cat-c-soft: #F6D8E2;  /* carnets — framboise / rosé (AA sur blanc) */
+
+  /* Sécurité (exception crise) + warning NEUTRE (ni jaune ni teal) */
+  --warning:    #5E7176;  --warning-soft: #ECEAE4;  /* gris-teal neutre */
+  --danger:     #C0453C;  --danger-soft:  #F6E0DE;
 
   --ring: var(--accent);
 
-  /* Géométrie Swiss : tout carré, à plat */
-  --radius-sm: 0;  --radius: 0;  --radius-lg: 0;  --radius-pill: 0;
-  --shadow-sm: none;  --shadow: none;
+  /* Géométrie Lagune : arrondis doux + ombres teintées teal */
+  --radius-sm: 12px;  --radius: 16px;  --radius-lg: 24px;  --radius-pill: 999px;
+  --shadow-sm: 0 4px 20px rgba(22, 41, 44, 0.07);
+  --shadow:    0 12px 40px rgba(22, 41, 44, 0.10);
 
   --ease: cubic-bezier(.2, .6, .2, 1);
 }
 
-/* --- Thème sombre (next-themes, classe .dark) ----------------------------- */
+/* --- Thème sombre (next-themes, classe .dark) — variante teal dérivée ------ */
 .dark {
-  --background:  #161513;  /* gris chaud presque noir */
-  --card-bg:     #211f1b;
-  --surface-2:   #2a2823;
-  --foreground:  #f1eee8;
-  --muted:       #a7a299;
-  --ink-faint:   #7b766d;
-  --border:      #33302b;  /* filet très discret */
-  --line-strong: #46423b;
+  --background:  #0F1E20;  /* teal-navy très sombre */
+  --card-bg:     #16292C;  /* plum (surface carte) */
+  --surface-2:   #1E3539;
+  --foreground:  #F1F4F3;
+  --muted:       #9DB0B3;
+  --ink-faint:   #6E8086;
+  --border:      #2A3F43;  /* filet très discret */
+  --line-strong: #3A5358;
 
-  --accent:        #e07b72;  /* rouge argile clair, non pastel */
-  --accent-strong: #f09a92;
-  --accent-soft:   #3f2420;  /* chip sombre teinté */
-  --on-accent:     #1a1916;  /* texte foncé sur aplat rose clair */
+  --accent:        #5FC4C9;  /* teal clair — AA sur sombre (texte + fills) */
+  --accent-strong: #82D4D8;
+  --accent-soft:   #143034;  /* chip sombre teinté */
+  --accent-bright: #5FC4C9;  /* décoratif (blobs) — déjà clair en sombre */
+  --accent-rgb:    95, 196, 201;  /* glow teinté (teal clair) */
+  --on-accent:     #07191B;  /* texte foncé sur aplat teal clair */
 
-  --hero-bg:   #0e0d0b;  --hero-ink: #f1eee8;  --hero-line: #2a2823;
+  --accent-2:        #E59BB6;  /* framboise clair — AA sur sombre */
+  --accent-2-bright: #E87CA1;
+  --accent-2-soft:   #3A2531;  /* voile framboise sombre */
 
-  --warning:    #a7a299;  --warning-soft: #2a2823;
-  --danger:     #e0837b;  --danger-soft:  #3a1512;
+  --hero-bg:   #0A1517;  --hero-ink: #F1F4F3;  --hero-line: #2A3F43;
 
-  /* Accents par catégorie (versions claires pour le contraste sur sombre) */
-  --cat-q: #e07b72;  /* rouge argile */
-  --cat-p: #76b3ce;  /* bleu pétrole clair */
-  --cat-c: #7fbd8b;  /* vert sauge franc */
+  /* Pastels assombris (usage parcimonieux, lisibles en sombre) */
+  --tile-lavender: #15302F;
+  --tile-peach:    #3A2531;  /* rosé framboise sombre */
+  --tile-sage:     #1B3437;
+  --tile-rose:     #5A2E42;  /* framboise sombre */
+  --tile-cream:    #2A2318;  /* brioche sombre */
+  --tile-blue:     #1B3437;
+  --band-bg:       #152529;  /* fond de bande sombre neutre */
+
+  --warning:    #9DB0B3;  --warning-soft: #1E3539;
+  --danger:     #E58A82;  --danger-soft:  #3A1512;
+
+  /* Catégories (versions claires pour le contraste sur sombre + pastels assombris) */
+  --cat-q: #5FC4C9;  --cat-q-soft: #143034;  /* teal clair / lavande sombre */
+  --cat-p: #A79BE6;  --cat-p-soft: #241F3A;  /* myrtille clair / violet sombre */
+  --cat-c: #E59BB6;  --cat-c-soft: #3A2331;  /* framboise clair / rosé sombre */
 
   --ring: var(--accent);
 }
-
-/* --- Swiss : tout est carré (supprime tout arrondi, utilitaires inclus) ---- */
-* { border-radius: 0 !important; }
 
 /* --- Base ----------------------------------------------------------------- */
 html {
@@ -157,9 +186,9 @@ p {
 
 h1, h2, h3, h4, .font-heading {
   font-family: var(--font-heading);
-  font-weight: 400; /* Instrument Sans ne descend pas sous 400 (sa graisse la plus fine) */
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  font-weight: 700; /* Inter Tight : titres serrés et affirmés */
+  letter-spacing: -0.04em;
+  line-height: 0.98;
 }
 
 h3 {
@@ -184,6 +213,13 @@ h3 {
 @keyframes float {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-8px); }
+}
+/* Dérive très lente des cercles à halo (mouvement « léger » et apaisé). */
+@keyframes halo-drift {
+  0%   { transform: translate(0, 0) scale(1); }
+  30%  { transform: translate(16px, -20px) scale(1.05); }
+  60%  { transform: translate(-12px, 12px) scale(0.97); }
+  100% { transform: translate(0, 0) scale(1); }
 }
 @keyframes slide-up {
   from { opacity: 0; transform: translateY(16px); }
@@ -233,51 +269,67 @@ h3 {
   animation: contribution-gauge-shine 1.35s 0.25s var(--ease) both;
 }
 
+/* Cercle à halo réutilisable (décor, aria-hidden) — flou doux + faible opacité
+   + dérive lente. Teintes myrtille / framboise (jamais en aplat de fond plein). */
+.halo {
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+  filter: blur(14px);
+  opacity: 0.18;
+  pointer-events: none;
+  animation: halo-drift 19s var(--ease) infinite;
+  will-change: transform;
+}
+.halo--myrtille  { background: var(--cat-p); }
+.halo--framboise { background: var(--accent-2-bright); }
+.halo--teal      { background: var(--accent-bright); }
+
 @media (prefers-reduced-motion: reduce) {
-  .animate-float, .animate-slide-up, .animate-bounce-in, .animate-confetti, .animate-shake, .animate-contribution-gauge, .animate-contribution-gauge::after {
+  .animate-float, .animate-slide-up, .animate-bounce-in, .animate-confetti, .animate-shake, .animate-contribution-gauge, .animate-contribution-gauge::after, .halo, .home-lg .blob {
     animation: none !important;
   }
   * { transition-duration: 0.01ms !important; }
 }
 
-/* --- Boutons (pill, sans ombre) ------------------------------------------- */
-/* Primaire = aplat encre, s'inverse selon le thème (bleu réservé aux
-   liens / eyebrows / glyphes / chiffres). */
+/* --- Boutons (pilule, ombre teintée teal) --------------------------------- */
+/* Primaire = aplat teal + texte cream, lift au survol (cf. maquette Lagune). */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--foreground);
-  color: var(--background);
-  padding: 11px 22px;
+  background: var(--accent);
+  color: var(--on-accent);
+  padding: 12px 22px;
   font-weight: 600;
   font-size: 14px;
   border: 1px solid transparent;
   border-radius: var(--radius-pill);
+  box-shadow: 0 6px 18px rgba(var(--accent-rgb), 0.28);
   cursor: pointer;
-  transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
+  transition: box-shadow 0.18s var(--ease), transform 0.18s var(--ease), background-color 0.18s var(--ease);
 }
-.btn-primary:hover { transform: translateY(-1px); opacity: 0.92; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 26px rgba(var(--accent-rgb), 0.34); }
 .btn-primary:active { transform: translateY(0); }
-.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
 
-/* Secondaire = fantôme bordé (currentColor). */
+/* Secondaire = pilule fantôme bordée (currentColor). */
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
   background: transparent;
   color: inherit;
-  padding: 11px 22px;
+  padding: 12px 22px;
   font-weight: 600;
   font-size: 14px;
-  border: 1px solid currentColor;
+  border: 1.5px solid currentColor;
   border-radius: var(--radius-pill);
   opacity: 0.9;
   cursor: pointer;
   transition: opacity 0.18s var(--ease), transform 0.18s var(--ease);
 }
-.btn-secondary:hover { opacity: 1; transform: translateY(-1px); }
+.btn-secondary:hover { opacity: 1; transform: translateY(-2px); }
 .btn-secondary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
 
 /* --- Carte : surface + filet hairline, séparation sans ombre -------------- */
@@ -285,23 +337,34 @@ h3 {
   background: var(--card-bg);
   padding: 22px 24px;
   border: 1px solid var(--border);
-  border-radius: var(--radius);
-  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
 }
-.card:hover { border-color: var(--line-strong); }
+.card:hover { border-color: var(--line-strong); transform: translateY(-4px); box-shadow: var(--shadow); }
 
 /* Variante : filet d'accent à gauche (mise en avant douce, parcimonieuse). */
 .card-accent { border-left: 3px solid var(--accent); }
 
 /* --- Vocabulaire éditorial (handoff) -------------------------------------- */
-/* Eyebrow : petit label accent au-dessus des titres. */
+/* Eyebrow : petit label mono teal, précédé d'un tiret teal (cf. maquette). */
 .eyebrow {
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.eyebrow::before {
+  content: "";
+  width: 18px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  flex: none;
 }
 
 /* Icon chip : glyphe bleu, sans fond (la signature couleur). */
@@ -352,7 +415,7 @@ h3 {
   padding: 16px 14px;
   text-align: center;
 }
-.stat .n { font-family: var(--font-heading); font-size: 40px; line-height: 1; color: var(--accent); }
+.stat .n { font-family: var(--font-heading); font-size: 40px; line-height: 1; color: var(--accent-2); }
 .stat .l { font-size: 11.5px; color: var(--muted); margin-top: 6px; }
 
 /* Lien texte avec flèche. */
@@ -369,13 +432,17 @@ h3 {
 .gradient-bg   { background: var(--hero-bg); color: var(--hero-ink); }
 .gradient-text { color: var(--accent); }
 
+/* Footer plum (charte Lagune) : surface foncée + liens qui passent au framboise. */
+.footer-plum { background: var(--hero-bg); color: var(--hero-ink); }
+.footer-plum a:hover { color: var(--tile-peach); }
+
 /* =============================================================================
  * Bento Swiss 12 colonnes — structure « Peer to Peer ».
  * Grille réglée SANS gouttière : les boîtes se touchent, séparées seulement par
  * leurs filets hairline très discrets. Les boîtes colorées remappent localement
  * --foreground/--muted/--accent pour que le texte y reste lisible.
  * ========================================================================== */
-.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 0; }
+.bento { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
 .bento > * { min-width: 0; }
 .c2 { grid-column: span 2; } .c3 { grid-column: span 3; } .c4 { grid-column: span 4; }
 .c5 { grid-column: span 5; } .c6 { grid-column: span 6; } .c7 { grid-column: span 7; }
@@ -397,35 +464,36 @@ h3 {
 .box {
   background: var(--card-bg);
   border: 1px solid var(--border);
-  padding: 22px 24px;
+  border-radius: var(--radius-lg);
+  padding: 24px 26px;
   display: flex;
   flex-direction: column;
-  transition: border-color 0.2s var(--ease);
+  transition: border-color 0.2s var(--ease), transform 0.18s var(--ease), box-shadow 0.18s var(--ease);
 }
 .box.link { cursor: pointer; }
-.box.link:hover { border-color: var(--line-strong); }
+.box.link:hover { border-color: var(--line-strong); transform: translateY(-4px); box-shadow: var(--shadow); }
 .box h1, .box h2, .box h3 { font-family: var(--font-heading); }
 
 /* Tuiles colorées Adobe : fond fixe + texte gris foncé (lisible dans les 2 thèmes). */
 /* Fonds de boîte : UNIQUEMENT crème / blanc / gris (surface-2) / hero-bg.
    Le rose et le bleu n'apparaissent JAMAIS en fond — seulement en ACCENT
    (filet de gauche, icône, texte). */
-.box--soft { background: var(--tile-cream); }              /* crème */
-.box--tint { background: var(--surface-2); }               /* gris clair */
-.box--accent { border-left: 3px solid var(--accent); }     /* fond blanc + filet ROSE (vedette) */
-.box--second { border-left: 3px solid var(--tile-blue); }  /* fond blanc + filet BLEU (parcimonieux) */
+.box--soft { background: var(--tile-cream); }              /* brioche */
+.box--tint { background: var(--surface-2); }               /* gris doux */
+.box--accent { border-left: 3px solid var(--accent); }     /* fond blanc + filet TEAL (vedette) */
+.box--second { border-left: 3px solid var(--cat-p); }      /* fond blanc + filet BLEU (parcimonieux) */
 .dark .hero-suggest-box {
   background: var(--surface-2);
   border-color: var(--line-strong);
   color: var(--foreground);
 }
 
-/* Bloc hero (gris foncé) */
+/* Bloc hero (plum foncé) */
 .box--fill {
   background: var(--hero-bg); border-color: var(--hero-line); color: var(--hero-ink);
   --foreground: var(--hero-ink);
   --muted: color-mix(in srgb, var(--hero-ink) 66%, transparent);
-  --accent: #d6b3b2; /* rose clair, lisible sur le bloc sombre */
+  --accent: #5FC4C9; /* teal clair, lisible sur le bloc plum */
 }
 .box--fill .btn-primary { background: var(--hero-ink); color: var(--hero-bg); border-color: transparent; }
 
@@ -480,12 +548,12 @@ h3 {
 .steps { font-size: 11px; letter-spacing: 0.08em; color: var(--muted); }
 
 /* Étapes « comment ça marche » */
-.num { font-family: var(--font-heading); font-weight: 400; font-size: 40px; line-height: 1; color: var(--accent); }
+.num { font-family: var(--font-heading); font-weight: 400; font-size: 40px; line-height: 1; color: var(--accent-2); }
 .step-tt { display: flex; align-items: flex-start; gap: 8px; margin: 10px 0 6px; }
 .step-tt h3 { font-size: 18px; }
 
 /* Cartes outil */
-.tico { width: 40px; height: 40px; display: grid; place-items: center; background: transparent; color: var(--accent); margin-bottom: 14px; }
+.tico { width: 40px; height: 40px; display: grid; place-items: center; border-radius: var(--radius-sm); background: var(--accent-soft); color: var(--accent); margin-bottom: 14px; }
 .tool h3 { font-size: 18px; }
 .tool--big h3 { font-size: 22px; }
 .meta { display: flex; gap: 8px; flex-wrap: wrap; margin: 8px 0 10px; }
@@ -516,16 +584,16 @@ h3 {
 .open { margin-top: auto; padding-top: 12px; }
 .badge--sensible { color: var(--warning); border-color: color-mix(in srgb, var(--warning) 45%, var(--border)); }
 
-/* Accent par catégorie (filet de gauche + icône) : rose / bleu / beige foncé. */
-.tool[data-cat="questionnaires"] { border-left: 3px solid var(--cat-q); }
-.tool[data-cat="parcours"]       { border-left: 3px solid var(--cat-p); }
-.tool[data-cat="carnets"]        { border-left: 3px solid var(--cat-c); }
-.tool[data-cat="questionnaires"] .tico { color: var(--cat-q); }
-.tool[data-cat="parcours"] .tico       { color: var(--cat-p); }
-.tool[data-cat="carnets"] .tico        { color: var(--cat-c); }
-.tool[data-cat="questionnaires"] h3 { color: var(--cat-q); }
-.tool[data-cat="parcours"] h3       { color: var(--cat-p); }
-.tool[data-cat="carnets"] h3        { color: var(--cat-c); }
+/* Couleur de catégorie : tout élément [data-cat] remappe LOCALEMENT l'accent (+
+   sa version douce). Du coup filet, chip d'icône, titre et liens d'une boîte
+   suivent automatiquement la couleur de sa catégorie. */
+[data-cat="questionnaires"] { --accent: var(--cat-q); --accent-soft: var(--cat-q-soft); }
+[data-cat="parcours"]       { --accent: var(--cat-p); --accent-soft: var(--cat-p-soft); }
+[data-cat="carnets"]        { --accent: var(--cat-c); --accent-soft: var(--cat-c-soft); }
+
+/* Carte outil : filet de gauche + titre = couleur de catégorie (via --accent local). */
+.tool { border-left: 3px solid var(--accent); }
+.tool h3 { color: var(--accent); }
 
 /* Barre d'outils du catalogue */
 .toolbar { gap: 14px; }
@@ -676,9 +744,107 @@ h3 {
 .stats .stat .n { font-size: 30px; }
 .stats .stat .l { margin-top: 0; }
 
-/* Bouton fantôme (alias du secondaire, pour le hero) */
-.btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 11px 22px; border: 1px solid currentColor; background: transparent; color: inherit; font-weight: 600; font-size: 14px; opacity: 0.9; cursor: pointer; transition: opacity 0.18s var(--ease); }
-.btn-ghost:hover { opacity: 1; }
+/* Bouton fantôme (pilule bordée, pour le hero) */
+.btn-ghost { display: inline-flex; align-items: center; gap: 8px; padding: 12px 22px; border: 1.5px solid currentColor; border-radius: var(--radius-pill); background: transparent; color: inherit; font-weight: 600; font-size: 14px; opacity: 0.9; cursor: pointer; transition: opacity 0.18s var(--ease), transform 0.18s var(--ease); }
+.btn-ghost:hover { opacity: 1; transform: translateY(-2px); }
+
+/* =============================================================================
+ * Accueil « Lagune » — recréation de la maquette de handoff.
+ * Tout est SCOPÉ sous .home-lg pour ne jamais entrer en collision avec les
+ * classes utilitaires globales (.steps, .num, .chip, .badge…). Couleurs via
+ * tokens → s'inversent automatiquement en sombre.
+ * ========================================================================== */
+.home-lg { display: block; }
+.home-lg .wrap { position: relative; z-index: 1; max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+.home-lg .mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.02em; color: var(--muted); }
+
+/* Bandes pleine largeur (couleur de fond alternée par section) */
+.home-lg .band { padding: 80px 0; position: relative; overflow: hidden; }
+.home-lg .band-lav { background: var(--band-bg); }
+.home-lg .band-peach { background: var(--band-bg); }
+
+/* En-tête de section */
+.home-lg .sec-head { max-width: 680px; margin-bottom: 36px; }
+.home-lg .sec-head h2 { font-size: clamp(32px, 4vw, 46px); margin-top: 14px; line-height: 0.98; }
+.home-lg .sec-head p { font-size: 18px; color: var(--foreground); margin: 14px 0 0; opacity: 0.85; }
+
+/* Décor : blobs floutés (aria-hidden, statiques) */
+.home-lg .blob { position: absolute; border-radius: 50%; filter: blur(2px); pointer-events: none; animation: halo-drift 23s var(--ease) infinite; will-change: transform; }
+
+/* Hero */
+.home-lg .hero { position: relative; overflow: hidden; padding: 60px 0 52px; }
+.home-lg .hero-grid { position: relative; display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 48px; align-items: center; }
+.home-lg .pill { display: inline-flex; align-items: center; gap: 8px; background: var(--card-bg); border: 1px solid var(--border); padding: 6px 14px; border-radius: var(--radius-pill); font-size: 13px; color: var(--foreground); }
+.home-lg .dot { width: 7px; height: 7px; border-radius: 50%; background: #21A95F; flex: none; }
+.home-lg .display { font-family: var(--font-heading); font-weight: 700; font-size: clamp(44px, 6vw, 72px); line-height: 0.95; letter-spacing: -0.045em; }
+/* Surlignage hero : framboise en TEXTE (accent), aucun fond coloré. */
+.home-lg .hl { background: transparent; color: var(--accent-2); padding: 0; }
+.home-lg .lede { font-size: 19px; line-height: 1.6; color: var(--foreground); max-width: 480px; margin-top: 22px; }
+.home-lg .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.home-lg .hero-fine { margin-top: 16px; font-size: 13.5px; color: var(--muted); display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+
+/* Carte « Recherche rapide » (preview) */
+.home-lg .preview { background: var(--band-bg); border-radius: var(--radius-lg); padding: 18px; box-shadow: var(--shadow); position: relative; }
+.home-lg .preview-head { display: flex; align-items: center; justify-content: space-between; padding: 2px 6px 12px; }
+.home-lg .preview-head .ph-brand { display: flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 700; color: var(--foreground); }
+.home-lg .search-card { background: var(--card-bg); border-radius: var(--radius); padding: 18px; }
+.home-lg .search-card .search { border: 2px solid var(--accent); border-radius: 12px; background: var(--card-bg); }
+.home-lg .qk-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.home-lg .local-note { display: flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 12px; color: var(--muted); }
+
+/* « Par où commencer » — cartes d'entrée */
+.home-lg .entries { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.home-lg .entry { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 30px; display: flex; flex-direction: column; gap: 16px; min-height: 220px; transition: transform 0.18s var(--ease), box-shadow 0.18s var(--ease); }
+.home-lg .entry:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.home-lg .entry h3 { font-size: 26px; letter-spacing: -0.03em; }
+.home-lg .entry p { margin: 0; font-size: 15.5px; color: var(--muted); line-height: 1.55; }
+.home-lg .entry .go { margin-top: auto; display: inline-flex; align-items: center; gap: 7px; font-weight: 600; color: var(--accent); font-size: 15px; }
+.home-lg .ebadge { align-self: flex-start; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 11px; border-radius: var(--radius-pill); background: var(--accent-soft); color: var(--foreground); }
+.home-lg .entry-note { margin-top: 26px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 14px; font-size: 15px; color: var(--foreground); }
+
+/* « Trois gestes simples » — pas numérotés */
+.home-lg .home-steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.home-lg .hstep { background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 28px; }
+.home-lg .hstep .snum { font-family: var(--font-mono); font-size: 13px; color: var(--accent-2); font-weight: 500; }
+.home-lg .hstep h3 { font-size: 23px; margin: 16px 0 8px; letter-spacing: -0.03em; }
+.home-lg .hstep p { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.55; }
+.home-lg .hstep .ic { margin-top: 18px; color: var(--accent); }
+
+/* « Les outils » — trois façons d'avancer */
+.home-lg .home-ways { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.home-lg .way { border-radius: var(--radius-lg); padding: 28px; display: flex; flex-direction: column; gap: 14px; min-height: 200px; }
+.home-lg .way-soft { background: var(--card-bg); border: 1px solid var(--border); }
+.home-lg .way-fill { background: var(--accent); color: var(--on-accent); }
+.home-lg .way h3 { font-size: 24px; letter-spacing: -0.03em; }
+.home-lg .way p { margin: 0; font-size: 15px; line-height: 1.55; }
+.home-lg .way-soft p { color: var(--muted); }
+.home-lg .way .tagm { margin-top: auto; font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+.home-lg .way-fill .tagm { color: var(--on-accent); }
+.home-lg .wbadge { align-self: flex-start; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 5px 11px; border-radius: var(--radius-pill); }
+.home-lg .way-soft .wbadge { background: var(--accent-soft); color: var(--foreground); }
+.home-lg .way-fill .wbadge { background: color-mix(in srgb, var(--on-accent) 18%, transparent); color: var(--on-accent); }
+
+/* « Soutenir » — grande carte teal */
+.home-lg .support-card { background: var(--accent); color: var(--on-accent); border-radius: 30px; padding: 52px 54px; position: relative; overflow: hidden; display: grid; grid-template-columns: 1.3fr 0.9fr; gap: 36px; align-items: center; }
+.home-lg .support-card h2 { font-size: clamp(30px, 3.4vw, 44px); position: relative; }
+.home-lg .support-card p { position: relative; font-size: 17px; line-height: 1.6; margin: 16px 0 0; opacity: 0.92; max-width: 460px; }
+.home-lg .support-card .eyebrow { color: var(--tile-peach); position: relative; }
+.home-lg .support-actions { position: relative; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+.home-lg .support-actions a { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px; padding: 13px 22px; border-radius: var(--radius-pill); transition: transform 0.15s var(--ease); }
+.home-lg .support-actions a:hover { transform: translateY(-2px); }
+.home-lg .btn-cream { background: var(--on-accent); color: var(--accent); }
+.home-lg .btn-outline-cream { background: transparent; color: var(--on-accent); border: 1.5px solid color-mix(in srgb, var(--on-accent) 50%, transparent); }
+.home-lg .btn-outline-cream:hover { background: color-mix(in srgb, var(--on-accent) 12%, transparent); }
+
+@media (max-width: 960px) {
+  .home-lg .hero-grid { grid-template-columns: 1fr; gap: 34px; }
+  .home-lg .entries, .home-lg .home-steps, .home-lg .home-ways { grid-template-columns: 1fr; }
+  .home-lg .support-card { grid-template-columns: 1fr; padding: 38px 30px; }
+}
+@media (max-width: 560px) {
+  .home-lg .wrap { padding: 0 18px; }
+  .home-lg .band { padding: 60px 0; }
+}
 
 /* --- Document imprimable (export PDF via window.print) --------------------- */
 #print-root { display: none; }

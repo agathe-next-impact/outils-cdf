@@ -1,10 +1,15 @@
 import Link from "next/link";
+import type { CSSProperties } from "react";
 import GameIcon from "@/components/GameIcon";
 import { BentoGrid, bentoSpan } from "@/components/layout/Bento";
 import { FOCUS_RING } from "@/lib/a11y";
 import type { PathwaySummary } from "@/data/pathways";
 
-/** Grille de cartes-objectifs menant aux parcours (traitement calme unifié). */
+// Les parcours ne sont pas catégorisés : on fait alterner l'accent sur la triade
+// (teal / bleu / terracotta) pour rythmer la grille tout en gardant l'harmonie.
+const ACCENT_CYCLE = ["var(--cat-q)", "var(--cat-p)", "var(--cat-c)"];
+
+/** Grille de cartes-objectifs menant aux parcours (accent qui alterne). */
 export function PathwayCards({ pathways }: { pathways: PathwaySummary[] }) {
   return (
     <BentoGrid>
@@ -16,7 +21,12 @@ export function PathwayCards({ pathways }: { pathways: PathwaySummary[] }) {
             key={p.id}
             href={`/parcours/${p.id}`}
             className={`box link block h-full animate-slide-up border-l-[3px] border-l-accent ${bentoSpan(span)} ${FOCUS_RING}`}
-            style={{ animationDelay: `${i * 0.05}s` }}
+            style={
+              {
+                animationDelay: `${i * 0.05}s`,
+                "--accent": ACCENT_CYCLE[i % ACCENT_CYCLE.length],
+              } as CSSProperties
+            }
           >
             <h3 className="font-heading text-lg tracking-tight">{p.goal}</h3>
             <p className="mt-2 text-sm text-muted">{p.pitch}</p>

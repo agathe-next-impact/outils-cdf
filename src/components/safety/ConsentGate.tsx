@@ -31,13 +31,13 @@ export function ConsentGate({ slug, sensitivity, children }: ConsentGateProps) {
         <h2 className="text-lg">Avant de commencer</h2>
       </div>
       <p className="mb-3 text-sm">
-        Prenez le temps qu&apos;il vous faut : il n&apos;y a aucune attente, et c&apos;est vous qui
-        menez.
+        Cet outil est à toi. Prends le temps qu&apos;il te faut : il n&apos;y a aucune attente,
+        et c&apos;est toi qui mènes, du début à la fin.
       </p>
       <ul className="mb-4 ml-5 list-disc space-y-1 text-sm">
-        <li>Vous pouvez vous arrêter à tout moment.</li>
-        <li>Vous n&apos;êtes pas obligé·e de répondre à toutes les questions.</li>
-        <li>Vos réponses restent dans votre navigateur et peuvent être effacées.</li>
+        <li>Tu peux t&apos;arrêter à tout moment, et reprendre plus tard.</li>
+        <li>Tu n&apos;es pas obligé de répondre à tout : laisse de côté ce que tu veux.</li>
+        <li>Tes réponses restent sur ton appareil, et tu peux les effacer quand tu veux.</li>
       </ul>
       <button
         type="button"

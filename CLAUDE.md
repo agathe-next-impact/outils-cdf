@@ -30,44 +30,53 @@ tiers) est proposée sans jamais conditionner l'accès aux outils.
   voir `src/lib/export/`.
 - Alias d'import : `@/*` → `./src/*`. L'`app/` est à la racine.
 
-## Identité visuelle (obligatoire) — « Peer to Peer »
+## Identité visuelle (obligatoire) — « Peer to Peer » / charte **Lagune (teal)**
 
-Système **SWISS / international** : grille modulaire (bento) à **filets hairline très discrets**,
-**tout carré**, **zéro ombre**, gris + accent **bleu profond**. Les lois :
+Système **doux et chaleureux** (santé / rétablissement) : grille modulaire (bento) à **cartes
+arrondies espacées**, **ombres douces teintées teal**, fond **cream** + bandes **pastel**, accent
+**teal**. Les lois :
 
-1. **Tout est carré, zéro ombre** — reset global `* { border-radius: 0 !important }` ; tous les rayons
-   (`--radius*`/`--radius-pill`) = **0**. Bordures **hairline 1px très discrètes** (`--border` →
-   `--line-strong` au survol). **Aucune `box-shadow`** : séparation par contraste de surface + filet.
-3. **Base gris + blanc, palette Adobe en surfaces** — neutre : clair fond `#f6f5f3`, carte `#ffffff`
-   (blanc), filet `#e6e3dc`, texte `#2b2a27` ; sombre fond `#161513`, carte `#211f1b`, texte `#f1eee8`
-   (inversibles). **Accent rose** `--accent` `#a05f5d` (clair, assombri pour l'AA) / `#d0a3a2` (sombre)
-   = marque, nav active, eyebrows, liens, glyphes d'icône, chiffres clés — **usage parcimonieux** ;
-   `--on-accent` blanc (clair) / foncé (sombre). **Couleurs limitées** (sur base gris/blanc) : **rose
-   `#c99d9c`** (`--tile-rose`, `box--accent` vedette) et **crème `#f2ebdc`** (`--tile-cream`, `box--soft`)
-   en dominantes ; **gris-bleu `#a4b1b7`** (`--tile-blue`, `box--second`) **TRÈS parcimonieusement (1 tuile)**.
-   `box--tint` = gris neutre ; hero gris foncé (`box--fill`). **Pas de jaune.** Texte sur tuile = gris foncé
-   `--ink-pastel`. **`info`/`success` = accent** ; `--warning` = **gris neutre** ; **exception santé mentale**
-   `--danger` = **rouge** (crise). Jamais de `#000`/`#fff` en dur → tokens.
-   Jamais de `#000`/`#fff` en dur → tokens. Compat : `*-orange/-blue`→accent, `*-yellow`→warning, `*-red`→danger.
-4. **Typo** — `Instrument Sans` (titres/nombres/marque, `--font-instrument`) + `Hanken Grotesk`
-   (corps/UI, `--font-hanken`). Titres en casse normale. Logo : carré bleu + point clair via `<Logo>`.
-5. **Icônes** — lucide-react uniquement via `<GameIcon>` (trait fin) ; glyphe bleu dans `.ichip`
-   (fond gris). **Zéro emoji.**
-6. **Mode sombre** — via `next-themes` (classe `.dark`), clair par défaut.
-7. **Mouvement lent et sobre** — `animate-slide-up` discrètes, décor `animate-float` lent ;
-   `prefers-reduced-motion` respecté.
+1. **Arrondis doux + ombres douces** — rayons `--radius-sm:12px` / `--radius:16px` / `--radius-lg:24px`
+   (cartes) / `--radius-pill:999px` (boutons, badges, chips). **Pas de reset carré.** Ombres
+   `--shadow` / `--shadow-sm` (teintées teal, `rgba(22,41,44,…)`) au survol des cartes (léger lift
+   `translateY(-4px)`). Bordures **hairline 1px** (`--border` → `--line-strong` au survol).
+2. **Bento à GOUTTIÈRE** — `.bento { gap:18px }` : les cartes arrondies/ombrées sont espacées (≠
+   ancienne grille sans gouttière).
+3. **Fond cream + bandes pastel, encre plum** — neutre : clair fond `#F6F5F1` (cream), carte
+   `#ffffff`, filet `#E3E7E3`, texte `#16292C` (plum) ; sombre fond `#0F1E20`, carte `#16292C`,
+   texte `#F1F4F3` (inversibles). **Accent teal** : `--accent` `#0E747A` (clair, **assombri pour
+   l'AA**) / `#5FC4C9` (sombre) = marque, nav active, eyebrows, liens, glyphes, chiffres, **fills de
+   bouton** ; `--on-accent` cream (clair) / plum (sombre). **`--accent-bright` `#1E9AA0` = teal de
+   marque DÉCORATIF only** (blobs), **jamais sous du texte** (contraste insuffisant). **Pastels** :
+   lavande `#D7ECEC` (`--tile-lavender`), pêche `#FBE6CE` (`--tile-peach` = `box--soft`), sauge
+   `#DAE8EC` (`--tile-sage`) en bandes alternées ; rose `#F39191` (`--tile-rose`) décoratif (blobs).
+   `box--tint` = gris doux ; hero/footer **plum** (`box--fill`, `.footer-plum`). **Pas de jaune.**
+   Texte sur tuile = plum `--ink-pastel`. **`info`/`success` = accent** ; `--warning` = **gris-teal
+   neutre** ; **exception santé mentale** `--danger` = **rouge** (crise). Jamais de `#000`/`#fff` en
+   dur → tokens. Compat : `*-orange/-blue`→accent, `*-yellow`→warning, `*-red`→danger.
+4. **Typo** — `Inter Tight` (titres **et** corps, `--font-inter-tight`) + `DM Mono` (eyebrows / méta
+   / chiffres, `--font-dm-mono`). Titres **serrés** (poids 700, `letter-spacing:-0.04em`). Logo :
+   **mascotte** (carré arrondi teal à visage cream + joues pêche) via `<Logo>`.
+5. **Icônes** — lucide-react uniquement via `<GameIcon>` (trait fin) ; glyphe teal. **Zéro emoji.**
+6. **Mode sombre** — via `next-themes` (classe `.dark`), clair par défaut ; variante **teal sombre**
+   dérivée (pas de mode clair-only).
+7. **Mouvement lent et sobre** — `animate-slide-up` discrètes, décor `animate-float` lent, blobs
+   statiques floutés ; `prefers-reduced-motion` respecté.
 
-Vocabulaire (globals.css) : `.card` (filet hairline discret, carré, 0 ombre), `.card-accent` (filet bleu gauche),
-`.btn-primary` (carré, aplat **encre**), `.btn-secondary` (carré fantôme),
-`.eyebrow`, `.ichip`(/`--line`), `.badge`, `.chip`/`.is-on`, `.stat`/`.n`/`.l`, `.tlink`,
-`GameIcon`, `ThemeToggle`. **Navigation** : `Sidebar` (rail, desktop) + `MobileTopBar` + **`BottomNav`**
-(onglets, seule nav mobile) ; **PWA** installable (`manifest.ts`, `public/sw.js`, `InstallBanner`).
-Mise en page **Bento** (`src/components/layout/Bento.tsx`). Wrapper : `PageWrapper`.
+Vocabulaire (globals.css) : `.card` (filet hairline, arrondi, ombre au survol), `.card-accent` (filet teal gauche),
+`.btn-primary` (pilule, **aplat teal** + ombre), `.btn-secondary`/`.btn-ghost` (pilule fantôme),
+`.eyebrow` (mono + tiret teal), `.ichip`(/`--line`), `.badge`, `.chip`/`.is-on`, `.stat`/`.n`/`.l`, `.tlink`,
+`GameIcon`, `ThemeToggle`. **Accueil** : classes scopées `.home-lg` (hero, `.band`/`.band-lav`/`.band-peach`,
+`.entry`, `.hstep`, `.way`, `.support-card`, `.preview`). **Navigation** : `Sidebar` (rail, desktop) +
+`MobileTopBar` + **`BottomNav`** (onglets, seule nav mobile) ; **PWA** installable (`manifest.ts`,
+`public/sw.js`, `InstallBanner`). Mise en page **Bento** (`src/components/layout/Bento.tsx`). Wrapper : `PageWrapper`.
 
 ## Accessibilité
 
 Cible **WCAG 2.2 AA** : navigation clavier complète, `aria-live` pour scores/progression, focus
-visible (anneau vermillon `--ring`), info jamais portée par la seule couleur.
+visible (anneau teal `--ring`), info jamais portée par la seule couleur. L'accent teal de marque
+(`--accent-bright`) ne porte **jamais** de texte (contraste insuffisant) ; le teal **texte/fill**
+(`--accent`) est assombri pour l'AA.
 
 ## Commandes
 

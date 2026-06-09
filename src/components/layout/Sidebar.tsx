@@ -35,10 +35,10 @@ function SidebarLink({ item, active }: { item: NavItem; active: boolean }) {
       href={item.href}
       aria-label={item.label}
       aria-current={active ? "page" : undefined}
-      className={`group relative flex h-12 w-12 items-center justify-center rounded-[4px] transition-colors ${FOCUS_RING} ${
+      className={`group relative flex h-12 w-12 items-center justify-center rounded-2xl transition-colors ${FOCUS_RING} ${
         active
-          ? "bg-surface-2 text-accent"
-          : "text-muted hover:bg-border hover:text-foreground"
+          ? "bg-accent-soft text-accent"
+          : "text-muted hover:bg-surface-2 hover:text-foreground"
       }`}
     >
       <GameIcon name={item.icon} size={20} strokeWidth={1.75} aria-hidden />

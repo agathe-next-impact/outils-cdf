@@ -1,9 +1,13 @@
+import type { ToolCategory } from "@/engines/types";
+
 export interface StartPathwayCard {
   title: string;
   text: string;
   href: string;
   icon: string;
   steps: string;
+  /** Catégorie de l'outil cible → couleur d'accent de la carte. */
+  cat: ToolCategory;
 }
 
 export const START_PATHWAY_CARDS: StartPathwayCard[] = [
@@ -13,6 +17,7 @@ export const START_PATHWAY_CARDS: StartPathwayCard[] = [
     href: "/outils/situations-evitees",
     icon: "footprints",
     steps: "CARNET GUIDÉ",
+    cat: "carnets",
   },
   {
     title: "Construire mon rétablissement",
@@ -20,5 +25,6 @@ export const START_PATHWAY_CARDS: StartPathwayCard[] = [
     href: "/outils/recovery-craig",
     icon: "sunrise",
     steps: "PARCOURS GUIDÉ",
+    cat: "parcours",
   },
 ];

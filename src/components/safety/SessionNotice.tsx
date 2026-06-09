@@ -9,9 +9,9 @@ export function SessionNotice({ className }: { className?: string }) {
     >
       <GameIcon name="info" size={20} className="mt-0.5 shrink-0 text-accent" />
       <p>
-        Vos réponses restent dans cet onglet et seront effacées à sa fermeture. Rien
-        n&apos;est envoyé sur Internet. Pensez à <strong>exporter</strong> pour conserver une
-        trace.{" "}
+        Tes réponses restent dans cet onglet et s&apos;effacent à sa fermeture. Rien ne part
+        sur Internet — c&apos;est ton espace, à toi. Pour en garder une trace, pense à{" "}
+        <strong>exporter</strong>.{" "}
         <Link className="text-accent hover:underline" href="/confidentialite">
           En savoir plus
         </Link>

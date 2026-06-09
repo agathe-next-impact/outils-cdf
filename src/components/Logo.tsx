@@ -1,9 +1,9 @@
 import { SITE } from "@/config/site";
 
 /**
- * Logo « Peer to Peer » — adapté du monogramme Next Impact : un carré plein
- * en accent bleu, signé d'un point clair (sur l'aplat), accolé au wordmark
- * en Instrument Sans (titres).
+ * Logo « Peer to Peer » — mascotte « Brioche » de la charte Lagune : un carré
+ * arrondi en accent framboise, deux yeux + un sourire en cream, deux joues rosées.
+ * Couleurs via tokens → s'adapte au thème (clair/sombre) et au contexte.
  *
  * Purement présentationnel (aucun hook) → utilisable côté serveur et client.
  */
@@ -20,22 +20,26 @@ export function Logo({
 }) {
   return (
     <span className={`inline-flex items-center gap-2 ${className}`}>
-      {/* Carré de marque bleu + point clair (écho du « . » du monogramme NI). */}
-      <span
+      <svg
+        width={size}
+        height={size}
+        viewBox="0 0 72 72"
         aria-hidden
-        className="relative inline-block shrink-0 bg-accent"
-        style={{ width: size, height: size }}
+        className="shrink-0"
       >
-        <span
-          className="absolute bg-on-accent"
-          style={{
-            width: Math.max(2, size * 0.18),
-            height: Math.max(2, size * 0.18),
-            right: size * 0.16,
-            bottom: size * 0.16,
-          }}
+        <rect x="4" y="4" width="64" height="64" rx="20" fill="var(--accent-2)" />
+        <circle cx="26" cy="30" r="4" fill="var(--on-accent)" />
+        <circle cx="46" cy="30" r="4" fill="var(--on-accent)" />
+        <path
+          d="M22 44 Q36 56 50 44"
+          stroke="var(--on-accent)"
+          strokeWidth="4"
+          strokeLinecap="round"
+          fill="none"
         />
-      </span>
+        <circle cx="14" cy="40" r="2.5" fill="var(--tile-peach)" opacity="0.85" />
+        <circle cx="58" cy="40" r="2.5" fill="var(--tile-peach)" opacity="0.85" />
+      </svg>
       {showWordmark ? (
         <span className="font-heading font-semibold leading-none tracking-tight">
           {SITE.name}

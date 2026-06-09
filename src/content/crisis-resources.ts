@@ -25,8 +25,8 @@ const FR_RESOURCES: CrisisResourceSet = {
   country: "FR",
   label: "France",
   intro:
-    "Si vous traversez un moment difficile ou pensez à vous faire du mal, vous n'êtes pas seul·e. " +
-    "Ces lignes sont gratuites, confidentielles et joignables à tout moment.",
+    "Si tu traverses un moment difficile ou que tu penses à te faire du mal, sache que tu n'es pas seul. " +
+    "Ces lignes sont gratuites, confidentielles et joignables à toute heure.",
   contacts: [
     {
       name: "3114",

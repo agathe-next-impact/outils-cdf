@@ -1,15 +1,15 @@
 import type { CSSProperties, ElementType, HTMLAttributes, ReactNode } from "react";
 
 /**
- * Primitif de mise en page « Bento » — grille modulaire Swiss, carrée, RÉGLÉE :
- * pas de gouttière (`gap-0`), les tuiles se touchent et ne sont séparées que par
- * leurs filets hairline très discrets (les « lignes » de la grille).
+ * Primitif de mise en page « Bento » (charte Lagune) — grille modulaire à
+ * GOUTTIÈRE : les tuiles sont espacées (gap 18px, comme `.bento`), chacune
+ * posée avec son filet hairline et ses angles arrondis.
  *
  * NB : `.card` est du CSS non-layered (il l'emporte sur les utilitaires Tailwind),
  * d'où le `style` inline pour les fonds colorés des tuiles `accent`/`soft`.
  */
 
-/** Conteneur de grille réglée : 1 col (mobile) → 2 (sm) → 3 (lg), sans gouttière. */
+/** Conteneur de grille : 1 col (mobile) → 2 (sm) → 3 (lg), avec gouttière. */
 export function BentoGrid({
   children,
   className = "",
@@ -18,7 +18,7 @@ export function BentoGrid({
   className?: string;
 }) {
   return (
-    <div className={`grid grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-3 ${className}`}>
+    <div className={`grid grid-cols-1 gap-[18px] sm:grid-cols-2 lg:grid-cols-3 ${className}`}>
       {children}
     </div>
   );

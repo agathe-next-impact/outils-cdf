@@ -1,10 +1,10 @@
 /**
  * Socle de thème pour les graphiques (Recharts) — conforme à l'identité
- * Swiss « Peer to Peer » : gris + accent bleu profond (la couleur de mise en
- * avant), barres carrées, couleurs thémées (clair/sombre), prefers-reduced-motion.
+ * « Lagune » de « Peer to Peer » : accent teal (la couleur de mise en avant),
+ * séries secondaires en gris-teal, couleurs thémées (clair/sombre), prefers-reduced-motion.
  *
  * RÈGLES :
- *  - série principale = accent bleu ; séries secondaires = gris (muted / line).
+ *  - série principale = accent teal ; séries secondaires = gris (muted / line).
  *  - le rouge (danger) reste réservé aux états d'alerte/attention.
  *  - l'information n'est jamais portée par la seule couleur → légende + libellés +
  *    table accessible (voir ChartFrame).
@@ -13,9 +13,9 @@ import { useEffect, useState } from "react";
 import type { XAxisProps } from "recharts";
 
 /* --- Accents (tokens globals.css ; fallback si token non émis) --- */
-export const CHART_BLUE = "var(--color-accent, #a05f5d)";   /* primaire : rose poudré */
-export const CHART_RED = "var(--color-danger, #b23a32)";    /* attention/danger      */
-export const CHART_YELLOW = "var(--color-muted, #6d6a64)";  /* secondaire : gris     */
+export const CHART_BLUE = "var(--color-accent, #0E747A)";   /* primaire : teal       */
+export const CHART_RED = "var(--color-danger, #C0453C)";    /* attention/danger      */
+export const CHART_YELLOW = "var(--color-muted, #5E7176)";  /* secondaire : gris-teal */
 
 export type ChartAccent = "blue" | "red" | "yellow";
 

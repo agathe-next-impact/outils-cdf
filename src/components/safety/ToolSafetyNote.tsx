@@ -29,9 +29,9 @@ export function ToolSafetyNote({
         <div className="space-y-1">
           <p>{d.long}</p>
           <p className="text-muted">
-            Vos réponses restent dans cet onglet, ne sont jamais envoyées sur Internet, et
-            s&apos;effacent à sa fermeture. Pensez à <strong>exporter</strong> pour en garder une
-            trace.{" "}
+            Rien de ce que tu écris ne quitte ton appareil : tout reste dans cet onglet et
+            s&apos;efface à sa fermeture. C&apos;est ton espace. Pour en garder une trace, pense à{" "}
+            <strong>exporter</strong>.{" "}
             <Link className="text-accent hover:underline" href="/confidentialite">
               En savoir plus
             </Link>

@@ -30,7 +30,10 @@ export default async function CategoryPage({ params }: Params) {
   return (
     <PageWrapper maxWidth="full">
       <header className="mb-8">
-        <div className="flex items-center gap-3 border border-border border-l-[3px] border-l-accent bg-surface-2 px-5 py-4">
+        <div
+          data-cat={info.key}
+          className="flex items-center gap-3 border border-border border-l-[3px] border-l-accent bg-accent-soft px-5 py-4"
+        >
           <GameIcon name={info.iconName} size={40} className="text-accent" />
           <h1 className="font-heading text-3xl tracking-tight md:text-4xl">
             {info.label}

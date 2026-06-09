@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Sans, Hanken_Grotesk } from "next/font/google";
+import { Inter_Tight, DM_Mono } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Sidebar } from "@/components/layout/Sidebar";
@@ -18,16 +18,16 @@ const BIP_CAPTURE =
   "window.addEventListener('beforeinstallprompt',function(e){e.preventDefault();" +
   "window.__deferredBip=e;window.dispatchEvent(new Event('bip-ready'));});";
 
-// Typographie : Instrument Sans (titres) + Hanken Grotesk (corps).
-const instrument = Instrument_Sans({
+// Typographie « Lagune » : Inter Tight (titres + corps) + DM Mono (eyebrows / méta).
+const interTight = Inter_Tight({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-instrument",
+  variable: "--font-inter-tight",
 });
-const hanken = Hanken_Grotesk({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-hanken",
+  weight: ["400", "500"],
+  variable: "--font-dm-mono",
 });
 
 export const metadata: Metadata = {
@@ -49,8 +49,8 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover", // étend sous l'encoche → safe-area exploitable
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fbfaf8" },
-    { media: "(prefers-color-scheme: dark)", color: "#161513" },
+    { media: "(prefers-color-scheme: light)", color: "#F6F5F1" },
+    { media: "(prefers-color-scheme: dark)", color: "#0F1E20" },
   ],
 };
 
@@ -60,7 +60,7 @@ export default function RootLayout({
   return (
     <html
       lang="fr"
-      className={`${instrument.variable} ${hanken.variable}`}
+      className={`${interTight.variable} ${dmMono.variable}`}
       suppressHydrationWarning
     >
       <body className="antialiased min-h-screen transition-colors duration-300">

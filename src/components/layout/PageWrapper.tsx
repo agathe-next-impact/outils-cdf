@@ -1,4 +1,5 @@
 import GameIcon from "@/components/GameIcon";
+import { Halo } from "@/components/layout/Halo";
 
 type MaxWidth = "md" | "lg" | "2xl" | "4xl" | "full";
 
@@ -38,7 +39,10 @@ export function PageWrapper({ children, maxWidth = "2xl", decor }: PageWrapperPr
           className="pointer-events-none absolute right-2 bottom-16 text-muted/30 animate-float select-none"
         />
       ) : null}
-      <div className={`relative mx-auto ${MAX_WIDTH[maxWidth]}`}>{children}</div>
+      {/* Halos décoratifs ambiants (myrtille / framboise), légèrement mouvants. */}
+      <Halo color="myrtille" size={460} delay={0} style={{ right: -170, top: 16 }} />
+      <Halo color="framboise" size={360} delay={-8} duration={23} style={{ left: -140, bottom: 64 }} />
+      <div className={`relative z-10 mx-auto ${MAX_WIDTH[maxWidth]}`}>{children}</div>
     </main>
   );
 }
