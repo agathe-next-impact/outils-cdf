@@ -12,8 +12,8 @@ const comprendre: WorksheetBody = {
       kind: "paragraph",
       text:
         "Il peut arriver d'entendre, de voir, de ressentir ou de penser des choses que les personnes " +
-        "autour ne partagent pas. Ces moments sont parfois déroutants. Ce premier espace vous invite à " +
-        "les décrire avec vos propres mots, sans étiquette imposée. Aucune réponse n'est attendue, et il " +
+        "autour ne partagent pas. Ces moments sont parfois déroutants. Ce premier espace t'invite à " +
+        "les décrire avec tes propres mots, sans étiquette imposée. Aucune réponse n'est attendue, et il " +
         "n'y a pas de bonne ou de mauvaise façon de remplir.",
     },
     {
@@ -22,14 +22,14 @@ const comprendre: WorksheetBody = {
       def:
         "Certaines personnes disent « psychose », d'autres « épisode », d'autres encore « expérience " +
         "difficile » ou « moment intense ». Ce sont autant de façons de nommer des instants où le " +
-        "rapport à la réalité se modifie. Le mot qui vous parle le mieux est le bon : c'est le vôtre.",
+        "rapport à la réalité se modifie. Le mot qui te parle le mieux est le bon : c'est le tien.",
     },
     {
       kind: "callout",
       tone: "info",
       text:
         "Regarder un même vécu sous plusieurs angles — ce qui se passe autour, dans le corps, dans les " +
-        "pensées… — aide souvent à y voir un peu plus clair et à retrouver un peu de prise, à votre rythme.",
+        "pensées… — aide souvent à y voir un peu plus clair et à retrouver un peu de prise, à ton rythme.",
     },
   ],
   documentTitle: "Comprendre mon expérience",
@@ -42,7 +42,7 @@ const comprendre: WorksheetBody = {
           id: "terme_prefere",
           type: "select",
           label: "Le mot que je préfère pour parler de ce que je vis",
-          help: "Rien n'est définitif : vous pouvez en changer quand vous le souhaitez.",
+          help: "Rien n'est définitif : tu peux en changer quand tu le souhaites.",
           options: [
             { value: "psychose", label: "Psychose" },
             { value: "episode", label: "Épisode" },
@@ -61,7 +61,7 @@ const comprendre: WorksheetBody = {
           text:
             "Un même moment peut se regarder selon six angles, qui souvent s'influencent les uns les " +
             "autres : la situation, le corps, les pensées, les perceptions, les émotions et les actions. " +
-            "Remplissez ceux qui vous parlent et laissez les autres de côté, c'est très bien ainsi.",
+            "Remplis ceux qui te parlent et laisse les autres de côté, c'est très bien ainsi.",
         },
       ],
       fields: [
@@ -109,7 +109,7 @@ const REPERER_LABELS: string[] = [
   "Il m'arrive d'avoir l'impression qu'on me veut du mal ou qu'on m'observe.",
   "Mes pensées vont parfois si vite que j'ai du mal à les suivre.",
   "Il m'arrive d'avoir du mal à distinguer ce qui se passe vraiment de ce que j'imagine.",
-  "Il m'arrive de me sentir coupé·e des autres ou du monde autour de moi.",
+  "Il m'arrive de me sentir coupé des autres ou du monde autour de moi.",
   "Mon sommeil change (je dors beaucoup moins, ou de façon très irrégulière).",
   "J'ai moins d'élan pour voir du monde ou faire mes activités habituelles.",
   "Il m'arrive d'avoir du mal à me concentrer ou à mener une tâche simple jusqu'au bout.",
@@ -128,17 +128,17 @@ const reperer: ScoredBody = {
       kind: "paragraph",
       text:
         "Voici quelques expériences que des personnes traversent parfois. Les parcourir n'est pas un " +
-        "test : il s'agit simplement de remarquer, pour vous, ce qui revient en ce moment. Indiquer une " +
-        "réponse ne veut rien dire en soi, et vous pouvez laisser autant de lignes que vous voulez sans " +
+        "test : il s'agit simplement de remarquer, pour toi, ce qui revient en ce moment. Indiquer une " +
+        "réponse ne veut rien dire en soi, et tu peux laisser autant de lignes que tu veux sans " +
         "réponse.",
     },
     {
       kind: "callout",
       tone: "info",
       text:
-        "Ce repère ne mesure rien et ne pose aucun diagnostic. Aucun résultat ne dira ce que vous " +
-        "« avez ». Il peut seulement vous aider à voir ce qui, en ce moment, mériterait peut-être d'être " +
-        "partagé avec une personne de confiance ou un·e professionnel·le.",
+        "Ce repère ne mesure rien et ne pose aucun diagnostic. Aucun résultat ne dira ce que tu " +
+        "« as ». Il peut seulement t'aider à voir ce qui, en ce moment, mériterait peut-être d'être " +
+        "partagé avec une personne de confiance ou un professionnel.",
     },
   ],
   referencePeriod: "au cours des deux dernières semaines",
@@ -164,7 +164,7 @@ const reperer: ScoredBody = {
         label: "Peu de ces expériences reviennent en ce moment",
         tone: "neutral",
         guidance:
-          "Pour l'instant, peu de ces expériences semblent fréquentes pour vous. Vous pouvez garder ce " +
+          "Pour l'instant, peu de ces expériences semblent fréquentes pour toi. Tu peux garder ce " +
           "repère en tête et revenir le parcourir plus tard, si quelque chose venait à changer.",
       },
       {
@@ -174,10 +174,10 @@ const reperer: ScoredBody = {
         label: "Plusieurs de ces expériences reviennent",
         tone: "attention",
         guidance:
-          "En ce moment, plusieurs de ces expériences reviennent souvent pour vous. Cela ne dit rien " +
-          "d'un diagnostic et ne mesure aucune gravité. Si vous le souhaitez, en parler avec un·e " +
-          "professionnel·le ou une personne de confiance peut être un appui : vous n'avez pas à attendre " +
-          "que cela devienne plus difficile pour demander du soutien. Vous restez libre du moment et de " +
+          "En ce moment, plusieurs de ces expériences reviennent souvent pour toi. Cela ne dit rien " +
+          "d'un diagnostic et ne mesure aucune gravité. Si tu le souhaites, en parler avec un " +
+          "professionnel ou une personne de confiance peut être un appui : tu n'as pas à attendre " +
+          "que cela devienne plus difficile pour demander du soutien. Tu restes libre du moment et de " +
           "la manière.",
       },
     ],
@@ -194,14 +194,14 @@ const prendreSoin: WorksheetBody = {
       kind: "paragraph",
       text:
         "Le sommeil, le mouvement, la façon dont on se nourrit ou dont on se détend pèsent beaucoup " +
-        "dans notre équilibre. Ce carnet est là pour noter, sans pression et à votre rythme, quelques " +
+        "dans notre équilibre. Ce carnet est là pour noter, sans pression et à ton rythme, quelques " +
         "repères du quotidien.",
     },
     {
       kind: "callout",
       tone: "info",
       text:
-        "Il ne s'agit pas de tout remplir parfaitement, mais simplement de remarquer ce qui vous fait du bien.",
+        "Il ne s'agit pas de tout remplir parfaitement, mais simplement de remarquer ce qui te fait du bien.",
     },
   ],
   documentTitle: "Prendre soin de moi",
@@ -213,8 +213,8 @@ const prendreSoin: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Noter quelques nuits suffit souvent pour repérer ce qui aide votre sommeil. Inutile de le " +
-            "faire tous les jours : seulement quand vous en avez l'envie et l'énergie.",
+            "Noter quelques nuits suffit souvent pour repérer ce qui aide ton sommeil. Inutile de le " +
+            "faire tous les jours : seulement quand tu en as l'envie et l'énergie.",
         },
       ],
       tables: [
@@ -222,7 +222,7 @@ const prendreSoin: WorksheetBody = {
           id: "sommeil_table",
           label: "Mes nuits",
           addLabel: "Noter une nuit",
-          emptyLabel: "Notez une première nuit quand vous le souhaitez.",
+          emptyLabel: "Note une première nuit quand tu le souhaites.",
           columns: [
             { id: "date", type: "date", label: "Date" },
             { id: "bedtime", type: "time", label: "Heure du coucher" },
@@ -255,8 +255,8 @@ const prendreSoin: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Bouger, même un peu, et faire des choses qui plaisent soutient l'humeur. Notez ce que " +
-            "vous avez fait, à votre rythme.",
+            "Bouger, même un peu, et faire des choses qui plaisent soutient l'humeur. Note ce que " +
+            "tu as fait, à ton rythme.",
         },
       ],
       tables: [
@@ -264,7 +264,7 @@ const prendreSoin: WorksheetBody = {
           id: "activite_table",
           label: "Mes activités",
           addLabel: "Noter une activité",
-          emptyLabel: "Notez une première activité quand vous le souhaitez.",
+          emptyLabel: "Note une première activité quand tu le souhaites.",
           columns: [
             { id: "activity_type", type: "shortText", label: "Activité" },
             { id: "enjoyable", type: "checkbox", label: "Cela m'a fait du bien" },
@@ -291,8 +291,8 @@ const prendreSoin: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Si l'alcool ou d'autres substances font partie de votre quotidien, vous pouvez réfléchir " +
-            "ici à ce que vous y trouvez et à ce qui changerait si vous en consommiez moins. C'est un " +
+            "Si l'alcool ou d'autres substances font partie de ton quotidien, tu peux réfléchir " +
+            "ici à ce que tu y trouves et à ce qui changerait si tu en consommais moins. C'est un " +
             "espace de réflexion personnelle, sans jugement et sans réponse attendue.",
         },
         {
@@ -301,8 +301,8 @@ const prendreSoin: WorksheetBody = {
           text:
             "Cet espace n'est pas un programme de sevrage. Réduire ou arrêter certaines substances peut " +
             "demander un accompagnement, et certains arrêts brusques peuvent être inconfortables ou " +
-            "risqués. Si un changement vous tente, parlez-en à un·e professionnel·le, et ne modifiez " +
-            "jamais un traitement en cours sans en parler avec la personne qui vous le prescrit.",
+            "risqués. Si un changement te tente, parles-en à un professionnel, et ne modifie " +
+            "jamais un traitement en cours sans en parler avec la personne qui te le prescrit.",
         },
       ],
       fields: [
@@ -336,7 +336,7 @@ const gererStress: WorksheetBody = {
       text:
         "Le stress peut amplifier certaines expériences. Apprendre à le faire redescendre, un peu à la " +
         "fois, est quelque chose qui se cultive comme une habileté : sans urgence, par petites touches. " +
-        "Ce carnet rassemble vos propres repères pour vous détendre.",
+        "Ce carnet rassemble tes propres repères pour te détendre.",
     },
   ],
   documentTitle: "Gérer mon stress",
@@ -348,8 +348,8 @@ const gererStress: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Notez ce qui vous apaise, même les toutes petites choses : marcher, écouter de la musique, " +
-            "respirer, caresser un animal… Tout ce qui vous fait du bien a sa place ici.",
+            "Note ce qui t'apaise, même les toutes petites choses : marcher, écouter de la musique, " +
+            "respirer, caresser un animal… Tout ce qui te fait du bien a sa place ici.",
         },
       ],
       fields: [
@@ -357,7 +357,7 @@ const gererStress: WorksheetBody = {
           id: "activites_relaxantes",
           type: "tagList",
           label: "Ce qui m'apaise (un mot ou une expression par étiquette)",
-          help: "Vous pourrez en ajouter, en retirer ou en changer au fil du temps.",
+          help: "Tu pourras en ajouter, en retirer ou en changer au fil du temps.",
         },
       ],
     },
@@ -368,8 +368,8 @@ const gererStress: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Notez les techniques que vous essayez et l'effet ressenti. Comparer le stress avant et " +
-            "après aide à repérer ce qui marche pour vous.",
+            "Note les techniques que tu essaies et l'effet ressenti. Comparer le stress avant et " +
+            "après aide à repérer ce qui marche pour toi.",
         },
       ],
       tables: [
@@ -377,7 +377,7 @@ const gererStress: WorksheetBody = {
           id: "pratiques_table",
           label: "Mes pratiques de détente",
           addLabel: "Noter une pratique",
-          emptyLabel: "Notez une première pratique quand vous le souhaitez.",
+          emptyLabel: "Note une première pratique quand tu le souhaites.",
           columns: [
             {
               id: "technique",
@@ -399,7 +399,7 @@ const gererStress: WorksheetBody = {
               min: 1,
               max: 10,
               minLabel: "1 — calme",
-              maxLabel: "10 — très tendu·e",
+              maxLabel: "10 — très tendu",
             },
             {
               id: "stress_after",
@@ -408,7 +408,7 @@ const gererStress: WorksheetBody = {
               min: 1,
               max: 10,
               minLabel: "1 — calme",
-              maxLabel: "10 — très tendu·e",
+              maxLabel: "10 — très tendu",
             },
             { id: "notes", type: "shortText", label: "Remarque" },
           ],
@@ -422,9 +422,9 @@ const gererStress: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Une situation vous inquiète à l'avance ? La préparer, et même la répéter en pensée ou à " +
-            "voix haute, peut alléger le stress le jour venu. Vous pouvez aussi la préparer avec une " +
-            "personne de confiance, si vous le souhaitez.",
+            "Une situation t'inquiète à l'avance ? La préparer, et même la répéter en pensée ou à " +
+            "voix haute, peut alléger le stress le jour venu. Tu peux aussi la préparer avec une " +
+            "personne de confiance, si tu le souhaites.",
         },
       ],
       fields: [
@@ -441,7 +441,7 @@ const gererStress: WorksheetBody = {
           min: 1,
           max: 10,
           minLabel: "1 — calme",
-          maxLabel: "10 — très tendu·e",
+          maxLabel: "10 — très tendu",
         },
         {
           id: "preparation_steps",
@@ -456,7 +456,7 @@ const gererStress: WorksheetBody = {
           min: 1,
           max: 10,
           minLabel: "1 — calme",
-          maxLabel: "10 — très tendu·e",
+          maxLabel: "10 — très tendu",
         },
       ],
     },
@@ -472,8 +472,8 @@ const resoudreProbleme: WizardBody = {
       kind: "paragraph",
       text:
         "Un problème qui tourne en boucle paraît souvent plus gros qu'il n'est en réalité. Le découper " +
-        "en petites étapes aide à retrouver un peu de prise. Avancez une étape à la fois, sans vous " +
-        "presser : vous pouvez faire une pause et revenir quand vous le voulez.",
+        "en étapes aide à retrouver un peu de prise. Avance une étape à la fois, sans te " +
+        "presser : tu peux faire une pause et revenir quand tu le veux.",
     },
   ],
   steps: [
@@ -484,7 +484,7 @@ const resoudreProbleme: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Choisissez une seule difficulté à explorer pour commencer, de préférence une qui vous " +
+            "Choisis une seule difficulté à explorer pour commencer, de préférence une qui te " +
             "paraît abordable. Les plus grandes pourront attendre un autre moment.",
         },
       ],
@@ -549,7 +549,7 @@ const resoudreProbleme: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Notez toutes les pistes qui vous viennent, même celles qui semblent improbables. Rien n'est " +
+            "Note toutes les pistes qui te viennent, même celles qui semblent improbables. Rien n'est " +
             "à juger pour l'instant : le tri viendra à l'étape suivante.",
         },
       ],
@@ -590,8 +590,8 @@ const resoudreProbleme: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Reprenez vos idées et complétez, pour chacune, les avantages, les inconvénients et le " +
-            "confort qu'elle vous inspire. Les pistes à la fois réalisables et confortables font souvent " +
+            "Reprends tes idées et complète, pour chacune, les avantages, les inconvénients et le " +
+            "confort qu'elle t'inspire. Les pistes à la fois réalisables et confortables font souvent " +
             "un bon point de départ.",
         },
       ],
@@ -658,8 +658,8 @@ const resoudreProbleme: WizardBody = {
   reward: {
     confetti: true,
     message:
-      "Vous avez transformé un problème qui pesait en un premier pas concret. C'est déjà beaucoup. " +
-      "Voici votre synthèse.",
+      "Tu as transformé un problème qui pesait en un premier pas concret. C'est déjà beaucoup. " +
+      "Voici ta synthèse.",
   },
 };
 
@@ -671,9 +671,9 @@ const objectif: WizardBody = {
     {
       kind: "paragraph",
       text:
-        "Un objectif n'a pas besoin d'être grand pour compter. Ce qui importe, c'est qu'il vous tienne " +
-        "à cœur et qu'il reste à votre portée. Un tout petit objectif atteint vaut mieux qu'un grand " +
-        "rêve trop lourd. Définissons le vôtre ensemble, doucement.",
+        "Un objectif n'a pas besoin d'être grand pour compter. Ce qui importe, c'est qu'il te tienne " +
+        "à cœur et qu'il reste à ta portée. Un objectif modeste atteint vaut mieux qu'un grand " +
+        "rêve trop lourd. Définis le tien, doucement.",
     },
   ],
   steps: [
@@ -770,7 +770,7 @@ const relier: WorksheetBody = {
       kind: "paragraph",
       text:
         "Le lien aux autres est un grand appui dans les moments difficiles. Ce carnet aide à repérer " +
-        "qui compte autour de vous et quelles habiletés relationnelles vous aimeriez cultiver, à votre " +
+        "qui compte autour de toi et quelles habiletés relationnelles tu aimerais cultiver, à ta " +
         "mesure.",
     },
   ],
@@ -783,7 +783,7 @@ const relier: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Notez les personnes sur qui vous pouvez compter. Utilisez un prénom ou un surnom — pas " +
+            "Note les personnes sur qui tu peux compter. Utilise un prénom ou un surnom — pas " +
             "besoin de noms complets ni de coordonnées.",
         },
       ],
@@ -792,7 +792,7 @@ const relier: WorksheetBody = {
           id: "cercle_table",
           label: "Les personnes de mon entourage",
           addLabel: "Ajouter une personne",
-          emptyLabel: "Ajoutez une première personne quand vous le souhaitez.",
+          emptyLabel: "Ajoute une première personne quand tu le souhaites.",
           columns: [
             { id: "name_or_alias", type: "shortText", label: "Prénom ou surnom" },
             {
@@ -827,8 +827,8 @@ const relier: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Les habiletés relationnelles s'apprennent et se travaillent comme les autres. Choisissez-en " +
-            "une à la fois, et notez si vous le souhaitez comment vous vous sentez avant et après l'avoir " +
+            "Les habiletés relationnelles s'apprennent et se travaillent comme les autres. Choisis-en " +
+            "une à la fois, et note si tu le souhaites comment tu te sens avant et après l'avoir " +
             "pratiquée.",
         },
       ],
@@ -837,7 +837,7 @@ const relier: WorksheetBody = {
           id: "competences_table",
           label: "Mes compétences relationnelles",
           addLabel: "Ajouter une compétence",
-          emptyLabel: "Ajoutez une première compétence quand vous le souhaitez.",
+          emptyLabel: "Ajoute une première compétence quand tu le souhaites.",
           columns: [
             {
               id: "skill",
@@ -888,16 +888,16 @@ const prevention: WorksheetBody = {
       kind: "paragraph",
       text:
         "Ce plan rassemble ce qui peut déclencher une période difficile, les signes qui l'annoncent, " +
-        "et ce que vous — et les personnes de confiance autour de vous — pouvez faire. C'est un " +
-        "document qui vous appartient : à garder, à relire et à partager avec qui vous voulez, ou à " +
-        "garder pour vous.",
+        "et ce que tu peux faire — avec les personnes de confiance autour de toi. C'est un " +
+        "document qui t'appartient : à garder, à relire et à partager avec qui tu veux, ou à " +
+        "garder pour toi.",
     },
     {
       kind: "callout",
       tone: "info",
       text:
-        "Ce plan se construit bien avec une personne de confiance ou un·e professionnel·le qui vous " +
-        "accompagne. Rien ne vous oblige à le remplir d'un seul coup : vous pouvez y revenir et le faire " +
+        "Ce plan se construit bien avec une personne de confiance ou un professionnel qui " +
+        "t'accompagne. Rien ne t'oblige à le remplir d'un seul coup : tu peux y revenir et le faire " +
         "évoluer dans le temps.",
     },
   ],
@@ -910,8 +910,8 @@ const prevention: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Ce qui, en ce moment, a tendance à fragiliser votre équilibre. Notez ce qui vous parle et " +
-            "laissez le reste de côté.",
+            "Ce qui, en ce moment, a tendance à fragiliser ton équilibre. Note ce qui te parle et " +
+            "laisse le reste de côté.",
         },
       ],
       tables: [
@@ -919,7 +919,7 @@ const prevention: WorksheetBody = {
           id: "declencheurs_table",
           label: "Mes déclencheurs",
           addLabel: "Ajouter un déclencheur",
-          emptyLabel: "Ajoutez un premier déclencheur quand vous le souhaitez.",
+          emptyLabel: "Ajoute un premier déclencheur quand tu le souhaites.",
           columns: [
             {
               id: "declencheur",
@@ -948,7 +948,7 @@ const prevention: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Les premiers signaux qui, chez vous, annoncent qu'une période difficile approche. Les " +
+            "Les premiers signaux qui, chez toi, annoncent qu'une période difficile approche. Les " +
             "repérer tôt laisse plus de marge pour réagir en douceur, avant que cela ne s'intensifie.",
         },
       ],
@@ -957,7 +957,7 @@ const prevention: WorksheetBody = {
           id: "signes_table",
           label: "Mes signes précoces",
           addLabel: "Ajouter un signe",
-          emptyLabel: "Ajoutez un premier signe quand vous le souhaitez.",
+          emptyLabel: "Ajoute un premier signe quand tu le souhaites.",
           columns: [
             { id: "description", type: "shortText", label: "Le signe" },
             { id: "observable", type: "checkbox", label: "Visible aussi pour mes proches" },
@@ -974,11 +974,11 @@ const prevention: WorksheetBody = {
           kind: "callout",
           tone: "attention",
           text:
-            "Si vous le pouvez, construisez ces actions avec un·e professionnel·le qui vous accompagne. " +
-            "N'indiquez aucune dose de médicament ici : tout ajustement de traitement se décide avec la " +
-            "personne qui vous le prescrit, jamais seul·e. Et si vous vous sentez en danger immédiat, ne " +
-            "restez pas seul·e : appelez le 3114 (prévention du suicide), le 15 (Samu) ou le 112, ou " +
-            "contactez une personne de confiance sans attendre.",
+            "Si tu le peux, construis ces actions avec un professionnel qui t'accompagne. " +
+            "N'indique aucune dose de médicament ici : tout ajustement de traitement se décide avec la " +
+            "personne qui te le prescrit, jamais seul. Et si tu te sens en danger immédiat, ne " +
+            "reste pas seul : appelle le 3114 (prévention du suicide), le 15 (Samu) ou le 112, ou " +
+            "contacte une personne de confiance sans attendre.",
         },
       ],
       fields: [
@@ -1020,9 +1020,9 @@ const penseesDifficiles: WizardBody = {
           tone: "attention",
           text:
             "Cet exercice peut être éprouvant si les expériences sont intenses en ce moment. Si c'est " +
-            "trop lourd, vous pouvez le faire avec une personne de confiance, ou le mettre de côté et y " +
-            "revenir plus tard : rien ne presse. Et si une pensée vous fait peur ou si vous vous sentez " +
-            "en danger, contactez une personne de confiance ou les ressources d'aide d'urgence (3114, " +
+            "trop lourd, tu peux le faire avec une personne de confiance, ou le mettre de côté et y " +
+            "revenir plus tard : rien ne presse. Et si une pensée te fait peur ou si tu te sens " +
+            "en danger, contacte une personne de confiance ou les ressources d'aide d'urgence (3114, " +
             "15 ou 112) sans attendre.",
         },
       ],
@@ -1042,7 +1042,7 @@ const penseesDifficiles: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Notez ce que la pensée ou la voix affirme, comme une citation rapportée. Il ne s'agit pas " +
+            "Note ce que la pensée ou la voix affirme, comme une citation rapportée. Il ne s'agit pas " +
             "de trancher si c'est vrai ou faux, mais simplement de le mettre par écrit pour pouvoir le " +
             "regarder de l'extérieur.",
         },
@@ -1084,9 +1084,9 @@ const penseesDifficiles: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Une vérification se fait toujours mieux avec une personne en qui vous avez confiance, en " +
-            "dehors de cet outil. Si une pensée vous inquiète ou vous fait peur, en parler à quelqu'un de " +
-            "confiance est souvent bien plus apaisant que de rester seul·e avec elle.",
+            "Une vérification se fait toujours mieux avec une personne en qui tu as confiance, en " +
+            "dehors de cet outil. Si une pensée t'inquiète ou te fait peur, en parler à quelqu'un de " +
+            "confiance est souvent bien plus apaisant que de rester seul avec elle.",
         },
       ],
       fields: [
@@ -1119,8 +1119,8 @@ const penseesDifficiles: WizardBody = {
   reward: {
     confetti: true,
     message:
-      "Vous avez pris le temps de regarder une pensée difficile d'un peu plus près. C'est courageux, et " +
-      "vous pouvez y revenir aussi souvent que vous le souhaitez.",
+      "Tu as pris le temps de regarder une pensée difficile d'un peu plus près. C'est courageux, et " +
+      "tu peux y revenir aussi souvent que tu le souhaites.",
   },
 };
 
@@ -1137,7 +1137,7 @@ export const dealingWithPsychosis: CompositeDefinition = {
   iconName: "compass",
   accent: "blue",
   summary:
-    "Une boîte à outils pour comprendre et apprivoiser des expériences intenses, à votre rythme et sans diagnostic.",
+    "Une boîte à outils pour comprendre et apprivoiser des expériences intenses, à ton rythme et sans diagnostic.",
   keywords: ["psychose", "hallucinations", "entendre des voix", "voix", "idées délirantes", "paranoïa", "déclencheurs", "signes précurseurs"],
   estimatedMinutes: 25,
   sensitivity: "high",
@@ -1150,26 +1150,26 @@ export const dealingWithPsychosis: CompositeDefinition = {
       kind: "paragraph",
       text:
         "Cette boîte à outils réunit neuf espaces pour comprendre, observer et composer avec des " +
-        "expériences parfois déroutantes ou intenses. Explorez-les dans l'ordre qui vous convient, " +
-        "remplissez ceux qui vous parlent et laissez les autres de côté : il n'y a ni parcours " +
+        "expériences parfois déroutantes ou intenses. Explore-les dans l'ordre qui te convient, " +
+        "remplis ceux qui te parlent et laisse les autres de côté : il n'y a ni parcours " +
         "obligatoire, ni bonne réponse, ni rythme attendu.",
     },
     {
       kind: "callout",
       tone: "info",
       text:
-        "Aucun de ces espaces ne pose de diagnostic ni ne met d'étiquette à votre place. Vous êtes " +
-        "libre de vous arrêter, de passer une question ou de revenir plus tard. Rien de ce que vous " +
-        "notez n'est envoyé sur Internet : tout reste dans votre navigateur et s'efface à la fermeture " +
+        "Aucun de ces espaces ne pose de diagnostic ni ne met d'étiquette à ta place. Tu es " +
+        "libre de t'arrêter, de passer une question ou de revenir plus tard. Rien de ce que tu " +
+        "notes n'est envoyé sur Internet : tout reste dans ton navigateur et s'efface à la fermeture " +
         "de l'onglet.",
     },
     {
       kind: "callout",
       tone: "attention",
       text:
-        "Cet outil ne donne aucun conseil de traitement. Ne commencez, n'arrêtez ni ne modifiez jamais " +
-        "un médicament sans en parler avec la personne qui vous le prescrit. Si vous vous sentez en " +
-        "danger ou dépassé·e, ne restez pas seul·e : contactez une personne de confiance ou les " +
+        "Cet outil ne donne aucun conseil de traitement. Ne commence, n'arrête ni ne modifie jamais " +
+        "un médicament sans en parler avec la personne qui te le prescrit. Si tu te sens en " +
+        "danger ou dépassé, ne reste pas seul : contacte une personne de confiance ou les " +
         "ressources d'aide indiquées sur cette page.",
     },
   ],

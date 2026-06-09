@@ -25,7 +25,7 @@ const NAVIGUER = [
 ];
 
 const EN_SAVOIR_PLUS = [
-  { href: "/ressources", label: "Ressources d'urgence" },
+  { href: "/ressources", label: "Aide" },
   { href: "/confidentialite", label: "Confidentialité" },
   { href: "/mentions-legales", label: "Mentions légales" },
   { href: "/a-propos", label: "À propos" },
@@ -48,9 +48,9 @@ export function Footer() {
             </span>
             <p className="mt-4 max-w-[420px] text-sm leading-relaxed text-hero-ink/70">
               Plateforme libre d&apos;auto-observation, éditée par {EDITEUR.brand}. Aucun compte,
-              aucune donnée envoyée : vos saisies restent dans votre navigateur, le temps de la
-              session. Ces outils ne posent aucun diagnostic et ne remplacent pas un·e
-              professionnel·le.
+              aucune donnée envoyée : tes saisies restent dans ton navigateur, le temps de la
+              session. Ces outils ne posent aucun diagnostic et ne remplacent pas un
+              professionnel.
             </p>
           </div>
 
@@ -98,7 +98,7 @@ export function Footer() {
             {hydrated && hasAny ? (
               confirming ? (
                 <div className="flex items-center gap-2 text-sm text-hero-ink/85">
-                  <span>Effacer toutes vos données de session&nbsp;?</span>
+                  <span>Effacer toutes tes données de session&nbsp;?</span>
                   <button
                     type="button"
                     className={`bg-danger px-3 py-1 font-semibold text-on-accent ${FOCUS_RING}`}

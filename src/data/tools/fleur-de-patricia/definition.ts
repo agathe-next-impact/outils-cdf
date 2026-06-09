@@ -18,7 +18,7 @@ const PETALES: Petale[] = [
     title: "Mon histoire",
     iconName: "book-open",
     summary: "D'où je viens, ce que j'ai traversé.",
-    intro: [{ kind: "paragraph", text: "Votre parcours vous appartient. L'écrire peut aider à en reprendre le fil." }],
+    intro: [{ kind: "paragraph", text: "Ton parcours t'appartient. L'écrire peut aider à en reprendre le fil." }],
     fields: [{ id: "histoire", type: "longText", label: "Ce que je souhaite raconter de mon histoire" }],
   },
   {
@@ -26,7 +26,7 @@ const PETALES: Petale[] = [
     title: "Ma définition du rétablissement",
     iconName: "compass",
     summary: "Ce que « se rétablir » veut dire pour moi.",
-    intro: [{ kind: "paragraph", text: "Le rétablissement ne veut pas dire la même chose pour tout le monde. Quelle est votre définition ?" }],
+    intro: [{ kind: "paragraph", text: "Le rétablissement ne veut pas dire la même chose pour tout le monde. Quelle est ta définition ?" }],
     fields: [{ id: "definition", type: "longText", label: "Pour moi, me rétablir, c'est…" }],
   },
   {
@@ -85,7 +85,7 @@ const PETALES: Petale[] = [
     title: "Ma boîte à outils",
     iconName: "list-checks",
     summary: "Mes stratégies qui marchent.",
-    intro: [{ kind: "paragraph", text: "Quelles stratégies vous aident à aller mieux ou à tenir bon ?" }],
+    intro: [{ kind: "paragraph", text: "Quelles stratégies t'aident à aller mieux ou à tenir bon ?" }],
     fields: [{ id: "outils", type: "tagList", label: "Mes stratégies (un mot chacune)", help: "Respiration, marche, musique, appeler un proche…" }],
   },
   {
@@ -93,7 +93,7 @@ const PETALES: Petale[] = [
     title: "Les professionnels",
     iconName: "users",
     summary: "Mon réseau de soutien.",
-    intro: [{ kind: "paragraph", text: "Repérer qui peut vous aider, et comment, peut être précieux." }],
+    intro: [{ kind: "paragraph", text: "Repérer qui peut t'aider, et comment, peut être précieux." }],
     fields: [{ id: "reseau", type: "longText", label: "Les professionnels et services sur lesquels je peux m'appuyer" }],
   },
   {
@@ -145,13 +145,13 @@ export const fleurDePatricia: CompositeDefinition = {
     {
       kind: "paragraph",
       text:
-        "Chaque pétale est une facette du rétablissement. Ouvrez ceux qui vous parlent, dans " +
-        "l'ordre que vous voulez. Rien n'est obligatoire : vous êtes au centre de votre fleur.",
+        "Chaque pétale est une facette du rétablissement. Ouvre ceux qui te parlent, dans " +
+        "l'ordre que tu veux. Rien n'est obligatoire : tu es au centre de ta fleur.",
     },
     {
       kind: "callout",
       tone: "info",
-      text: "Aucune pression, aucun rythme attendu. Vous pouvez laisser des pétales de côté.",
+      text: "Aucune pression, aucun rythme attendu. Tu peux laisser des pétales de côté.",
     },
   ],
   segments,

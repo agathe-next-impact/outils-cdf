@@ -48,7 +48,7 @@ export function FloatingHelp() {
             ))}
           </ul>
           <Link href="/ressources" className={`floating-help-more ${FOCUS_RING}`}>
-            Toutes les ressources <GameIcon name="arrow-right" size={14} aria-hidden />
+            Toute l&apos;aide <GameIcon name="arrow-right" size={14} aria-hidden />
           </Link>
         </div>
       ) : null}

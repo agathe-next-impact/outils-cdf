@@ -45,16 +45,16 @@ export function SessionPanel({
     <BentoBox as="section" span={span} index={index}>
       <div className="mb-2 flex items-center gap-2">
         <GameIcon name="clipboard-check" size={20} className="text-accent" aria-hidden />
-        <h2 className="text-lg leading-none">Votre session</h2>
+        <h2 className="text-lg leading-none">Ta session</h2>
       </div>
 
       {!hydrated ? (
         <p className="text-sm text-muted" aria-live="polite">
-          Chargement de votre session…
+          Chargement de ta session…
         </p>
       ) : inProgress.length === 0 ? (
         <p className="text-sm text-muted">
-          Rien en cours. Quand vous commencez un outil, vos réponses restent ici le temps de
+          Rien en cours. Quand tu commences un outil, tes réponses restent ici le temps de
           l&apos;onglet — jamais envoyées sur Internet, et effacées à la fermeture.
         </p>
       ) : (
@@ -63,7 +63,7 @@ export function SessionPanel({
             {inProgress.length === 1
               ? "1 outil commencé dans cet onglet."
               : `${inProgress.length} outils commencés dans cet onglet.`}{" "}
-            Reprenez où vous en étiez :
+            Reprends où tu en étais :
           </p>
           <ul className="flex flex-col gap-2">
             {inProgress.map((t) => (

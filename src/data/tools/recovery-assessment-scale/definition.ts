@@ -56,7 +56,7 @@ export const recoveryAssessmentScale: ScoredDefinition = {
   category: "questionnaires",
   iconName: "sprout",
   accent: "yellow",
-  summary: "24 affirmations pour explorer votre sentiment de rétablissement.",
+  summary: "24 affirmations pour explorer ton sentiment de rétablissement.",
   keywords: ["rétablissement", "recovery", "espoir", "estime de soi", "confiance en soi", "objectifs de vie", "questionnaire", "empowerment"],
   estimatedMinutes: 7,
   sensitivity: "low",
@@ -64,20 +64,20 @@ export const recoveryAssessmentScale: ScoredDefinition = {
   disclaimerKey: "questionnaire",
   crisisLevel: "standard",
 
-  referencePeriod: "Pensez à la façon dont vous vous sentez en ce moment.",
+  referencePeriod: "Pense à la façon dont tu te sens en ce moment.",
   intro: [
     {
       kind: "paragraph",
       text:
-        "Cette échelle explore votre sentiment de rétablissement : confiance, espoir, soutien, " +
-        "rapport aux symptômes. Pour chaque affirmation, indiquez votre degré d'accord.",
+        "Cette échelle explore ton sentiment de rétablissement : confiance, espoir, soutien, " +
+        "rapport aux symptômes. Pour chaque affirmation, indique ton degré d'accord.",
     },
     {
       kind: "callout",
       tone: "info",
       text:
         "Le rétablissement est un cheminement personnel : il n'y a ni bon ni mauvais score, " +
-        "seulement un repère pour vous.",
+        "seulement un repère pour toi.",
     },
   ],
   scales: [
@@ -105,7 +105,7 @@ export const recoveryAssessmentScale: ScoredDefinition = {
         label: "Rétablissement en cheminement",
         tone: "neutral",
         guidance:
-          "Beaucoup de choses restent peut-être difficiles en ce moment. Avancer pas à pas, accompagné·e, a tout son sens.",
+          "Beaucoup de choses restent peut-être difficiles en ce moment. Avancer pas à pas, accompagné, a tout son sens.",
       },
       {
         code: "developing",
@@ -114,7 +114,7 @@ export const recoveryAssessmentScale: ScoredDefinition = {
         label: "Rétablissement en construction",
         tone: "neutral",
         guidance:
-          "Des appuis se dessinent. Repérer ce qui vous aide déjà peut renforcer ce mouvement.",
+          "Des appuis se dessinent. Repérer ce qui t'aide déjà peut renforcer ce mouvement.",
       },
       {
         code: "strong",
@@ -123,7 +123,7 @@ export const recoveryAssessmentScale: ScoredDefinition = {
         label: "Rétablissement bien engagé",
         tone: "neutral",
         guidance:
-          "Vous identifiez de nombreux appuis (confiance, soutien, sens). Ce sont des forces sur lesquelles continuer de vous appuyer.",
+          "Tu identifies de nombreux appuis (confiance, soutien, sens). Ce sont des forces sur lesquelles continuer de t'appuyer.",
       },
     ],
     subscores: [

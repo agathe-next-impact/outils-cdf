@@ -75,8 +75,8 @@ export default function MentionsLegalesPage() {
         <BentoBox as="section" span={3} index={4}>
           <h2 className="mb-2 text-lg">Données personnelles</h2>
           <p className="text-base">
-            Les outils ne collectent ni ne transmettent aucune donnée : vos saisies restent dans
-            votre navigateur. Une éventuelle <Link className="text-info hover:underline" href="/contribuer">contribution</Link>{" "}
+            Les outils ne collectent ni ne transmettent aucune donnée : tes saisies restent dans
+            ton navigateur. Une éventuelle <Link className="text-info hover:underline" href="/contribuer">contribution</Link>{" "}
             se fait sur une page de paiement hébergée par un prestataire tiers ; aucune donnée
             bancaire ne transite par ce site. Voir la page{" "}
             <Link className="text-info hover:underline" href="/confidentialite">

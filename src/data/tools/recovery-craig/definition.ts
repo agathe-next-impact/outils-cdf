@@ -15,9 +15,9 @@ const premiersPas: WizardBody = {
       kind: "paragraph",
       text:
         "Pour entrer en douceur, voici quelques questions tournées vers l'instant présent. " +
-        "Il n'y a rien à réussir, ni à bien faire : quelques mots suffisent, et vous pouvez " +
-        "laisser une question de côté, vous arrêter, ou y revenir un autre jour. " +
-        "Ce cahier est le vôtre, et c'est vous qui en donnez le rythme.",
+        "Il n'y a rien à réussir, ni à bien faire : quelques mots suffisent, et tu peux " +
+        "laisser une question de côté, t'arrêter, ou y revenir un autre jour. " +
+        "Ce cahier est le tien, et c'est toi qui en donnes le rythme.",
     },
   ],
   steps: [
@@ -28,9 +28,9 @@ const premiersPas: WizardBody = {
         {
           id: "etat",
           type: "longText",
-          label: "Comment ça va pour vous, en ce moment ?",
-          help: "Pas de bonne réponse à trouver : juste ce qui vous traverse, tel que ça vient.",
-          placeholder: "Ex. Un peu fatigué·e, mais content·e d'avoir pris ce temps.",
+          label: "Comment ça va pour toi, en ce moment ?",
+          help: "Pas de bonne réponse à trouver : juste ce qui te traverse, tel que ça vient.",
+          placeholder: "Ex. Un peu fatigué, mais content d'avoir pris ce temps.",
         },
       ],
     },
@@ -41,9 +41,9 @@ const premiersPas: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Vous avez probablement déjà des appuis, même petits ou discrets : une personne, " +
+            "Tu as probablement déjà des appuis, même petits ou discrets : une personne, " +
             "un geste, un lieu, une habitude. Les mettre en mots, c'est une façon de reconnaître " +
-            "ce qui vous porte déjà, sans avoir à le construire de zéro.",
+            "ce qui te porte déjà, sans avoir à le construire de zéro.",
         },
       ],
       fields: [
@@ -51,7 +51,7 @@ const premiersPas: WizardBody = {
           id: "appuis",
           type: "tagList",
           label: "Ressources, personnes ou gestes qui m'aident",
-          help: "Un mot ou une courte expression par appui. Notez seulement ce qui vous parle.",
+          help: "Un mot ou une courte expression par appui. Note seulement ce qui te parle.",
         },
       ],
     },
@@ -86,14 +86,14 @@ const premiersPas: WizardBody = {
           detector: "tooVague",
           message:
             "Plus une attention est petite et concrète, plus elle devient facile à s'offrir. " +
-            "Si vous le souhaitez, vous pouvez préciser quand ou comment — mais rien ne vous y oblige.",
+            "Si tu le souhaites, tu peux préciser quand ou comment — mais rien ne t'y oblige.",
         },
       ],
     },
   ],
   reward: {
     confetti: true,
-    message: "Merci d'avoir pris ce temps pour vous. Rien que d'être là, c'est déjà un pas qui compte.",
+    message: "Merci d'avoir pris ce temps pour toi. Rien que d'être là, c'est déjà un pas qui compte.",
   },
 };
 
@@ -103,9 +103,9 @@ const boiteRessources: WorksheetBody = {
     {
       kind: "paragraph",
       text:
-        "Cette boîte rassemble ce qui vous fait du bien, pour le garder à portée de main les jours " +
-        "où c'est plus difficile et où l'on a tendance à tout oublier. Ajoutez ce que vous voulez, " +
-        "quand vous le sentez : rien n'est obligatoire, et tout peut être modifié ou retiré plus tard.",
+        "Cette boîte rassemble ce qui te fait du bien, pour le garder à portée de main les jours " +
+        "où c'est plus difficile et où l'on a tendance à tout oublier. Ajoute ce que tu veux, " +
+        "quand tu le sens : rien n'est obligatoire, et tout peut être modifié ou retiré plus tard.",
     },
   ],
   documentTitle: "Ma boîte à ressources",
@@ -119,7 +119,7 @@ const boiteRessources: WorksheetBody = {
           label: "Ce qui me fait du bien",
           addLabel: "Ajouter une ressource",
           emptyLabel:
-            "Rien pour l'instant, et c'est très bien. Quand vous le sentez, vous pourrez ajouter une première chose qui vous aide.",
+            "Rien pour l'instant, et c'est très bien. Quand tu le sens, tu pourras ajouter une première chose qui t'aide.",
           timestamped: true,
           columns: [
             {
@@ -173,9 +173,9 @@ const tempsEcriture: WizardBody = {
     {
       kind: "paragraph",
       text:
-        "Voici cinq courts temps d'écriture pour réfléchir à votre cheminement, chacun à sa façon. " +
-        "Il n'y a ni bonne réponse, ni ordre à suivre, ni rythme attendu. Vous pouvez répondre à " +
-        "une seule question, laisser les autres de côté, vous arrêter quand vous le souhaitez et " +
+        "Voici cinq courts temps d'écriture pour réfléchir à ton cheminement, chacun à sa façon. " +
+        "Il n'y a ni bonne réponse, ni ordre à suivre, ni rythme attendu. Tu peux répondre à " +
+        "une seule question, laisser les autres de côté, t'arrêter quand tu le souhaites et " +
         "revenir un autre jour.",
     },
     {
@@ -184,10 +184,10 @@ const tempsEcriture: WizardBody = {
       iconName: "circle-alert",
       text:
         "Certains de ces thèmes peuvent faire remonter des souvenirs ou des émotions difficiles. " +
-        "C'est normal, et vous n'avez rien à vous prouver : si cela devient trop lourd, faites une " +
-        "pause, respirez, ou refermez le cahier. Si la détresse est forte, vous n'avez pas à rester " +
-        "seul·e — vous pouvez joindre le 3114 (souffrance et prévention du suicide, 24h/24), le 15 " +
-        "(Samu) ou le 112 (urgences), et vous tourner vers une personne de confiance.",
+        "C'est normal, et tu n'as rien à te prouver : si cela devient trop lourd, fais une " +
+        "pause, respire, ou referme le cahier. Si la détresse est forte, tu n'as pas à rester " +
+        "seul — tu peux joindre le 3114 (souffrance et prévention du suicide, 24h/24), le 15 " +
+        "(Samu) ou le 112 (urgences), et te tourner vers une personne de confiance.",
     },
   ],
   steps: [
@@ -199,9 +199,9 @@ const tempsEcriture: WizardBody = {
           kind: "paragraph",
           text:
             "Reprendre du pouvoir, ce n'est pas tout porter sur ses épaules, ni se reprocher ce qui " +
-            "ne dépend pas de vous. C'est simplement repérer, sans pression, les petits espaces où " +
-            "il vous reste un choix, même modeste. Ces espaces existent, même quand beaucoup de " +
-            "choses semblent vous échapper.",
+            "ne dépend pas de toi. C'est simplement repérer, sans pression, les petits espaces où " +
+            "il te reste un choix, même modeste. Ces espaces existent, même quand beaucoup de " +
+            "choses semblent t'échapper.",
         },
         {
           kind: "example",
@@ -230,8 +230,8 @@ const tempsEcriture: WizardBody = {
           kind: "paragraph",
           text:
             "Mieux se connaître, c'est s'observer avec curiosité plutôt qu'avec sévérité. " +
-            "Vos réactions, même celles qui vous déroutent, ont une histoire et une logique : " +
-            "elles ont souvent été des façons de vous protéger. Il n'y a rien à corriger ici, " +
+            "Tes réactions, même celles qui te déroutent, ont une histoire et une logique : " +
+            "elles ont souvent été des façons de te protéger. Il n'y a rien à corriger ici, " +
             "juste à regarder de plus près, avec douceur.",
         },
       ],
@@ -257,13 +257,13 @@ const tempsEcriture: WizardBody = {
           text:
             "Le sentiment d'injustice est légitime, et il mérite d'être entendu plutôt que minimisé. " +
             "Le mettre en mots n'efface pas ce qui s'est passé et n'excuse personne, mais cela peut " +
-            "alléger un peu le poids que ça laisse, et faire apparaître plus clairement ce dont vous " +
-            "avez besoin aujourd'hui. Allez-y à votre mesure : ce thème peut peser, et vous pouvez " +
-            "vous arrêter à tout moment.",
+            "alléger un peu le poids que ça laisse, et faire apparaître plus clairement ce dont tu " +
+            "as besoin aujourd'hui. Vas-y à ta mesure : ce thème peut peser, et tu peux " +
+            "t'arrêter à tout moment.",
         },
         {
           kind: "example",
-          good: "« On ne m'a pas écouté·e quand j'ai demandé de l'aide. » (un fait vécu)",
+          good: "« On ne m'a pas écouté quand j'ai demandé de l'aide. » (un fait vécu)",
           avoid: "« Je ne mérite pas qu'on m'écoute. » (un jugement sur soi)",
         },
       ],
@@ -287,10 +287,10 @@ const tempsEcriture: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Votre valeur ne dépend pas de ce que vous produisez, ni du regard des autres, ni des " +
-            "difficultés que vous traversez. Elle est là, entière, simplement parce que vous existez. " +
-            "Le formuler peut sembler étrange, surtout si on vous a longtemps fait croire le contraire : " +
-            "prenez ce qui vous parle, et laissez le reste sans vous forcer.",
+            "Ta valeur ne dépend pas de ce que tu produis, ni du regard des autres, ni des " +
+            "difficultés que tu traverses. Elle est là, entière, simplement parce que tu existes. " +
+            "Le formuler peut sembler étrange, surtout si on t'a longtemps fait croire le contraire : " +
+            "prends ce qui te parle, et laisse le reste sans te forcer.",
         },
       ],
       fields: [
@@ -302,7 +302,7 @@ const tempsEcriture: WizardBody = {
         {
           id: "fierte",
           type: "longText",
-          label: "Un moment, petit ou grand, dont je peux être fier·ère",
+          label: "Un moment, petit ou grand, dont je peux être fier",
         },
       ],
     },
@@ -313,17 +313,17 @@ const tempsEcriture: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Si vous êtes là, à lire ces lignes, c'est que vous avez déjà traversé bien des choses. " +
-            "Ce n'est pas rien : ça veut dire que quelque chose, en vous ou autour de vous, vous a " +
-            "aidé·e à tenir. Cela mérite d'être nommé, car ce sont des appuis bien réels sur lesquels " +
-            "vous pouvez encore vous reposer.",
+            "Si tu es là, à lire ces lignes, c'est que tu as déjà traversé bien des choses. " +
+            "Ce n'est pas rien : ça veut dire que quelque chose, en toi ou autour de toi, t'a " +
+            "aidé à tenir. Cela mérite d'être nommé, car ce sont des appuis bien réels sur lesquels " +
+            "tu peux encore te reposer.",
         },
       ],
       fields: [
         {
           id: "ce-qui-ma-fait-tenir",
           type: "longText",
-          label: "Dans les moments difficiles, qu'est-ce qui m'a aidé·e à tenir ?",
+          label: "Dans les moments difficiles, qu'est-ce qui m'a aidé à tenir ?",
         },
         {
           id: "ce-que-je-garde",
@@ -336,7 +336,7 @@ const tempsEcriture: WizardBody = {
   reward: {
     confetti: true,
     message:
-      "Vous avez pris le temps de vous écouter, et ce n'est jamais facile. Quoi que vous ayez écrit, ou choisi de ne pas écrire, c'est précieux.",
+      "Tu as pris le temps de t'écouter, et ce n'est jamais facile. Quoi que tu aies écrit, ou choisi de ne pas écrire, c'est précieux.",
   },
 };
 
@@ -346,15 +346,15 @@ const planMieuxEtre: WorksheetBody = {
     {
       kind: "paragraph",
       text:
-        "Ce plan rassemble vos repères de mieux-être au jour le jour : ce qui vous aide, ce qui " +
-        "vous fragilise, et les personnes vers qui vous tourner. Il est pensé pour soutenir le " +
+        "Ce plan rassemble tes repères de mieux-être au jour le jour : ce qui t'aide, ce qui " +
+        "te fragilise, et les personnes vers qui te tourner. Il est pensé pour soutenir le " +
         "quotidien et entretenir ce qui va, pas seulement pour les moments durs. Il n'a pas besoin " +
-        "d'être complet pour servir : remplissez-le comme vous voulez, et revenez-y à votre rythme.",
+        "d'être complet pour servir : remplis-le comme tu veux, et reviens-y à ton rythme.",
     },
     {
       kind: "paragraph",
       text:
-        "S'il vous arrive de traverser des crises plus aiguës, un outil dédié, « Mon plan de crise », " +
+        "S'il t'arrive de traverser des crises plus aiguës, un outil dédié, « Mon plan de crise », " +
         "existe à côté de celui-ci pour préparer ces moments-là plus en détail.",
     },
   ],
@@ -369,7 +369,7 @@ const planMieuxEtre: WorksheetBody = {
           text:
             "Apprendre à repérer tôt les signes que ça va moins bien permet de prendre soin de soi " +
             "avant que ça ne s'enracine. Il ne s'agit pas de se surveiller ni de se juger : juste de " +
-            "noter, sans dramatiser, ce que vous remarquez chez vous quand le moral baisse.",
+            "noter, sans dramatiser, ce que tu remarques chez toi quand le moral baisse.",
         },
       ],
       fields: [
@@ -390,7 +390,7 @@ const planMieuxEtre: WorksheetBody = {
           id: "aides",
           type: "tagList",
           label: "Ce qui me fait du bien et m'aide à me remettre en mouvement",
-          help: "Un mot ou une courte expression par élément. Notez seulement ce qui fonctionne pour vous.",
+          help: "Un mot ou une courte expression par élément. Note seulement ce qui fonctionne pour toi.",
         },
       ],
     },
@@ -401,7 +401,7 @@ const planMieuxEtre: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Connaître ce qui pèse sur vous aide à l'anticiper, sans aucune culpabilité. " +
+            "Connaître ce qui pèse sur toi aide à l'anticiper, sans aucune culpabilité. " +
             "Beaucoup de ce qui nous fragilise ne dépend pas de nous : repérer ces éléments, " +
             "ce n'est pas en porter la faute, c'est mieux s'y préparer.",
         },
@@ -422,9 +422,9 @@ const planMieuxEtre: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Ces personnes sont celles vers qui vous pouvez vous tourner pour souffler, parler ou " +
-            "vous sentir moins seul·e. Par prudence, notez seulement un prénom ou un surnom, jamais " +
-            "de coordonnées complètes : ce cahier reste dans votre navigateur, mais autant garder " +
+            "Ces personnes sont celles vers qui tu peux te tourner pour souffler, parler ou " +
+            "te sentir moins seul. Par prudence, note seulement un prénom ou un surnom, jamais " +
+            "de coordonnées complètes : ce cahier reste dans ton navigateur, mais autant garder " +
             "ces informations légères.",
         },
       ],
@@ -434,7 +434,7 @@ const planMieuxEtre: WorksheetBody = {
           label: "Mes personnes ressources",
           addLabel: "Ajouter une personne",
           emptyLabel:
-            "Personne de noté pour l'instant. Vous pourrez ajouter qui vous voulez, quand vous le sentez.",
+            "Personne de noté pour l'instant. Tu pourras ajouter qui tu veux, quand tu le sens.",
           columns: [
             {
               id: "alias",
@@ -447,7 +447,7 @@ const planMieuxEtre: WorksheetBody = {
               id: "lien",
               type: "shortText",
               label: "Ce que cette personne représente pour moi",
-              placeholder: "Ex. Un·e ami·e, un·e pair-aidant·e.",
+              placeholder: "Ex. Un ami, une personne pair-aidante.",
             },
             {
               id: "comment_joindre",
@@ -466,14 +466,14 @@ const planMieuxEtre: WorksheetBody = {
         {
           id: "lieux_surs",
           type: "tagList",
-          label: "Des lieux où je me sens en sécurité, ou plus apaisé·e",
+          label: "Des lieux où je me sens en sécurité, ou plus apaisé",
           help: "Un lieu par étiquette.",
         },
         {
           id: "phrases",
           type: "longText",
           label: "Des phrases qui me font du bien, me rassurent ou me redonnent du courage",
-          placeholder: "Ex. « Ça va passer. » « Je n'ai pas à tout porter seul·e. »",
+          placeholder: "Ex. « Ça va passer. » « Je n'ai pas à tout porter seul. »",
         },
       ],
     },
@@ -494,7 +494,7 @@ const planMieuxEtre: WorksheetBody = {
           id: "actions",
           label: "Mes mini-actions",
           addLabel: "Ajouter une mini-action",
-          emptyLabel: "Rien pour l'instant. Vous pourrez en ajouter une toute simple quand vous voulez.",
+          emptyLabel: "Rien pour l'instant. Tu pourras en ajouter une toute simple quand tu veux.",
           columns: [
             {
               id: "action",
@@ -521,12 +521,12 @@ const planMieuxEtre: WorksheetBody = {
           tone: "attention",
           iconName: "shield-alert",
           text:
-            "Ce cahier accompagne le quotidien, mais si vous êtes en danger immédiat ou si des " +
-            "pensées de vous faire du mal vous traversent, ne restez pas seul·e : ces moments-là " +
-            "demandent un soutien tout de suite. Vous pouvez joindre le 3114 (souffrance et " +
+            "Ce cahier accompagne le quotidien, mais si tu es en danger immédiat ou si des " +
+            "pensées de te faire du mal te traversent, ne reste pas seul : ces moments-là " +
+            "demandent un soutien tout de suite. Tu peux joindre le 3114 (souffrance et " +
             "prévention du suicide, gratuit, 24h/24), le 15 (Samu) ou le 112 (urgences), et appeler " +
             "une personne de confiance. Demander de l'aide n'est jamais une faiblesse : c'est un " +
-            "geste qui prend soin de votre vie.",
+            "geste qui prend soin de ta vie.",
         },
       ],
     },
@@ -541,7 +541,7 @@ const gratitude: WorksheetBody = {
       text:
         "Remarquer ce qui fait du bien, même de tout petits riens, c'est une façon douce de " +
         "rééquilibrer le regard les jours où le négatif prend toute la place. Ce carnet n'a rien " +
-        "d'une obligation : ajoutez ce qui vous vient, quand ça vous vient, et revenez-y librement.",
+        "d'une obligation : ajoute ce qui te vient, quand ça te vient, et reviens-y librement.",
     },
   ],
   documentTitle: "Mon carnet de gratitude",
@@ -553,17 +553,17 @@ const gratitude: WorksheetBody = {
         {
           kind: "paragraph",
           text:
-            "Un objet, une personne, un instant, une qualité chez vous : tout peut y avoir sa place. " +
+            "Un objet, une personne, un instant, une qualité chez toi : tout peut y avoir sa place. " +
             "Il n'y a pas de « trop petit » pour figurer ici.",
         },
       ],
       tables: [
         {
           id: "gratitudes",
-          label: "Ce envers quoi je me sens reconnaissant·e",
+          label: "Ce envers quoi je me sens reconnaissant",
           addLabel: "Ajouter un merci",
           emptyLabel:
-            "Rien pour l'instant, et c'est très bien. Le jour où ça vous vient, vous pourrez noter un premier merci.",
+            "Rien pour l'instant, et c'est très bien. Le jour où ça te vient, tu pourras noter un premier merci.",
           timestamped: true,
           columns: [
             {
@@ -576,7 +576,7 @@ const gratitude: WorksheetBody = {
               id: "pourquoi",
               type: "shortText",
               label: "En quoi ça compte pour moi",
-              placeholder: "Ex. Ça m'a rappelé que je ne suis pas seul·e.",
+              placeholder: "Ex. Ça m'a rappelé que je ne suis pas seul.",
             },
           ],
         },
@@ -590,7 +590,7 @@ const gratitude: WorksheetBody = {
           kind: "paragraph",
           text:
             "Les jours où tout paraît terne, relire cette liste peut aider. Et si même cela paraît " +
-            "trop loin, vous pouvez noter ici ce qui, d'habitude, vous aide à tenir un peu.",
+            "trop loin, tu peux noter ici ce qui, d'habitude, t'aide à tenir un peu.",
         },
       ],
       fields: [
@@ -605,7 +605,7 @@ const gratitude: WorksheetBody = {
   ],
 };
 
-/* --- Segment 6 : Quand je suis dépassé·e (wizard) ------------------------- */
+/* --- Segment 6 : Quand je suis dépassé (wizard) --------------------------- */
 const apaiser: WizardBody = {
   intro: [
     {
@@ -613,8 +613,8 @@ const apaiser: WizardBody = {
       text:
         "Quand la tension, la colère ou le trop-plein montent, il n'y a rien à « bien » faire : " +
         "juste, peu à peu, des façons de souffler et de retrouver un peu de prise. Ces quelques " +
-        "questions sont là pour préparer ces moments à froid, tranquillement. Passez ce qui ne vous " +
-        "parle pas, et arrêtez-vous dès que vous le souhaitez.",
+        "questions sont là pour préparer ces moments à froid, tranquillement. Passe ce qui ne te " +
+        "parle pas, et arrête-toi dès que tu le souhaites.",
     },
   ],
   steps: [
@@ -664,7 +664,7 @@ const apaiser: WizardBody = {
       intro: [
         {
           kind: "example",
-          good: "« Je suis sorti·e prendre l'air avant de répondre. » (une réaction qui apaise)",
+          good: "« Je suis sorti prendre l'air avant de répondre. » (une réaction qui apaise)",
           avoid: "« J'ai répondu du tac au tac et ça a envenimé les choses. » (une réaction qui amplifie)",
         },
       ],
@@ -677,7 +677,7 @@ const apaiser: WizardBody = {
         {
           id: "reaction-actuelle",
           type: "longText",
-          label: "Comment j'ai réagi — et est-ce que ça m'a soulagé·e ou aggravé les choses ?",
+          label: "Comment j'ai réagi — et est-ce que ça m'a soulagé ou aggravé les choses ?",
         },
         {
           id: "autre-reaction",
@@ -694,7 +694,7 @@ const apaiser: WizardBody = {
           id: "message-proches",
           type: "shortText",
           label: "Ce que j'aimerais que mes proches sachent pour m'aider dans ces moments",
-          placeholder: "Ex. Laissez-moi quelques minutes seul·e, je reviens plus calme.",
+          placeholder: "Ex. Laisse-moi quelques minutes seul, je reviens plus calme.",
         },
       ],
     },
@@ -702,7 +702,7 @@ const apaiser: WizardBody = {
   reward: {
     confetti: true,
     message:
-      "Préparer ces moments à froid, c'est déjà se donner une longueur d'avance. Soyez doux·ce avec vous.",
+      "Préparer ces moments à froid, c'est déjà se donner une longueur d'avance. Sois doux avec toi.",
   },
 };
 
@@ -712,9 +712,9 @@ const liensBesoins: WizardBody = {
     {
       kind: "paragraph",
       text:
-        "Le lien aux autres fait partie du rétablissement, mais il se construit à votre mesure. " +
-        "Ces questions invitent à regarder vos appuis relationnels et à mettre des mots sur vos " +
-        "besoins, sans rien forcer. Répondez à ce qui vous parle, laissez le reste.",
+        "Le lien aux autres fait partie du rétablissement, mais il se construit à ta mesure. " +
+        "Ces questions invitent à regarder tes appuis relationnels et à mettre des mots sur tes " +
+        "besoins, sans rien forcer. Réponds à ce qui te parle, laisse le reste.",
     },
   ],
   steps: [
@@ -726,7 +726,7 @@ const liensBesoins: WizardBody = {
           id: "personne",
           type: "longText",
           label: "Une personne à qui je tiens, et ce que j'apprécie chez elle",
-          help: "Un prénom ou un surnom suffit, si vous voulez en nommer une.",
+          help: "Un prénom ou un surnom suffit, si tu veux en nommer une.",
         },
       ],
     },
@@ -807,9 +807,9 @@ const avancer: WizardBody = {
     {
       kind: "paragraph",
       text:
-        "Avancer ne veut pas dire courir : c'est repérer une direction qui vous tient à cœur et un " +
+        "Avancer ne veut pas dire courir : c'est repérer une direction qui te tient à cœur et un " +
         "tout petit pas vers elle. Pas de calendrier à tenir, pas de performance à viser. " +
-        "Prenez ce qui vous inspire et laissez le reste.",
+        "Prends ce qui t'inspire et laisse le reste.",
     },
   ],
   steps: [
@@ -831,8 +831,8 @@ const avancer: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Un but n'a pas besoin d'être grand pour compter. Le plus important, c'est qu'il vous " +
-            "appartienne et qu'un premier pas soit réellement à votre portée.",
+            "Un but n'a pas besoin d'être grand pour compter. Le plus important, c'est qu'il " +
+            "t'appartienne et qu'un premier pas soit réellement à ta portée.",
         },
       ],
       fields: [
@@ -859,7 +859,7 @@ const avancer: WizardBody = {
           appliesToFieldId: "but-titre",
           detector: "tooVague",
           message:
-            "Plus un but est concret, plus le premier pas devient visible. Si vous le souhaitez, vous pouvez le préciser — mais rien ne vous y oblige.",
+            "Plus un but est concret, plus le premier pas devient visible. Si tu le souhaites, tu peux le préciser — mais rien ne t'y oblige.",
         },
       ],
     },
@@ -870,15 +870,15 @@ const avancer: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Se sentir utile, créatif·ve ou simplement vivant·e nourrit le rétablissement. " +
-            "Cela peut être tout simple : un loisir, un coup de main, une habitude qui vous fait du bien.",
+            "Se sentir utile, créatif ou simplement vivant nourrit le rétablissement. " +
+            "Cela peut être tout simple : un loisir, un coup de main, une habitude qui te fait du bien.",
         },
       ],
       fields: [
         {
           id: "activite-sens",
           type: "longText",
-          label: "Une activité qui me donne le sentiment d'être utile ou vivant·e, que j'aimerais (re)trouver",
+          label: "Une activité qui me donne le sentiment d'être utile ou vivant, que j'aimerais (re)trouver",
         },
       ],
     },
@@ -905,7 +905,7 @@ const avancer: WizardBody = {
   ],
   reward: {
     confetti: true,
-    message: "Une direction et un petit pas : c'est tout ce qu'il faut pour avancer, à votre rythme.",
+    message: "Une direction et un petit pas : c'est tout ce qu'il faut pour avancer, à ton rythme.",
   },
 };
 
@@ -920,7 +920,7 @@ export const recoveryCraig: CompositeDefinition = {
   iconName: "sunrise",
   accent: "blue",
   summary:
-    "Un cahier doux pour cheminer vers le mieux-être, à votre rythme et selon vos envies : premiers pas, ressources, gratitude, apaisement, liens, temps d'écriture et plan personnel.",
+    "Un cahier doux pour cheminer vers le mieux-être, à ton rythme et selon tes envies : premiers pas, ressources, gratitude, apaisement, liens, temps d'écriture et plan personnel.",
   keywords: ["rétablissement", "recovery", "pair-aidance", "mieux-être", "espoir", "journal", "plan personnel", "Craig Lewis"],
   estimatedMinutes: 45,
   sensitivity: "high",
@@ -932,18 +932,18 @@ export const recoveryCraig: CompositeDefinition = {
     {
       kind: "paragraph",
       text:
-        "Ce cahier vous accompagne dans une réflexion personnelle sur le rétablissement, dans " +
+        "Ce cahier t'accompagne dans une réflexion personnelle sur le rétablissement, dans " +
         "l'esprit de la pair-aidance : avec chaleur, sans jugement, et en partant du principe que " +
-        "vous êtes la personne la mieux placée pour parler de votre vie. Il ne pose aucun diagnostic " +
-        "et ne remplace pas un accompagnement. Il n'y a ni bonne réponse, ni rythme attendu : vous " +
-        "pouvez répondre, passer une question, vous arrêter ou revenir quand vous le souhaitez.",
+        "tu es la personne la mieux placée pour parler de ta vie. Il ne pose aucun diagnostic " +
+        "et ne remplace pas un accompagnement. Il n'y a ni bonne réponse, ni rythme attendu : tu " +
+        "peux répondre, passer une question, t'arrêter ou revenir quand tu le souhaites.",
     },
     {
       kind: "paragraph",
       text:
-        "Rien de ce que vous écrivez ici n'est envoyé sur Internet : tout reste dans votre navigateur " +
-        "et s'efface à la fermeture de l'onglet. Si vous voulez en garder une trace, vous pouvez " +
-        "exporter votre cahier à tout moment.",
+        "Rien de ce que tu écris ici n'est envoyé sur Internet : tout reste dans ton navigateur " +
+        "et s'efface à la fermeture de l'onglet. Si tu veux en garder une trace, tu peux " +
+        "exporter ton cahier à tout moment.",
     },
   ],
   segments: [
@@ -959,7 +959,7 @@ export const recoveryCraig: CompositeDefinition = {
       id: "boite-ressources",
       title: "Ma boîte à ressources",
       iconName: "heart-handshake",
-      summary: "Rassembler ce qui vous fait du bien, pour le garder à portée de main.",
+      summary: "Rassembler ce qui te fait du bien, pour le garder à portée de main.",
       optional: true,
       ref: { engine: "worksheet", body: boiteRessources },
     },
@@ -973,7 +973,7 @@ export const recoveryCraig: CompositeDefinition = {
     },
     {
       id: "apaiser",
-      title: "Quand je suis dépassé·e",
+      title: "Quand je suis dépassé",
       iconName: "wind",
       summary: "Préparer à froid des façons d'apaiser et de choisir sa réaction.",
       optional: true,
@@ -991,7 +991,7 @@ export const recoveryCraig: CompositeDefinition = {
       id: "temps-ecriture",
       title: "Temps d'écriture",
       iconName: "pen-line",
-      summary: "Cinq courts modules pour réfléchir à votre parcours, librement.",
+      summary: "Cinq courts modules pour réfléchir à ton parcours, librement.",
       optional: true,
       ref: { engine: "wizard", body: tempsEcriture },
     },
@@ -999,7 +999,7 @@ export const recoveryCraig: CompositeDefinition = {
       id: "avancer",
       title: "Avancer vers ce qui compte",
       iconName: "target",
-      summary: "Une direction qui vous tient à cœur, et un tout petit pas vers elle.",
+      summary: "Une direction qui te tient à cœur, et un tout petit pas vers elle.",
       optional: true,
       ref: { engine: "wizard", body: avancer },
     },
@@ -1007,7 +1007,7 @@ export const recoveryCraig: CompositeDefinition = {
       id: "plan-mieux-etre",
       title: "Mon plan de mieux-être",
       iconName: "notebook-pen",
-      summary: "Vos repères, vos appuis et vos personnes ressources au quotidien.",
+      summary: "Tes repères, tes appuis et tes personnes ressources au quotidien.",
       optional: true,
       ref: { engine: "worksheet", body: planMieuxEtre },
     },

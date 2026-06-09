@@ -20,7 +20,7 @@ const ITEMS: NavItem[] = [
   { href: "/", label: "Accueil", icon: "home" },
   { href: "/outils", label: "Outils", icon: "clipboard-list" },
   { href: "/parcours", label: "Parcours", icon: "compass" },
-  { href: "/ressources", label: "Ressources", icon: "heart-handshake" },
+  { href: "/ressources", label: "Aide", icon: "heart-handshake" },
   { href: "/contribuer", label: "Contribuer", icon: "heart" },
 ];
 

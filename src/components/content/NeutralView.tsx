@@ -88,7 +88,7 @@ export function NeutralView({ doc }: { doc: NeutralDocument }) {
     return (
       <div className="card">
         <p className="text-sm text-muted">
-          Rien à afficher pour l&apos;instant — vos saisies apparaîtront ici.
+          Rien à afficher pour l&apos;instant — tes saisies apparaîtront ici.
         </p>
       </div>
     );

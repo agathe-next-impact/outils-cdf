@@ -20,7 +20,7 @@ export const resolutionProblemes: WizardDefinition = {
       kind: "paragraph",
       text:
         "Cette démarche en dix étapes aide à clarifier un problème, à imaginer des solutions et " +
-        "à les transformer en plan d'action. Vous pouvez faire une étape à la fois.",
+        "à les transformer en plan d'action. Tu peux faire une étape à la fois.",
     },
     {
       kind: "callout",
@@ -30,7 +30,7 @@ export const resolutionProblemes: WizardDefinition = {
   ],
   reward: {
     confetti: true,
-    message: "Vous avez transformé un problème en plan. Voici votre synthèse à conserver.",
+    message: "Tu as transformé un problème en plan. Voici ta synthèse à conserver.",
   },
   steps: [
     {
@@ -63,7 +63,7 @@ export const resolutionProblemes: WizardDefinition = {
         {
           id: "confidence",
           type: "slider",
-          label: "Votre confiance pour avancer, en ce moment",
+          label: "Ta confiance pour avancer, en ce moment",
           min: 1,
           max: 5,
           minLabel: "1 — faible",
@@ -79,7 +79,7 @@ export const resolutionProblemes: WizardDefinition = {
           id: "problemStatement",
           type: "longText",
           label: "Quel est le problème, en une ou deux phrases précises ?",
-          help: "Restez concret : qui, quoi, où, depuis quand.",
+          help: "Reste concret : qui, quoi, où, depuis quand.",
         },
         {
           id: "severity",
@@ -103,13 +103,13 @@ export const resolutionProblemes: WizardDefinition = {
     },
     {
       id: "goals",
-      title: "4. Vos objectifs",
+      title: "4. Tes objectifs",
       fields: [
         {
           id: "goals",
           type: "repeatableList",
-          label: "Qu'aimeriez-vous obtenir ?",
-          help: "Pour chaque objectif, un signe concret vous dira qu'il est atteint.",
+          label: "Qu'aimerais-tu obtenir ?",
+          help: "Pour chaque objectif, un signe concret te dira qu'il est atteint.",
           addLabel: "Ajouter un objectif",
           itemSchema: [
             { id: "description", type: "shortText", label: "Objectif" },
@@ -124,7 +124,7 @@ export const resolutionProblemes: WizardDefinition = {
       intro: [
         {
           kind: "paragraph",
-          text: "Notez toutes les idées qui vous viennent, même improbables. On les jugera après.",
+          text: "Note toutes les idées qui te viennent, même improbables. On les jugera après.",
         },
       ],
       fields: [
@@ -161,12 +161,12 @@ export const resolutionProblemes: WizardDefinition = {
         {
           id: "chosen",
           type: "longText",
-          label: "Quelle(s) solution(s) choisissez-vous ?",
+          label: "Quelle(s) solution(s) choisis-tu ?",
         },
         {
           id: "rationale",
           type: "longText",
-          label: "Pourquoi ce choix ? Quels compromis acceptez-vous ?",
+          label: "Pourquoi ce choix ? Quels compromis acceptes-tu ?",
         },
       ],
     },
@@ -177,7 +177,7 @@ export const resolutionProblemes: WizardDefinition = {
         {
           id: "obstacles",
           type: "repeatableList",
-          label: "Quels obstacles pourriez-vous rencontrer ?",
+          label: "Quels obstacles pourrais-tu rencontrer ?",
           addLabel: "Ajouter un obstacle",
           itemSchema: [
             { id: "obstacle", type: "shortText", label: "Obstacle" },
@@ -187,7 +187,7 @@ export const resolutionProblemes: WizardDefinition = {
         {
           id: "resources",
           type: "repeatableList",
-          label: "Sur quelles ressources pouvez-vous compter ?",
+          label: "Sur quelles ressources peux-tu compter ?",
           addLabel: "Ajouter une ressource",
           itemSchema: [{ id: "resource", type: "shortText", label: "Ressource (personne, moyen, savoir-faire)" }],
         },
@@ -222,7 +222,7 @@ export const resolutionProblemes: WizardDefinition = {
           appliesToFieldId: "firstAction",
           detector: "tooVague",
           message:
-            "Une action comme « m'organiser » est difficile à commencer. Essayez quelque chose de précis : « lister les papiers en retard mardi à 9h pendant 20 minutes ».",
+            "Une action comme « m'organiser » est difficile à commencer. Essaie quelque chose de précis : « lister les papiers en retard mardi à 9h pendant 20 minutes ».",
         },
         {
           id: "no-verb-first-action",
@@ -239,14 +239,14 @@ export const resolutionProblemes: WizardDefinition = {
       intro: [
         {
           kind: "paragraph",
-          text: "Cette étape se remplit plus tard, une fois que vous aurez essayé votre plan.",
+          text: "Cette étape se remplit plus tard, une fois que tu auras essayé ton plan.",
         },
       ],
       fields: [
         {
           id: "nextDecision",
           type: "select",
-          label: "Après avoir essayé, que décidez-vous ?",
+          label: "Après avoir essayé, que décides-tu ?",
           options: [
             { value: "close", label: "Clore : le problème est réglé" },
             { value: "adjust", label: "Ajuster le plan" },
@@ -257,7 +257,7 @@ export const resolutionProblemes: WizardDefinition = {
         {
           id: "lessons",
           type: "longText",
-          label: "Qu'avez-vous appris ?",
+          label: "Qu'as-tu appris ?",
         },
       ],
     },

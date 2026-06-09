@@ -38,7 +38,7 @@ export const metadata: Metadata = {
   },
   description:
     "Plateforme libre d'outils d'auto-observation et de soutien au rétablissement. " +
-    "Aucun compte, aucune donnée envoyée : tout reste dans votre navigateur, le temps de la session.",
+    "Aucun compte, aucune donnée envoyée : tout reste dans ton navigateur, le temps de la session.",
   applicationName: `${SITE.name} — Boîte à outils`,
   appleWebApp: { capable: true, statusBarStyle: "default", title: SITE.name },
   robots: { index: true, follow: true },

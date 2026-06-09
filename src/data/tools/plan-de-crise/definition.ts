@@ -20,14 +20,14 @@ export const planDeCrise: WorksheetDefinition = {
     {
       kind: "paragraph",
       text:
-        "Ce document vous aide à préparer, au calme, ce qui pourrait vous aider en cas de crise. " +
-        "Vous le remplissez comme vous le souhaitez et il vous appartient entièrement.",
+        "Ce document t'aide à préparer, au calme, ce qui pourrait t'aider en cas de crise. " +
+        "Tu le remplis comme tu le souhaites et il t'appartient entièrement.",
     },
     {
       kind: "callout",
       tone: "attention",
       text:
-        "En cas de danger immédiat, n'attendez pas : utilisez les ressources d'urgence en bas de page.",
+        "En cas de danger immédiat, n'attends pas : utilise les ressources d'urgence en bas de page.",
     },
   ],
   sections: [
@@ -96,7 +96,7 @@ export const planDeCrise: WorksheetDefinition = {
           id: "traitements",
           label: "Traitements",
           addLabel: "Ajouter un traitement",
-          emptyLabel: "À remplir si cela vous concerne.",
+          emptyLabel: "À remplir si cela te concerne.",
           columns: [
             { id: "nom", type: "shortText", label: "Traitement" },
             { id: "posologie", type: "shortText", label: "Posologie" },

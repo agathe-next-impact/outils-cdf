@@ -26,7 +26,7 @@ export default function ContribuerPage() {
               Contribuer
             </h1>
             <p className="mt-2 text-base text-muted">
-              {SITE.name} est gratuit et le restera. Si vous le pouvez et le souhaitez, vous pouvez
+              {SITE.name} est gratuit et le restera. Si tu le peux et le souhaites, tu peux
               le soutenir — librement. Cela sert déjà à maintenir le site en ligne, et à faire
               évoluer le projet dans le futur vers un espace personnel et des fonctionnalités
               avancées.
@@ -47,7 +47,7 @@ export default function ContribuerPage() {
             >
               <h2 className="mb-2 text-lg">Un don ponctuel, au montant libre</h2>
               <p className="text-base">
-                Ce don se fait à <strong>prix libre</strong>, en une fois&nbsp;: vous décidez du
+                Ce don se fait à <strong>prix libre</strong>, en une fois&nbsp;: tu décides du
                 montant. Aucune somme n&apos;est imposée.
               </p>
               <ul className="mt-3 flex flex-wrap gap-2" aria-label="Montants donnés à titre indicatif">
@@ -60,7 +60,7 @@ export default function ContribuerPage() {
                     {m}&nbsp;€
                   </li>
                 ))}
-                <li className="px-3 py-1 text-sm text-muted">…ou le montant de votre choix</li>
+                <li className="px-3 py-1 text-sm text-muted">…ou le montant de ton choix</li>
               </ul>
 
               <a
@@ -82,7 +82,7 @@ export default function ContribuerPage() {
             <section className="card animate-slide-up" style={{ animationDelay: "0.12s" }}>
               <h2 className="mb-2 text-lg">Ou un soutien mensuel</h2>
               <p className="text-base">
-                Pour soutenir {SITE.name} dans la durée, vous pouvez mettre en place un don
+                Pour soutenir {SITE.name} dans la durée, tu peux mettre en place un don
                 mensuel — résiliable à tout moment, sans engagement.
               </p>
               <div className="mt-4 flex flex-wrap gap-3">
@@ -127,7 +127,7 @@ export default function ContribuerPage() {
               <h2 className="text-lg">Proposer une fonctionnalité</h2>
             </div>
             <p className="text-base text-muted">
-              Une idée d&apos;outil ou d&apos;amélioration&nbsp;? Envoyez-la par mail pour aider à
+              Une idée d&apos;outil ou d&apos;amélioration&nbsp;? Envoie-la par mail pour aider à
               prioriser les prochaines évolutions.
             </p>
             <a

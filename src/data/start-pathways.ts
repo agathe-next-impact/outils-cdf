@@ -13,7 +13,7 @@ export interface StartPathwayCard {
 export const START_PATHWAY_CARDS: StartPathwayCard[] = [
   {
     title: "Détecter mes triggers",
-    text: "Repérer les situations, signaux ou contextes qui vous fragilisent pour mieux les anticiper.",
+    text: "Repérer les situations, signaux ou contextes qui te fragilisent pour mieux les anticiper.",
     href: "/outils/situations-evitees",
     icon: "footprints",
     steps: "CARNET GUIDÉ",
@@ -21,7 +21,7 @@ export const START_PATHWAY_CARDS: StartPathwayCard[] = [
   },
   {
     title: "Construire mon rétablissement",
-    text: "Rassembler vos ressources, vos repères et les petits pas qui soutiennent votre mieux-être.",
+    text: "Rassembler tes ressources, tes repères et les petits pas qui soutiennent ton mieux-être.",
     href: "/outils/recovery-craig",
     icon: "sunrise",
     steps: "PARCOURS GUIDÉ",

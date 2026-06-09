@@ -44,7 +44,7 @@ export const PATHWAYS: Pathway[] = [
     steps: [
       {
         ref: "inventaire-burns-anxiete",
-        why: "Faire le point sur votre anxiété récente : un repère de départ, sans jugement.",
+        why: "Faire le point sur ton anxiété récente : un repère de départ, sans jugement.",
       },
       {
         ref: "gerer-vos-inquietudes",
@@ -79,7 +79,7 @@ export const PATHWAYS: Pathway[] = [
       },
       {
         ref: "pensees-negatives",
-        why: "Assouplir une pensée qui vous tient éveillé·e.",
+        why: "Assouplir une pensée qui te tient éveillé la nuit.",
       },
       {
         ref: "recovery-craig::apaiser",
@@ -88,7 +88,7 @@ export const PATHWAYS: Pathway[] = [
       },
       {
         ref: "recovery-craig::boite-ressources",
-        why: "Rassembler ce qui vous calme, à garder à portée de main le soir.",
+        why: "Rassembler ce qui te calme, à garder à portée de main le soir.",
         optional: true,
       },
     ],
@@ -96,7 +96,7 @@ export const PATHWAYS: Pathway[] = [
   {
     id: "reprendre-confiance",
     goal: "Reprendre confiance",
-    pitch: "Nourrir l'estime de soi et reconnaître ce sur quoi vous pouvez vous appuyer.",
+    pitch: "Nourrir l'estime de soi et reconnaître ce sur quoi tu peux t'appuyer.",
     iconName: "heart",
     accent: "yellow",
     steps: [
@@ -106,7 +106,7 @@ export const PATHWAYS: Pathway[] = [
       },
       {
         ref: "recovery-assessment-scale",
-        why: "Explorer votre sentiment de rétablissement, comme repère.",
+        why: "Explorer ton sentiment de rétablissement, comme repère.",
       },
       {
         ref: "fleur-de-patricia",
@@ -129,16 +129,16 @@ export const PATHWAYS: Pathway[] = [
     steps: [
       {
         ref: "plan-de-crise",
-        why: "Construire votre plan de crise : signaux, ressources, personnes de confiance.",
+        why: "Construire ton plan de crise : signaux, ressources, personnes de confiance.",
       },
       {
         ref: "recovery-craig::plan-mieux-etre",
-        why: "Poser vos repères de mieux-être au quotidien.",
+        why: "Poser tes repères de mieux-être au quotidien.",
         optional: true,
       },
       {
         ref: "directives-anticipees-psychiatrie",
-        why: "Exprimer à l'avance vos préférences de soin, au calme.",
+        why: "Exprimer à l'avance tes préférences de soin, au calme.",
         optional: true,
       },
     ],

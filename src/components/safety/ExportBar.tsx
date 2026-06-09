@@ -78,7 +78,7 @@ export function ExportBar({ build, slug, className }: ExportBarProps) {
         </button>
       </div>
       <p className="mt-2 text-xs text-muted">
-        Généré dans votre navigateur. Aucune donnée n&apos;est envoyée sur Internet.
+        Généré dans ton navigateur. Aucune donnée n&apos;est envoyée sur Internet.
       </p>
       {printDoc ? <PrintMount doc={printDoc} onDone={() => setPrintDoc(null)} /> : null}
     </div>

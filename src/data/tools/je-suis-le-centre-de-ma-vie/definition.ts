@@ -29,8 +29,8 @@ const estime: ScoredBody = {
     {
       kind: "paragraph",
       text:
-        "Cette petite auto-évaluation offre un repère sur votre estime de vous, à un instant donné. " +
-        "Vous pourrez la refaire plus tard pour observer une évolution.",
+        "Cette auto-évaluation offre un repère sur ton estime de toi, à un instant donné. " +
+        "Tu pourras la refaire plus tard pour observer une évolution.",
     },
   ],
   scales: [
@@ -72,7 +72,7 @@ const estime: ScoredBody = {
         max: 40,
         label: "Estime de soi plutôt solide",
         tone: "neutral",
-        guidance: "Une belle base sur laquelle continuer de prendre soin de vous.",
+        guidance: "Une belle base sur laquelle continuer de prendre soin de toi.",
       },
     ],
   },
@@ -85,8 +85,8 @@ const modules: WizardBody = {
     {
       kind: "paragraph",
       text:
-        "Quelques temps d'écriture pour mieux vous connaître et reprendre votre place au centre de " +
-        "votre vie. Il n'y a pas de bonne réponse.",
+        "Quelques temps d'écriture pour mieux te connaître et reprendre ta place au centre de " +
+        "ta vie. Il n'y a pas de bonne réponse.",
     },
   ],
   steps: [
@@ -105,12 +105,12 @@ const modules: WizardBody = {
         {
           kind: "example",
           good: "« J'ai fait une erreur sur ce dossier. » (un fait)",
-          avoid: "« Je suis nul·le. » (un jugement global)",
+          avoid: "« Je suis nul. » (un jugement global)",
         },
       ],
       fields: [
         { id: "critique", type: "longText", label: "Quelle phrase dure est-ce que je me répète ?" },
-        { id: "reformulation", type: "longText", label: "Comment la dirais-je à un·e ami·e que j'aime ?" },
+        { id: "reformulation", type: "longText", label: "Comment la dirais-je à une personne que j'aime ?" },
       ],
     },
     {
@@ -134,7 +134,7 @@ const modules: WizardBody = {
           label: "Mes qualités et forces (un mot chacune)",
           help: "Même les petites comptent.",
         },
-        { id: "fierte", type: "longText", label: "Un moment dont je suis fier·ère" },
+        { id: "fierte", type: "longText", label: "Un moment dont je suis fier" },
       ],
     },
     {
@@ -166,7 +166,7 @@ const modules: WizardBody = {
       ],
     },
   ],
-  reward: { confetti: true, message: "Merci pour ce temps offert à vous-même." },
+  reward: { confetti: true, message: "Merci pour ce temps offert à toi-même." },
 };
 
 /* --- Segment C : journal anti-téflon --- */
@@ -176,7 +176,7 @@ const journal: WorksheetBody = {
       kind: "paragraph",
       text:
         "Le cerveau retient facilement le négatif (et laisse glisser le positif, comme sur du téflon). " +
-        "Notez ici les moments positifs, même minuscules, pour les ancrer.",
+        "Note ici les moments positifs, même minuscules, pour les ancrer.",
     },
   ],
   documentTitle: "Mon journal des bons moments",
@@ -189,7 +189,7 @@ const journal: WorksheetBody = {
           id: "moments",
           label: "Moments positifs",
           addLabel: "Noter un moment",
-          emptyLabel: "Notez un premier moment agréable, même tout petit.",
+          emptyLabel: "Note un premier moment agréable, même tout petit.",
           timestamped: true,
           columns: [
             { id: "moment", type: "longText", label: "Ce qui s'est passé de positif" },
@@ -221,7 +221,7 @@ export const jeSuisLeCentreDeMaVie: CompositeDefinition = {
       kind: "paragraph",
       text:
         "Un point de départ (l'auto-évaluation), des modules d'écriture, et un journal des bons " +
-        "moments. Avancez librement, à votre rythme.",
+        "moments. Avance librement, à ton rythme.",
     },
   ],
   segments: [

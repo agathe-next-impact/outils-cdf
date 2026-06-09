@@ -168,7 +168,7 @@ export function CatalogExplorer({
 
       <p className="count-line" aria-live="polite">
         {results.length} outil{results.length > 1 ? "s" : ""}
-        {hasFilters ? " correspondant à votre recherche" : ""}
+        {hasFilters ? " correspondant à ta recherche" : ""}
       </p>
 
       {/* Résultats */}
@@ -186,7 +186,7 @@ export function CatalogExplorer({
       ) : (
         <div className="box text-center">
           <GameIcon name="search" size={36} className="mx-auto mb-2 text-accent" aria-hidden />
-          <p className="mb-3 font-semibold">Aucun outil ne correspond à votre recherche.</p>
+          <p className="mb-3 font-semibold">Aucun outil ne correspond à ta recherche.</p>
           <button type="button" className="btn-secondary" onClick={resetFilters}>
             Réinitialiser les filtres
           </button>

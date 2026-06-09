@@ -22,14 +22,14 @@ export const CATEGORIES: CategoryInfo[] = [
   {
     key: "questionnaires",
     label: "Questionnaires",
-    description: "Des repères chiffrés pour observer votre vécu, sans jugement.",
+    description: "Des repères chiffrés pour observer ton vécu, sans jugement.",
     iconName: "clipboard-list",
     accent: "blue",
   },
   {
     key: "parcours",
     label: "Parcours guidés",
-    description: "Des cheminements pas à pas, à votre rythme.",
+    description: "Des cheminements pas à pas, à ton rythme.",
     iconName: "compass",
     accent: "red",
   },
@@ -60,7 +60,7 @@ const PLANNED: ToolMeta[] = [
     category: "questionnaires",
     iconName: "activity",
     accent: "blue",
-    summary: "33 affirmations pour faire le point sur votre anxiété récente.",
+    summary: "33 affirmations pour faire le point sur ton anxiété récente.",
     estimatedMinutes: 8,
     sensitivity: "medium",
     sourceCredit: "D'après l'inventaire d'anxiété de David D. Burns",
@@ -74,7 +74,7 @@ const PLANNED: ToolMeta[] = [
     category: "questionnaires",
     iconName: "sprout",
     accent: "yellow",
-    summary: "24 affirmations pour explorer votre sentiment de rétablissement.",
+    summary: "24 affirmations pour explorer ton sentiment de rétablissement.",
     estimatedMinutes: 7,
     sensitivity: "low",
     sourceCredit: "D'après la Recovery Assessment Scale (Corrigan et al.)",
@@ -142,7 +142,7 @@ const PLANNED: ToolMeta[] = [
     iconName: "sunrise",
     accent: "blue",
     summary:
-      "Un cahier doux pour cheminer vers le mieux-être, à votre rythme : premiers pas, ressources, écriture et plan personnel.",
+      "Un cahier doux pour cheminer vers le mieux-être, à ton rythme : premiers pas, ressources, écriture et plan personnel.",
     estimatedMinutes: 30,
     sensitivity: "high",
     sourceCredit:
@@ -158,7 +158,7 @@ const PLANNED: ToolMeta[] = [
     iconName: "compass",
     accent: "blue",
     summary:
-      "Une boîte à outils pour mieux comprendre et apprivoiser des expériences intenses, à votre rythme.",
+      "Une boîte à outils pour mieux comprendre et apprivoiser des expériences intenses, à ton rythme.",
     estimatedMinutes: 25,
     sensitivity: "high",
     sourceCredit:
@@ -202,7 +202,7 @@ const PLANNED: ToolMeta[] = [
     category: "carnets",
     iconName: "scale",
     accent: "red",
-    summary: "Exprimer à l'avance vos préférences de soin, au calme.",
+    summary: "Exprimer à l'avance tes préférences de soin, au calme.",
     estimatedMinutes: 25,
     sensitivity: "high",
     sourceCredit: "D'après les directives anticipées en psychiatrie",

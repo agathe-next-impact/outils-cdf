@@ -20,7 +20,7 @@ export const situationsEvitees: WorksheetDefinition = {
     {
       kind: "paragraph",
       text:
-        "Listez les situations que vous avez tendance à éviter par peur ou anxiété, puis évaluez " +
+        "Liste les situations que tu as tendance à éviter par peur ou anxiété, puis évalue " +
         "l'anxiété qu'elles provoquent (de 0 à 100). La liste se classe automatiquement, de la " +
         "moins à la plus anxiogène.",
     },
@@ -28,7 +28,7 @@ export const situationsEvitees: WorksheetDefinition = {
       kind: "callout",
       tone: "info",
       text:
-        "Cette « échelle » peut servir, à votre rythme et idéalement accompagné·e, à approcher " +
+        "Cette « échelle » peut servir, à ton rythme et idéalement accompagné, à approcher " +
         "ces situations en commençant par les plus faciles. Rien ne presse.",
     },
   ],
@@ -41,7 +41,7 @@ export const situationsEvitees: WorksheetDefinition = {
           id: "situations",
           label: "Situations évitées",
           addLabel: "Ajouter une situation",
-          emptyLabel: "Ajoutez une première situation pour commencer votre liste.",
+          emptyLabel: "Ajoute une première situation pour commencer ta liste.",
           sortable: { byColumnId: "anxiete", direction: "asc" },
           columns: [
             { id: "situation", type: "shortText", label: "Situation" },

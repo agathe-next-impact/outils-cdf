@@ -17,7 +17,7 @@ export default function OutilsPage() {
         <span className="eyebrow">Catalogue</span>
         <h1 className="font-heading text-3xl tracking-tight md:text-4xl">Tous les outils</h1>
         <span className="sub">
-          Recherchez un outil, filtrez par type ou trouvez un format adapté à votre temps.
+          Recherche un outil, filtre par type ou trouve un format adapté à ton temps.
         </span>
       </div>
       <CatalogExplorer entries={catalog} categories={CATEGORIES} />

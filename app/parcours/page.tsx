@@ -7,7 +7,7 @@ import { getPathwaySummaries } from "@/data/pathways";
 export const metadata: Metadata = {
   title: "Parcours par objectif",
   description:
-    "Des itinéraires guidés selon ce que vous souhaitez travailler : apprivoiser l'anxiété, mieux dormir, reprendre confiance, préparer les moments difficiles.",
+    "Des itinéraires guidés selon ce que tu souhaites travailler : apprivoiser l'anxiété, mieux dormir, reprendre confiance, préparer les moments difficiles.",
 };
 
 export default function PathwaysIndexPage() {
@@ -19,7 +19,7 @@ export default function PathwaysIndexPage() {
           Par où commencer&nbsp;?
         </h1>
         <p className="mt-2 text-base text-muted">
-          Choisissez ce qui vous parle en ce moment. Chaque parcours enchaîne, à votre rythme,
+          Choisis ce qui te parle en ce moment. Chaque parcours enchaîne, à ton rythme,
           quelques outils qui se complètent — rien d&apos;obligatoire.
         </p>
       </header>

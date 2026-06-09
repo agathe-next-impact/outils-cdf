@@ -8,7 +8,7 @@ export const directivesAnticipeesPsychiatrie: WorksheetDefinition = {
   category: "carnets",
   iconName: "scale",
   accent: "red",
-  summary: "Exprimer à l'avance vos préférences de soin, au calme.",
+  summary: "Exprimer à l'avance tes préférences de soin, au calme.",
   keywords: ["directives anticipées", "préférences de soin", "droits", "consentement", "hospitalisation", "personne de confiance", "plaidoyer"],
   estimatedMinutes: 25,
   sensitivity: "high",
@@ -21,16 +21,16 @@ export const directivesAnticipeesPsychiatrie: WorksheetDefinition = {
     {
       kind: "paragraph",
       text:
-        "Ce document vous permet d'exprimer, à l'avance et au calme, vos préférences pour le cas " +
-        "où vous traverseriez une période où il vous serait difficile de vous exprimer. Il vous " +
-        "appartient ; vous pouvez le modifier quand vous voulez.",
+        "Ce document te permet d'exprimer, à l'avance et au calme, tes préférences pour le cas " +
+        "où tu traverserais une période où il te serait difficile de t'exprimer. Il t'" +
+        "appartient ; tu peux le modifier quand tu veux.",
     },
     {
       kind: "callout",
       tone: "info",
       text:
-        "Vous remplissez seulement ce que vous souhaitez. Pour qu'il ait une portée auprès des " +
-        "soignants, parlez-en avec votre médecin et conservez-en une copie (export ci-dessous).",
+        "Tu remplis seulement ce que tu souhaites. Pour qu'il ait une portée auprès des " +
+        "soignants, parles-en avec ton médecin et conserves-en une copie (export ci-dessous).",
     },
   ],
   sections: [
@@ -85,7 +85,7 @@ export const directivesAnticipeesPsychiatrie: WorksheetDefinition = {
           id: "traitementsAidants",
           label: "Traitements qui m'aident",
           addLabel: "Ajouter",
-          emptyLabel: "À remplir si cela vous concerne.",
+          emptyLabel: "À remplir si cela te concerne.",
           columns: [
             { id: "nom", type: "shortText", label: "Traitement" },
             { id: "note", type: "shortText", label: "Remarque" },
@@ -95,7 +95,7 @@ export const directivesAnticipeesPsychiatrie: WorksheetDefinition = {
           id: "traitementsNonAidants",
           label: "Traitements à éviter",
           addLabel: "Ajouter",
-          emptyLabel: "À remplir si cela vous concerne.",
+          emptyLabel: "À remplir si cela te concerne.",
           columns: [
             { id: "nom", type: "shortText", label: "Traitement" },
             { id: "raison", type: "shortText", label: "Raison (effets, vécu…)" },

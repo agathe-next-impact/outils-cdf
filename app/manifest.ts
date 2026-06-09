@@ -12,7 +12,7 @@ export default function manifest(): MetadataRoute.Manifest {
     short_name: SITE.name,
     description:
       "Outils d'auto-observation et de soutien au rétablissement, en libre accès. " +
-      "Sans compte, rien n'est envoyé : tout reste dans votre navigateur.",
+      "Sans compte, rien n'est envoyé : tout reste dans ton navigateur.",
     lang: "fr",
     dir: "ltr",
     start_url: "/",

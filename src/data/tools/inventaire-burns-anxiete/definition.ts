@@ -56,7 +56,7 @@ export const inventaireBurnsAnxiete: ScoredDefinition = {
   category: "questionnaires",
   iconName: "activity",
   accent: "blue",
-  summary: "33 affirmations pour faire le point sur votre anxiété récente.",
+  summary: "33 affirmations pour faire le point sur ton anxiété récente.",
   keywords: ["anxiété", "stress", "peur", "nervosité", "symptômes physiques", "questionnaire", "auto-évaluation", "TCC"],
   estimatedMinutes: 8,
   sensitivity: "medium",
@@ -70,13 +70,13 @@ export const inventaireBurnsAnxiete: ScoredDefinition = {
       kind: "paragraph",
       text:
         "Cet inventaire propose 33 affirmations sur des sensations, des pensées et des " +
-        "symptômes parfois liés à l'anxiété. Pour chacune, indiquez à quel point cela vous a " +
-        "concerné·e récemment.",
+        "symptômes parfois liés à l'anxiété. Pour chacune, indique à quel point cela t'a " +
+        "concerné récemment.",
     },
     {
       kind: "callout",
       tone: "info",
-      text: "Il n'y a pas de bonne réponse. Répondez spontanément, selon votre ressenti.",
+      text: "Il n'y a pas de bonne réponse. Réponds spontanément, selon ton ressenti.",
     },
   ],
   scales: [
@@ -102,7 +102,7 @@ export const inventaireBurnsAnxiete: ScoredDefinition = {
         label: "Anxiété minime ou absente",
         tone: "neutral",
         guidance:
-          "Vos réponses indiquent peu de signes d'anxiété sur cette période. C'est un repère, pas un verdict.",
+          "Tes réponses indiquent peu de signes d'anxiété sur cette période. C'est un repère, pas un verdict.",
       },
       {
         code: "borderline",
@@ -129,7 +129,7 @@ export const inventaireBurnsAnxiete: ScoredDefinition = {
         label: "Anxiété modérée",
         tone: "attention",
         guidance:
-          "Une anxiété modérée ressort de vos réponses. En parler à un·e professionnel·le peut être une bonne idée.",
+          "Une anxiété modérée ressort de tes réponses. En parler à un professionnel peut être une bonne idée.",
       },
       {
         code: "severe",
@@ -138,7 +138,7 @@ export const inventaireBurnsAnxiete: ScoredDefinition = {
         label: "Anxiété importante",
         tone: "attention",
         guidance:
-          "Vos réponses traduisent une anxiété importante. Vous n'avez pas à gérer cela seul·e : un·e professionnel·le peut vous accompagner.",
+          "Tes réponses traduisent une anxiété importante. Tu n'as pas à gérer cela seul : un professionnel peut t'accompagner.",
       },
       {
         code: "extreme",
@@ -147,7 +147,7 @@ export const inventaireBurnsAnxiete: ScoredDefinition = {
         label: "Anxiété très importante",
         tone: "attention",
         guidance:
-          "Vos réponses traduisent une anxiété très intense. Pensez à en parler rapidement ; en cas de détresse, les ressources d'urgence de cette page sont là pour vous.",
+          "Tes réponses traduisent une anxiété très intense. Pense à en parler rapidement ; en cas de détresse, les ressources d'urgence de cette page sont là pour toi.",
       },
     ],
   },

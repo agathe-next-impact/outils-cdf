@@ -28,12 +28,12 @@ const comprendre: WorksheetBody = {
         {
           id: "principale",
           type: "longText",
-          label: "Qu'est-ce qui vous inquiète le plus en ce moment ?",
+          label: "Qu'est-ce qui t'inquiète le plus en ce moment ?",
         },
         {
           id: "impact",
           type: "longText",
-          label: "Comment l'inquiétude pèse-t-elle sur votre quotidien ?",
+          label: "Comment l'inquiétude pèse-t-elle sur ton quotidien ?",
         },
       ],
     },
@@ -45,8 +45,8 @@ const journal: WorksheetBody = {
     {
       kind: "paragraph",
       text:
-        "Quand une inquiétude surgit en dehors de votre « moment dédié », notez-la ici en une " +
-        "ligne, puis laissez-la de côté jusqu'au moment prévu.",
+        "Quand une inquiétude surgit en dehors de ton « moment dédié », note-la ici en une " +
+        "ligne, puis laisse-la de côté jusqu'au moment prévu.",
     },
   ],
   documentTitle: "Mon journal d'inquiétudes",
@@ -59,7 +59,7 @@ const journal: WorksheetBody = {
           id: "worries",
           label: "Inquiétudes notées",
           addLabel: "Noter une inquiétude",
-          emptyLabel: "Notez ici une inquiétude lorsqu'elle surgit.",
+          emptyLabel: "Note ici une inquiétude lorsqu'elle surgit.",
           timestamped: true,
           columns: [
             { id: "situation", type: "shortText", label: "Situation" },
@@ -87,8 +87,8 @@ const periode: WizardBody = {
     {
       kind: "paragraph",
       text:
-        "Réservez chaque jour un court moment dédié à vos inquiétudes. En dehors de ce moment, " +
-        "vous reportez les inquiétudes (dans le journal) plutôt que de les suivre tout de suite.",
+        "Réserve chaque jour un court moment dédié à tes inquiétudes. En dehors de ce moment, " +
+        "tu reportes les inquiétudes (dans le journal) plutôt que de les suivre tout de suite.",
     },
   ],
   steps: [
@@ -121,7 +121,7 @@ const periode: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Relisez les inquiétudes notées. Pour chacune : est-elle encore d'actualité ? Pratique " +
+            "Relis les inquiétudes notées. Pour chacune : est-elle encore d'actualité ? Pratique " +
             "ou hypothétique ? Beaucoup auront perdu de leur force.",
         },
       ],
@@ -141,7 +141,7 @@ const periode: WizardBody = {
       ],
     },
   ],
-  reward: { confetti: false, message: "Vous avez posé un cadre pour vos inquiétudes." },
+  reward: { confetti: false, message: "Tu as posé un cadre pour tes inquiétudes." },
 };
 
 const resolution: WizardBody = {
@@ -229,7 +229,7 @@ const resolution: WizardBody = {
       fields: [{ id: "bilan", type: "longText", label: "Une fois essayé : qu'est-ce que ça a donné ?" }],
     },
   ],
-  reward: { confetti: true, message: "Vous avez transformé une inquiétude en plan d'action." },
+  reward: { confetti: true, message: "Tu as transformé une inquiétude en plan d'action." },
 };
 
 export const gererVosInquietudes: CompositeDefinition = {
@@ -251,12 +251,12 @@ export const gererVosInquietudes: CompositeDefinition = {
     {
       kind: "paragraph",
       text:
-        "Quatre modules, à explorer librement et dans l'ordre que vous voulez, pour comprendre et " +
+        "Quatre modules, à explorer librement et dans l'ordre que tu veux, pour comprendre et " +
         "apprivoiser l'inquiétude.",
     },
   ],
   segments: [
-    { id: "comprendre", title: "Comprendre l'inquiétude", iconName: "lightbulb", summary: "Faire le point sur ce qui vous inquiète.", optional: true, ref: { engine: "worksheet", body: comprendre } },
+    { id: "comprendre", title: "Comprendre l'inquiétude", iconName: "lightbulb", summary: "Faire le point sur ce qui t'inquiète.", optional: true, ref: { engine: "worksheet", body: comprendre } },
     { id: "journal", title: "Mon journal d'inquiétudes", iconName: "notebook-pen", summary: "Noter et reporter les inquiétudes.", optional: true, ref: { engine: "worksheet", body: journal } },
     { id: "periode", title: "Ma période d'inquiétude", iconName: "calendar-clock", summary: "Un moment dédié, chaque jour.", optional: true, ref: { engine: "wizard", body: periode } },
     { id: "resolution", title: "Résoudre un problème", iconName: "target", summary: "Passer de la rumination à l'action.", optional: true, ref: { engine: "wizard", body: resolution } },

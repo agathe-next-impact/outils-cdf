@@ -68,7 +68,7 @@ export const CONTRIBUTION = {
   ],
 
   /**
-   * Portail client Stripe (no-code) : page hébergée où l'abonné·e gère ou
+   * Portail client Stripe (no-code) : page hébergée où l'abonné gère ou
    * résilie son abonnement (« login link » du Customer Portal, Réglages →
    * Facturation → Portail client). Tant que cette URL est vide, le lien
    * « Gérer / résilier » n'apparaît pas sur le site (jamais de lien mort).

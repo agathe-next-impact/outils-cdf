@@ -35,11 +35,11 @@ export default function AProposPage() {
           <h2 className="mb-2 text-lg">Qui porte ce projet</h2>
           <p className="text-base">
             {SITE.name} est édité et porté par <strong>{EDITEUR.brand}</strong>. La plateforme
-            est et reste gratuite&nbsp;; si vous le souhaitez, vous pouvez la soutenir par une{" "}
+            est et reste gratuite&nbsp;; si tu le souhaites, tu peux la soutenir par une{" "}
             <Link className="text-info hover:underline" href="/contribuer">
               contribution à prix libre
             </Link>
-            . Cela ne change rien à votre accès.
+            . Cela ne change rien à ton accès.
           </p>
         </BentoBox>
 
@@ -47,22 +47,22 @@ export default function AProposPage() {
           <h2 className="mb-2 text-lg">Ce que ces outils ne sont pas</h2>
           <ul className="ml-5 list-disc space-y-1 text-base">
             <li>Ils ne posent aucun diagnostic.</li>
-            <li>Ils ne remplacent pas un·e professionnel·le de santé.</li>
+            <li>Ils ne remplacent pas un professionnel de santé.</li>
             <li>Ils ne proposent ni traitement, ni conseil médical.</li>
           </ul>
           <p className="mt-3 text-sm text-muted">
-            En cas de difficulté, consultez la page{" "}
+            En cas de difficulté, tu peux consulter la page{" "}
             <Link className="text-info hover:underline" href="/ressources">
-              Ressources d&apos;urgence
+              Aide
             </Link>
             .
           </p>
         </BentoBox>
 
         <BentoBox as="section" span={3} index={3}>
-          <h2 className="mb-2 text-lg">Vos données vous appartiennent</h2>
+          <h2 className="mb-2 text-lg">Tes données t&apos;appartiennent</h2>
           <p className="text-base">
-            Aucune donnée n&apos;est envoyée sur Internet. Vos saisies restent dans votre
+            Aucune donnée n&apos;est envoyée sur Internet. Tes saisies restent dans ton
             navigateur, le temps de la session.{" "}
             <Link className="text-info hover:underline" href="/confidentialite">
               En savoir plus sur la confidentialité

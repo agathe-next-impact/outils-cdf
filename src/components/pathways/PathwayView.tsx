@@ -66,7 +66,7 @@ export function PathwayView({
       {allRequiredDone ? (
         <Celebration
           title="Objectif parcouru"
-          message="Vous avez traversé les étapes essentielles de ce parcours. Bravo — pensez à exporter votre plan pour le garder."
+          message="Tu as traversé les étapes essentielles de ce parcours. Pense à exporter ton plan pour le garder."
           confetti
           accent={accent}
         />
@@ -80,7 +80,7 @@ export function PathwayView({
       <section className="card">
         <h2 className="mb-1 text-lg">Mon objectif, avec mes mots</h2>
         <p className="mb-3 text-xs text-muted">
-          Facultatif. Cela reste dans votre navigateur et peut être exporté avec votre plan.
+          Facultatif. Cela reste dans ton navigateur et peut être exporté avec ton plan.
         </p>
         <div className="space-y-4">
           <div>

@@ -21,7 +21,7 @@ export const gaapAttaquesPanique: WorksheetDefinition = {
     {
       kind: "paragraph",
       text:
-        "Après une attaque de panique, et seulement quand vous vous sentez prêt·e, vous pouvez " +
+        "Après une attaque de panique, et seulement quand tu te sens prêt, tu peux " +
         "noter ce qui s'est passé. Observer après coup aide souvent à mieux comprendre, sans " +
         "jugement.",
     },
@@ -29,8 +29,8 @@ export const gaapAttaquesPanique: WorksheetDefinition = {
       kind: "callout",
       tone: "attention",
       text:
-        "Si une attaque est en cours, cet outil n'est pas une urgence à remplir. Respirez, et " +
-        "appuyez-vous sur les ressources en bas de page si besoin.",
+        "Si une attaque est en cours, cet outil n'est pas une urgence à remplir. Respire, et " +
+        "appuie-toi sur les ressources en bas de page si besoin.",
     },
   ],
   sections: [
@@ -42,7 +42,7 @@ export const gaapAttaquesPanique: WorksheetDefinition = {
           id: "entries",
           label: "Épisodes observés",
           addLabel: "Noter un épisode",
-          emptyLabel: "Vous pourrez noter ici un épisode, quand vous le souhaiterez.",
+          emptyLabel: "Tu pourras noter ici un épisode, quand tu le souhaiteras.",
           timestamped: true,
           columns: [
             { id: "contexte", type: "shortText", label: "Contexte (où, quand, avec qui)" },

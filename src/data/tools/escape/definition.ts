@@ -36,8 +36,8 @@ const comprendre: WorksheetBody = {
       tone: "info",
       iconName: "info",
       text:
-        "Ce n'est pas un test, et il n'y a rien à réussir. Lisez à votre rythme, gardez ce qui vous " +
-        "parle, laissez tranquillement le reste de côté.",
+        "Ce n'est pas un test, et il n'y a rien à réussir. Lis à ton rythme, garde ce qui te " +
+        "parle, laisse tranquillement le reste de côté.",
     },
   ],
   documentTitle: "Mes repères sur les fonctions cognitives",
@@ -129,8 +129,8 @@ const comprendre: WorksheetBody = {
         {
           id: "fonction_a_explorer",
           type: "longText",
-          label: "Parmi ces six domaines, lequel vous intrigue le plus, et qu'est-ce qui vous y attire ?",
-          help: "Il n'y a pas de bonne réponse : notez ce qui vous vient, ou passez simplement cette question.",
+          label: "Parmi ces six domaines, lequel t'intrigue le plus, et qu'est-ce qui t'y attire ?",
+          help: "Il n'y a pas de bonne réponse : note ce qui te vient, ou passe simplement cette question.",
         },
       ],
     },
@@ -156,8 +156,8 @@ const memoireTravail: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Voici des lettres mélangées qui, remises dans l'ordre, forment le nom d'un fruit. Prenez " +
-            "le temps de les réarranger mentalement, puis notez le mot qui vous vient.",
+            "Voici des lettres mélangées qui, remises dans l'ordre, forment le nom d'un fruit. Prends " +
+            "le temps de les réarranger mentalement, puis note le mot qui te vient.",
         },
         {
           kind: "callout",
@@ -171,8 +171,8 @@ const memoireTravail: WizardBody = {
           id: "reponse_anagramme",
           type: "shortText",
           label: "Le mot que je propose",
-          placeholder: "Écrivez ici le fruit que vous reconstituez.",
-          help: "Il n'y a pas de mauvaise réponse : si rien ne vient, passez tranquillement à la suite.",
+          placeholder: "Écris ici le fruit que tu reconstitues.",
+          help: "Il n'y a pas de mauvaise réponse : si rien ne vient, passe tranquillement à la suite.",
         },
       ],
     },
@@ -186,7 +186,7 @@ const memoireTravail: WizardBody = {
           iconName: "lightbulb",
           text:
             "Un mot possible avec ces lettres était « CERISE ». C'est une simple piste de comparaison, " +
-            "pas un verdict : ce qui s'est passé dans votre tête vaut autant que le mot trouvé.",
+            "pas un verdict : ce qui s'est passé dans ta tête vaut autant que le mot trouvé.",
         },
         {
           kind: "example",
@@ -202,7 +202,7 @@ const memoireTravail: WizardBody = {
         {
           id: "ressenti_anagramme",
           type: "longText",
-          label: "Comment avez-vous procédé ? (facultatif)",
+          label: "Comment as-tu procédé ? (facultatif)",
           help: "Mettre des mots sur sa méthode en apprend souvent plus que de trouver « la » réponse.",
         },
       ],
@@ -210,7 +210,7 @@ const memoireTravail: WizardBody = {
   ],
   reward: {
     confetti: true,
-    message: "Merci d'avoir joué le jeu. C'est l'essai qui compte, bien plus que le résultat.",
+    message: "Merci d'avoir pris ce temps. L'expérience compte, bien plus que le résultat.",
   },
 };
 
@@ -220,7 +220,7 @@ const memoireEpisodique: WizardBody = {
     {
       kind: "paragraph",
       text:
-        "Ce petit jeu explore la mémoire des moments vécus. Vous allez lire un court récit, puis, " +
+        "Ce petit jeu explore la mémoire des moments vécus. Tu vas lire un court récit, puis, " +
         "sans le relire, répondre de mémoire à quelques questions. Là encore : aucun score, juste " +
         "le plaisir de l'essai.",
     },
@@ -228,7 +228,7 @@ const memoireEpisodique: WizardBody = {
   steps: [
     {
       id: "lecture",
-      title: "Lisez ce court récit",
+      title: "Lis ce court récit",
       intro: [
         {
           kind: "paragraph",
@@ -243,7 +243,7 @@ const memoireEpisodique: WizardBody = {
           tone: "info",
           iconName: "eye",
           text:
-            "Lisez le récit une seule fois, tranquillement, puis passez à la suite sans revenir en " +
+            "Lis le récit une seule fois, tranquillement, puis passe à la suite sans revenir en " +
             "arrière. Pas besoin de le mémoriser mot à mot.",
         },
       ],
@@ -251,13 +251,13 @@ const memoireEpisodique: WizardBody = {
     },
     {
       id: "rappel",
-      title: "Que vous reste-t-il en mémoire ?",
+      title: "Que te reste-t-il en mémoire ?",
       intro: [
         {
           kind: "paragraph",
           text:
-            "Sans relire le récit, répondez de mémoire, comme cela vous revient. Si certains détails " +
-            "vous échappent, c'est tout à fait normal et sans importance.",
+            "Sans relire le récit, réponds de mémoire, comme cela te revient. Si certains détails " +
+            "t'échappent, c'est tout à fait normal et sans importance.",
         },
       ],
       fields: [
@@ -294,7 +294,7 @@ const memoireEpisodique: WizardBody = {
         {
           kind: "example",
           good:
-            "Si des détails vous ont échappé, c'est très courant : la mémoire retient souvent " +
+            "Si des détails t'ont échappé, c'est très courant : la mémoire retient souvent " +
             "l'essentiel (la scène générale) avant les petits détails. Se faire un film mental de la " +
             "scène aide souvent à mieux ancrer un souvenir.",
         },
@@ -303,7 +303,7 @@ const memoireEpisodique: WizardBody = {
         {
           id: "ressenti_rappel",
           type: "longText",
-          label: "Qu'avez-vous remarqué sur votre façon de vous souvenir ? (facultatif)",
+          label: "Qu'as-tu remarqué sur ta façon de te souvenir ? (facultatif)",
         },
       ],
     },
@@ -321,7 +321,7 @@ const fonctionsExecutives: WizardBody = {
       kind: "paragraph",
       text:
         "Les fonctions exécutives entrent en jeu dès qu'il faut décider avec des contraintes. Voici " +
-        "une petite situation imaginaire : à vous de choisir, puis de mettre des mots sur votre " +
+        "une petite situation imaginaire : à toi de choisir, puis de mettre des mots sur ton " +
         "raisonnement. Il n'y a pas de choix « juste », pas de score, pas de piège.",
     },
   ],
@@ -333,7 +333,7 @@ const fonctionsExecutives: WizardBody = {
         {
           kind: "paragraph",
           text:
-            "Imaginez une personne qui dispose de 30 euros pour la semaine et doit retenir UNE seule " +
+            "Imagine une personne qui dispose de 30 euros pour la semaine et doit retenir UNE seule " +
             "dépense prioritaire parmi trois options : (A) renouveler un abonnement de transport pour " +
             "se rendre à ses rendez-vous, (B) acheter de quoi cuisiner plusieurs repas, (C) s'offrir " +
             "une sortie agréable qui lui ferait du bien au moral. Chaque option se défend.",
@@ -343,8 +343,8 @@ const fonctionsExecutives: WizardBody = {
           tone: "info",
           iconName: "target",
           text:
-            "Retenez l'option qui vous semble la plus sensée pour cette personne, puis dites ce qui " +
-            "guide votre choix.",
+            "Retiens l'option qui te semble la plus sensée pour cette personne, puis dis ce qui " +
+            "guide ton choix.",
         },
       ],
       fields: [
@@ -357,7 +357,7 @@ const fonctionsExecutives: WizardBody = {
             { value: "provisions", label: "B — les provisions pour cuisiner" },
             { value: "sortie", label: "C — la sortie agréable" },
           ],
-          help: "Vous pouvez aussi ne pas choisir et passer directement à la suite.",
+          help: "Tu peux aussi ne pas choisir et passer directement à la suite.",
         },
         {
           id: "justification",
@@ -394,22 +394,22 @@ const fonctionsExecutives: WizardBody = {
         {
           kind: "example",
           good:
-            "Confronter votre raisonnement à ces critères ne vise pas à le corriger : c'est juste " +
-            "l'occasion d'élargir votre palette de repères pour une prochaine décision.",
+            "Confronter ton raisonnement à ces critères ne vise pas à le corriger : c'est juste " +
+            "l'occasion d'élargir ta palette de repères pour une prochaine décision.",
         },
       ],
       fields: [
         {
           id: "apres_grille",
           type: "longText",
-          label: "Ces critères changent-ils quelque chose à votre regard ? (facultatif)",
+          label: "Ces critères changent-ils quelque chose à ton regard ? (facultatif)",
         },
       ],
     },
   ],
   reward: {
     confetti: true,
-    message: "Décider, c'est arbitrer entre plusieurs logiques. Vous venez de vous y exercer en douceur.",
+    message: "Décider, c'est arbitrer entre plusieurs logiques. Tu viens de t'y exercer en douceur.",
   },
 };
 
@@ -421,7 +421,7 @@ const cognitionSociale: WorksheetBody = {
       text:
         "Comprendre les autres ne passe pas que par les mots ou les visages : le ton de la voix, la " +
         "posture, les gestes, un silence en disent souvent long. Cette section invite à explorer ces " +
-        "indices, librement et sans pression. Restez sur des situations impersonnelles, sans nommer " +
+        "indices, librement et sans pression. Reste sur des situations impersonnelles, sans nommer " +
         "ni rendre reconnaissable qui que ce soit.",
     },
     {
@@ -429,7 +429,7 @@ const cognitionSociale: WorksheetBody = {
       tone: "info",
       iconName: "users",
       text:
-        "Aucun score ici, et aucune bonne lecture attendue : juste l'occasion d'observer votre propre " +
+        "Aucun score ici, et aucune bonne lecture attendue : juste l'occasion d'observer ta propre " +
         "façon de percevoir les autres.",
     },
   ],
@@ -451,18 +451,18 @@ const cognitionSociale: WorksheetBody = {
           id: "situation_decalage",
           type: "longText",
           label:
-            "Repensez à un moment où le ton de quelqu'un semblait dire autre chose que ses mots. Que se passait-il ?",
-          help: "Parlez d'« une personne », sans donner d'identité ni de détail reconnaissable.",
+            "Repense à un moment où le ton de quelqu'un semblait dire autre chose que ses mots. Que se passait-il ?",
+          help: "Parle d'« une personne », sans donner d'identité ni de détail reconnaissable.",
         },
         {
           id: "indices_percus",
           type: "longText",
-          label: "À quels indices (en dehors des paroles) l'avez-vous ressenti ?",
+          label: "À quels indices (en dehors des paroles) l'as-tu ressenti ?",
         },
         {
           id: "verification_sociale",
           type: "longText",
-          label: "Auriez-vous pu vérifier votre impression ? De quelle façon ? (facultatif)",
+          label: "Aurais-tu pu vérifier ton impression ? De quelle façon ? (facultatif)",
           help: "Par exemple en posant une question ouverte, sans présumer connaître déjà la réponse.",
         },
       ],
@@ -478,7 +478,7 @@ const metacognition: WorksheetBody = {
       text:
         "La métacognition, c'est poser un regard sur sa propre pensée : comment on explique ce qui " +
         "nous arrive, et comment on en vient à se forger des convictions. Cette section propose deux " +
-        "explorations douces, sans score ni jugement. Gardez vos exemples impersonnels, sans nommer " +
+        "explorations douces, sans score ni jugement. Garde tes exemples impersonnels, sans nommer " +
         "personne.",
     },
   ],
@@ -509,7 +509,7 @@ const metacognition: WorksheetBody = {
         {
           id: "situation",
           type: "longText",
-          label: "Repensez à une situation récente, et décrivez-la sans donner d'identité.",
+          label: "Repense à une situation récente, et décris-la sans donner d'identité.",
           help: "Par exemple : « un message resté sans réponse », « un rendez-vous annulé ».",
         },
       ],
@@ -519,7 +519,7 @@ const metacognition: WorksheetBody = {
           label: "Mes explications possibles",
           addLabel: "Ajouter une explication",
           emptyLabel:
-            "Notez plusieurs explications possibles, en essayant de varier les points de vue.",
+            "Note plusieurs explications possibles, en essayant de varier les points de vue.",
           columns: [
             {
               id: "hypothese",
@@ -564,13 +564,13 @@ const metacognition: WorksheetBody = {
         {
           id: "croyance",
           type: "longText",
-          label: "Une idée ou une conviction dont vous aimeriez prendre du recul.",
-          help: "Restez sur du général, par exemple « j'ai l'impression que… », sans viser ni nommer personne.",
+          label: "Une idée ou une conviction dont tu aimerais prendre du recul.",
+          help: "Reste sur du général, par exemple « j'ai l'impression que… », sans viser ni nommer personne.",
         },
         {
           id: "verification",
           type: "longText",
-          label: "De quoi auriez-vous besoin pour vraiment mettre cette idée à l'épreuve ?",
+          label: "De quoi aurais-tu besoin pour vraiment mettre cette idée à l'épreuve ?",
           help: "Par exemple : un fait précis, le point de vue d'une autre personne, un petit essai concret.",
         },
       ],
@@ -580,7 +580,7 @@ const metacognition: WorksheetBody = {
           label: "Des éléments qui nuanceraient cette idée",
           addLabel: "Ajouter un élément",
           emptyLabel:
-            "Cherchez des faits ou des exemples qui iraient dans un autre sens que votre idée de départ.",
+            "Cherche des faits ou des exemples qui iraient dans un autre sens que ton idée de départ.",
           columns: [
             {
               id: "contre_info",
@@ -617,8 +617,8 @@ export const escape: CompositeDefinition = {
     {
       kind: "paragraph",
       text:
-        "Bienvenue dans une exploration de vos fonctions cognitives : six petits modules pour " +
-        "découvrir, en curieux·se, comment travaillent la mémoire, l'attention, le raisonnement, la " +
+        "Bienvenue dans une exploration de tes fonctions cognitives : six petits modules pour " +
+        "découvrir, par curiosité, comment travaillent la mémoire, l'attention, le raisonnement, la " +
         "compréhension des autres et le regard sur sa propre pensée. C'est avant tout un moment " +
         "ludique de découverte de soi, pas une épreuve.",
     },
@@ -628,10 +628,10 @@ export const escape: CompositeDefinition = {
       iconName: "shield-alert",
       text:
         "Cet outil ne donne AUCUN score et ne pose AUCUN diagnostic. Ce n'est pas un test, et il ne " +
-        "remplace en rien une évaluation neuropsychologique menée par un·e professionnel·le. Si une " +
-        "question vous touche ou vous inquiète au sujet de votre mémoire ou de votre concentration, " +
-        "vous pouvez en parler avec une personne de confiance ou un·e professionnel·le. Vous êtes " +
-        "libre de commencer par le module de votre choix, de passer une question ou de vous arrêter " +
+        "remplace en rien une évaluation neuropsychologique menée par un professionnel. Si une " +
+        "question te touche ou t'inquiète au sujet de ta mémoire ou de ta concentration, " +
+        "tu peux en parler avec une personne de confiance ou un professionnel. Tu es " +
+        "libre de commencer par le module de ton choix, de passer une question ou de t'arrêter " +
         "à tout moment.",
     },
     {
@@ -639,7 +639,7 @@ export const escape: CompositeDefinition = {
       tone: "info",
       iconName: "info",
       text:
-        "Rien de ce que vous écrivez n'est envoyé sur Internet : tout reste dans votre navigateur et " +
+        "Rien de ce que tu écris n'est envoyé sur Internet : tout reste dans ton navigateur et " +
         "s'efface à la fermeture de l'onglet.",
     },
   ],

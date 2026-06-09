@@ -55,8 +55,8 @@ export default async function PathwayPage({ params }: Params) {
           </div>
           <p className="mt-3 text-base text-muted">{resolved.pitch}</p>
           <p className="mt-1 text-sm text-muted">
-            Les étapes sont suggérées : piochez dans l&apos;ordre que vous voulez, passez ce qui ne
-            vous parle pas, et avancez à votre rythme.
+            Les étapes sont suggérées : pioche dans l&apos;ordre que tu veux, passe ce qui ne
+            te parle pas, et avance à ton rythme.
           </p>
         </BentoBox>
       </BentoGrid>
