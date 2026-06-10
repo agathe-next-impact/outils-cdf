@@ -10,6 +10,7 @@ import { ScrollToTop } from "@/components/layout/ScrollToTop";
 import { FloatingHelp } from "@/components/safety/FloatingHelp";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { InstallBanner } from "@/components/pwa/InstallBanner";
+import { Analytics } from "@/components/analytics/Analytics";
 import { SITE } from "@/config/site";
 
 // Capte l'event d'installation au plus tôt (avant l'hydratation React) pour
@@ -94,6 +95,8 @@ export default function RootLayout({
           <BottomNav />
           <FloatingHelp />
           <ServiceWorkerRegister />
+          {/* Mesure d'audience : chargée uniquement après consentement (bandeau RGPD). */}
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

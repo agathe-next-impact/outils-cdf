@@ -3,6 +3,7 @@ import Link from "next/link";
 import { PageWrapper } from "@/components/layout/PageWrapper";
 import { BentoGrid, BentoBox } from "@/components/layout/Bento";
 import GameIcon from "@/components/GameIcon";
+import { ConsentControls } from "@/components/analytics/ConsentControls";
 
 export const metadata: Metadata = {
   title: "Confidentialité",
@@ -22,11 +23,13 @@ export default function ConfidentialitePage() {
 
       <BentoGrid>
         <BentoBox as="section" span={3}>
-          <h2 className="mb-2 text-lg">Aucune donnée envoyée</h2>
+          <h2 className="mb-2 text-lg">Aucune donnée d&apos;outil envoyée</h2>
           <p className="text-base">
             Cette plateforme fonctionne entièrement dans ton navigateur. Tes réponses ne sont
             jamais transmises à un serveur, ni à nous, ni à un tiers. Il n&apos;y a ni compte, ni
-            inscription, ni suivi du contenu que tu saisis.
+            inscription, ni suivi du contenu que tu saisis. Seule exception, facultative et
+            soumise à ton accord&nbsp;: une mesure d&apos;audience anonyme (voir «&nbsp;Mesure
+            d&apos;audience&nbsp;» plus bas).
           </p>
         </BentoBox>
 
@@ -64,6 +67,31 @@ export default function ConfidentialitePage() {
         </BentoBox>
 
         <BentoBox as="section" span={3} index={4}>
+          <h2 className="mb-2 text-lg">Mesure d&apos;audience, avec ton accord</h2>
+          <p className="text-base">
+            Pour comprendre quelles pages sont utiles et améliorer la plateforme, on peut
+            mesurer la fréquentation à l&apos;aide de Google&nbsp;Analytics. Cette mesure&nbsp;:
+          </p>
+          <ul className="mt-2 ml-5 list-disc space-y-1 text-base">
+            <li>
+              ne démarre <strong>qu&apos;après ton accord explicite</strong> — sans accord, rien
+              n&apos;est chargé ni envoyé&nbsp;;
+            </li>
+            <li>
+              ne porte <strong>jamais sur le contenu que tu saisis</strong>, seulement sur les
+              pages consultées&nbsp;;
+            </li>
+            <li>
+              peut être acceptée ou refusée ici à tout moment, sans aucune conséquence sur
+              l&apos;accès aux outils.
+            </li>
+          </ul>
+          <div className="mt-4 border-t border-border pt-4">
+            <ConsentControls />
+          </div>
+        </BentoBox>
+
+        <BentoBox as="section" span={3} index={5}>
           <h2 className="mb-2 text-lg">Et si je contribue&nbsp;?</h2>
           <p className="text-base">
             La <Link className="text-info hover:underline" href="/contribuer">contribution</Link> est
