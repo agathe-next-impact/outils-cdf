@@ -11,7 +11,11 @@ import { FloatingHelp } from "@/components/safety/FloatingHelp";
 import { ServiceWorkerRegister } from "@/components/pwa/ServiceWorkerRegister";
 import { InstallBanner } from "@/components/pwa/InstallBanner";
 import { Analytics } from "@/components/analytics/Analytics";
-import { SITE } from "@/config/site";
+import { SITE, EDITEUR } from "@/config/site";
+
+const DESCRIPTION =
+  "Plateforme libre d'outils d'auto-observation et de soutien au rétablissement. " +
+  "Aucun compte, aucune donnée envoyée : tout reste dans ton navigateur, le temps de la session.";
 
 // Capte l'event d'installation au plus tôt (avant l'hydratation React) pour
 // que le bandeau d'installation puisse l'utiliser même s'il se déclenche tôt.
@@ -37,12 +41,51 @@ export const metadata: Metadata = {
     default: `${SITE.name} — Boîte à outils`,
     template: `%s — ${SITE.name}`,
   },
-  description:
-    "Plateforme libre d'outils d'auto-observation et de soutien au rétablissement. " +
-    "Aucun compte, aucune donnée envoyée : tout reste dans ton navigateur, le temps de la session.",
+  description: DESCRIPTION,
   applicationName: `${SITE.name} — Boîte à outils`,
+  authors: [{ name: EDITEUR.brand, url: SITE.url }],
+  creator: EDITEUR.brand,
+  publisher: EDITEUR.legalName,
+  category: "health",
+  keywords: [
+    "santé mentale",
+    "rétablissement",
+    "auto-observation",
+    "outils psychosociaux",
+    "pair-aidance",
+    "anxiété",
+    "bien-être",
+    "TCC",
+    "gratuit",
+    "sans compte",
+  ],
+  alternates: { canonical: "/" },
   appleWebApp: { capable: true, statusBarStyle: "default", title: SITE.name },
-  robots: { index: true, follow: true },
+  formatDetection: { telephone: false, email: false, address: false },
+  openGraph: {
+    type: "website",
+    locale: "fr_FR",
+    url: SITE.url,
+    siteName: SITE.name,
+    title: `${SITE.name} — Boîte à outils`,
+    description: DESCRIPTION,
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${SITE.name} — Boîte à outils`,
+    description: DESCRIPTION,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
 };
 
 export const viewport: Viewport = {

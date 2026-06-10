@@ -7,6 +7,9 @@ import { PathwayView } from "@/components/pathways/PathwayView";
 import { allPathwayIds, getPathway, resolvePathway } from "@/data/pathways";
 import GameIcon from "@/components/GameIcon";
 import { FOCUS_RING } from "@/lib/a11y";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumb } from "@/lib/seo/structured-data";
 
 interface Params {
   params: Promise<{ id: string }>;
@@ -20,7 +23,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { id } = await params;
   const p = getPathway(id);
   if (!p) return {};
-  return { title: `Parcours : ${p.goal}`, description: p.pitch };
+  return pageMetadata({
+    title: `Parcours : ${p.goal}`,
+    description: p.pitch,
+    path: `/parcours/${id}`,
+  });
 }
 
 export default async function PathwayPage({ params }: Params) {
@@ -30,6 +37,13 @@ export default async function PathwayPage({ params }: Params) {
 
   return (
     <PageWrapper maxWidth="full">
+      <JsonLd
+        data={breadcrumb([
+          { name: "Accueil", path: "/" },
+          { name: "Parcours", path: "/parcours" },
+          { name: resolved.goal, path: `/parcours/${resolved.id}` },
+        ])}
+      />
       <Link
         href="/"
         className={`inline-flex items-center gap-1 text-sm text-info hover:underline ${FOCUS_RING}`}

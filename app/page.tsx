@@ -7,6 +7,8 @@ import { Logo } from "@/components/Logo";
 import { FOCUS_RING } from "@/lib/a11y";
 import { CONTRIBUTION, SITE } from "@/config/site";
 import { Halo } from "@/components/layout/Halo";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { siteGraph } from "@/lib/seo/structured-data";
 
 // Les 3 gestes : trouver / choisir / garder (icônes lucide via GameIcon).
 const STEPS: { icon: string; title: string; text: string }[] = [
@@ -68,6 +70,8 @@ export default function HomePage() {
       tabIndex={-1}
       className="home-lg min-h-[calc(100vh-80px)] focus:outline-none"
     >
+      <JsonLd data={siteGraph()} />
+
       {/* ───────── HERO ───────── */}
       <section className="hero">
         <Halo color="myrtille" size={420} delay={0} style={{ right: -160, top: -120, opacity: 0.22 }} />

@@ -5,6 +5,9 @@ import { SITE } from "@/config/site";
 
 const BASE = SITE.url;
 
+// Daté à la génération (build) : le site est statique, sans dates par page.
+const LAST_MODIFIED = new Date();
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPaths = [
     "",
@@ -24,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [...staticPaths, ...categoryPaths, ...pathwayPaths, ...toolPaths].map((path) => ({
     url: `${BASE}${path}`,
+    lastModified: LAST_MODIFIED,
     changeFrequency: "monthly" as const,
     priority: path === "" ? 1 : 0.7,
   }));

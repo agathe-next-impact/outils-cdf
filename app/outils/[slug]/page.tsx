@@ -9,6 +9,9 @@ import { ContentRenderer } from "@/components/content/ContentRenderer";
 import { ToolSafetyNote } from "@/components/safety/ToolSafetyNote";
 import GameIcon from "@/components/GameIcon";
 import { FOCUS_RING } from "@/lib/a11y";
+import { pageMetadata } from "@/lib/seo/metadata";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumb } from "@/lib/seo/structured-data";
 
 interface Params {
   params: Promise<{ slug: string }>;
@@ -22,7 +25,11 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const entry = getCatalog().find((e) => e.slug === slug);
   if (!entry) return {};
-  return { title: entry.title, description: entry.summary };
+  return pageMetadata({
+    title: entry.title,
+    description: entry.summary,
+    path: `/outils/${slug}`,
+  });
 }
 
 export default async function ToolPage({ params }: Params) {
@@ -34,6 +41,13 @@ export default async function ToolPage({ params }: Params) {
 
   return (
     <PageWrapper maxWidth="full">
+      <JsonLd
+        data={breadcrumb([
+          { name: "Accueil", path: "/" },
+          { name: "Outils", path: "/outils" },
+          { name: entry.title, path: `/outils/${entry.slug}` },
+        ])}
+      />
       <Link href="/outils" className={`inline-flex items-center gap-1 text-sm text-info hover:underline ${FOCUS_RING}`}>
         <GameIcon name="arrow-left" size={16} /> Tous les outils
       </Link>
